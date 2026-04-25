@@ -1,0 +1,80 @@
+Course Name 	: Full Stack Java Development 
+Duration	: 5 Months 
+Mode		: Online/Offline 
+Batch No	: IH-JAVA-056
+Coding Skills	: DSA 
+Cloud Computing : AWS 
+Integration	: AI 
+Project		: Employee Management System 	
+Trainer Name	: Niyaz Sir 
+Experience 	: 16+ years of experience in development and training.
+
+
+Q) What is AI ?
+
+AI stands for Artificial Intelligence.
+
+It is a capability of a computer or a system to mimic/simulate human behaviours/intelligence.
+ex:
+	Thinking 
+	Language understand
+	and etc.
+
+We have two types of AI.
+
+1) Weak AI / Narrow AI 
+------------------
+	It is designed to perform single task.
+	ex:
+		ChatGPT 
+		Google Map 
+		Siri / Alexa
+		and etc.
+2) Strong AI 
+-------------
+	It is designed to perform multiple tasks.
+	ex:
+		Not Yet Achieved
+
+Java
+-----
+Object oriented programming language.
+Platform independent programming language.
+Case sensitive programming language.
+Strongly typed checking language.
+High level language.
+Open source programming language.
+
+1995 --> James Gosling --> Sun Micro System (Oracle Corporation)
+Java software --> JDK software 
+	
+Interview Questions 
+===================
+
+Q) What is Java?
+
+Java is a object oriented, platform independent, case sensitive, strongly typed checking, high level, open source programming language developed by James Gosling in the year of 1995. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

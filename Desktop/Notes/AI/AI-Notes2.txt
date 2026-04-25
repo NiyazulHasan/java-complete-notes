@@ -1,0 +1,252 @@
+Interview Questions
+===================
+Q) Write a java program to concatinate two list and display distinct elements?
+
+input:
+	1 2 3 4 5 
+	4 5 6 7 8 
+output:
+	1 2 3 4 5 6 7 8 
+
+
+import java.util.*;
+import java.util.stream.*;
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        List<Integer> list1 = List.of(1,2,3,4,5);
+        List<Integer> list2 = List.of(4,5,6,7,8);
+        
+        List<Integer> newList = Stream.concat(list1.stream(),list2.stream())
+					.distinct().toList();
+        
+        System.out.println(newList);
+    }
+}
+
+
+Text to Image Application 
+=========================
+Spring AI prefers OpenAiImageModel to create text to image.
+
+
+Steps to develop text to image application 
+==========================================
+step1:
+------
+	Take Open API key.
+	ex:
+		https://platform.openai.com/login
+step2:
+-----
+	Create a spring starter project i.e tti-backend.
+	ex:
+		starters:
+				Spring Web 
+				OpenAI
+step3:
+-----
+	Create a AIController.java file inside "com.ihub.www.controller" package.
+
+AIController.java
+-----------------
+package com.ihub.www.controller;
+
+import org.springframework.ai.image.ImagePrompt;
+import org.springframework.ai.image.ImageResponse;
+import org.springframework.ai.openai.OpenAiImageModel;
+import org.springframework.ai.openai.OpenAiImageOptions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin(origins = "http://localhost:5173")
+@RestController
+public class AIController 
+{
+	@Autowired
+	private OpenAiImageModel imageModel;
+	
+	@PostMapping("/image/{imagePrompt}")
+	public String getImage(@PathVariable String imagePrompt)
+	{
+		ImageResponse response = imageModel.call(
+								new ImagePrompt(imagePrompt,
+								OpenAiImageOptions.builder()
+								.quality("hd")
+								.N(1)
+								.height(1024)
+								.width(1024)
+								.build()));
+		return response.getResult().getOutput().getUrl();
+	}
+}
+
+step4:
+------
+	Configure application name, server port and open api key.
+
+application.properties
+----------------------
+spring.application.name=tti-backend
+server.port=9191
+spring.ai.openai.api-key= YOUR_API_KEY
+
+step5:
+------
+	Run spring boot starter project.
+
+step6:
+------
+	Open the VSC code.
+	ex:
+		code .
+
+step7:
+------
+	Create a react project i.e tti-frontend. 
+	ex:
+		npm create vite@latest 
+	
+step8:
+-------
+	Open new terminal and switch to the project.
+	ex:
+		cd  tti-frontend
+
+step9:
+------
+	Install bootstrap and axios library.
+	ex:
+		npm install bootstrap 
+		npm install axios 
+
+step10:
+------
+	Import bootstrap inside main.jsx file.
+main.jsx
+---------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+step11:
+------
+	Remove the code from index.css.
+
+step12:
+-------
+	Goto App.jsx file and write below code.
+
+App.jsx
+--------
+import axios from 'axios';
+import {useState} from 'react';
+function App()
+{
+   const [prompt,setPrompt] = useState("");
+   const [image, setImage] = useState([]); 
+   const [loading, setLoading] = useState(false);
+   const [error,setError] = useState("");
+
+   const handleClick = async ()=>
+    {
+      if(!prompt)
+      {
+          setError("Please enter the prompt");
+          return;
+      }
+      setLoading(true);
+      setImage([]);
+      setError("");
+
+      try
+      {
+          const response = await axios.post(`http://localhost:9191/image/${encodeURIComponent(prompt)}`);
+          setImage([response.data]);  
+      }
+      catch(error)
+      {
+        console.log(error);
+        setError("Image Failed To Create");
+      }
+      setLoading(false);
+   }
+
+    return(
+      <div className="container mt-5">
+        <h3 className="text-center"> Text to Image </h3>
+
+        <input type="text" name="t1" className="form-control" autoComplete="off"
+        value={prompt}
+        onChange={(e)=> setPrompt(e.target.value)}/> 
+
+        <button className="btn btn-primary mt-3 d-block mx-auto" onClick={handleClick}> Generate </button>
+
+        {loading && <small className='d-block text-center text-primary'> Image Generating.... </small>}
+        {error && <small className='d-block text-center text-danger'> {error} </small> }
+
+        <div className='container mt-5'>
+            <center>
+               {
+                  image.map((img,key)=>(
+                     <img key={key} src={img} width={300} height={300}/>
+                  ))
+               } 
+            </center>
+        </div>
+      
+      </div>
+    )
+}
+export default App;
+
+
+step13:
+-------
+	Test the application.
+	ex:
+		http://localhost:5173
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

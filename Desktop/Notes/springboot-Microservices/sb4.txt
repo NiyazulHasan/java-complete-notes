@@ -1,0 +1,920 @@
+Spring Boot Thymeleaf 
+======================
+Thymeleaf is a Java template engine for rendering HTML (or XML) pages. It allows you to create web pages that can display dynamic data coming from your backend.It’s often used as a view layer in Spring MVC applications.
+
+
+Project structure 
+------------------
+Thymleaf1
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+	|
+	|---com.ihub.www.controller
+		|
+		|---UserController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+	|
+	|---static
+		|
+		|-----css
+			|
+			|---mystyles.css
+	|---templates
+		|
+		|---index.html
+	
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring boot starter project i.e Thymeleaf1.
+	ex:
+		Starters:
+				Spring web 
+				Thymeleaf 
+
+step2:
+-----
+	Create a UserController.java file inside "com.ihub.www.controller" package.
+
+UserController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class UserController 
+{
+	@RequestMapping("/msg")
+	public String home()
+	{
+		return "index";
+	}
+}
+
+step3:
+-----
+	Create a "index.html" file inside "templates" folder.
+	
+index.html
+----------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title> MyPage </title>
+		
+		<!-- add external css -->
+		<link rel="stylesheet" href="css/mystyles.css">
+	</head>
+	<body>
+		<h1> Spring Boot Thymeleaf </h1>
+		<p> This is Spring Boot Tutorial </p>
+	</body>
+</html>
+
+step4:
+------
+	Create a "mystyles.css" file inside "static/css" folder.
+
+mystyles.css
+------------
+
+h1
+{
+	text-align: center;
+	background-color: aqua;
+	color: blue;
+}
+p
+{
+	font-size: 40px;
+	background-color: antiquewhite;
+	color: black;	
+	text-align: center;
+}
+
+
+step5:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties
+---------------------
+spring.application.name=Thymeleaf1
+server.port=9191
+
+
+step6:
+------
+	Run spring boot starter project.
+
+step7:
+-----
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/msg
+
+
+
+Variable Expression 
+====================
+In Spring Boot Thymeleaf, a variable expression is used to access data from the application context (the Spring model) and bind it into the HTML template. 
+
+ex:
+	${....}
+
+
+Project structure 
+------------------
+Thymleaf2
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+	|
+	|---com.ihub.www.controller
+		|
+		|---UserController.java
+	|
+	|---com.ihub.www.model
+		|
+		|---User.java
+
+|---src/main/resources
+	|
+	|---application.properties
+	|
+	|---static
+		|
+		|-----css
+			|
+			|---mystyles.css
+	|---templates
+		|
+		|---index.html
+	
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring boot starter project i.e Thymeleaf2.
+	ex:
+		Starters:
+				Spring web 
+				Thymeleaf 
+
+step2:
+-----
+	Create a User.java file inside "com.ihub.www.model" package.
+
+User.java
+---------
+package com.ihub.www.model;
+
+public class User 
+{
+	private long id;
+	private String name;
+	private String address;
+	
+	public User(long id, String name, String address) 
+	{
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+}
+
+
+
+
+step3:
+------
+	Create a UserController.java file inside "com.ihub.www.controller" package.
+
+UserController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ihub.www.model.User;
+
+@Controller
+public class UserController 
+{
+	@RequestMapping("/msg")
+	public String home(Model model)
+	{
+		User u = new User(101,"Alan","Texas");
+		model.addAttribute("user", u);
+		return "index";
+	}
+}
+
+
+
+step4:
+-----
+	Create a "index.html" file inside "templates" folder.
+	
+index.html
+----------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title> MyPage </title>
+		
+		<!-- add external css -->
+		<link rel="stylesheet" href="css/mystyles.css">
+	</head>
+	<body>
+		<h1> User Details </h1>
+		<p th:text="${user.id}"> </p>
+		<p th:text="${user.name}"> </p>
+		<p th:text="${user.address}"> </p>
+	</body>
+</html>
+
+
+step5:
+------
+	Create a "mystyles.css" file inside "static/css" folder.
+
+mystyles.css
+------------
+
+h1
+{
+	text-align: center;
+	background-color: aqua;
+	color: blue;
+}
+p
+{
+	font-size: 40px;
+	background-color: antiquewhite;
+	color: black;	
+	text-align: center;
+}
+
+
+step6:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties
+---------------------
+spring.application.name=Thymeleaf2
+server.port=9191
+
+
+step7:
+------
+	Run spring boot starter project.
+
+step8:
+-----
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/msg
+
+
+
+
+
+Selection Expression 
+====================
+In Spring Boot Thymeleaf, a selection expression (syntax: *{...}) is used to evaluate expressions relative to a "previously selected" object, rather than the entire template context.
+ex:
+	*{....}
+
+
+Project structure 
+------------------
+Thymleaf3
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+	|
+	|---com.ihub.www.controller
+		|
+		|---UserController.java
+	|
+	|---com.ihub.www.model
+		|
+		|---User.java
+
+|---src/main/resources
+	|
+	|---application.properties
+	|
+	|---static
+		|
+		|-----css
+			|
+			|---mystyles.css
+	|---templates
+		|
+		|---index.html
+	
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring boot starter project i.e Thymeleaf3.
+	ex:
+		Starters:
+				Spring web 
+				Thymeleaf 
+
+step2:
+-----
+	Create a User.java file inside "com.ihub.www.model" package.
+
+User.java
+---------
+package com.ihub.www.model;
+
+public class User 
+{
+	private long id;
+	private String name;
+	private String address;
+	
+	public User(long id, String name, String address) 
+	{
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+}
+
+
+step3:
+------
+	Create a UserController.java file inside "com.ihub.www.controller" package.
+
+UserController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ihub.www.model.User;
+
+@Controller
+public class UserController 
+{
+	@RequestMapping("/msg")
+	public String home(Model model)
+	{
+		User u = new User(101,"Alan","Texas");
+		model.addAttribute("user", u);
+		return "index";
+	}
+}
+
+
+
+step4:
+-----
+	Create a "index.html" file inside "templates" folder.
+	
+index.html
+----------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title> MyPage </title>
+		
+		<!-- add external css -->
+		<link rel="stylesheet" href="css/mystyles.css">
+	</head>
+	<body>
+		<h1> User Details </h1>
+		<div th:object="${user}">
+			<p th:text="*{id}"> </p>
+			<p th:text="*{name}"> </p>
+			<p th:text="*{address}"> </p>
+		</div>
+	</body>
+</html>
+
+
+step5:
+------
+	Create a "mystyles.css" file inside "static/css" folder.
+
+mystyles.css
+-------------
+h1
+{
+	text-align: center;
+	background-color: aqua;
+	color: blue;
+}
+div
+{
+	background-color: chocolate;	
+	padding: 10px;
+}
+p
+{
+	font-size: 40px;
+	background-color: antiquewhite;
+	color: black;	
+	text-align: center;
+}
+
+
+step6:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties
+---------------------
+spring.application.name=Thymeleaf3
+server.port=9191
+
+
+step7:
+------
+	Run spring boot starter project.
+
+step8:
+-----
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/msg
+
+
+
+
+
+Message Expression 
+==================
+In Spring Boot, a Thymeleaf message expression is used to retrieve locale-specific text from external properties files, enabling internationalization (i18n) and central management of user-facing messages. 
+ex:
+	#{...}
+
+
+
+Project structure 
+------------------
+Thymleaf4
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+	|
+	|---com.ihub.www.controller
+		|
+		|---UserController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+	|---messages.properties 	
+	
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring boot starter project i.e Thymeleaf4.
+	ex:
+		Starters:
+				Spring web 
+				Thymeleaf 
+
+step2:
+------
+	Create a "UserController.java" file inside "com.ihub.www.controller" package.
+
+UserController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ihub.www.model.User;
+
+@Controller
+public class UserController 
+{
+	@RequestMapping("/msg")
+	public String home()
+	{
+		return "index";
+	}
+}
+
+step3:
+------
+	Create a "messages.properties" file inside "src/main/resources" folder.
+
+messages.properties
+-------------------
+greeting.message=Welcome to spring Boot
+application.name=Thymeleaf Example
+
+
+step4:
+-----
+	Configure application name and server port inside application.properties file.
+
+application.properties 
+-----------------------
+spring.application.name=Thymeleaf4
+server.port=9191
+
+step5:
+------
+	Create a index.html file inside "templates" folder.
+
+index.html
+-----------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title> MyPage </title>
+	</head>
+	<body>
+			<h1 th:text="#{greeting.message}"></h1>	
+			<h1 th:text="#{application.name}"></h1>	
+	</body>
+</html>
+	
+step6:
+-------
+	Run spring boot starter project.
+
+step7:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/msg 
+
+
+Spring Boot Thymleaf to interact with H2 Database 
+=================================================
+
+project structure 
+-----------------
+ThymeleafWebApp 
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+
+	|---com.ihub.www.controller
+		|
+		|---StudentController.java
+
+	|---com.ihub.www.repo
+		|
+		|---StudentRepository.java
+
+	|---com.ihub.www.entity	
+		|
+		|---Student.java
+	
+|---src/main/resources
+	|
+	|---application.properties
+	|
+	|---templates
+		|
+		|---index.html
+		|---form.html 
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring boot starter project i.e ThymeleafWebApp.
+	ex:
+		Starters:
+				Spring Web 
+				Spring Data JPA 
+				Thymeleaf 
+				H2 Databse 
+step2:
+------
+	Create a Student.java file inside "com.ihub.www.entity" package.
+
+Student.java
+------------
+package com.ihub.www.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Student 
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column
+	private String name;
+	
+	@Column
+	private String email;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+}
+
+step3:
+-----
+	Create a StudentRepository.java file inside "com.ihub.www.repo" package.
+
+StudentRepository.java
+----------------------
+package com.ihub.www.repo;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ihub.www.entity.Student;
+
+@Repository
+public interface StudentRepository extends CrudRepository<Student, Long>
+{
+
+}
+
+step4:
+------
+	Configure application name, server port, H2 database properties and hibernate 
+	properties inside application.properties file.
+
+application.propertites 
+------------------------
+spring.application.name=ThymeleafWebApp
+server.port= 9191
+
+# H2 Database Config
+spring.datasource.driver-class-name= org.h2.Driver
+spring.datasource.url= jdbc:h2:~/test
+spring.datasource.username= sa
+spring.datasource.password= 
+
+# H2 Console
+spring.h2.console.enabled=true
+
+# JPA
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+
+# Thymeleaf
+spring.thymeleaf.cache=false
+
+
+
+step5:
+------	
+	Create a StudentController.java file inside "com.ihub.www.controller" package.
+
+
+StudentController.java
+-----------------------
+package com.ihub.www.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ihub.www.entity.Student;
+import com.ihub.www.repo.StudentRepository;
+
+@Controller
+public class StudentController 
+{
+	@Autowired
+	private StudentRepository repo;
+	
+	@RequestMapping("/")
+	public String viewHome(Model model)
+	{
+		model.addAttribute("students", repo.findAll());
+		return "index";
+	}
+	
+    	@RequestMapping("/add")
+    	public String showForm(Model model) {
+       		model.addAttribute("student", new Student());
+        	return "form";
+    	}
+
+   	@RequestMapping("/save")
+    	public String saveStudent(@ModelAttribute Student student) {
+        	repo.save(student);
+        	return "redirect:/";
+    	}
+}
+
+step6:
+-----
+	Create a "index.html" file inside "templates" folder.
+ 
+index.html
+----------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student List</title>
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<a href="/add">Add Student</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+
+    <tr th:each="s : ${students}">
+        <td th:text="${s.id}"></td>
+        <td th:text="${s.name}"></td>
+        <td th:text="${s.email}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>
+
+step7:
+------
+	Create a "form.html" file inside "templates" folder.
+
+form.html
+-----------
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Student</title>
+</head>
+<body>
+
+<h2>Add Student</h2>
+
+<form action="/save" method="post" th:object="${student}">
+    Name: <input type="text" th:field="*{name}" /><br><br>
+    Email: <input type="email" th:field="*{email}" /><br><br>
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>
+
+
+step8:
+-----
+	Run the spring boot starter project.
+
+step9:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/
+		http://localhost:9191/h2-console 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

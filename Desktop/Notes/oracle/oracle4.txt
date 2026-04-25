@@ -1,0 +1,402 @@
+Functions 
+=========
+Functions are used to manipulate the data and give the result.
+
+We have two types of functions.
+
+1) Group Functions / Multiple Row Functions 
+
+2) Scalar Functions / Single Row Functions 
+
+
+
+1) Group Functions
+-------------------
+Group functions are applicable for multiple rows.
+
+We have following list of group functions.
+ex:
+	sum(), avg(), max(), min(), count(*) and count(exp).
+
+Q) Write a query to display sum of salary of each employee?
+
+	select sum(esal) from emp;
+
+Q) Write a query to display average salary of each employee?
+
+	select avg(esal) from emp;	
+
+Q) Write a query to display highest salary from employee table?
+
+	select max(esal) from emp;
+
+
+Q) Write a query to display least salary from employee table?
+
+	select min(esal) from emp;
+
+
+Q) What is the difference between count(*) and count(exp) ? 
+
+count(*)
+--------
+	It returns number of records present in database table.
+	It includes null records.
+	ex:
+		select count(*) from emp;
+
+count(exp)
+----------
+	It returns number of values present in a database table column.
+	It does not include null values.
+	ex:
+		select count(eid) from emp;
+		select count(comm) from emp;
+
+
+userlist table 
+==============
+drop table userlist;
+create table userlist(uname varchar2(10),pwd varchar2(10));
+insert into userlist values('raja','rani');
+insert into userlist values('king','kingdom');
+commit;
+
+Q) Write a query to check username and password is valid or not?
+
+	select count(*) from userlist where uname='raja' and pwd='rani';
+
+
+Dual table 
+==========
+A dual table is a dummy table which contains one row and one column.
+
+It is used to perform arithmetic operations and to see the current system date.
+
+ex:
+	select  10+20 from dual;
+	select  10*20 from dual;
+	select  sysdate from dual;
+	select current_date from dual;
+
+
+2) Scalar Functions 
+--------------------
+We have following list of scalar functions.
+
+i) Character functions 
+
+ii) Number functions 
+
+iii) Date functions 
+
+iv) Conversion functions 
+
+
+i) Character functions 
+-----------------------
+upper()
+--------
+	It is used to convert lowercase to uppercase string.
+	ex:
+		select upper('oracle training') from dual;
+		select upper('oracle training') as result from dual;
+
+lower()
+--------
+	It is used to convert uppercase to lowercase string
+	ex:
+		select lower('ORACLE TRAINING') from dual;
+		select lower('ORACLE TRAINING') as result from dual;
+
+
+initcap()
+-----------
+	It is used to display the string with init cap.
+	ex:
+		select initcap('oracle training') from dual;
+		select initcap('oracle training') as result from dual;
+
+lpad()
+-------
+	It pads the characters towards left side.
+	ex:
+		select lpad('oracle',10,'z') from dual;
+		select lpad('oracle',10,'z') from dual;
+
+rpad()
+------
+	It pads the characters towards right side.
+	ex:
+		select rpad('oracle',10,'z') from dual;
+		select rpad('oracle',10,'z') as result from dual;
+
+ltrim()
+--------
+	It is used to trim the characters from left side.
+	ex:		
+		select ltrim('zzoraclezz','z') from dual;
+		select ltrim('zzoraclezz','z') as result from dual;
+rtrim()
+-------
+	It is used to trim the characters from right side.
+	ex:
+		select rtrim('zzoraclezz','z') from dual;
+		select rtrim('zzoraclezz','z') as result from dual;
+
+trim()
+------
+	It is used to trim the characters from both the sides.
+	ex:
+		select trim('z' from 'zzoraclezz') from dual;
+		select trim('z' from 'zzoraclezz') as result from dual;
+
+replace()
+----------
+	It is used to replace the character.
+	ex:
+		select replace('AlAn','A','a') from dual;
+
+Interview Queries 
+-----------------
+Q) Write a query to display employee information?
+
+ID		NAME		SALARY 
+---		-----		-----
+101		Alan Morries	45000
+102		Erick Anderson	32000
+103		Mark Hendry	56000
+104		Marry Ana	38000
+
+output:
+		Alan 
+		Erick 
+		Mark 
+		Marry 
+
+	select regexp_substr(name,'\S+',1,1) from emp1;	
+
+
+Q) Write a query to display employee information?
+
+ID		NAME		SALARY 
+---		-----		-----
+101		Alan Morries	45000
+102		Erick Anderson	32000
+103		Mark Hendry	56000
+104		Marry Ana	38000
+
+output:
+		Morries
+		Anderson
+		Hendry
+		Ana
+
+	select regexp_substr(name,'\S+',1,2) as result from emp1;	
+
+
+Q) Write a query to display employee information?
+
+ID		NAME		SALARY 
+---		-----		-----
+101		Alan Morries	45000
+102		Erick Anderson	32000
+103		Mark Hendry	56000
+104		Marry Ana	38000
+
+output:
+		45999
+		32999
+		56999
+		38999
+
+	select replace(salary,'0','9') as SALARY from emp1;
+
+
+ii) Number functions 
+--------------------
+abs()
+-------
+	It returns absolute value.
+	ex:
+		select abs(-10) from dual;
+		select abs(-10) as result from dual;
+
+
+power(A,B)
+----------
+	It returns power value.
+	ex:
+		select power(5,3) from dual;
+		select power(5,3) as result from dual;
+
+sqrt()
+-------
+	It returns exact square root value.
+	ex:
+		select sqrt(25) as result from dual; 
+		select sqrt(26) as result from dual;
+
+ceil()
+-------
+	It returns ceil value.
+	ex:
+		select ceil(10.6) from dual;
+		select ceil(10.6) as result from dual; // 11
+		select ceil(9.2) as result from dual; // 10
+
+floor()
+---------
+	It returns floor value.
+	ex:
+		select floor(10.6) from dual; // 10
+		select floor(10.6) as result from dual; // 10
+		select floor(9.2) as result from dual; // 9
+
+round()
+------
+	It returns nearest value.
+	ex:
+		select round(10.5) as result from dual; --11
+		select round(10.4) as result from dual; --10
+
+trunc()
+---------
+	It removes decimal numbers.
+	ex:
+		select trunc(10.56) as result from dual;  -- 10
+		select trunc(104.5678) as result from dual; -- 104
+greatest()
+-----------
+	It returns greatest value.
+	ex:
+		select greatest(9,2,7,1) as result from dual; -- 9
+
+least() 
+-------
+	It returns least value.
+	ex:
+		select least(9,2,7,1) as result from dual; -- 1
+
+Working with Date values
+-------------------------
+Every database software supports date values.
+
+Every database software supports different date patterns.
+
+ex:
+	oracle  - dd-MMM-yy
+	mysql	- yyyy-mm-dd
+
+emp2 table 
+-----------
+drop table emp2;
+create table emp2(eid number(3),ename varchar2(10),edoj date);
+insert into emp2 values(201,'Alan','01-JAN-26');
+insert into emp2 values(202,'Jose',sysdate);
+insert into emp2 values(203,'Lisa',current_date);
+commit;
+
+
+3) Date Functions 
+------------------
+
+ADD_MONTHS()
+------------
+	It is used to add the months in a given date.
+	ex:
+		select ADD_MONTHS(sysdate,4) as result from dual;
+
+MONTHS_BETWEEN()
+------------------
+	It returns number of months between two dates.
+	ex:
+		select MONTHS_BETWEEN('01-JAN-26','1-APR-26') as result from dual;
+		select ABS(MONTHS_BETWEEN('01-JAN-26','1-APR-26')) 
+			as result from dual;
+
+NEXT_DAY()
+-----------
+	It returns a date of a given day in a week.
+	ex:
+		select NEXT_DAY(sysdate,'sunday') as result from dual;
+		select NEXT_DAY(sysdate,'thursday') as result from dual;
+
+
+LAST_DAY() 
+----------
+	It returns last date of a month.
+	ex:
+		select LAST_DAY(sysdate) from dual;
+		select LAST_DAY('15-JAN-26') from dual;
+
+iv) Conversion Functions 
+-------------------------
+It is used to convert from one type to another type.
+
+ex:
+	TO_CHAR() 
+
+We have two pseudo for TO_CHAR() function.
+
+1) Number to_char()  
+------------------
+	It accept 9 in digits, dollar and euro's symbol.
+	ex:
+		select eid,ename,esal from emp;
+		select eid,ename,TO_CHAR(esal,'99,999') as ESAL from emp;
+		select eid,ename,TO_CHAR(esal,'$99,999') as ESAL from emp;
+
+2) Date to_char()
+------------------
+	select sysdate from dual;
+	select TO_CHAR(sysdate,'dd-MM-yyyy') as result from dual;
+	select TO_CHAR(sysdate,'yyyy-MM-dd') as result from dual;
+	select TO_CHAR(sysdate,'HH:MI:SS') as result from dual;
+	select TO_CHAR(sysdate,'dd-MM-yyyy HH:MI:SS') as result from dual;
+	select TO_CHAR(sysdate,'yyyy') as result from dual;
+	select TO_CHAR(sysdate,'MONTH') as result from dual;
+	select TO_CHAR(sysdate,'YEAR') as result from dual;
+	select TO_CHAR(sysdate,'DAY') as result from dual;
+
+
+Interview Query
+---------------
+Q) Write a query to display employees information from emp table?
+
+Fresher
+-------
+	select * from emp;
+
+Experience
+----------
+	select eid,
+		upper(ename) as ename,
+		  TO_CHAR(esal,'$99,999') as esal,
+			deptno ,
+			  lower(job) as job ,
+				comm from emp; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

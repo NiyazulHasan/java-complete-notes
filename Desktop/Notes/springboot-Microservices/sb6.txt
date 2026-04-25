@@ -1,0 +1,306 @@
+Microservice Architecture 
+=========================
+It is a software development approach in which a large complex application breaks down into small or mini services where each micro service having business capabilities. 
+
+Diagram: sb6.1
+
+Advantages:
+
+1) Independent Development 
+
+2) Independent Deployment 
+
+3) Loosely Coupled 
+
+4) Granular Scaling 
+
+5) Fault Tolerance 
+
+6) Mix Technology Stack 
+
+Microservice 
+============
+A Microservice is a software architecture style where an application is built as a collection of small, independent services, each responsible for a specific business function.
+
+To develop micro service we need to use spring boot flow layered architecture.
+
+Diagram:sb6.2
+
+
+Project Structure 
+------------------
+customer-service
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+
+	|---com.ihub.www.entity
+		|
+		|---Customer.java
+
+	|---com.ihub.www.repo
+		|
+		|---CustomerRepository.java (interface)
+
+	|---com.ihub.www.service
+		|
+		|---CustomerService.java
+
+	|---com.ihub.www.controller
+		|
+		|---CustomerController.java
+
+|---src/main/resources
+	|
+	|---application.yml
+
+|---src/test/java
+|---pom.xml
+
+step1:
+-----
+	Download and install project lombok.
+	ex:
+		https://projectlombok.org/download
+
+step2:
+------
+	Copy and paste project lombok to sts-5.0.1.RELEASE (home folder).
+
+step3:
+------
+	Goto SpringToolsForEclipse (configuration settings) and below command 
+	in last line.
+	ex:
+		-javaagent:lombok.jar	
+
+step4:
+------
+	Create a spring starter project i.e customer-service.
+	ex:
+		starters:
+				Spring Web 
+				Spring Data JPA 
+				MySQL Driver 
+				Lombok 	
+
+step5:
+------
+	Create a Customer.java file inside "com.ihub.www.entity" package.
+
+Customer.java
+-------------
+package com.ihub.www.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name="customers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor 
+public class Customer 
+{
+	@Id
+	private Long custId;
+	
+	@Column
+	private String custName;
+	
+	@Column
+	private String custAddress;
+}
+
+step6:
+------
+	Create a CustomerRepository.java file inside "com.ihub.www.repo" package.
+
+CustomerRepository.java
+-----------------------
+package com.ihub.www.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ihub.www.entity.Customer;
+
+@Repository
+public interface CustomerRepository extends JpaRepository<Customer,Long>
+{
+
+}
+
+step7:
+------
+	Create and use schema in mysql database
+	ex:
+		drop schema batch56;
+		create schema batch56;
+		use batch56;	
+
+step8: 
+	Rename application.properties file to application.yml file.
+
+step9:
+------
+	Configure application name, server port, database properties and 
+	hibernate properties inside application.yml file.
+
+application.yml
+--------------
+
+server:
+  port: 9191
+
+spring:
+  application:
+    name: CUSTOMER-SERVICE
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/batch56
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true 
+
+step10:
+-------
+	Create a CustomerService.java file inside "com.ihub.www.service" package.
+
+CustomerService.java
+--------------------
+package com.ihub.www.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ihub.www.entity.Customer;
+import com.ihub.www.repo.CustomerRepository;
+
+@Service
+public class CustomerService
+{
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	public Customer addCustomer(Customer customer)
+	{
+		return customerRepository.save(customer);
+	}
+	
+	public List<Customer> getAllCustomers()
+	{
+		return customerRepository.findAll();
+	}
+}
+
+
+
+step11:
+-------
+	Create a CustomerController.java file inside "com.ihub.www.controller" package.
+	
+CustomerController.java
+-----------------------
+package com.ihub.www.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ihub.www.entity.Customer;
+import com.ihub.www.service.CustomerService;
+
+@RestController
+@RequestMapping("/customer")
+public class CustomerController 
+{
+	@Autowired
+	private CustomerService customerService;
+	
+	@PostMapping("/add")
+	public Customer addCustomer(@RequestBody Customer customer)
+	{
+		return customerService.addCustomer(customer);
+	}
+	
+	@GetMapping("/fetch")
+	public List<Customer> getAllCustomers()
+	{
+		return customerService.getAllCustomers();
+	}
+}
+
+
+
+step12:
+-------
+	Run spring boot starter project.
+
+step13:
+-------
+	Download postmand tool and test the application.
+	ex:
+		Http Method		URL 
+		----------		-----
+		POST			http://localhost:9191/customer/add
+					Body 
+					Raw (JSON)
+					{
+						"custId":101,
+						"custName":"Alan",
+						"custAddress":"Texas"
+					}
+
+		GET			http://localhost:9191/customer/fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

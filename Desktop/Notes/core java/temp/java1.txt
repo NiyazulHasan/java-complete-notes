@@ -1,0 +1,85 @@
+Q) What is the difference between C++ and Java?
+
+C++					Java
+-----					-----
+It is developed by Bjarne Stroustrup.	It is developed by James Gosling.
+
+It is a partial object oriented 	It is purely object oriented 
+programming language.			programming language.
+
+It is platform dependent.		It is a platform independent.
+
+Memory allocation and deallocation 	Memory allocation and deallocation
+will taken care by a programmer.	will taken care by a JVM.
+
+It supports multiple inheritance.	It does not support multiple inheritance.
+
+It supports pointers.			It does not support pointers.
+
+It supports operator overloading.	It does not support operator overloading.
+
+It supports goto statement.		It does not support goto statement.
+
+It supports preprocessor directory(#).	It does not support preprocessor directory.
+
+It contains three access specifiers i.e	It contains four access modifiers i.e 
+public,private and protected.		default,public,private and protected.
+
+It contains three loops i.e do while	It contains four loops i.e do while loop, 
+loop, while loop and for loop.		while loop, for loop and for each loop.
+
+To save C++ program we will use .cpp	To save java program we will use .java
+extension.				extension.
+
+
+
+Interview Question
+------------------
+Q) Can we execute if and else simultenously?
+
+Yes, it is possible to execute if and else simultenously using goto statement.
+
+ex:
+	void main()
+	{	
+		clrscr();
+		if(0)
+		{
+			label1: printf("If Stmt");
+			goto label2;
+		}
+		else
+		{
+			goto label1;
+			label2: printf("Else Stmt");
+		}
+		getch();
+	}
+
+Types of IT Companies
+=====================
+We have two types of IT companies.
+
+1) Product Based Company
+-----------------------
+	ex:
+		Oracle Corporation, Microsoft, Amazon, IBM and etc.
+
+2) Service Based Company
+------------------------
+	ex:
+		TCS, Wipro, Cognizent, Infosys and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,378 @@
+First Spring Boot Application Development
+==========================================
+
+project Structure 
+-----------------
+FirstSB 
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base package)
+		|
+		|---FirstSbApplication.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|---pom.xml
+
+step1:
+-----
+	Launch STS IDE by choosing workspace location.
+	
+step2:
+------
+	Create a spring starter project i.e FirstSB.
+
+	ex:
+		File --> New --> Spring Starter project --> 
+		Name : FirstSB 
+		Type : Maven		Packaging : jar 
+		Java Version : 17	Language : Java 
+		Group : com.ihub.www
+		Artifact : FirstSB
+		Description : demo program 
+		package : com.ihub.www  --> Next --> Next --> Finish.
+		
+step3:
+-----
+	Goto main spring boot class and write custom message.
+
+FirstSbApplication.java
+------------------------
+package com.ihub.www;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class FirstSbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(FirstSbApplication.class, args);
+		
+		System.out.println("I Love Spring Boot");
+	}
+
+}
+
+step4:
+------
+	Run spring boot starter project.	
+	ex:
+		Right click to FirstSB project --> run as --> Spring Boot App.
+
+
+Q) Explain @SpringBootApplication annotation?
+
+It is used to mark the main class of a spring boot application.
+
+It is a combination of three annotations.
+
+1) @EnableAutoConfiguration 
+----------------------------
+	It is used to enable auto configuration mechanism in spring boot.
+
+2) @ComponentScan
+----------------
+	It is used to scan on packages where our project is located.
+
+3) @Configuration 
+-----------------
+	It is used to add extra beans to context.
+	It is used to perform extra configurations.
+
+
+
+
+Spring Boot Starter
+===================
+It is one of the component of spring boot.
+
+It is used to simplify dependency management by collecting common dependencies in a single starter.
+
+It contains many built-in starters to develop applications easily and rapidly.
+
+It is also known as dependency descriptor.
+
+All built-in starters follow below naming pattern.
+ex:
+	spring-boot-starter-*
+
+	Here '*' name of the application
+
+	spring-boot-starter-webmvc
+	spring-boot-starter-data-jpa 
+	spring-boot-starter-webmvc-test
+	spring-boot-starter-validation 
+	and etc.
+
+
+Spring Web Dependency 
+=====================
+Spring Web is a core dependency in Spring / Spring Boot that is used to build web applications and RESTful APIs.
+
+Spring Web helps your Java application handle HTTP requests and responses.
+
+It contains Spring MVC, REST and Tomcat as embedded server.
+
+We need to add below dependency to develop web applications inside pom.xml file.
+ex:
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-webmvc</artifactId>
+	</dependency>
+
+There are two important features of spring web dependency.
+
+1) It is compatible for web applications. 
+2) It perform Autoconfigurations.
+
+Spring Web dependency performs the following auto-configurations:
+
+DispatcherServlet
+---------------------
+Automatically configures DispatcherServlet, which acts as the front controller in Spring MVC.It receives all incoming HTTP requests and routes them to the appropriate controller methods.
+
+Error Pages
+------------
+Provides default error handling for common HTTP errors like 404, 500, 400, etc.
+Automatically maps error pages using Spring Boot’s built-in error mechanism.
+
+Static Resource Management
+-----------------------------
+Automatically configures handling of static resources such as CSS, JavaScript, images, etc.Resources placed in folders like static, public, or resources are served without extra configuration.
+
+Servlet Container
+-------------------
+Automatically configures an embedded servlet container (Tomcat by default).
+No need to install or configure an external web server separately.
+
+Diagram: sb2.1
+
+
+Steps To Develop Second Spring Boot Application 
+================================================
+project Structure 
+-----------------
+SecondSB 
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base package)
+		|
+		|---FirstSbApplication.java
+	|
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---src
+     |
+     |-------main 
+		|		
+		|----webapp (custom folder)
+			|
+			|----index.jsp 
+|---pom.xml
+
+step1:
+------
+	Create a spring boot starter project i.e SecondSB.
+	ex:
+		Starter:
+				Spring Web 
+
+step2:
+------
+	Create a "com.ihub.www.controller" package inside "src/main/java" folder.	
+
+step3:
+------
+	Create a "HomeController.java" file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController 
+{
+	//handler method 
+	@RequestMapping("/msg")
+	public String home()
+	{
+		return "index.jsp";
+	}
+}
+
+step4:
+-----
+	Configure application name and  server port inside application.properties file.
+
+application.properties
+-----------------------
+spring.application.name=SecondSB
+server.port=9090
+
+step5:
+-------
+	Create a "webapp" folder inside "src/main" folder.
+
+
+step6:
+------
+	Create a "index.jsp" file inside "webapp" folder.
+
+index.jsp
+---------
+<center>
+	<h1>
+		I Love Spring Boot Again
+	</h1>
+</center>
+
+step7:
+------
+	Add tomcat embed jasper dependency inside pom.xml file.
+	ex:
+		<dependency>
+    			<groupId>org.apache.tomcat.embed</groupId>
+    			<artifactId>tomcat-embed-jasper</artifactId>
+   		</dependency>
+
+step8:
+------
+	Run spring boot starter project.
+
+step9:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9090/msg
+
+
+
+
+Example2 
+---------
+
+Project Structure 
+-----------------
+SecondSB
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base)
+		|
+		|---SecondSbApplication.java
+	|
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+|
+|---src/main/resources
+	|
+	|---application.properties 
+|
+|---src/test/java
+|
+|---pom.xml 
+
+
+step1:
+------
+	Create a spring boot starter project i.e SecondSB.
+	ex:
+		starter:
+				Spring Web 
+
+step2:
+------
+	Create a com.ihub.www.controller package inside "src/main/java" folder.
+
+step3:
+------
+	Create a HomeController.java file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class HomeController 
+{
+	
+	//handler method 
+	@RequestMapping("/msg")
+	@ResponseBody
+	public String home()
+	{
+		return "I Love Spring Boot";
+	}
+	
+}
+
+step4:
+------
+	configure application name and Tomcat port number inside application.properties.
+
+application.properties
+---------------------
+spring.application.name=SecondSB
+server.port= 9090
+
+
+step5:
+-----
+	Run spring boot starter project.
+
+step6:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9090/msg 
+
+Interview Questions 
+===================
+
+Q) What is @Controller annotation?
+
+It is a stereotype annotation.
+It is a class level annotation.
+It serves a class as a controller to intercept all incoming HTTP requests. 
+
+
+
+Q) What is @RequestMapping annotation? 
+
+It is a method level annotation.
+It is used to map the request to perticular handler method.
+It is used for all HTTP methods i.e GET,POST,PUT,DELETE and etc.
+ex:
+	@RequestMapping(value = "/msg", method = RequestMethod.GET)
+	@RequestMapping(value = "/msg", method = RequestMethod.POST)
+	@RequestMapping(value = "/msg", method = RequestMethod.PUT)
+	@RequestMapping(value = "/msg", method = RequestMethod.DELETE)
+
+	
+Q) What is @ResponseBody annotation?
+
+It is a method level annotation.
+It tells to the controller a return object automatically serialized to Text,JSON or XML.
+

@@ -1,0 +1,419 @@
+Q) Write a java program to remove the space before and after of the string?
+
+input:
+	" Ihub Talent "
+
+output:
+	Ihub Talent 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str=" Ihub Talent ";
+		str = str.trim();
+		System.out.println(str); 
+	}
+}
+
+Q) Write a java program to remove all spaces from string?
+
+input:
+	I hub Tale nt 
+
+output:
+	IhubTalent 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="I hub Tale nt";
+		str = str.replaceAll("\\s","");
+		System.out.println(str); 
+	}
+}
+
+Q) Write a java program to remove all the special characters from given string?
+
+input:
+	I_hub@Tal#ent12
+output:
+	IhubTalent12
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="I_hub@Tal#ent12";
+		str = str.replaceAll("[^A-Za-z0-9]","");
+		System.out.println(str); 
+	}
+}
+
+
+Q) Write a java program to continate two strings?
+
+input:
+	Ihub12
+	Talent28
+output:
+	IhubTalent40
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="Ihub12";
+		String str2="Talent28";
+		
+		String word1 = str1.replaceAll("[^A-Za-z]","");
+		int num1 = Integer.parseInt(str1.replaceAll("[^0-9]",""));
+		
+		String word2 = str2.replaceAll("[^A-Za-z]","");
+		int num2 = Integer.parseInt(str2.replaceAll("[^0-9]",""));
+		
+		String word = word1+word2;
+		
+		int num = num1+num2;
+		
+		System.out.println(word+num);
+	}
+}
+
+Q) Write a java program to display Number of digits, sum of digits and it is even or odd?
+
+input:
+	NEX123
+output:
+	Number of Digits : 3
+	Sum of Digits : 6
+	It is even number 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="NEX123";
+		
+		String newStr = str.replaceAll("[^0-9]","");
+		
+		System.out.println("No of digits :"+newStr.length());
+		
+		int sum=0;
+		for(int i=0;i<newStr.length();i++)
+		{
+			int n = Character.getNumericValue(newStr.charAt(i));
+			sum+=n;
+		}
+		System.out.println("Sum of digits :"+sum);
+	System.out.println((sum%2==0)?"It is even number":"It is odd number");
+	}
+}
+
+Q) Write a java program to perform righ rotation of a given string?
+
+input:
+	str = ihubtalent 
+	cnt = 2
+output:
+	ubtalentih 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalent";
+		
+		int cnt = 2;
+		
+		String word1 = str.substring(cnt);
+		String word2 = str.substring(0,cnt);
+		
+		System.out.println(word1+word2);
+	}
+}
+
+Q) Write a java program to display extension of a file?
+
+input:
+	abc.txt 
+output:
+	txt
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="abc.txt";
+		
+		int index = str.indexOf('.');
+		
+		String result = str.substring(index+1);
+		
+		System.out.println(result);
+	}
+}
+
+Q) Write a java program to check given email is valid or invalid?
+
+input:
+	raja@gmail.com 
+output:
+	valid 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="raja@gmail.com";
+		
+		int atIndex = str.indexOf('@');
+		int dotIndex = str.indexOf('.');
+		
+		if(atIndex!=-1 && dotIndex!=-1 && atIndex<dotIndex)
+			System.out.println("Valid");
+		else
+			System.out.println("Invalid");
+	}
+}
+
+Q) Write a java program to display reverse of a string?
+
+input:
+	hello 
+output:
+	olleh 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="hello";
+		
+		String rev="";
+		for(int i=str.length()-1;i>=0;i--)
+		{
+			rev+=str.charAt(i);
+		}
+		
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to check given string is palindrome or not?
+
+input:
+	racar 
+output:
+	It is a palindrome string 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar";
+		
+		String rev="";
+		for(int i=str.length()-1;i>=0;i--)
+		{
+			rev+=str.charAt(i);
+		}
+		
+		if(str.equals(rev))
+			System.out.println("It is a palindrome string");
+		else
+			System.out.println("It is not a palindrome string");
+	}
+}
+
+Q) Write a java program to display reverse of a sentence?
+
+Input:
+	This is java class
+output:
+	class java is This 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String[] sarr = str.split(" ");
+		
+		for(int i = sarr.length-1;i>=0;i--)
+		{
+			System.out.print(sarr[i]+" ");
+		}
+	}
+}
+
+Q) Write a java program to display reverse of a word in a sentence?
+
+input:
+	This is java class
+output:
+	sihT si avaj ssalc 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This is java class";
+		
+		String[] sarr = str.split(" ");
+		
+		for(String s : sarr)
+		{
+			String rev="";
+			for(int i=s.length()-1;i>=0;i--)
+			{
+				rev+=s.charAt(i);
+			}
+			System.out.print(rev+" ");
+		}
+	}
+}
+
+Q) Write a java program to find out maximum integer value from given string?
+
+input:
+	1kg mango is 100 rupees and 2kg of apple is 200 rupees
+
+output:
+	200 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="1kg mango is 100 rupees and 2kg of apple is 200 rupees";
+		
+		String[] sarr = str.split("\\D+");
+		
+		int max = Integer.MIN_VALUE;  //-2147483648 
+		
+		for(String s : sarr)
+		{
+			int n = Integer.parseInt(s);
+			if(n>max)
+			{
+				max=n;
+			}
+		}
+		System.out.println(max);
+	}
+}
+
+Q) Write a java program to sort the string?
+
+input:
+	ebcad
+output:
+	abcde
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ebcad";
+		
+		char[] carr = str.toCharArray();  // e    b   c    a   d
+		
+		Arrays.sort(carr); // a b c d e 
+		
+		str = new String(carr);
+		
+		System.out.println(str); 
+	}
+}
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	XYZ
+output:
+	XY 
+	XZ
+	YX
+	YZ
+	ZX
+	ZY 
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="XYZ";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			for(int j=0;j<str.length();j++)
+			{
+				if(i!=j)
+				{
+					System.out.println(str.charAt(i)+""+str.charAt(j));
+				}
+					
+			}
+		}
+	}
+}
+
+Q) Write a java program to convert lowercase to uppercase and uppercase to lowercase?
+
+input:
+	IHubTaLEnt
+output:
+	ihUBtAleNT
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="IHubTaLEnt";
+		
+		char[] carr = str.toCharArray();
+		
+		for(int i=0;i<carr.length;i++)
+		{
+			if(carr[i]>='A' && carr[i]<='Z')
+			{
+				carr[i] = (char)(carr[i]+32);
+			}
+			else if(carr[i]>='a' && carr[i]<='z')
+			{
+				carr[i] = (char)(carr[i]-32);
+			}
+		}
+		str = new String(carr);
+		System.out.println(str);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

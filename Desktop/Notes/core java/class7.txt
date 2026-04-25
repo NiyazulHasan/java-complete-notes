@@ -1,0 +1,158 @@
+Identifiers 
+===========
+A name given to a program elements is called identifier.
+
+Program elements are classes, interfaces, packages, variables, methods, constants and etc.
+
+ex:
+	class Test
+	{
+		public static void main(String[] args)
+		{
+			int x = 10;
+			System.out.println(x); 
+		}
+	} 
+
+Here Test, main, String, args, x, System, out and println are identifiers.
+
+Rules to declare an identifiers
+-------------------------------
+Rule1:
+------
+	Identifier will accept following characters.
+	ex:
+		A-Z
+		a-z
+		0-9
+		_
+		$
+Rule2:
+-----
+	If we take other characters then we will get compile time error.
+	ex:
+		int emp_id;
+		int emp$alary;
+		int dept#no;  // invalid 
+
+Rule3:
+------
+	Every identifier is a case sensitive.
+	ex:
+		int number;
+		int NUMBER;
+		int NumBer;
+Rule4:
+------
+	We can't take reserved words as an identifier.
+	ex:
+		int if;
+		int else;
+		int public;
+		int class;
+
+Rule5:
+------
+	Identifier must and should starts with alphabet, underscore or dollar symbol 
+	but not with digit.
+	ex:
+		int  _abcd; 
+		int  $alary; 
+		int  a1234; 
+		int  1abcd; // invalid 
+
+Rule6:
+------
+	There is no length limit for an identifier but it is not recommanded 
+	to take more then 15 characters.
+
+
+
+Reserved Words 
+==============
+There are some identifiers which are reserved to associate some functionality or meaning such type of identifiers are called reserved words.
+
+Java supports 70 reserved words and it is categories into two types.
+
+Diagram: class7.1
+
+
+Used keywords in java
+----------------------
+package, class, enum, interface, import, extends, implements 
+new , instanceof ,this, super 
+byte,short,int,long,float,double,boolean, char, void
+if, else, do, while, switch, case, break , continue, for, default
+try, catch,finally, throw, throws, assert
+public, private, protected, static, final, abstract, strictfp, synchronized, transient, volatile, native , _ underscore, this,super 
+exports, module, non-sealed, open, opens, permits, provides, record, requires, sealed
+to, transitive, uses, var, with  and yield.
+
+
+Interview Question 
+==================
+Q) What are the features of Java?
+
+We have following important features in java.
+
+1) Simple 
+2) Object oriented 
+3) Platform independent 
+4) Portable 
+5) Architecture neutral 
+6) Robust 
+7) Multithreaded 
+8) High Performanced 
+9) Highly secured
+10) Distributed 
+and etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

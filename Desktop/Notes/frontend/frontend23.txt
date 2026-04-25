@@ -1,0 +1,590 @@
+JavaScript Date 
+===============
+JavaScript Date object is used to display date and time.
+
+Using JavaScript Date object we can display timer on the web page.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+     <script>
+        var d = new Date();
+        document.writeln(d);
+     </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+     <script>
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth()+1;
+        var y = date.getFullYear();
+        document.writeln(d+"/"+m+"/"+y);
+     </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+     <script>
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        document.writeln(h+":"+m+":"+s);
+     </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+   <style>
+      body
+      {
+         height: 100vh;
+         background: linear-gradient(red,yellow);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      span
+      {
+         color : #FFF;
+         font-weight: bold;
+         font-size: 30px;
+         border:2px solid #FFF;
+         padding:10px;
+         border-radius: 5px;
+      }
+   </style>
+</head>
+<body>
+         <span id="result">  </span>
+         <script>
+            
+            window.onload= function(){ getTime(); }
+            function getTime()
+            {
+               var date = new Date();
+               var h = date.getHours();
+               var m = date.getMinutes();
+               var s = date.getSeconds();
+
+               m = check(m);
+               s = check(s);
+
+              document.getElementById('result').innerHTML=h+":"+m+":"+s;
+
+              setInterval(getTime,1000);
+            }
+            function check(i)
+            {
+               if(i<10)
+               {
+                  i = "0"+i;
+               }
+               return i;
+            }
+
+         </script>
+</body>
+</html>
+
+
+
+Q) What is difference between innerText and innerHTML property?
+
+innerText 
+---------
+It is used to display simple text in javascript dynamically.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+         <div id="result"></div>
+         <script>
+            
+            document.getElementById('result').innerText ="<p> innerText Property </p>";
+
+         </script>
+</body>
+</html>
+
+innerHTML
+---------
+It is used to display simple text and HTML code in javascript dynamically.
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+         <div id="result"></div>
+         <script>
+            
+            document.getElementById('result').innerHTML ="<p style='color:red'> innerText Property </p>";
+
+         </script>
+</body>
+</html>
+
+Higher Order Function 
+======================
+Function which operates on another function by taking as an argument or by returning a function is called higher order function.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+        <script>
+           function f1(f2)
+           {
+               f2();
+           }
+           f1(function(){document.writeln("Higher Order Function 1")});
+        </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+        <script>
+           function f1()
+           {
+            return function(){document.writeln("Higher Order Function 2");}
+           }
+           var f2 = f1();
+           f2();
+        </script>
+</body>
+</html>
+
+
+JavaScript program to hide and show password in a password field
+----------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+   <!-- fontawesome icon cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+      .myStyle
+      {
+         padding-right :25px;
+      }
+      #iconStyle
+      {
+         position: relative;
+         right:25px;
+         cursor: pointer;
+      }
+   </style>
+</head>
+<body>
+        Password : <input type="password" id="myId" class="myStyle" />
+        <i class="fa fa-eye" id="iconStyle" onclick="f1()"></i>
+        <script>
+           function f1()
+           {
+              var x = document.getElementById('myId');
+              if(x.type=="password")
+              {
+                  x.type="text";
+              }
+              else
+              {
+                  x.type="password";
+              }
+           }
+        </script>
+</body>
+</html>
+
+
+
+Q) What is the difference between var , let and const ?
+
+var				let			const 
+------				------			--------
+It is a function scope.		It is a block scope.	It is a block scope.
+
+We can declare without		We can declare without	We can't declare without   
+initialization.			initialization.		initialization.
+
+It can be redeclared.		It can't be redeclared.	It can't be redeclared.
+
+It can be updatable.		It can be updatable.	It can't be updatable.
+
+We can access without		we can access without  	We can't access without 
+initialization but default 	initialiation but 	initialization.
+value is undefined		default value is 
+				undefined.
+
+
+Scope 
+-------
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          document.writeln(i);
+          var i;
+          i=10;
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          document.writeln(i); // Error 
+          let i;
+          i=10;
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          document.writeln(i); //Error 
+          const i;
+          i=10;
+       </script>
+</body>
+</html>
+
+Declaration 
+------------
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var i;
+          document.writeln(i); //undefined 
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          let i;
+          document.writeln(i); //undefined 
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          const i;
+          document.writeln(i); //error
+       </script>
+</body>
+</html>
+
+
+Redeclare 
+----------
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var i=10;
+
+          var i=20;
+          
+          document.writeln(i); //20
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          let i=10;
+
+          let i=20;
+
+          document.writeln(i); //Error
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          const i=10;
+
+          const i=20;
+
+          document.writeln(i); //Error
+       </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+updatable 
+---------
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var i = 10;
+          i = 20;
+          document.writeln(i);
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          let i = 10;
+          i = 20;
+          document.writeln(i);
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          const i = 10;
+          i = 20;
+          document.writeln(i); // Error 
+       </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,373 @@
+In PL/SQL procedures DML operations are allowed.
+
+Q) Write a procedure to insert a record into student table?
+
+
+	create or replace procedure insert_record(L_sno IN student.sno%TYPE,
+					  L_sname IN student.sname%TYPE,
+					  L_sadd IN student.sadd%TYPE)
+	is
+	begin 
+	insert into student values(L_sno,L_sname,L_sadd);
+	DBMS_OUTPUT.PUT_LINE('Record Inserted');
+	END;
+	/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  insert_record(105,'alan','usa');
+
+
+Q) Write a procedure to update student name based on student number?
+
+	create or replace procedure update_record(L_sno IN student.sno%TYPE)
+	is
+	begin 
+	update student set sname='rani' where sno=L_sno;
+	DBMS_OUTPUT.PUT_LINE('Record Updated');
+	END;
+	/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  update_record(104);
+
+Q) Write a procedure to delete a record form student table based on student number?
+
+	create or replace procedure delete_record(L_sno IN student.sno%TYPE)
+	is
+	begin
+	delete from student where sno=L_sno;
+	DBMS_OUTPUT.PUT_LINE('Record Deleted');
+	END;
+	/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  delete_record(105);
+	
+Q) Write a query to display list of procedures present in database?
+
+	select object_name from user_objects where object_type='PROCEDURE';
+
+Q) Write a query to see the source code of a procedure?
+
+	select text from user_source where name='INSERT_RECORD';
+
+Q) Write a query to drop the procedure?
+	
+	drop procedure insert_record;
+	drop procedure update_record;
+	drop procedure delete_record;
+
+PL/SQL Function
+=================
+It is a named PL/SQL block which must and should returns a value.
+
+syntax:
+------
+	create or replace function <function_name>
+	return datatype 
+	is
+	begin 
+	-
+	-
+	-	
+	end;
+	/
+
+
+Q) Write a function to perform sum of two numbers and returns sum?
+
+	create or replace function ret_sum(A number,B number)
+	return number
+	is
+	C number;
+	begin 
+	C:=A+B;
+	return C;
+	END;
+	/
+	
+We can execute above function as follow.
+ex:
+	select ret_sum(10,20) from dual;
+
+
+
+Q) Write a function to accept one salary and find out 10% of TDS?
+
+
+	create or replace function ret_tax(salary number)
+	return number 
+	is 
+	TAX number;
+	begin 
+	TAX := salary*10/100;
+	return TAX;
+	END;
+	/
+
+We can execute above function as follow.
+ex:
+	select ret_tax(10000) from dual;
+	select eid,ename,esal,ret_tax(esal) as TAX  from emp;
+
+
+Q) Write a query to display list of functions present in database?
+
+	select object_name from user_objects where object_type='FUNCTION';
+
+Q) Write a query to see the source code of a function?
+
+	select text from user_source where name='RET_SUM';
+
+Q) Write a query to drop the function?
+	
+	drop function ret_sum;
+	drop function ret_tax;
+
+
+Q) What is the difference between procedure and function?
+
+Procedure					Function
+------------					------------
+It may or may not returns a value.		It always returns a value.
+
+DML operations are allowed.			DML operations are not allowed.
+
+Can't be invoked by using select command.	Can be invoked by using select command.
+
+
+Packages 
+========
+A package is a collection of logical related sub programs.
+
+Here logical related sub programs are stored procedures and functions.
+
+A package creation involved in two steps.
+
+1) Package specification 
+--------------------
+	It contains declaration of logical related sub programs.
+
+2) Package body 
+----------------
+	It contains definition of logical related sub programs.
+
+
+
+Example1:
+---------
+
+package specification 
+--------------------
+	create or replace package pkg1 
+	is 
+	procedure sum_num(A IN number,B IN number);
+	end pkg1;
+	/
+
+package body 
+------------
+	create or replace package body pkg1
+	is
+	procedure sum_num(A IN number,B IN number)
+	is
+	C number;
+	begin 
+	C:=A+B;
+	DBMS_OUTPUT.PUT_LINE(C);
+	END;
+	END pkg1;
+	/
+
+To execute above procedure we need to use below command.
+ex:
+	exec  pkg1.sum_num(10,20);
+
+Example2:
+---------
+
+package specification 
+----------------------
+	create or replace package pkg2 
+	is 
+	function ret_sum(A number,B number)
+	return number;
+	end pkg2;
+	/
+
+
+package body 
+------------
+	create or replace package body pkg2
+	is
+	function ret_sum(A number,B number)
+	return number
+	is
+	C number;
+	begin 
+	C:=A+B;
+	return C;
+	END;
+	END PKG2;
+	/
+
+We can call above function as follow.
+ex:
+	select  pkg2.ret_sum(20,30) from dual;
+
+
+Q) Write a query to see the list of packages present in database?
+
+	select object_name from user_objects where object_type='PACKAGE';
+
+
+Q) Write a query to see the source code of a package?
+	
+	select text from user_source where name='PKG1';
+
+	
+Q) Write a query to drop the package?
+	
+	drop package body pkg2;
+	drop package pkg2;
+
+	drop package body pkg1;
+	drop package pkg1;
+
+
+Q) How to insert bulk records into a table?
+
+	insert ALL 
+		into student(sno,sname,sadd) values(101,'raja','hyd')
+		into student(sno,sname,sadd) values(102,'ravi','delhi')
+		into student(sno,sname,sadd) values(103,'ramana','vizag')
+		into student(sno,sname,sadd) values(104,'ramulu','pune')
+	select * from dual;
+	
+
+Triggers 
+=========
+A trigger is a PL/SQL block which executes based on events.
+
+Trigger events are insert, update and delete.
+
+Triggers timings are before, after and insteadof.
+
+syntax:
+-------
+	create or replace trigger <trigger_name> <timing> <event> on <object>
+	begin 
+	-
+	-
+	END;
+	/	
+ 
+
+ex:
+	create or replace trigger trg1 before insert on student
+	begin 
+	DBMS_OUTPUT.PUT_LINE('Thanks for Inserting');
+	END;
+	/
+
+	insert into student values(105,'alan','usa');
+
+
+Trigger can be created on multiple events.
+
+ex:
+	create or replace trigger trg2 after insert or update or delete on student
+	begin 
+	if inserting then 
+	DBMS_OUTPUT.PUT_LINE('Thanks for Inserting');
+	ELSIF updating then 
+	DBMS_OUTPUT.PUT_LINE('Thanks for Updating');
+	ELSE
+	DBMS_OUTPUT.PUT_LINE('Thanks for Deleting');
+	END IF;
+	END;
+	/
+	
+	insert into student values(106,'jose','UK');
+	update student set sname='rani' where sno=105;
+	delete from student where sno=104;
+
+Triggers are divided into two types.
+
+1) Statement Level Trigger 
+-------------------------
+It executes only for one time irrespective of number of records effected in a database table.
+ex:
+	create or replace trigger trg3 before update on student 
+	begin 
+	DBMS_OUTPUT.PUT_LINE('Thanks for Update');
+	END;
+	/
+	update student set sname='raja'; 
+
+	// 5 records update but trigger executes only for one time.
+	
+
+
+2) Row Level Trigger 
+---------------------
+It executes irrespective of number of records effecting in a database table.
+
+To create row level trigger we need to use "for each row" clause.
+
+ex:
+	create or replace trigger trg3 before delete on student FOR EACH ROW
+	begin 
+	DBMS_OUTPUT.PUT_LINE('Thanks for Delete');
+	END;
+	/
+	delete from student;
+
+	// 5 records delete and trigger executes 5 times
+
+
+Q) Write a query to see the list of triggers present in database?
+
+	select object_name from user_objects where object_type='TRIGGER';
+
+
+Q) Write a query to see the source code of a trigger?
+
+	select text from user_source where name='TRG3';
+
+
+Q) Write a query to drop the trigger?
+
+	drop trigger trg1;
+	drop trigger trg2;
+	drop trigger trg3;
+
+
+
+Q) What is the difference between Normalization and Denormalization?
+
+Normalization					Denormalization 
+----------------				----------------
+It increases complexity due to multiple 	It reduces complexity due to single tables.						table.
+
+No redundant data.				Redundant data.
+
+No waste of memory.				Waste of memory.
+
+Slower reads.					Slower writes.
+
+Low data availability.				High data availability.
+
+Need of joins.					No need of joins.
+
+
+
+
+
+
+
+
+

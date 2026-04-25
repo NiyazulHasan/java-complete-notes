@@ -1,0 +1,276 @@
+create command 
+==============
+A create a command is used to create tables in a database.
+
+syntax:
+-------
+	create table <table_name>(col1 datatype(size),col2 datatype(size),.....,
+				colN datatype(size));
+
+ex:
+	create table student(sno number(3),sname varchar2(10),sadd varchar2(12));
+
+	create table dept(deptno number(3),dname varchar2(10),dloc varchar2(10));
+
+	create table emp(eid number(3),ename varchar2(10),esal number(8), 
+				deptno number(3),job varchar2(10),comm number(6));
+
+
+describe command 
+================
+It is used to display structure of a table.
+
+syntax:
+-----
+	desc <table_name>;
+ex:
+	desc student;
+	desc emp;
+	desc dept;
+
+insert command 
+==============
+It is used to insert a row in a database table.
+
+syntax:
+-------
+	insert into <table_name> values(val1,val2,....,valN);
+ex:
+---
+	insert into student values(101,'raja','hyd');
+	insert into student values('ravi',102,'delhi'); -- invalid
+	insert into student values(102,'ravi');  -- invalid
+
+	Note:
+		null keyword represent undefined or unavailable.
+ 
+	insert into student values(102,'ravi',null); 
+
+
+Approach2
+---------
+	insert into student(sno,sname,sadd) values(103,'ramana','vizag');
+	insert into student(sno,sname) values(104,'ramulu');
+
+Approach3
+---------
+	Using '&' symbol we can read dynamic inputs.
+
+	insert into student values(&sno,'&sname','&sadd');
+
+
+commit command 
+==============
+It is used to make the changes permanent to database.
+
+syntax:
+-------
+	commit;
+
+dept table 
+==========
+create table dept(deptno number(3),dname varchar2(10),dloc varchar2(10));
+insert into dept values(10,'CSE','HYD');
+insert into dept values(20,'ECE','DELHI');
+insert into dept values(30,'EEE','PUNE');
+insert into dept values(40,'MEC','VIZAG');
+commit;
+
+
+
+emp table 
+==========
+create table emp(eid number(3),ename varchar2(10),esal number(8), 
+				deptno number(3),job varchar2(10),comm number(6));
+
+insert into emp values(201,'Alan',9000,10,'Clerk',null);
+insert into emp values(202,'Mark',17000,10,'Clerk',200);
+
+insert into emp values(203,'Kelvin',25000,20,'HR',500);
+insert into emp values(204,'Linda',32000,20,'HR',800);
+
+insert into emp values(205,'Nelson',19000,30,'Manager',800);
+insert into emp values(206,'Jose',42000,30,'Manager',900);
+
+commit;
+
+
+select command 
+===============
+It is used to select the rows/records from database table.
+
+syntax:
+------	
+	select * from <table_name>;
+
+	Here '*' means all rows and columns.
+ex:
+	select * from student;
+	select * from dept;
+	select * from emp;
+
+Projection 
+----------
+	Selecting specific columns from database table is called projection.
+	ex:
+		select sno,sname,sadd from student;
+		select sno,sname from student;
+		select sname from student;
+
+Arithmetic Operations
+--------------------
+	In select command we can perform arithmetic operations also.
+	ex:
+		select sno+100,sname,sadd from student;
+		select sno-100,sname,sadd from student;
+
+
+Column Alias 
+------------
+	A userdefined name given to a column is called column alias.
+	ex:
+		select sno as roll_no,
+			sname as name,
+				sadd as city from student;
+
+
+Where clause 
+============
+It is used to select specific records from database table.
+
+syntax:
+-------
+	select * from <table_name> where condition;
+ex:
+	select * from student where sno=101;
+	select * from student where sname='ravi';
+	select * from student where sadd='vizag';
+
+
+
+Interview Queries 
+=================
+
+Q) Write a query to display number of tables present in database?
+
+	select * from tab;
+
+
+Q) Write a query to display logical database name?
+
+	select * from global_name;
+
+
+Q) Write a query to display number of records present in a table?
+
+	select count(*) from emp;
+
+
+Q) Write a query to display employees information from employee table?
+
+	select * from emp; 
+
+
+Q) Write a query to display employee id, employee name and employee salary from emp table?
+		
+	select eid,ename,esal from emp;
+
+
+Q) Write a query to display employee id,employee name, employee salary and annual salary from emp table?
+
+	select eid,ename,esal,esal*12 from emp;
+
+
+Q) Write a query to display employee id,employee name, employee salary and annual salary as ANNUAL_SAL from emp table?
+
+	select eid,ename,esal,esal*12 as ANNUAL_SAL from emp;
+
+
+Q) Write a query to display employees information those who are working in 10 department?
+
+	select * from emp where deptno=10;
+
+
+Q) Write a query to display employees information whose comm is null?
+
+	select * from emp where comm is null;
+
+
+Q) Write a query to display employees information those who are working as a manager?
+
+	select * from emp where job='Manager';
+
+
+Q) Write a query to display employees information whose salary is greater than 25000?
+
+	select * from emp where esal>25000;
+
+Update command 
+==============
+It is used to update the records present in database.
+
+syntax:
+-------	
+	update <table_name> set <col_name>=value where condition;
+ex:
+	update student set sname='rani' where sno=101;
+
+	update student set sname='raja',sadd='pune' where sno=102;
+	
+	update student set sno=203 where sname='ramana';
+
+Note:
+-----
+If we won't declare where clause then all rows will be updated.
+ex:
+	update student set sno=101;
+	update student set sname='raja';
+	update student set sadd='hyd';
+
+
+Interview Query 
+----------------
+
+Q) Write a query to promote employee to salesman whose employee id is 202?
+
+	update emp set job='Salesman' where eid=202;	
+
+
+Q) Write a query to increment employee salary by 1000 whose employee name is Jose?
+
+	update emp set esal = esal + 1000 where ename='Jose'; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

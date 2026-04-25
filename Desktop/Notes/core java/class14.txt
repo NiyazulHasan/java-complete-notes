@@ -1,0 +1,397 @@
+Q) Write a java program to display swapping of two numbers without using third variable?
+
+input:
+	a=10,b=20
+output:
+	Before swapping a=10 and b=20
+	After swapping a=20 and b=10 
+
+import java.util.Scanner;
+class Example7  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a = sc.nextInt();//10
+		
+		System.out.println("Enter the second number :");
+		int b = sc.nextInt();//20 
+		
+		System.out.println("Before swapping a="+a+" and b="+b);
+		
+		//logic 
+		a = a + b;
+		b = a - b;
+		a = a - b;
+		
+		System.out.println("After swapping a="+a+" and b="+b);
+	}
+}
+
+Q)
+There is one running race between different participants. So in that race two partners need to finish the race. There is four rounds of race in that each lane length is 100m.So in that one participant will cover 30% of the lane length and another partner will cover remaining length of lane. So print each participant covers distance in that race.
+
+ex:
+---
+
+class Example8  
+{
+	public static void main(String[] args) 
+	{
+		int rounds = 4;	
+		int lane = 100;
+		int firstParticipantPercent = 30;
+		
+		int firstParticipant = lane * rounds * firstParticipantPercent / 100;
+		
+		int secondParticipant = lane * rounds - firstParticipant;
+		
+		System.out.println("First Participant covered "+firstParticipant+" distance");
+		System.out.println("Second Participant covered "+secondParticipant+" distance");
+	}
+}
+
+Q) 
+
+Alice is planning to organize a contest with 4 players in each team. 
+
+There are two types of players named Experienced and Freshers. 
+To make the contest unbiased Alice wants to have a team in such a way that each team must 
+contain at least 1 Experienced and 1 Fresher.
+You are given N the number of Experienced and M the number of Freshers. 
+Your task is to determine the maximum number of team formations possible.
+Example:
+
+Input:
+	5 5
+Output:
+	2
+
+Input:
+	10  1
+
+Output: 
+	1
+
+class Example9  
+{
+	public static void main(String[] args) 
+	{
+		int N=5,M=5;
+		
+		int maxTeams = Math.min((N+M)/4, Math.min(N,M));	
+		
+		System.out.println(maxTeams);
+	}
+}
+
+
+Q) Write a java program to accept date of birth of a person and find out his age?
+
+import java.time.LocalDate;
+import java.time.Period;
+class Example10 
+{
+	public static void main(String[] args) 
+	{
+			LocalDate dob = LocalDate.of(2002,8,21);
+			
+			LocalDate currentDate = LocalDate.now();
+			
+			Period p = Period.between(dob,currentDate);
+			
+			int age = p.getYears();
+			
+			System.out.println("You age is ="+age);
+	}
+}
+
+
+Q) Write a java program to convert time to seconds?
+
+input:
+	Hours = 10 
+	Minutes = 30
+	Seconds = 23
+
+output:
+	37823
+
+
+
+class Example11 
+{
+	public static void main(String[] args) 
+	{
+		int hours = 10;
+		int minutes = 30;
+		int seconds = 23;
+		
+		int totalSeconds = (hours*3600) + (minutes*60) + seconds;
+		
+		System.out.println(totalSeconds);
+	}
+}
+
+Q) Write a java program to convert seconds to time?
+
+input:
+	37823
+output:
+	10:30:23
+
+
+class Example12
+{
+	public static void main(String[] args) 
+	{
+		int totalSeconds = 37823;
+		
+		int hours = totalSeconds/3600;
+		
+		int minutes = (totalSeconds%3600)/60;
+		
+		int seconds = totalSeconds%60;
+		
+		System.out.println(hours+":"+minutes+":"+seconds);
+	}
+}
+
+Q) Write a java program to print Hello World without using println()?
+
+
+import java.io.IOException;
+class Example13
+{
+	public static void main(String[] args)throws IOException 
+	{
+		String str="Hello World";
+		System.out.write(str.getBytes());
+	}
+}
+
+Q) Write a java program to accept one salary and find out 10% of TDS?
+
+input:
+	1000
+output:
+	100.0
+
+import java.util.Scanner;
+class Example14
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the salary :");
+		int salary = sc.nextInt();
+		
+		double tds = (double)salary*10/100;
+		
+		System.out.println("10 percent of TDS is ="+tds);
+	}
+}
+
+Q) Write a java program to convert CGPA to Percentage?
+
+input:
+	8.2
+output:
+	77.90
+
+
+import java.util.Scanner;
+class Example15
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the CGPA :");
+		double cgpa = sc.nextDouble();
+		
+		double percentage = cgpa*9.5d;
+		
+		System.out.printf("CGPA to Percentage is =%.2f",percentage);
+	}
+}
+
+Types casting in java
+=====================
+The process of converting from one datatype to another datatype is called typecasting.
+
+In java, typecasting can performed in two ways.
+
+1) Implicit typecasting 
+
+2) Explicit typecasting 
+
+1) Implicit typecasting 
+-----------------------
+If we want to store small value into a bigger variable then we need to use implicit typecasting.
+
+A compiler is responsible to perform implicit typecasting.
+
+There is no possibility to loss the information.
+
+It is also known as Widening or Upcasting.
+
+We can perform implicit typecasting as follow.
+
+ex:
+	byte	-->	short		
+				-->
+					int	--> long --> float -->	double
+				-->
+			char 
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		byte b = 10;
+		int i = b;
+		System.out.println(i);
+	}
+}
+
+ex:
+---
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		char ch = 'a';
+		long l = ch;
+		System.out.println(l); // 97
+	}
+}
+
+ex:
+--
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		int i = 10;
+		double d = i;
+		System.out.println(d); // 10.0
+	}
+}
+
+Assignment 
+==========
+Q) Write a java program to find out area of a rectangle?
+
+Q) Write a java program to find out area of a traingle?
+
+Q) Write a java program to find out area of a square?
+
+Q) Write a java program to find out sum of two numbers without using third variable?
+
+Q) Write a java program to find out Multiplication of two numbers?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

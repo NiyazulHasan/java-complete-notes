@@ -1,0 +1,528 @@
+Graphics in HTML
+================
+There are two ways to draw the graphics in HTML.
+
+1) SVG 
+
+2) CANVAS 
+
+1) SVG 
+-------
+SVG stands for Scalable Vector Graphics.
+
+It is used to draw two dimensional based vector graphics in HTML.
+
+World Wide Web Consortium (W3C) perfers SVG technology to draw the graphics in HTML.
+
+A <svg> is a container tag.
+
+We have varioues methods to display circle, rectangle, polygon , graphic images and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<svg style="border:2px solid black;width:200px;height:200px;">
+			
+		</svg>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<svg style="border:2px solid black;width:200px;height:200px;">
+			<circle cx="100px" cy="100px" r="30px"
+						fill="#FFFF00" stroke="#FF0000" stroke-width="5px"/>
+		</svg>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<svg style="border:2px solid black;width:200px;height:200px;">
+			<rect x="50px" y="50px" width="100px" height="60px"
+					fill="#FFFF00" stroke="#FF0000" stroke-width="5px"/>
+		</svg>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<svg style="border:2px solid black;width:200px;height:200px;">
+			<polygon points="90,250 128,90 112,40 120,200"
+						fill="#FFFF00" stroke="#FF0000" stroke-width="5px"/>
+		</svg>
+	</body>
+</html>
+
+
+2) CANVAS 
+----------
+It is introduced in HTML5.
+
+It is used to draw the graphics via javascript.
+
+A <canvas> tag is a container tag.
+
+We have various methods to draw the circle , rectangle, line, polygon and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<canvas style="border:2px solid black;width:200px;height:200px;">
+		
+		</canvas>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<canvas id="myId" style="border:2px solid black;width:200px;height:200px;">
+		
+		</canvas>
+		<script>
+				var context = document.getElementById('myId');
+				var c = context.getContext("2d");
+				c.beginPath();
+				c.moveTo(0,0);
+				c.lineTo(400,200);
+				c.stroke();
+		</script>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<canvas id="myId" style="border:2px solid black;width:200px;height:200px;">
+		
+		</canvas>
+		<script>
+				var context = document.getElementById('myId');
+				var c = context.getContext("2d");
+				c.beginPath();
+				c.arc(100,100,20,0,2*Math.PI);
+				c.stroke();
+		</script>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<canvas id="myId" style="border:2px solid black;width:200px;height:200px;">
+		
+		</canvas>
+		<script>
+				var context = document.getElementById('myId');
+				var c = context.getContext("2d");
+				c.font="30px serif";
+				c.fillText("Hello World",50,50);
+		</script>
+	</body>
+</html>
+
+
+HTML audio tag 
+==============
+The HTML <audio> tag/element is used to play an audio file on a web page.
+
+<audio> tag contains "controls" attribute adds audio control like play,pause ,volume and etc.
+
+The <source > tag/element allows us to specify alternate audio file which the
+browser my choose.
+
+HTML audio formats can be MP3,WAV,OGG and etc.
+
+HTML Audio Media types are 
+
+	File Formats		Media Type
+	------------		----------
+	MP3			audio/mpeg
+	OGG			audio/ogg
+	WAV			audio/wav
+	and etc
+
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<audio src="media/song.mp3" controls>
+		</audio>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<audio controls>
+			<source src="media/song.mp3"  type="audio/mpeg">
+		</audio>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<audio controls muted>
+			<source src="media/song.mp3"  type="audio/mpeg">
+		</audio>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<audio controls loop>
+			<source src="media/song.mp3"  type="audio/mpeg">
+		</audio>
+				
+	</body>
+</html>
+
+
+HTML video tag 
+==============
+The <video> tag or element is used to embed video content in a document such as
+movie clip,other video streams.
+
+The <video> tag contains one or more <source> tag with different video source.
+
+There are three supported video fromats in html are MP4,webM and OGG.
+
+HTML video media types are 
+
+File format		Media Type
+-----------		-----------
+MP4			video/mp4
+OGG			video/ogg
+and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<video src="media/video.mp4"  width="400px" height="400px" controls> 
+		</video>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<video  width="400px" height="400px" controls> 
+				<source src="media/video.mp4" type="video/mp4">
+		</video>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<video  width="400px" height="400px" controls autoplay> 
+				<source src="media/video.mp4" type="video/mp4">
+		</video>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<video  width="400px" height="400px" controls muted> 
+				<source src="media/video.mp4" type="video/mp4">
+		</video>
+				
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<video  width="400px" height="400px" controls loop> 
+				<source src="media/video.mp4" type="video/mp4">
+		</video>
+				
+	</body>
+</html>
+
+ex:
+---
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<video  poster="images/rock.jpg" width="400px" height="400px" controls loop> 
+				<source src="media/video.mp4" type="video/mp4">
+		</video>
+				
+	</body>
+</html>
+
+Q) What is the difference between HTML and HTML5?
+
+HTML						HTML5
+-----						------
+<!DOCTYPE> is used to represent HTML 		<!DOCTYPE html> is used to represent HTML5
+document.					document.
+
+It is bit slow.					It is more faster because it is leight weight.
+
+It is less user friendly.			It is more user friendly.
+
+It is less efficient.				It is more efficient.
+
+It does not allow us to execute javascript 	It allows us to execute javascript code  
+code in a browser window.			in a browser window with the help of 							JavaScript Web Worker API.
+
+We can't play audio,video without using 	We can play audio, video with the help of 
+flash player.					<audio> and <video> tag.
+
+
+Vector graphics is possible by using silver 	Vector graphics is possible by using internal 
+light, adope flash and etc.			technologies like SVG and CANVAS.
+
+It can't handle inaccurate syntax.		It can handle inaccurate syntax.
+
+Shapes like circle, rectangle, polygon		Shapes like circle, rectangle, polygon and etc 
+and etc are not easy to draw.			are easy to draw.
+
+
+Q) What is the difference between div and span tag?
+
+<div>						<span>
+--------					-------
+It is a block element.				It is a inline element.
+
+It is used to wrap the sections.		It is used to wrap small portion of a text.
+
+It is used for CSS based layouts.		It is used to <!DOCTYPE html>
+
+ex:
+
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<center>
+		<h1>
+			I<span style="color:blue;">HUB</span>TALENT
+		</h1>
+		</center>		
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+ex:
+--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

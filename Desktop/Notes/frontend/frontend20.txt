@@ -1,0 +1,729 @@
+BOM 
+====
+BOM stands for Browser Object Model.
+
+It is a collection of objects that is used to interact with browser.
+
+Every browser contains one default object called window.
+
+We can call all the properties of window directly or by using window.
+ex:
+	alert("Thanks for click");
+	or 
+	window.alert("Thanks for click");
+
+window 
+======
+It is a default object of a browser.
+
+It is used to perform window related programming.
+
+It is not a object of javascript. 
+
+Using window object we can perform following things.
+
+1) We can display dialog and pop-up boxes 
+
+2) We can open and close the window 
+
+3) We can move the window 
+
+4) We can achieve javascript history
+
+5) we can find height and width of a window.
+
+and etc.
+
+alert()
+=======
+It is used to display alert box. It has message with ok button.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> clickMe </button>
+    <script>
+            function f1()
+            {
+                alert("Thank you for click");
+            }
+    </script>
+</body>
+</html>
+
+confirm()
+=========
+It is used to display confirm dialog box. It has message with ok and cancel button.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> delete </button>
+    <script>
+            function f1()
+            {
+                var val = confirm("R u sure ?");
+                if(val==true)
+                {
+                    alert("ok");
+                }
+                else
+                {
+                    alert("cancel");
+                }
+            }
+    </script>
+</body>
+</html>
+
+prompt() 
+========
+It is used to display prompt dialog box. It has message with textfield.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> insert </button>
+    <script>
+        function f1()
+        {
+            var name = prompt("Enter the name :");
+            alert("Welcome :"+name);
+        }
+    </script>
+</body>
+</html>
+
+
+print() 
+=======
+The print() method prints the contents of the current window.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <table border="1" align="center" width="100%">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Alan</td>
+            <td>Miami</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>James</td>
+            <td>Chicago</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>Nelson</td>
+            <td>Texas</td>
+        </tr>
+        <tr>
+            <td>104</td>
+            <td>Nancy</td>
+            <td>New Jersey</td>
+        </tr>
+    </table>
+    <br><br>
+    <center>
+        <button onclick="window.print()"> print </button>
+    </center>
+</body>
+</html>
+
+innerHeight and innerWidth 
+===========================
+It is used to find width and height of the window.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var h = window.innerHeight;
+        var w = window.innerWidth;
+        document.writeln("Height :"+h);
+        document.writeln("Width :"+w);
+    </script>
+</body>
+</html>
+
+open()
+========
+The open() method opens a new browser window, or a new tab, depending on the parameter values.
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> open </button>
+    <script>
+        function f1()
+        {
+            open("http://www.google.com","_blank");
+        }
+    </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> open </button>
+    <script>
+        function f1()
+        {
+        open("http://www.google.com","_blank", "width=100px,height=100px");
+        }
+    </script>
+</body>
+</html>
+
+
+close()
+========
+It is used to close the window.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> open </button>
+    <button onclick="f2()"> close </button>
+    <script>
+        var myId;
+        function f1()
+        {
+ myId= open("http://www.ihubtalent.com","_blank", "width=100px,height=100px");
+        }
+        function f2()
+        {
+            myId.close();
+        }
+    </script>
+</body>
+</html>
+
+moveTo()
+---------
+It moves the window from absoluate position.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> open </button>
+    <button onclick="f2()"> Move To  </button>
+    <script>
+        var myId;
+        function f1()
+        {
+            myId= open("","_blank", "width=100px,height=100px");
+        }
+        function f2()
+        {
+            myId.moveTo(100,100);
+        }
+    </script>
+</body>
+</html>
+
+moveBy() 
+---------
+It moves the window from relative position.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> open </button>
+    <button onclick="f2()"> Move By  </button>
+    <script>
+        var myId;
+        function f1()
+        {
+            myId= open("","_blank", "width=100px,height=100px");
+        }
+        function f2()
+        {
+            myId.moveBy(200,200);
+        }
+    </script>
+</body>
+</html>
+
+
+
+setTimeout()
+============
+This function will execute only for one time.
+
+The setTimeout() method calls a function after a number of milliseconds. 
+
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> clickMe  </button>
+    
+    <script>
+        function f1()
+        {
+            setTimeout(function(){
+                alert("Hello Students!!");
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
+
+
+clearTimeout()
+==============
+The clearTimeout() method clears/removes a timer set with the setTimeout() method.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <button onclick="f1()"> start </button>
+    <button onclick="f2()"> stop </button>
+    <script>
+        var myId;
+        function f1()
+        {
+            myId= setTimeout(function(){
+                alert("Hello Students!!");
+            }, 5000);
+        }
+        function f2()
+        {
+            clearTimeout(myId);
+        }
+    </script>
+</body>
+</html>
+
+setInterval()
+==============
+A setInterval() execute the function repeatedly.
+
+The setInterval() method calls a function at specified intervals (in milliseconds).
+
+ex:
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+    <style>
+        img
+        {
+            width : 500px;
+            height : 300px;
+        }
+    </style>
+</head>
+<body>
+      <img src="images/car.png" id="myId"/>  
+      <br>
+      <br>
+      <button onclick="f1()"> start </button>
+      <script>
+          function f1()
+          {
+                var a=0;
+                var target = document.getElementById("myId");
+                setInterval(f2,1000);
+                function f2()
+                {
+                    a = a + 10;
+                    target.style.marginLeft = a+"px";
+                }
+          }
+      </script>
+</body>
+</html>
+
+
+clearInterval()
+================
+The clearInterval() method clears a timer set with the setInterval() method. 
+
+ex:
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+    <style>
+        img
+        {
+            width : 500px;
+            height : 300px;
+        }
+    </style>
+</head>
+<body>
+      <img src="images/car.png" id="myId"/>  
+      <br>
+      <br>
+      <button onclick="f1()"> start </button>
+      <script>
+          var myId;
+          function f1()
+          {
+                var a=0;
+                var target = document.getElementById("myId");
+                myId = setInterval(f2,1000);
+                function f2()
+                {
+                    a = a + 10;
+                    if(a==100)
+                    {
+                        clearInterval(myId);
+                    }
+                    target.style.marginLeft = a+"px";
+                }
+          }
+      </script>
+</body>
+</html>
+
+JavaScript History 
+==================
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+    <style>
+       a 
+       {
+            display: inline-block;
+            margin : 100px 100px;
+            text-decoration: none;
+       }    
+    </style>
+</head>
+<body>
+     
+     <a href="javascript:history.back()"> Previous </a>
+
+     <a href="javascript:history.forward()"> Next </a>
+          
+</body>
+</html>
+
+localStorage 
+============
+A localStorage properties allows us to save key/value pairs in a browser window.
+
+A localStorage allows us to store the data with no-expiry.It means our data will not be 
+delete even if we close the browser.It will be present for next day.
+
+A localStorage is a read-only.
+
+To add the data in a localStorage we need to use setItem(key,value) function.
+
+To read the data from localStorage we need to use getItem(key) function.
+
+To remove perticular data from localStorage we need to use removeItem(key) function.
+
+To remove all the data from localStorage we need to use clear() function.
+
+ex:
+---
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+     <script>
+        localStorage.setItem("name","Alan");
+        localStorage.setItem("age","29");
+        document.writeln(localStorage.getItem("name")+"<br>");
+        document.writeln(localStorage.getItem("age")+"<br>");
+
+        localStorage.removeItem("age");
+        document.writeln(localStorage.getItem("name")+"<br>");
+        document.writeln(localStorage.getItem("age")+"<br>");
+
+        localStorage.clear();
+        document.writeln(localStorage.getItem("name")+"<br>");
+        document.writeln(localStorage.getItem("age")+"<br>");
+
+    </script>  
+</body>
+</html>
+
+sessionStorage
+===============
+A sessionStorage properties allows us to save key/value pair in a browser window.
+
+A sessionStorage store the data with respect to one session.It means our data will be deleted
+once if we close the browser window.
+
+To add the data in a sessionStorage we need to use setItem(key,value) function.
+
+To read the data from sessionStorage we need to use getItem(key) function.
+
+To remove perticular data from sessionStorage we need to use removeItem(key) function.
+
+To remove all the data from sessionStorage we need to use clear() function.
+
+ex:
+---
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+     <script>
+        sessionStorage.setItem("name","Alan");
+        sessionStorage.setItem("age","29");
+        document.writeln(sessionStorage.getItem("name")+"<br>");
+        document.writeln(sessionStorage.getItem("age")+"<br>");
+
+        sessionStorage.removeItem("age");
+        document.writeln(sessionStorage.getItem("name")+"<br>");
+        document.writeln(sessionStorage.getItem("age")+"<br>");
+
+        sessionStorage.clear();
+        document.writeln(sessionStorage.getItem("name")+"<br>");
+        document.writeln(sessionStorage.getItem("age")+"<br>");
+
+    </script>  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

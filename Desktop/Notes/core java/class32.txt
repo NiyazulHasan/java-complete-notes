@@ -1,0 +1,508 @@
+Q) What is the difference between Abstraction and Encapsulation ?
+
+Abstraction				Encapsulation 
+----------				-------------
+Hiding internal implementation and 	The process of encapsulating or wrapping 
+highlighting the set of services 	variables and it's associate methods in 
+is called abstraction.			a single entity.
+
+Using abstract classes and interfaces	Using access modifiers we can implements
+we can implements abstraction.		encapsulation.
+
+It is used to hide the data.		It is used to protect the data.
+
+It is a process of gaining the 		It is a process of containing the 
+information.				information.
+
+
+Q) What is the difference between POJO and Java Bean class?
+
+POJO						Java Bean 
+------------					-----------
+It can't be serialized.				It can be serialized.
+
+Fields can have any visibility.			Fields can have only private visibility.
+
+It may or may not have constructor.		It must have atleast zero argument 
+						constructor.
+
+It does not extend outside classes.		It can extends.
+
+It does not implement outside interfaces.	It can implements.
+
+It does not use outside annotations.		It uses outside annotations.
+
+
+
+
+Q) Write a java program to reverse the array without using another array?
+
+input:
+	6 9 1 5 3 7 
+output:
+	7 3 5 1 9 6 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr = {6,9,1,5,3,7};
+		
+		int left = 0;
+		int right = arr.length-1;
+		
+		while(left<right)
+		{
+			int temp = arr[left];
+			arr[left]=arr[right];
+			arr[right]=temp;
+			left++;
+			right--;
+		}
+		for(int i : arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Is-A relationship 
+=================
+Is-A relationship is also known as inheritance.
+
+Using extends keyword we can implements Is-A relationship.
+
+The main objective of Is-A relationship is to provide reusability.
+
+ex:
+---
+class Parent 
+{
+	public void methodOne()
+	{
+		System.out.println("MethodOne");
+	}
+}
+class Child extends Parent 
+{
+	public void methodTwo()
+	{
+		System.out.println("MethodTwo");
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Parent p = new Parent();
+		p.methodOne();
+		
+		Child c = new Child();
+		c.methodOne();
+		c.methodTwo();
+		
+		Parent p1 = new Child();
+		p1.methodOne();
+		
+		Child c1 = new Parent(); // C.T.E 
+	}
+}
+
+Conclusion
+----------
+A parent reference can hold child object. But child reference can't hold parent object.
+
+Whatever properties are there with parent that comes to child but whatever properties are there with child that never go back to parent.
+
+
+Inheritance 
+===========
+It is a mechanism in which one class inherits the properties of another class.
+
+If we derived a class in the presence of existing class is called inheritance. 
+
+Diagram: class32.1
+
+Using "extends" keyword we can implements inheritance.
+
+The main objective of inheritance is to provide reusability.
+
+We have five types of inheritance.
+
+1) Single Level Inheritance 
+
+2) Multi Level Inheritance 
+
+3) Multiple Inheritance 
+
+4) Hierarchical Inheritance
+
+5) Hybrid Inheritance 
+
+1) Single Level Inheritance 
+----------------------------
+If we derived a class in the presence of one base class is called single level inheritance.
+
+Diagram:	
+		A (Parent/Base/Super class)
+		|
+		|
+		B (Child/Derived/Sub class)
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A();
+		a.m1();
+		
+		B b = new B();
+		b.m1();
+		b.m2();
+	}
+}
+
+ex:
+---
+class A 
+{
+	int i=10;
+}
+class B extends A 
+{
+	int j=20;
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A();
+		System.out.println(a.i);
+		
+		B b = new B();
+		System.out.println(b.i+" "+b.j);
+	}
+}
+
+2) Multi Level Inheritance
+--------------------------
+If we derived a class in the presence of one base class and that class is derived from another base class is called multi level inheritance.
+
+Diagram:
+		A
+		|
+		|
+		B
+		|
+		|
+		C 
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends B 
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A();
+		a.m1();
+		
+		B b = new B();
+		b.m1();
+		b.m2();
+		
+		C c = new C();
+		c.m1();
+		c.m2();
+		c.m3();
+	}
+}	
+
+
+3) Multiple Inheritance 
+---------------------
+In java, we can't extends more then one class simultenously because java does not support multiple inheritance.
+ex:
+	class A 
+	{
+	}
+	class B 
+	{
+	}
+	class C extends A,B --> invalid 
+	{
+	}
+
+But interface can extends more then one interface so we can achieve multiple inheritance concept through interfaces.
+ex:
+	interface A 
+	{
+	}
+	interface B 
+	{
+	}
+	interface C extends A,B
+	{
+	}
+
+If our class does not extends any other class then our class is a directly child class of Object class.
+ex:			Diag:
+	class A 		Object
+	{			|
+	}			|
+				A 
+
+If our class extends some other class then our class is a indirect child class of Object class.
+ex:			Diag:
+	class A 		Object
+	{			|
+	}			|
+	class B extends A 	A 
+	{			|
+	}			|
+				B 
+Java does not support cyclic inheritance.
+ex:
+	class A extends B 
+	{
+	}
+	class B extends A 
+	{
+	}
+
+Q) Why java does not support multiple inheritance?
+
+There is a chance of raising ambiguity problem that's why java does not support multiple inheritance.
+ex:
+	P1.m1()				P2.m1()
+	|-------------------------------------|
+			|
+			C.m1()
+
+
+4) Hierarchical Inheritance
+----------------------------
+If we derived multiple class by using one base class is called hierarchical inheritance.
+Diagram:
+			A
+			|
+	|-------------------------------|
+	B				C
+
+ex:
+---
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class C extends A
+{
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A();
+		a.m1();
+		
+		B b = new B();
+		b.m1();
+		b.m2();
+		
+		C c = new C();
+		c.m1();
+		c.m3();
+	}
+}
+
+5) Hybrid Inheritance
+----------------------
+It is a combination of more then two inheritance.
+Java does not support hybrid inheritance.
+
+Diagram:
+			A
+			|
+	|-------------------------------|
+	B				C		
+	|-------------------------------|
+			|
+			D 	
+	
+
+Has-A relationship
+==================
+Has-A relationship is also known as composition and aggregation.
+
+There is no specific keyword to implements Has-A relationship but mostly we will use new operator.
+
+The main objective of Has-A relationship is to provide reusability.
+
+Has-A relationship will increase dependency between two components.
+
+ex:
+---
+class QualityThought 
+{
+	public String courseName()
+	{
+		return "Full Stack Java";
+	}
+	public double courseFee()
+	{
+		return 30000d;
+	}
+	public String trainerName()
+	{
+		return "Niyaz Sir";
+	}
+}
+class Mumtaz 
+{
+	public void getCourseDetails()
+	{
+		QualityThought qt = new QualityThought();
+		System.out.println("Course Name :"+qt.courseName());
+		System.out.println("Course Fee :"+qt.courseFee());
+		System.out.println("Trainer Name :"+qt.trainerName());
+	}
+}
+class Student 
+{
+	public static void main(String[] args)
+	{
+		Mumtaz m = new Mumtaz();
+		m.getCourseDetails();
+	}
+}
+
+Assignment
+==========
+Q) Write a java program to sort array elements?
+
+input:
+	2 0 9 1 0 5 0 
+output:
+	2 9 1 5 0 0 0 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

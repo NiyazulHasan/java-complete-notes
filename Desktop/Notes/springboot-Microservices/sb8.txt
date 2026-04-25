@@ -1,0 +1,404 @@
+Custom Queries In Spring Boot 
+=============================
+@Query annotation of spring data jpa allows us to declare customer queries using JPQL (Java Persistence Query Language) or Native SQL.
+
+@Param annotation of spring data jpa is used to map method parameters with query parameters.
+
+
+Project Structure 
+-----------------
+order-service 
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+	|
+	|---com.ihub.www.entity 
+		|
+		|---Order.java
+
+	|---com.ihub.www.repo 
+		|
+		|---OrderRepository.java
+
+	|---com.ihub.www.service
+		|
+		|---OrderService.java
+
+	|---com.ihub.www.controller
+		|
+		|---OrderController.java
+
+|---src/main/resources
+	|
+	|---application.yml 
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+-----
+	Create a spring starter project i.e order-service.
+	ex:
+		starters:
+				Spring Web 
+				Spring Data JPA 
+				MySQL Driver 
+				Lombok 
+
+step2:
+-----
+	create and use schema in mysql database.
+	ex:
+		create schema batch56;
+		use batch56;
+
+step3:
+------
+	Create a orders table with records.
+	ex:
+	create table orders(id int(3),status varchar(10),amount int(8),date date);
+	insert into orders values(101,'DELIVERED',10000,'2026-04-03');
+	insert into orders values(102,'SHIPPING',20000,'2026-03-15');
+	insert into orders values(103,'CANCELLED',30000,'2026-11-25');
+	commit;
+
+step4:
+-----
+	Create a "Order.java" file inside "com.ihub.www.entity" package.
+
+Order.java
+----------
+package com.ihub.www.entity;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity(name="OrderEntity")
+@Table(name="orders")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Order 
+{
+	@Id
+	private Long id;
+	
+	@Column
+	private String status;
+	
+	@Column
+	private Double amount;
+	
+	@Column
+	private LocalDate date;
+}
+
+
+step5:
+------
+	Create a OrderRepository.java file inside "com.ihub.www.repo" package.
+
+OrderRepository.java
+--------------------
+package com.ihub.www.repo;
+
+import java.time.LocalDate;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.ihub.www.entity.Order;
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long>
+{
+	public Order findByStatus(String status);
+	
+	//Native SQL query 
+	@Query(value = "select * from orders where amount = :amount",nativeQuery = true)
+	public Order findAmountBy(@Param("amount") Double amount);
+	
+	//JPQL 
+	@Query("select o from OrderEntity o where o.date = :date")
+	public Order findByDate(@Param("date") LocalDate date);
+}
+
+
+step6:
+------
+	Rename application.properties file to application.yml file.
+
+step7:
+------
+	Configure server port, application name, database properties and hibernate 
+	properties inside application.yml file.
+
+application.yml
+---------------
+server:
+  port: 8181
+
+spring:
+  application:
+    name: ORDER-SERVICE
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver 
+    url: jdbc:mysql://localhost:3306/batch56
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+step8:
+------
+	Create a "OrderService.java" file inside "com.ihub.www.service" package.
+
+OrderService.java
+-----------------
+package com.ihub.www.service;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ihub.www.entity.Order;
+import com.ihub.www.repo.OrderRepository;
+
+@Service
+public class OrderService 
+{
+	@Autowired
+	private OrderRepository orderRepository;
+	
+
+	public Order firstOrder(String status)
+	{
+		return orderRepository.findByStatus(status);
+	}
+	
+	public Order secondOrder(Double amount)
+	{
+		return orderRepository.findAmountBy(amount);
+	}
+	
+	public Order thirdOrder(LocalDate date)
+	{
+		return orderRepository.findByDate(date);
+	}
+}
+
+
+step9:
+------
+	Create a "OrderController.java" file inside "com.ihub.www.controller" package.
+
+OrderController.java 
+-------------------
+package com.ihub.www.controller;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ihub.www.entity.Order;
+import com.ihub.www.service.OrderService;
+
+@RestController
+@RequestMapping("/order")
+public class OrderController 
+{
+	@Autowired
+	private OrderService orderService;
+	
+	@GetMapping("/first/{status}")
+	public Order firstOrder(@PathVariable String status)
+	{
+		return orderService.firstOrder(status);
+	}
+	
+	@GetMapping("/second/{amount}")
+	public Order secondOrder(@PathVariable Double amount)
+	{
+		return orderService.secondOrder(amount);
+	}
+	
+	@GetMapping("/third/{date}")
+	public Order thirdOrder(@PathVariable LocalDate date)
+	{
+		return orderService.thirdOrder(date);
+	}
+}
+
+
+step10:
+------
+	Run spring boot starter project.
+
+step11:
+------
+	Test the application using POSTMAN tool.
+	ex:
+		HTTP method	URL
+		----------	----		
+		GET		http://localhost:8181/order/first/CANCELLED
+		GET		http://localhost:8181/order/second/20000
+		GET		http://localhost:8181/order/third/2026-04-03
+
+
+Spring Boot Actuator
+=====================
+Spring boot actuator is a module that provides production ready grade features to monitor and manage applications when we push in production environment.
+
+Spring boot actuator describes 
+
+1) Is my application is running or not?
+
+2) How much memory/cpu is being used.
+
+3) It checks the status of database, disk and services.
+
+Reallife example
+----------------
+
+	Human Body 		Spring Boot Actuator 
+	-----------		--------------------
+	Doctor			Develper/DevOps
+	BP check		/actuator/health
+	temperator		/actuator/metrics
+	Medical report		/actuator/info
+		
+Project Structure 
+---------------
+actuator-app
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base pkg)
+	|
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+
+step1:
+------
+	Create a spring starter project i.e actuator-app.
+	ex:
+		Spring Web 
+		Spring Boot Actuator 
+
+step2:
+------
+	Create a "HomeController.java" file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController
+{
+	@GetMapping("/msg")
+	public String home()
+	{
+		return "Spring Boot Actuator Example";
+	}
+}
+
+step3:
+------
+	Configure server port and actuator configurations inside application.properties.
+
+application.properties 
+----------------------
+spring.application.name=actuator-app
+
+server.port=9191
+
+# Expose actuator endpoints
+management.endpoints.web.exposure.include=health,info,metrics
+
+# Enable health details
+management.endpoint.health.show-details=always
+
+# Application info
+management.info.env.enabled=true
+info.app.name=Spring Boot 4 Actuator Demo
+info.app.version=1.0.0
+
+step4
+-----
+	Run spring boot starter project.
+
+step5:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/msg
+		http://localhost:9191/actuator/info
+		http://localhost:9191/actuator/metrics
+		http://localhost:9191/actuator/health
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

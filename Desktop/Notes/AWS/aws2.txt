@@ -1,0 +1,174 @@
+Operating System 
+=================
+Operating system is a mediator or interface between user and hardware component.
+
+We have two types of operating systems.
+
+1) GUI - Graphical User Interface
+----------------------------
+	ex:
+		windows 
+
+2) CLI - Command Line Interface
+-------------------------------
+	ex:
+		Linux 
+
+Note:
+----
+	In space of operating system linux is widely used.
+	90% of enterprise is CLI and that too linux.
+
+
+Q) Who is the richest person in the world?
+
+	Elon Musk 
+
+
+Q) Who was the richest person for a long period of time?
+
+	Bill Gates 
+
+
+
+Linux History 
+==============
+Linux is created by Linus Torvalds.
+
+The idea behind linux operating system is why we should pay the money to use OS.
+
+He has started one open source project called linux.
+
+He developed linux kernel.
+
+Linux kernel is a first layer of operating system.
+
+Linux kernel is used interact with hardware components.
+
+
+1) He wants to develop free CLI OS
+
+2) It should be open source 
+
+3) It should run on any hardware.
+
+4) GNUX (Generally Not a Unix)
+
+We have total 300+ distributions in linux.
+
+
+EC2
+====
+EC2 stands for Elastic Cloud Compute.
+
+EC2 comes in IaaS (Infrastructure As a Service)
+
+It is a webservice provided by the AWS to create servers(instances) in cloud.
+
+
+Linux provide two ways authentication 
+
+1) Using username and password (recommanded)
+
+2) Using username with key (not recommanded)
+
+
+
+
+Steps to create Linux Server using username and password
+========================================================
+step1:
+------
+	Login to AWS Account.
+	ex:
+		Root User:
+			gmail :  ........
+			password : ........
+step2:
+------
+	Select the region.
+	ex:
+		N Virginia 	
+
+step3:
+------
+	Goto EC2 and create a security group.	
+	ex:
+		mySecurityGroupBatch55
+step4:
+------
+	Create a EC2 Instance.
+	ex:
+		AMI : DevOps-LabImage-Centos-8	
+		username : centos 
+		password : DevOps321
+	
+step5:
+-----
+	Download and install putty in your computer.
+	ex:
+		https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+
+step6:
+-----
+	Copy public IP address and paste in putty to connect with linux server.
+	ex:
+		login as : centos 
+		password : DevOps321
+
+step7:
+------
+	Terminate the EC2 instance.
+
+
+
+
+
+
+Types of Instances
+==================
+We have three types of instances.
+
+1) Reserved Instances 
+
+2) On-Demand Instances
+
+3) Spot Instances  
+
+
+
+
+Launch Template
+================
+Launch template is used to create EC2 instance only by just one click.
+
+Launch template contains configuration information of EC2 instance.
+
+It contains ID of an AMI, Instance type (t3.micro), Security Group , key and value pair and other parameters required to launch EC2 instance.
+
+ex:
+	AMI 		: DevOps-LabImage-Centos-8
+	Region 		: N Virginia
+	username 	: centos
+	password	: DevOps321 
+
+step1:
+------
+	Login to AWS account.
+
+step2:
+------
+	Goto EC2 service and create a launch template.
+
+step3:
+------
+	Launch EC2 instance (spot instance) from launch template.
+
+step4:
+------
+	Copy public IP address and paste in putty.
+
+step5:
+------
+	We need to cancel the request to terminate spot instances.	

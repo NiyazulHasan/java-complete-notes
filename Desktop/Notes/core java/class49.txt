@@ -1,0 +1,671 @@
+Stream API 
+==========
+Stream API introduced in Java 8.
+
+Stream API is present in java.util.stream package.
+
+It allows functional style programming and makes our code simple and easy.
+
+It is used to process collection of objects.
+
+It is used to perform bulk operations on Collections.
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		List<Integer> newList = list.stream()
+					.map(i -> i+10)
+						.collect(Collectors.toList());
+		
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		List<Integer> newList = list.stream().filter(i -> i%2==0).collect(Collectors.toList());
+		
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		long even = list.stream().filter(i -> i%2==0).count();
+		
+		System.out.println(even);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		List<Integer> newList = list.stream().sorted().collect(Collectors.toList());
+		
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		List<Integer> newList = list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		long minimum = list.stream().min((i1,i2)->i1.compareTo(i2)).get();
+		
+		System.out.println(minimum);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		long maximum = list.stream().max((i1,i2)->i1.compareTo(i2)).get();
+		
+		System.out.println(maximum);
+	}
+}
+
+Q) Write a java program to concatinate two list?
+
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list1 = Arrays.asList(5,9,1,4,6);
+		List<Integer> list2 = Arrays.asList(3,8,2,7,10);
+		
+		List<Integer> newList = Stream.concat(list1.stream(), list2.stream()).collect(Collectors.toList());
+		
+		System.out.println(newList);
+	}
+}
+
+
+Q) What is the difference between map() and flatMap() ?
+
+map()					flatMap()
+--------				----------
+It is used for mapping.			It is used for mapping and flattening.
+
+Produce a stream of value.		Produce a stream of stream value.
+
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = Arrays.asList(5,9,1,4,6);
+		
+		List<Integer> newList = list.stream().map(i-> i+10).collect(Collectors.toList());
+		
+		System.out.println(newList);
+	}
+}
+
+ex:
+---
+import java.util.*;
+import java.util.stream.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<List<Integer>> list = new ArrayList<>();
+		list.add(Arrays.asList(1,2,3));
+		list.add(Arrays.asList(4,5,6));
+		list.add(Arrays.asList(7,8,9));
+		
+		System.out.println(list);//[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+		
+		List<Integer> newList = list.stream().flatMap(i-> i.stream()).collect(Collectors.toList());
+		
+		System.out.println(newList);
+		
+		
+	}
+}
+
+forEach() Method 
+================
+A forEach() method introduced in Java 8.
+
+It is used to iterate the objects from Collections.
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = List.of(1,6,9,2,4);
+		
+		list.forEach(ele -> System.out.print(ele+" "));
+		
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Set<Integer> set = Set.of(1,6,9,2,4);
+		
+		set.forEach(ele -> System.out.print(ele+" "));
+		
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Map<Integer,String> map = Map.of(1,"one",2,"two",3,"three");
+		
+		map.forEach((k,v) -> System.out.println(k+"="+v));
+		
+	}
+}
+
+Method Reference (::)
+=====================
+Method reference introduced in Java 8.
+
+It is a special type of lamda expression.
+
+It is a concise way to call existing methods.
+
+ex:
+--
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		List<Integer> list = List.of(7,1,6,2,9,4);
+		
+		list.forEach(System.out::println);
+		
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Map<Integer,String> map = Map.of(1,"one",2,"two",3,"three");
+		map.forEach(Test::entry);
+	}
+	public static void entry(Integer key,String value)
+	{
+		System.out.println(key+"="+value);
+	}
+}
+
+
+Q) When java throws NullPointerException?
+
+When our code attempts to read object reference which is not initialized then we will get NullPointerException.
+
+ex:
+	Test t=null;
+	System.out.println(t.i); // R.E NullPointerException 
+
+	int[] arr = null;
+	System.out.println(arr[0]); // R.E NullPointerException
+
+	ArrayList al = null;
+	System.out.println(al.get(0)); // R.E NullPointerException 
+
+	Test t = null;
+	synchronized(t)
+	{
+	}
+	// R.E NullPointerException 
+
+
+Optional class
+==============
+Optional class introduced in Java 8.
+
+Optional class is used to perform null checks.
+
+There are three ways to create Optional class object.
+
+ex:
+	Optional<Object> optional = Optional.empty();
+	Optional<Object> optional = Optional.of();
+	Optional<Object> optional = Optiona.ofNullable();
+
+ex:
+--
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Optional<Object> optional = Optional.empty();
+		System.out.println(optional);//Optional.empty
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str="Hi";
+		Optional<Object> optional = Optional.of(str);
+		System.out.println(optional);//Optional[Hi]
+		System.out.println(optional.get());// Hi
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str=null;
+		Optional<Object> optional = Optional.of(str);
+		System.out.println(optional); // R.E NullPointerException
+		
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str=null;
+		Optional<Object> optional = Optional.ofNullable(str);
+		System.out.println(optional.orElse("Value Not Found")); 
+		
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		String str=null;
+		Optional<Object> optional = Optional.ofNullable(str);
+		System.out.println(optional.orElseThrow(()-> new NullPointerException())); 
+		
+	}
+}
+
+ex:
+--
+import java.util.*;
+class Test 
+{
+	int i=10;
+	public static void main(String[] args) 
+	{
+		Test t = null;
+		Optional<Object> optional = Optional.ofNullable(t);
+		if(!optional.isPresent())
+		{
+			t = new Test();
+		}
+		System.out.println(t.i); 
+		
+	}
+}
+
+
+Q) Write a java program to display employees information in ascending order of employee id?
+
+import java.util.*;
+import java.util.stream.*;
+
+class Employee
+{
+	private int empId;
+	private String empName;
+	private double empSalary;
+	
+	Employee(int empId,String empName,double empSalary)
+	{
+		this.empId = empId;
+		this.empName = empName;
+		this.empSalary = empSalary;
+	}
+	public int getEmpId()
+	{
+		return empId;
+	}
+	public String getEmpName()
+	{
+		return empName;
+	}
+	public double getEmpSalary()
+	{
+		return empSalary;
+	}
+	@Override
+	public String toString()
+	{
+		return empId+" "+empName+" "+empSalary;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Employee> list = new ArrayList<>();
+		list.add(new Employee(104,"Alan",4000d));
+		list.add(new Employee(102,"Jose",2000d));
+		list.add(new Employee(103,"Mark",3000d));
+		list.add(new Employee(101,"Nani",1000d));
+		
+		List<Employee> newList = list.stream().sorted(Comparator.comparingInt(Employee::getEmpId))
+			.collect(Collectors.toList());
+		
+		newList.forEach(System.out::println);
+	}
+}
+
+Q) Write a java program to display employees information in ascending order of employee name?
+
+import java.util.*;
+import java.util.stream.*;
+
+class Employee
+{
+	private int empId;
+	private String empName;
+	private double empSalary;
+	
+	Employee(int empId,String empName,double empSalary)
+	{
+		this.empId = empId;
+		this.empName = empName;
+		this.empSalary = empSalary;
+	}
+	public int getEmpId()
+	{
+		return empId;
+	}
+	public String getEmpName()
+	{
+		return empName;
+	}
+	public double getEmpSalary()
+	{
+		return empSalary;
+	}
+	@Override
+	public String toString()
+	{
+		return empId+" "+empName+" "+empSalary;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		List<Employee> list = new ArrayList<>();
+		list.add(new Employee(104,"Alan",4000d));
+		list.add(new Employee(102,"Jose",2000d));
+		list.add(new Employee(103,"Mark",3000d));
+		list.add(new Employee(101,"Nani",1000d));
+		
+		List<Employee> newList = list.stream().sorted(Comparator.comparing(Employee::getEmpName))
+			.collect(Collectors.toList());
+		
+		newList.forEach(System.out::println);
+	}
+}
+
+
+
+Q) Write a java program on predefined Functional interface?
+
+BiFunction 
+-----------
+It is part of the java.util.function package.
+
+It is a functional interface that accepts two arguments and produces a single result. 
+
+It is typically used with lambda expressions or method references. 
+
+ex:
+---
+import java.util.function.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		BiFunction<Integer,Integer,Integer> add = (x,y) -> x+y;
+		
+		int sum = add.apply(10,20);
+		
+		System.out.println(sum);
+	}
+}
+
+
+Predicate
+==========
+It is part of the java.util.function package.
+
+It is a functional interface that accepts one argument and produces boolean value. 
+
+It is typically used for defining and applying conditional checks, especially in the context of Java Streams. 
+
+ex:
+--
+import java.util.function.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Predicate<Integer> isEven = n -> n%2==0;
+		
+		boolean b = isEven.test(10);
+		
+		System.out.println(b); 
+	}
+}
+
+Consumer 
+=========
+Represents an operation that accepts a single input argument and returns no result. 
+
+ex:
+---
+import java.util.function.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Consumer<String> display = msg -> System.out.println(msg);
+		
+		display.accept("Welcome to Functional Interface");
+		
+	}
+}
+
+Supplier 
+========
+The Supplier<T> interface is a functional interface. It represents a supplier of results. 
+
+ex:
+import java.util.function.*;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Supplier<Double> cube = () -> Math.pow(5,3);
+		
+		double result = cube.get();
+	
+		System.out.println(result);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

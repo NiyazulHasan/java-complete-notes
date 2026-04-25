@@ -1,0 +1,457 @@
+Q) Jack purchased a new laptop for his office work. His child started to learn how to frame the words by using alphabets. Jack wants to write a program to find out longest word created by his child.
+
+input:
+	dog apple goat elephant rabbit
+
+output:
+	elephant
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="dog apple goat elephant rabbit";
+		String[] sarr = str.split(" ");
+		
+		int max = sarr[0].length();
+		String word = "";
+		
+		for(String s : sarr)
+		{
+			if(s.length() > max)
+			{
+				max = s.length();
+				word = s;
+			}
+		}
+		System.out.println(word);
+	}
+}
+
+
+Q) Write a java program to display palindrome string?
+
+input:
+	racar is madam for students 
+
+output:
+	racar  madam 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="racar is madam for students";
+		String[] sarr = str.split(" ");
+		
+		for(String s : sarr)
+		{
+			//reading reverse
+			String rev="";
+			for(int i=s.length()-1;i>=0;i--)
+			{
+				rev+=s.charAt(i);
+			}
+			if(s.equals(rev))
+				System.out.print(s+" ");
+		}
+	}
+}
+
+
+Q) Write a java program to display the string starting with uppercase letter?
+
+input:
+	This is Java class For students 
+
+output:
+	This  Java  For 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java class For students";
+		String[] sarr = str.split(" ");
+		
+		for(String s : sarr)
+		{
+			if(s.charAt(0)>='A' && s.charAt(0)<='Z')
+			{
+				System.out.print(s+" ");
+			}
+		}
+		
+	}
+}
+
+
+Approach2
+----------
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="This is Java class For students";
+		String[] sarr = str.split(" ");
+		
+		for(String s : sarr)
+		{
+			if(Character.isUpperCase(s.charAt(0)))
+			{
+				System.out.print(s+" ");
+			}
+		}
+		
+	}
+}
+
+
+
+Q) Write a java program to encode the string?
+
+input:
+	1106
+output:
+	AAJF
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="1106";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			int n = Character.getNumericValue(str.charAt(i));
+			if(n>0)
+			{
+				System.out.print((char)('A'+n-1));
+			}
+			else
+			{
+				int k = Integer.parseInt(str.substring(i-1,i+1));
+				System.out.print((char)('A'+k-1));
+			}
+		}
+		
+		
+	}
+}
+
+
+
+Q) Write a java program to decode the string?
+
+input:
+	AAJF
+output:
+	1106
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="AAJF";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			char ch = str.charAt(i);
+			
+			int n = ch - 'A' + 1;
+			
+			if(Integer.toString(n).contains("0"))
+			{
+				System.out.print(n%10);
+			}
+			else
+			{
+				System.out.print(n);
+			}
+		}	
+	}
+}
+
+
+Q) Write a java program to display duplicate and unique characters from given string?
+
+input:
+	messissippie 
+
+output:
+	duplicates = sipe 
+	uniques  = mesip
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="messissippie";
+		
+		String duplicates="";
+		String uniques="";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			String current = Character.toString(str.charAt(i));
+			if(uniques.contains(current))
+			{
+				if(!duplicates.contains(current))
+				{
+					duplicates+=current;
+					continue;
+				}
+				else
+				{
+					continue;
+				}
+			}
+			uniques+=current;
+		}
+		System.out.println("Duplicate characters :"+duplicates);
+		System.out.println("Unique characters :"+uniques);
+	}
+}
+
+
+Q) Write a java program to find out most repeating character from given string?
+
+input:
+	ihubtalentinstitute
+
+output:
+	t repeating for 5 times 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ihubtalentinstitute";
+		
+		int maxCount=0;
+		char alphabet =' ';
+		
+		for(int i=0;i<str.length();i++)
+		{
+			int cnt=0;
+			for(int j=0;j<str.length();j++)
+			{
+				if(str.charAt(i) == str.charAt(j))
+				{
+					cnt++;
+				}
+			}
+			if(cnt>maxCount)
+			{
+				maxCount = cnt;
+				alphabet = str.charAt(i);
+			}
+		}
+		System.out.println(alphabet+" repeating for "+maxCount+" times");
+	}
+}
+
+
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	A1B2C3D4
+output:
+	ABBCCCDDDD
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="A1B2C3D4";
+		
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isAlphabetic(str.charAt(i)))	
+			{
+				System.out.print(str.charAt(i));
+			}
+			else
+			{
+				int k = Character.getNumericValue(str.charAt(i));
+				for(int j=1;j<k;j++)
+				{
+					System.out.print(str.charAt(i-1));
+				}
+			}
+		}
+	}
+}
+
+
+Q) Write a java program to display the string in a given format?
+
+input:
+	ABBCCCDDDD
+output:
+	A1B2C3D4
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="ABBCCCDDDD";
+		
+		String result="";
+		int cnt=1;
+		
+		for(int i=0;i<str.length();i++)
+		{
+			if(i<str.length()-1 && str.charAt(i)==str.charAt(i+1))
+			{
+				cnt++;
+			}
+			else
+			{
+				result+=str.charAt(i);
+				result+=cnt;
+				cnt=1;
+			}
+		}
+		System.out.println(result);
+	}
+}
+
+
+
+Q) Write a java program to find out given string is anagram or not?
+
+input:
+	silent 
+	listen 
+
+output:
+	It is a anagram string 
+
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str1="silent";
+		String str2="listen";
+		
+		char[] carr1 = str1.toLowerCase().toCharArray();
+		char[] carr2 = str2.toLowerCase().toCharArray();
+		
+		Arrays.sort(carr1); // e i l n s t 
+		Arrays.sort(carr2); // e i l n s t  
+		
+		str1 = new String(carr1);
+		str2 = new String(carr2);
+		
+		if(str1.equals(str2))
+			System.out.println("It is a Anagram string");
+		else
+			System.out.println("It is not a Anagram string");
+	}
+}
+
+Q) Write a java program to display the given output?
+
+input:
+	str="abababa"
+	
+output:
+	aba 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="abababa";
+		
+		str = str.replace("aba","a");
+		
+		System.out.println(str);
+	}
+}
+
+
+Q) Write a java program to remove the string ?
+
+input:
+	str = This is java class
+	remove = is 
+
+output:
+	Th java class 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str = "This is java class";
+		String remove = "is";
+		
+		str = str.replace(remove,"");
+		System.out.println(str);
+	}
+}
+
+Assignment 
+===========
+Q) Write a java program to display the string in a given format?
+
+Input:
+	H2ow Are3 Hel1lo 4You 
+
+output:
+	Hello How Are You 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

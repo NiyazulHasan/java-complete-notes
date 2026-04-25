@@ -1,0 +1,382 @@
+Group by clause 
+===============
+It is used to divide the rows into groups so that we can apply group functions.
+
+A column which we used in select clause , same column must be used in group by clause.
+
+A group by clause must declare after where clause.
+
+
+Q) Write a query to display sum of salary of each department?
+
+	select sum(esal),deptno from emp group by deptno;
+
+Q) Write a query to display average salary of each department?
+
+	select avg(esal),deptno from emp group by deptno;
+
+
+Q) Write a query to display maximum salary of each job?
+
+	select max(esal),job from emp group by job;
+
+
+Q) Write a query to display minimum salary of each department?
+
+	select min(esal),deptno from emp group by deptno;
+
+
+Q) Write a query to display sum of salary of each department except 10 department?
+
+	select sum(esal),deptno from emp where deptno<>10 group by deptno;
+
+
+
+Having clause 
+==============
+It is used to filter the rows from group by clause.
+
+Having clause must declare after group by clause.
+
+
+Q) Write a query to display sum of salary of each department whose sum of salary is greater then 40000?
+
+	select sum(esal),deptno from emp group by deptno having sum(esal)>40000;
+
+
+Q) Write a query to display minimum salary of each job whose minimum salary is greater then 18000?
+
+	select min(esal),job from emp group by job having min(esal)>18000;
+
+
+Q) Write a query to display maximum salary of each department whose maximum salary is less then 40000?
+
+	select max(esal),deptno from emp group by deptno having max(esal)<40000;
+
+Order by clause 
+===============
+It is used to arrange the rows in a database table.
+
+By default it arrange in ascending order.
+
+ex:
+	select * from student order by sno;
+	select * from emp order by eid desc;
+	select * from emp order by ename;
+	select * from emp order by ename desc;
+
+
+Q) Write a query on group by clause, having clause and order by clause?
+
+	select sum(esal),deptno from emp 
+				group by deptno
+				   having sum(esal)>30000
+					order by deptno;
+
+	or 
+	
+	select sum(esal),deptno from emp 
+				group by deptno
+				   having sum(esal)>30000
+					order by deptno desc;
+
+Integrity Constraints 
+=====================
+Constraints are the rules which are applied on the tables to achieve accuracy and quality of data.
+
+We have five types of constraints.
+
+1) NOT NULL
+
+2) UNIQUE 
+
+3) PRIMARY KEY 
+
+4) FOREIGN KEY 
+
+5) CHECK 
+
+Constraints can be created at two levels.
+
+i) Column Level 
+
+ii) Table Level 
+
+
+1) NOT NULL
+-----------
+NOT NULL constraint does not accept null.
+
+NOT NULL constraint can accept duplicates.
+
+NOT NULL constraint can be created only at column level.
+ 
+column level
+------------
+drop table student;
+create table student(sno number(3) NOT NULL,sname varchar2(10),sadd varchar2(12));
+insert into student values(null,'raja','hyd'); //invalid 
+commit;
+
+NOT NULL constraint can be created for multiple columns.
+
+ex:
+
+drop table student;
+create table student(sno number(3) NOT NULL,
+				sname varchar2(10) NOT NULL,
+					sadd varchar2(12) NOT NULL);
+insert into student values(null,'raja','hyd'); //invalid 
+insert into student values(101,null,'hyd'); //invalid
+insert into student values(101,'raja',null); //invalid
+commit;
+
+
+2) UNIQUE 
+---------
+UNIQUE constraint does not accept duplicates.
+
+UNIQUE constraint can accept nulls.
+
+UNIQUE constriant can be created at column level and table level.
+
+column level
+------------
+drop table student;
+create table student(sno number(3) UNIQUE,sname varchar2(10),sadd varchar2(12));
+insert into student values(101,'raja','hyd'); 
+insert into student values(101,'ravi','delhi'); // invalid
+insert into student values(null,'ravi','delhi');
+commit;
+
+table level
+-----------
+drop table student;
+create table student(sno number(3),sname varchar2(10),sadd varchar2(12), UNIQUE(sno));
+insert into student values(101,'raja','hyd'); 
+insert into student values(101,'ravi','delhi'); // invalid
+insert into student values(null,'ravi','delhi');
+commit;
+
+UNQIUE constraint can be created for multiple columns.
+
+ex:
+
+drop table student;
+create table student(sno number(3) UNIQUE,
+				sname varchar2(10) UNIQUE,
+					sadd varchar2(12) UNIQUE);
+insert into student values(101,'raja','hyd'); 
+insert into student values(101,'ravi','delhi'); // invalid
+insert into student values(102,'raja','pune'); //invalid 
+commit;
+
+
+
+3) PRIMARY KEY 
+--------------
+A primary key is a combination of NOT NULL and UNIQUE constraint.
+
+It does not allow null values and duplicates.
+
+A table must have only one primary key.
+
+A primary key contraint can be created at column level and table level.
+
+column level
+------------
+drop table student;
+create table student(sno number(3) primary key,sname varchar2(10),sadd varchar2(12));
+insert into student values(101,'raja','hyd');
+insert into student values(101,'ravi','delhi'); // invalid 
+insert into student values(null,'ravi','delhi'); // invalid 
+commit;
+
+
+table level
+------------
+drop table student;
+create table student(sno number(3),sname varchar2(10),
+				sadd varchar2(12),primary key(sno));
+insert into student values(101,'raja','hyd');
+insert into student values(101,'ravi','delhi'); // invalid 
+insert into student values(null,'ravi','delhi'); // invalid 
+commit;
+
+
+
+4) FOREIGN KEY 
+--------------
+It is used to establish the relationship between two tables.
+
+This relationship is known as parent and child relationship or master and detailed relationship.
+
+To establish the relationship a parent table must have primary key or unique key and child table must have foreign key.
+
+A foreign key name may or may not match with primary key name but datatype must match.
+
+A foreign key will accept only those values which are present in primary key.
+
+A foreign key can accept null values.
+
+Diagram: oracle5.1
+
+
+college table 
+-------------
+create table college(sno number(3) primary key,sname varchar2(10),sadd varchar2(12));
+insert into college values(101,'raja','hyd');
+insert into college values(102,'ravi','delhi');
+insert into college values(103,'ramana','vizag');
+commit;
+
+library table 
+-------------
+create table library(roll_no number(3) REFERENCES college(sno), book_name varchar2(10));
+insert into library values(101,'java');
+insert into library values(102,'oracle');
+insert into library values(103,'frameworks');
+insert into library values(103,'HTML');
+insert into library values(null,'CSS');
+insert into library values(104,'JS'); // invalid 
+commit;
+
+In order to drop the tables , first we need to drop library table then college table.
+ex:
+	drop table library;
+	drop table college;
+
+
+
+
+5) CHECK 
+---------
+Check constraint describes domain of a column.
+
+Here domain means what type of value a column must accept.
+
+Check constraint can be created at column level and table level.
+
+column level
+------------
+drop table student;
+create table student(sno number(3),sname varchar2(10),
+				smarks number(3) check(smarks<=100));
+insert into student values(101,'raja',87);
+insert into student values(102,'kranti',182); //invalid 
+insert into student values(103,'ravi',100);
+commit;
+
+
+
+column level
+------------
+drop table student;
+create table student(sno number(3),sname varchar2(10),
+				smarks number(3) check(smarks between 0 and 100));
+insert into student values(101,'raja',87);
+insert into student values(102,'kranti',182); //invalid 
+insert into student values(103,'ravi',100);
+commit;
+
+
+column level
+------------
+drop table student;
+create table student(sno number(3),
+			sname varchar2(10) check(sname = upper(sname)),
+				smarks number(3) );
+insert into student values(101,'RAJA',87);
+insert into student values(102,'kranti',182); //invalid 
+insert into student values(103,'RaVi',100); // invalid 
+commit;
+
+
+column level
+------------
+drop table student;
+create table student(sno number(3),
+			sname varchar2(10) check(sname = lower(sname)),
+				smarks number(3) );
+insert into student values(101,'RAJA',87); // invalid 
+insert into student values(102,'kranti',182); 
+insert into student values(103,'RaVi',100); // invalid 
+commit;
+
+
+table level
+------------
+drop table student;
+create table student(sno number(3),
+			sname varchar2(10),
+				smarks number(3),  check(sname = lower(sname)) );
+insert into student values(101,'RAJA',87); // invalid 
+insert into student values(102,'kranti',182); 
+insert into student values(103,'RaVi',100); // invalid 
+commit;
+
+
+
+Q) Write a query to add the constriant in employee table(existing table)?
+
+	alter table emp add primary key(eid);
+
+	
+Q) Write a query to remove the constriant from employee table(existing table)?
+	
+	alter table emp DROP primary key;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

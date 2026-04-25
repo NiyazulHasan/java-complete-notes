@@ -1,0 +1,675 @@
+Spring Security 
+===============
+Spring security is a framework which deals with various security features to build secure java enterprise application.
+
+It is a sub-module of a spring framework which is developed in 2003, By Ben Alex.
+
+In 2004, it was released under the licence of Apache with name spring security 2.0.
+
+This framework target two major area i.e authentication and autherization.
+
+Example1
+--------
+
+Project Structure 
+-----------------
+spring-security1
+|
+|---src/main/java
+	|
+	|---com.ihub.www
+	|
+	|---com.ihub.www.controller
+		|
+		|----DemoController.java
+|
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+-----
+	Create a spring starter project i.e spring-security1.
+	ex:
+		Starters:
+				Spring Web
+				Spring Security 
+step2:
+-------
+	Create a "com.ihub.www.controller" package.
+
+step3:
+------
+	Create a DemoController.java file inside "com.ihub.www.controller".
+
+DemoController.java
+------------------
+package com.ihub.www.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/v1")
+public class DemoController 
+{
+	@GetMapping("/msg")
+	public String home()
+	{
+		return "Welcome to Spring Security";
+	}
+}
+
+step4:
+------
+	Configure server port, application name and spring security properties.
+
+application.properties
+---------------------
+spring.application.name=spring-security1
+server.port=9191
+spring.security.user.name=raja
+spring.security.user.password=rani
+
+step5:
+------
+	Run spring boot starter project.
+step6:
+-----
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/api/v1/msg 
+
+
+Example2
+---------
+Project Structure 
+-----------------
+spring-security2
+|
+|---src/main/java
+	|
+	|---com.ihub.www
+	|
+	|---com.ihub.www.controller
+		|
+		|----DemoController.java
+
+	|---com.ihub.www.config 
+		|
+		|----SecurityConfig.java
+|
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring starter project i.e spring-security2.
+	ex:
+		Starters:
+				Spring web 
+				spring security 
+step2:
+------
+	Create a "com.ihub.www.controller" package inside "src/main/java".
+
+step3:
+-----
+	Create a DemoController.java file inside "com.ihub.www.controller" package.
+
+DemoController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController 
+{
+	@GetMapping("/public")
+	public String publicHandler()
+	{
+		return "This is public endpoint";
+	}
+	
+	@GetMapping("/user")
+	public String userHandler() 
+	{
+		return "Hey! Welcome User ";
+	}
+	
+	@GetMapping("/admin")
+	public String adminHandler() 
+	{
+		return "Hey! Welcome Admin ";
+	}
+}
+
+step4:
+------
+	Create a "com.ihub.www.config" package inside "src/main/java" folder.
+
+step5:
+------
+	Create a SecurityConfig.java file inside "com.ihub.www.config" package.
+
+SecurityConfig.java
+-------------------
+package com.ihub.www.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+public class SecurityConfig 
+{
+	@Bean
+	public UserDetailsService getUserDetailsService(PasswordEncoder encoder)
+	{
+		UserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
+		
+		var user = User.builder()
+				.username("user")
+				.password(encoder.encode("user123"))
+				.roles("USER")
+				.build();
+		
+		var admin = User.builder()
+				.username("admin")
+				.password(encoder.encode("admin123"))
+				.roles("ADMIN")
+				.build();
+		
+		userDetailsManager.createUser(user);
+		userDetailsManager.createUser(admin);
+		
+		return userDetailsManager;
+	}
+	
+	@Bean
+	public PasswordEncoder getPasswordEncoder()
+	{
+		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
+	 public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception 
+	 {
+	        return http
+	                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity
+	                .authorizeHttpRequests(auth -> auth
+	                        .requestMatchers("/public").permitAll()
+	                        .requestMatchers("/admin").hasRole("ADMIN")
+	                        .requestMatchers("/user").hasRole("USER")
+	                        .anyRequest().authenticated()
+	                )
+	                .httpBasic(Customizer.withDefaults()) // Enable basic authentication
+	                .build();
+	    }
+
+}
+
+step6:
+------
+	Configure application name and port number.
+
+application.properties
+--------------------
+spring.application.name=spring-security2
+server.port=9191
+
+step7:
+-----
+	Run spring boot starter project.
+
+step8:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/public
+
+		http://localhost:9191/user 
+			username : user
+			password : user123
+
+		http://localhost:9191/admin 
+			username : admin 
+			password : admin123			 
+
+
+Communicating with multiple databases
+=======================================
+
+Project structure 
+=================
+multiple-databases
+|
+|----src/main/java
+	|
+	|---com.ihub.www
+		|
+		|---MultipleDatabasesApplication.java
+
+	|---com.ihub.www.entity 
+	|	|
+		|---Employee.java
+
+	|---com.ihub.www.mysql
+		|
+		|---MySqlConfig.java
+		|---MySqlEmployeeRepository.java
+
+	|---com.ihub.www.oracle
+		|
+		|---OracleConfig.java
+		|---OracleEmployeeRepository.java
+
+	|---com.ihub.www.controller
+		|
+		|---EmployeeController.java
+|
+|---src/main/resources
+	|
+	|---application.properties
+|
+|---src/test/java
+|
+|---pom.xml 
+
+
+Step1:
+-----
+	Create a spring starter project i.e multiple-databases.
+	ex:
+		spring web
+		spring data jpa
+		lombok
+		mysql driver 
+		
+step2:
+------
+	Add oracle dependency manually in pom.xml file.
+	ex:
+		<dependency>
+        		<groupId>com.oracle.database.jdbc</groupId>
+        		<artifactId>ojdbc8</artifactId>
+        		<version>19.3.0.0</version>
+    		</dependency>
+
+
+step3:
+----
+	Create and use schema in mysql database.
+	ex:
+		drop schema batch56;
+		create schema batch56;
+		use batch56;
+
+step4:
+-----
+	Create a sequence in oracle database.
+	ex:
+		CREATE SEQUENCE EMP_SEQ START WITH 1 INCREMENT BY 1;
+
+
+step5:
+------
+	Create a Employee.java file inside "com.ihub.www.entity" package.
+
+Employee.java
+-------------
+package com.ihub.www.entity;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Entity
+@Table(name = "employees")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Employee {
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emp_seq_gen")
+	@SequenceGenerator(name = "emp_seq_gen", sequenceName = "EMP_SEQ", allocationSize = 1)
+    private Long id;
+	@Column(length = 10)
+    private String name;
+	@Column(length = 10)
+    private String department;
+
+ 
+}
+
+
+step6:
+----
+	Configure application.properties file.
+
+application.properties
+-----------------------
+# port no
+server.port=9090
+
+# === MySQL Configuration ===
+spring.datasource.mysql.url=jdbc:mysql://localhost:3306/batch56
+spring.datasource.mysql.username=root
+spring.datasource.mysql.password=root
+spring.datasource.mysql.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.mysql.hikari.pool-name=MySQLPool
+
+# === Oracle Configuration ===
+spring.datasource.oracle.url=jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.oracle.username=system
+spring.datasource.oracle.password=admin
+spring.datasource.oracle.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.oracle.hikari.pool-name=OraclePool
+
+step7:
+------
+	create a MySqlEmployeeRepository.java file inside "com.ihub.www.mysql" package.
+
+MySqlEmployeeRepository.java
+------------------------------
+package com.ihub.www.mysql;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ihub.www.entity.Employee;
+
+public interface MySqlEmployeeRepository extends JpaRepository<Employee, Long> {
+}	
+
+step8:
+------
+	create a OracleEmployeeRepository.java file inside "com.ihub.www.oracle" package.
+
+OracleEmployeeRepository.java
+-----------------------------
+package com.ihub.www.oracle;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ihub.www.entity.Employee;
+
+public interface OracleEmployeeRepository extends JpaRepository<Employee, Long> {
+}
+
+step9:
+------
+	Create a MySqlConfig.java file inside "com.ihub.www.mysql" package.
+
+MySqlConfig.java
+--------------
+
+package com.ihub.www.mysql;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder; // ✅ Correct import
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import jakarta.persistence.EntityManagerFactory;
+
+@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+    basePackages = "com.ihub.www.mysql", // your MySQL repository package
+    entityManagerFactoryRef = "mysqlEntityManagerFactory",
+    transactionManagerRef = "mysqlTransactionManager"
+)
+public class MySqlConfig {
+
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.mysql")
+    public DataSourceProperties mysqlDataSourceProperties() {
+        return new DataSourceProperties();
+    }
+
+    @Bean
+    public DataSource mysqlDataSource() {
+        return mysqlDataSourceProperties()
+                .initializeDataSourceBuilder()
+                .build();
+    }
+	
+    //configure JPA Manually 
+     @Bean
+    public EntityManagerFactoryBuilder entityManagerFactoryBuilder(JpaProperties jpaProperties) {
+        return new EntityManagerFactoryBuilder(
+            new HibernateJpaVendorAdapter(),
+            jpaProperties.getProperties(),
+            null
+        );
+    }	
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean mysqlEntityManagerFactory(
+            EntityManagerFactoryBuilder builder) {
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("hibernate.hbm2ddl.auto", "update");
+        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
+
+        return builder
+                .dataSource(mysqlDataSource())
+                .packages("com.ihub.www.entity")
+                .persistenceUnit("mysql")
+                .properties(properties) //
+                .build();
+    }
+
+
+    @Bean
+    public PlatformTransactionManager mysqlTransactionManager(
+        @Qualifier("mysqlEntityManagerFactory") EntityManagerFactory factory) {
+        return new JpaTransactionManager(factory);
+    }
+}
+
+step10:
+-----
+	Create a OracleConfig.java file inside "com.ihub.www.oracle" package.
+
+OracleConfig.java
+------------------
+
+package com.ihub.www.oracle;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder; // ✅ Correct import
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import jakarta.persistence.EntityManagerFactory;
+
+@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+    basePackages = "com.ihub.www.oracle", // your Oracle repo package
+    entityManagerFactoryRef = "oracleEntityManagerFactory",
+    transactionManagerRef = "oracleTransactionManager"
+)
+public class OracleConfig {
+
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.oracle")
+    public DataSourceProperties oracleDataSourceProperties() {
+        return new DataSourceProperties();
+    }
+
+    @Bean
+    public DataSource oracleDataSource() {
+        return oracleDataSourceProperties()
+                .initializeDataSourceBuilder()
+                .build();
+    }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean oracleEntityManagerFactory(
+            EntityManagerFactoryBuilder builder) {
+
+        Map<String, Object> properties = new HashMap<>();
+        properties.put("hibernate.hbm2ddl.auto", "update");
+        properties.put("hibernate.dialect", "org.hibernate.dialect.OracleDialect");
+
+        return builder
+                .dataSource(oracleDataSource())  // use Oracle datasource bean here
+                .packages("com.ihub.www.entity") // shared entity package
+                .persistenceUnit("oracle")       // distinct persistence unit name
+                .properties(properties)
+                .build();
+    }
+
+
+    @Bean
+    public PlatformTransactionManager oracleTransactionManager(
+        @Qualifier("oracleEntityManagerFactory") EntityManagerFactory factory) {
+        return new JpaTransactionManager(factory);
+    }
+}
+
+step11:
+-----
+	Create EmployeeController.java file inside "com.ihub.www.controller" package.	
+
+EmployeeController.java
+------------------------
+package com.ihub.www.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ihub.www.entity.Employee;
+import com.ihub.www.mysql.MySqlEmployeeRepository;
+import com.ihub.www.oracle.OracleEmployeeRepository;
+
+@RestController
+@RequestMapping("/employees")
+public class EmployeeController {
+
+    private final MySqlEmployeeRepository mysqlRepo;
+    private final OracleEmployeeRepository oracleRepo;
+
+    public EmployeeController(MySqlEmployeeRepository mysqlRepo, OracleEmployeeRepository oracleRepo) {
+        this.mysqlRepo = mysqlRepo;
+        this.oracleRepo = oracleRepo;
+    }
+
+    @PostMapping("/save")
+    public String saveEmployee(@RequestBody Employee employee) {
+        // Save to Oracle first (ID will be generated from sequence)
+        Employee oracleSaved = oracleRepo.save(new Employee(null, employee.getName(), employee.getDepartment()));
+
+        // Then create a new instance for MySQL without the Oracle-generated ID
+        Employee mysqlEmployee = new Employee(null, employee.getName(), employee.getDepartment());
+        mysqlRepo.save(mysqlEmployee);
+
+        return "Saved to both DBs";
+    }
+
+
+    @GetMapping("/all")
+    public Map<String, List<Employee>> getAll() {
+        return Map.of(
+            "mysql", mysqlRepo.findAll(),
+            "oracle", oracleRepo.findAll()
+        );
+    }
+}
+	
+step12:
+-------
+	Run spring boot project.
+
+step13:
+------
+	Test the application by using below request url.
+	ex:
+		METHOD 			URL
+		------			------
+		POST			http://localhost:9090/employees/save
+					Body 
+						Raw (Json)
+
+					{	
+						"name":"Alan",
+    						"department":"CSE"
+	
+					}
+
+		GET			http://localhost:9090/employees/all
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,601 @@
+Exceptions in PL/SQL 
+====================
+Runtime errors are called exceptions.
+
+We have two types of exceptions in PL/SQL.
+
+1) Predefined Exceptions 
+
+2) Userdefined Exceptions 
+
+
+1) Predefined Exceptions
+-------------------------
+We have following list of predefined exceptions.
+
+i) NO_DATA_FOUND Exception 
+
+ii) TOO_MANY_ROWS Exception
+
+iii) ZERO_DIVIDE Exception 
+
+iv) VALUE_ERROR Exception 
+
+v) DUP_VAL_ON_INDEX Exception 
+
+vi) OTHERS 
+
+
+i) NO_DATA_FOUND Exception 
+--------------------------
+This Exception will raise when select statement does not return any row.
+
+ex:
+	DECLARE 
+	L_ename emp.ename%TYPE;
+	BEGIN 
+	select ename into L_ename from emp where eid=209;
+	DBMS_OUTPUT.PUT_LINE(L_ename);
+	EXCEPTION 
+	WHEN NO_DATA_FOUND THEN 
+	DBMS_OUTPUT.PUT_LINE('Please check employee id');
+	END;
+	/
+	
+ii) TOO_MANY_ROWS Exception
+--------------------------
+This exception will raise when select statement returns more then one row.
+
+ex:
+	DECLARE 
+	L_ename emp.ename%TYPE;
+	BEGIN
+	select ename into L_ename from emp where deptno=10;
+	DBMS_OUTPUT.PUT_LINE(L_ename);
+	EXCEPTION
+	WHEN TOO_MANY_ROWS THEN 	
+	DBMS_OUTPUT.PUT_LINE('Too Many Rows');
+	END;
+	/
+
+iii) ZERO_DIVIDE Exception
+----------------------------
+This exception will raise when we are trying to divided number with zero.
+
+ex:
+	DECLARE 
+	A number;
+	BEGIN 
+	A:=10/0;
+	DBMS_OUTPUT.PUT_LINE(A);
+	EXCEPTION 
+	WHEN ZERO_DIVIDE THEN 
+	DBMS_OUTPUT.PUT_LINE('Dont Divide by Zero');
+	END;
+	/
+
+iv) VALUE_ERROR Exception
+-------------------------
+This exception will raise when there is a mismatch with datatype or size.
+
+ex:
+---
+	DECLARE 
+	A number(3);
+	BEGIN 
+	A:=12345;	
+	DBMS_OUTPUT.PUT_LINE(A);
+	EXCEPTION 
+	WHEN VALUE_ERROR THEN 
+	DBMS_OUTPUT.PUT_LINE('Please check the size');
+	END;
+	/	
+
+ex:
+---
+	DECLARE 
+	L_esal emp.esal%TYPE;
+	BEGIN 
+	select ename into L_esal from emp where eid=201;
+	DBMS_OUTPUT.PUT_LINE(L_esal);
+	EXCEPTION 
+	WHEN VALUE_ERROR THEN 
+	DBMS_OUTPUT.PUT_LINE('please check the datatype');
+	END;
+	/
+
+v) DUP_VAL_ON_INDEX Exception 
+-------------------------------
+This exception will raise when we are trying to insert duplicate values in primary key.
+
+ex:
+	alter table emp add primary key(eid);
+
+	BEGIN 
+	insert into emp values(206,'Brook',67000,50,'CEO',100);
+	DBMS_OUTPUT.PUT_LINE('Record Inserted');
+	EXCEPTION 
+	WHEN DUP_VAL_ON_INDEX THEN 
+	DBMS_OUTPUT.PUT_LINE('Duplicate Record Found');
+	END;
+	/
+
+vi) OTHERS 
+-----------
+It is a universal angular exception which handles all types of exceptions.
+
+ex:
+	DECLARE 
+	L_ename emp.ename%TYPE;
+	BEGIN 
+	select ename into L_ename from emp where eid=209;
+	DBMS_OUTPUT.PUT_LINE(L_ename);
+	EXCEPTION 
+	WHEN OTHERS THEN 
+	DBMS_OUTPUT.PUT_LINE('Please check employee id');
+	END;
+	/	
+
+ex:
+	alter table emp add primary key(eid);
+
+	BEGIN 
+	insert into emp values(206,'Brook',67000,50,'CEO',100);
+	DBMS_OUTPUT.PUT_LINE('Record Inserted');
+	EXCEPTION 
+	WHEN OTHERS THEN 
+	DBMS_OUTPUT.PUT_LINE('Duplicate Record Found');
+	END;
+	/
+
+2) Userdefined Exceptions 
+-------------------------
+Exceptions which are created by the user based on the application requirements are called userdefined exceptions.
+
+
+
+Steps to work with userdefined exceptions 
+-----------------------------------------
+step1:
+------
+	Declare an Exception 
+
+step2:
+------
+	Raise an Exception 
+
+step3:
+------
+	Handle an Exception
+
+ex:
+---
+	DECLARE 
+	MY_EX EXCEPTION;
+	A number:=100;
+	BEGIN 
+
+	IF A>50 THEN 
+	RAISE MY_EX;
+	END IF;	
+	DBMS_OUTPUT.PUT_LINE(A);
+
+	EXCEPTION 
+	WHEN MY_EX THEN 
+	DBMS_OUTPUT.PUT_LINE('Value is Too Large');
+	END;
+	/
+
+
+CURSORS 
+=======
+In PL/SQL, a cursor is a pointer to a private memory area in the database, known as the context area, used for processing SQL statements. 
+
+It allows a program to retrieve and manipulate the rows returned by a SELECT statement.
+
+We have two types of cursors.
+
+1) Implicit cursor 
+
+2) Explicit cursor 
+
+ 
+1) Implicit cursor 
+------------------
+All the activities related to cursor like opening the cursor, processing the cursor and closing the cursor which is done automatically is called implicit cursor.
+
+We have four types of implicit cursor attributes.
+
+i) SQL%ISOPEN 
+--------------
+	It is a boolean attribute which always returns false.
+
+ii) SQL%FOUND 
+-------------
+	It is a boolean attribute which returns true if SQL command is success and 
+	returns false if SQL command failed.
+
+iii) SQL%NOTFOUND 
+----------------
+	It is completely inverse of SQL%FOUND.
+	It is a boolean attribute which returns false if SQL command is success and 
+	returns true if SQL command failed.
+
+iv) SQL%ROWCOUNT
+----------------
+	It returns number of records effected in a database table.
+
+ex:1
+-----
+	BEGIN 
+	IF SQL%ISOPEN THEN
+	DBMS_OUTPUT.PUT_LINE('Cursor is open');
+	ELSE
+	DBMS_OUTPUT.PUT_LINE('Cursor is closed');
+	END IF;
+	END;
+	/ 
+
+ex:2
+-----
+	BEGIN 
+	update student set sname='alan' where sno=104;
+	IF SQL%FOUND THEN 
+	DBMS_OUTPUT.PUT_LINE('Record Updated');
+	ELSE
+	DBMS_OUTPUT.PUT_LINE('Record Not Updated');
+	END IF;
+	END;
+	/
+
+ex:
+	
+	BEGIN 
+	update student set sname='alan' where sno=109;
+	IF SQL%FOUND THEN 
+	DBMS_OUTPUT.PUT_LINE('Record Updated');
+	ELSE
+	DBMS_OUTPUT.PUT_LINE('Record Not Updated');
+	END IF;
+	END;
+	/
+
+
+ex:3
+-----
+	BEGIN 
+	update student set sname='ramulu' where sno=104;
+	IF SQL%NOTFOUND THEN 
+	DBMS_OUTPUT.PUT_LINE('Record Updated');
+	ELSE
+	DBMS_OUTPUT.PUT_LINE('Record Not Updated');
+	END IF;
+	END;
+	/
+
+ex:4
+-----
+	BEGIN 
+	update student set sname='raja';
+	DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT||' Records Updated');
+	END; 
+	/
+	
+
+2) Explicit cursor 
+------------------
+All the activities related to cursor like opening the cursor, processing the cursor and closing the cursor which is done by a programmer is called explicit cursor.
+
+We will use explicit cursor when select statement returns more than one row.
+
+We have four types of explicit cursor attributes.
+
+i) %ISOPEN 
+---------
+	It is a boolean attribute which returns true if cursor is opened and returns 
+	false if cursor is closed.
+
+ii) %FOUND 
+----------
+	It is a boolean attribute which returns true if SQL command is success and 
+	returns false if SQL command is failed.
+
+iii) %NOTFOUND 
+-------------
+	It is a boolean attribute which returns false if SQL command is success and 
+	returns true if SQL command is failed.
+
+iv) %ROWCOUNT 
+-------------
+	It returns number of records effecting in a database table.
+
+Steps to work with explicit cursor 
+----------------------------------
+step1:
+------
+	Declare the cursor 
+
+step2:
+-----
+	Open the cursor 
+
+step3:
+------
+	Fetch the data from cursor to local variables 
+
+step4:
+------
+	Close the cursor 
+
+Q) Write a PL/SQL program to select employee names from emp table?
+
+	 
+	DECLARE 
+	CURSOR C1 is select ename from emp;
+	L_ename  emp.ename%TYPE;
+	BEGIN 
+	OPEN C1;
+	LOOP 
+	FETCH C1 into L_ename;
+	EXIT WHEN C1%NOTFOUND;
+	DBMS_OUTPUT.PUT_LINE(L_ename);
+	END LOOP;
+	CLOSE C1;
+	END;
+	/
+	
+Q) Write a PL/SQL program to select employee name and employee salary from emp table?
+
+	DECLARE 
+	CURSOR C2 is select ename,esal from emp;
+	L_ename emp.ename%TYPE;
+	L_esal emp.esal%TYPE;
+	BEGIN 
+	OPEN C2;
+	LOOP
+	FETCH C2 into L_ename,L_esal;
+	EXIT WHEN C2%NOTFOUND;
+	DBMS_OUTPUT.PUT_LINE(L_ename||' '||L_esal);
+	END LOOP;
+	CLOSE C2;
+	END;
+	/
+
+
+Q) Write a PL/SQL program to display employees information from employee table?
+
+	DECLARE 
+	CURSOR C3 is select * from emp;	
+	A emp%ROWTYPE;
+	BEGIN 
+	OPEN C3;
+	LOOP
+	FETCH C3 into A;
+	EXIT WHEN C3%NOTFOUND;
+	DBMS_OUTPUT.PUT_LINE(A.eid||' '||A.ename||' '||A.esal||' '||A.deptno||' '||A.job||' '||A.comm);
+	END LOOP;
+	CLOSE C3;
+	END;
+	/
+
+
+PL/SQL Procedures 
+=================
+It is a named PL/SQL block which compiled and stored permanently to database.
+
+It is used to execute the code repeatedly.
+
+syntax:
+-------
+	create or replace procedure <procede_name>
+	is
+	being
+	-
+	-
+	-	
+	end;
+	/
+
+
+Q) Write a procedure to display Hello World?
+
+	create or replace procedure p1 
+	is
+	BEGIN
+	DBMS_OUTPUT.PUT_LINE('Hello World');
+	END;
+	/
+
+To execute the procedure we need to use below command.
+ex:
+	exec  p1;
+
+A procedure contains three parameters.
+
+1) IN parameter 
+
+2) OUT parameter 
+
+3) IN OUT parameter 
+
+
+1) IN parameter 
+---------------
+It is used to accept the values from the user.
+
+
+Q) Write a procedure to perform sum of two numbers?
+
+	create or replace procedure sum_two_numbers(A IN number,B IN number)
+	is
+	C number;
+	begin 
+	C:=A+B;
+	DBMS_OUTPUT.PUT_LINE(C);
+	END;
+	/	
+
+To execute the procedure we need to use below command.
+ex:
+	exec  sum_two_numbers(10,20);
+
+
+2) OUT parameter
+-----------------
+It is used to return the value to the user.
+
+Q) Write a procedure to accept two numbers and return sum?
+
+	create or replace procedure sum_ret(A IN number,B IN number,C OUT number)
+	is
+	begin 
+	C:=A+B;
+	END;
+	/
+
+Steps to execute a procedure having OUT parameter 
+----------------------------------------------
+step1:
+-----
+	Declare a bind variable.
+	ex:
+		variable N number;
+
+step2:
+------
+	Execute the procedure.
+	ex:
+		exec  sum_ret(20,30,:N);
+
+step3:
+------
+	Print bind variable.
+	ex:
+		print N;
+
+
+3) IN OUT parameter 
+-------------------
+It is used to accept and return the value from/to the user.
+
+ex:
+	create or replace procedure ret_square(A IN OUT number)
+	is
+	begin 
+	A:=A*A;
+	END;
+	/
+
+Steps to execute a procedure having IN OUT parameter 
+----------------------------------------------
+step1:
+-----
+	Declare a bind variable.
+	ex:
+		variable N number;
+
+step2:
+------
+	Intialize bind vairable.
+	ex:
+		begin 
+		:N:=5;
+		END;
+		/
+
+step3:
+------
+	Execute the procedure.
+	ex:
+		exec  ret_square(:N);
+
+step4:
+------
+	Print bind variable.
+	ex:
+		print N;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

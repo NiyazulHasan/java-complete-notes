@@ -1,0 +1,514 @@
+Eureka Server 
+=============
+Eureka server is a service registry which plays a central role in automatic detection of machine or services on network.
+
+Eureka server is used to register client service applications (Microservices).
+
+Eureka server is also known as Discovery Server.
+
+The default port number of eureka server is 8761.
+
+Diagram: sb9.1
+
+step1:
+------
+	Create a spring starter project i.e service-registry.
+	ex:
+		Starters:
+				Spring Web 
+				Eureka Server 
+
+step2:
+------
+	Add @EnableEurekaServer annotation to main spring boot class.
+						
+ServiceRegistryApplication.java
+-------------------------------
+package com.ihub.www;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+@SpringBootApplication
+@EnableEurekaServer
+public class ServiceRegistryApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ServiceRegistryApplication.class, args);
+	}
+
+}
+
+step3:
+------
+	Rename application.properties file to application.yml file.
+
+
+step4:
+------
+	Configure port number , application name and eureka server properties.
+
+application.yml
+---------------
+server:
+  port: 8761
+
+spring:
+  application:
+    name: SERVICE-REGISTRY
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+step5:
+------
+	Run spring boot starter project.
+	
+step6:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:8761
+
+
+step7:
+------
+	Take a customer-service project.
+
+step8:
+------
+	Make customer-service as eureka client.
+	ex:
+		starter:
+				Eureka Discovery Client 
+
+step9:
+-----
+	Add eureka server properties inside customer-service/application.yml file.
+
+application.yml
+---------------
+server:
+  port: 9191
+
+spring:
+  application:
+    name: CUSTOMER-SERVICE
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/batch53
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update 
+    generate-ddl: true
+    show-sql: true 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost  
+
+step10:
+------
+	Run customer-service project.
+
+step11:
+-------
+	Test the application by using below request url's.
+	ex:
+		http://localhost:8761/
+		http://localhost:9191/customer/fetch
+		http://localhost:9292/customer/fetch
+
+
+Spring Cloud API Gateway 
+========================
+Spring cloud API gatway provides a simple effective way to route API's and providing cross cutting concerns like authentication, autherization, security, routing, validation and etc.
+
+Diagram: sb9.2
+
+
+step1:
+-------
+	Create a "cloud-apigateway" project in STS.
+	starters:
+		eureka Discovery client
+		Spring boot Actuator
+		spring reactive web
+
+step2:
+--------
+	Add spring cloud dependency in pom.xml file.
+	ex:
+		
+	<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-gateway</artifactId>
+	</dependency>
+
+
+step3:
+-------
+	Rename application.properties file to application.yml file.
+
+
+step4:
+-------
+	Register port number, set application name,and configure 
+	all microservices for routing in application.yml file.
+
+application.yml
+-------------------
+server:
+  port: 7171
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+  
+spring:
+  application:
+    name: API-GATEWAY   
+  cloud:
+    gateway:
+      routes:
+        - id: CUSTOMER-SERVICE
+          uri: lb://CUSTOMER-SERVICE
+          predicates: 
+            - Path=/customer/**
+
+
+step4:
+--------
+	Now Run the following applications sequentially.
+	"service-registry"
+	"customer-service"
+	"cloud-apigateway".
+
+
+step5:
+-------
+	Test the applications by using below urls.
+	ex:
+		http://localhost:8761
+		http://localhost:9191/customer/fetch --> Request to customer 
+		http://localhost:7171/customer/fetch --> Request to API gateway
+
+
+
+
+
+Spring Cloud Hystrix 
+=====================
+Spring cloud hystrix is a fault tolerance library provided by Netflix.
+
+Using spring cloud hystrix we can prevent deligation of failure from one microservice to another.
+
+Hystrix follows Circuit Breaker design pattern.
+
+Circuit breaker design pattern is used to check availability services like web service call, database connection and etc.
+
+Diagram: sb9.3
+
+
+notification-service
+========================
+
+step1:
+------
+	create a "notification-service" project in STS.
+	Starter:
+			Spring Web.
+
+step2:
+------
+	Add the following code in main sprping boot application.
+
+
+NotificationServiceApplication.java
+--------------------------------------	
+package com.ihub.www;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+@RequestMapping("/notification")
+public class NotificationServiceApplication {
+
+	@GetMapping("/send")
+	public String sendEmail()
+	{
+		return "Email sending method is called from notification-service";
+	}
+	public static void main(String[] args) {
+		SpringApplication.run(NotificationServiceApplication.class, args);
+	}
+
+}
+
+step3:
+------
+	convert application.properties file to application.yml file.
+
+
+step4:
+------
+	configure server port number in application.yml file.
+
+application.yml
+------------------
+server:
+  port: 7171
+
+
+step5:
+-------
+	Run "notification-service" project as spring boot application.
+
+
+step6:
+-----
+	Test the application with below request url.
+	ex:
+		http://localhost:7171/notification/send
+
+
+
+paytm-service
+========================
+
+step1:
+------
+	create a "paytm-service" project in STS.
+	Starter:
+			Spring Web.
+
+step2:
+------
+	Add the following code in main sprping boot application.
+
+
+PaytmServiceApplication.java
+--------------------------------------	
+package com.ihub.www;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@RestController
+@RequestMapping("/paytm")
+public class PaytmServiceApplication {
+
+	@GetMapping("/pay")
+	public String paymentProcess()
+	{
+		return "Payment Pocess method called in paytm-service";
+	}
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(PaytmServiceApplication.class, args);
+	}
+
+}
+
+
+step3:
+------
+	convert application.properties file to application.yml file.
+
+
+step4:
+------
+	configure server port number in application.yml file.
+
+application.yml
+------------------
+server:
+  port: 8181
+
+
+step5:
+-------
+	Run "paytm-service" project as spring boot application.
+
+
+step6:
+-----
+	Test the application with below request url.
+	ex:
+		http://localhost:8181/paytm/pay
+
+
+bookmyshow-service
+=====================
+
+step1:
+-----
+	create a "bookmyshow-service" project in STS.
+	Starter:	
+			Spring Web
+
+step2:
+-----
+	Add Spring Cloud Hystrix dependency in pom.xml file.
+
+	ex:
+	<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+	<version>2.2.10.RELEASE</version>
+	</dependency>
+
+
+step3:
+------
+	Change <parent> tag inside pom.xml file for hystrix compatability.
+	ex:
+	<parent>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-parent</artifactId>
+    		<version>2.3.3.RELEASE</version>
+    		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+step4:
+-----
+	Add the following code in main spring boot application.
+
+
+BookmyshowServiceApplication
+-----------------------------
+
+package com.ihub.www;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@SpringBootApplication
+@RestController
+@EnableHystrix
+public class BookmyshowServiceApplication {
+
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@HystrixCommand(groupKey = "ihub" , commandKey = "ihub" ,fallbackMethod = "bookMyShowFallBack")
+	@GetMapping("/book")
+	public String bookShow()
+	{
+		String paytmServiceResponse=restTemplate.getForObject("http://localhost:8181/paytm/pay", String.class);
+		String notificationServiceResponse=restTemplate.getForObject("http://localhost:7171/notification/send",String.class);
+	
+		return paytmServiceResponse+"\n"+notificationServiceResponse;
+	}
+	
+	
+	public static void main(String[] args) {
+		SpringApplication.run(BookmyshowServiceApplication.class, args);
+		
+	}
+	
+	public String  bookMyShowFallBack()
+	{
+		return "service gateway failed";
+	}
+	
+	@Bean
+	public  RestTemplate    getRestTemplate() {
+	
+		return new RestTemplate();	
+		
+	}
+
+}
+
+
+step5:
+--------
+	convert application.properties file to application.yml file.
+
+
+step6:
+------
+	configure server port number inside application.yml file.
+
+application.yml
+---------------
+server:
+  port: 9191
+	
+
+step7:
+--------
+	Add spring core dependency inside pom.xml file.
+
+	ex:
+		<dependency>
+    			<groupId>org.springframework</groupId>
+    			<artifactId>spring-core</artifactId>
+    			<version>5.3.17</version>
+		</dependency>
+
+step8:
+-------
+	Run the "bookmyshow-service" application as spring boot application.	
+
+
+step9:
+-------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/book
+
+
+step10:
+------
+	Now stop any micro service i.e notification-service or paytm-service.
+
+step11:
+--------
+	Test the "bookmyshow-service" application by using below url.
+	ex:
+		http://localhost:9191/book
+
+Note:
+----
+	Here fallback method will execute with the help of Hystrix.
+
+
+
+
+
+
+
+

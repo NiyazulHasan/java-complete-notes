@@ -1,0 +1,902 @@
+CSS
+====
+CSS stands for Cascading Styles Sheet.
+
+Like HTML, It is widely used language on web.
+
+The latest version of CSS3 was released in the year of 2001.
+
+The main objective of CSS are 
+
+1) To set the position of an elements.
+
+2) To apply styles on elements to describe who an elements are look like.
+
+3) To perform some sort of animations.
+
+Advantages
+==========
+1) It is easy to learn and easy to use.
+
+2) Good Performance.
+
+3) It is used to apply the styles on elements.
+
+4) It supported by all major browsers.
+
+5) It supports global change.
+
+CSS example
+===========
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage</title>
+		<style type="text/css">
+			-
+			-  CSS properties 	
+			-	
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			h1
+			{
+				color:blue;
+				background-color:cyan;
+				text-align:center;
+			}			
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+Note:
+-----
+	Here styles cascade from head to body.
+
+
+
+CSS syntax
+==========
+CSS rule set contains element selector and declaration block.
+ex:
+	selector 
+	|
+	h1{color:blue;background-color:cyan;text-align:center;}	
+	  |---------------------------------------------------|
+				  |
+			declaration block 
+
+Element selector describes to which element we need to apply the styles. 	
+declaration block contains list of CSS properties.
+Each CSS property contains property name and property value seperated with colon.
+Each CSS property ends with semicolon.
+
+
+CSS background property 
+======================
+CSS background property is used to set the background in a web page.
+
+If we set the background to body then it applies to entire web page.
+
+We can set background to a perticular element.
+ex:
+	<h1>, <div>, <p>, <b> and etc.
+
+We have following list of CSS background properties.
+
+1) background-color 
+
+2) background-image 
+
+3) background-repeat
+
+4) background-size 
+
+5) background-position 
+
+6) background attachment 
+
+7) background shorthand 
+
+8) background blend mode 
+
+and etc.
+
+1) background-color 
+--------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			h1
+			{
+				background-color:#00FF00;
+			}		
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#00FF00;
+			}		
+		</style>
+	</head>
+	<body>
+			<h1> Background Property </h1>
+	</body>
+</html>
+
+
+2) background-image 
+--------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+3) background-repeat
+---------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: repeat;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: repeat-x;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: repeat-y;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+
+
+4) background-size 
+-------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: static;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 600px;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 1200px  600px;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+
+5) background-position 
+----------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 500px;
+				background-position: center 100px;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 500px;
+				background-position: right 0px;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 500px;
+				background-position: left 0px;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+
+6) background attachment 
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 500px;
+				background-position: center 0px;
+				background-attachment:scroll;
+			}		
+		</style>
+	</head>
+	<body>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF;
+				background-image: url("images/flower.jpg");
+				background-repeat: no-repeat;
+				background-size: 500px;
+				background-position: center 0px;
+				background-attachment:fixed;
+			}		
+		</style>
+	</head>
+	<body>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+	</body>
+</html>
+
+7) background shorthand 
+-----------------------
+background-color:#FFFFFF;
+background-image: url("images/flower.jpg");
+background-repeat: no-repeat;
+background-position: center 0px;
+background-attachment:fixed;
+
+or
+
+background : #FFFFFF url("images/flower.jpg") no-repeat center 0px fixed;
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background : #FFFFFF url("images/flower.jpg") no-repeat center 0px fixed;
+				background-size: 500px;
+			}		
+		</style>
+	</head>
+	<body>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+			<h1> Scroll Down </h1>
+	</body>
+</html>
+
+8) background blend mode 
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF, #FFFFFF;
+				background-image: url("images/flower.jpg"), url("images/micky.png");
+				background-repeat: no-repeat, no-repeat;
+				background-size: cover , 500px;
+				background-position: center 0px , right 100px; 
+				background-attachment:fixed , fixed;
+				background-blend-mode: darken;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color:#FFFFFF, #FFFFFF;
+				background-image: url("images/flower.jpg"), url("images/micky.png");
+				background-repeat: no-repeat, no-repeat;
+				background-size: cover , 500px;
+				background-position: center 0px , right 100px; 
+				background-attachment:fixed , fixed;
+				background-blend-mode: lighten;
+			}		
+		</style>
+	</head>
+	<body>
+			
+	</body>
+</html>
+
+
+CSS Colors 
+==========
+CSS supports four color values.
+
+1) Valid color name 
+
+2) Hexa value 
+
+3) RGB value 
+
+4) HSL value 
+
+
+1) Valid color name
+-------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color: violet;
+			}
+			h1
+			{
+				color : white;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+2) Hexa value
+---------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color: #ffcce6;
+			}
+			h1
+			{
+				color : #660033;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+3) RGB value 
+------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color: rgb(102, 0, 51);
+			}
+			h1
+			{
+				color : rgb(255, 255, 255);
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+
+
+
+4) HSL value 
+------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style type="text/css">
+			body
+			{
+				background-color: hsl(0, 100%, 66%);
+			}
+			h1
+			{
+				color : hsl(120, 100%, 70%);
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag </h1>
+	</body>
+</html>
+
+Types of CSS
+=============
+We have three types of CSS.
+
+1) Inline CSS 
+
+2) Internal CSS 
+
+3) External CSS 
+
+
+1) Inline CSS
+--------------
+It is used to apply unique style on single element.
+
+Using "style" attribute we can achieve inline CSS.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1 style="color:#FDA7DF;background-color:#6F1E51;text-align:center;">
+			Heading Tag 1
+		</h1>
+			
+		<h1> Heading Tag 2 </h1>
+	</body>
+</html>
+
+2) Internal CSS 
+-----------------
+It is used to apply unique styles on a single web page.
+
+Using <style> tag we can achieve internal CSS.
+
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				color : #EA2027;
+				background-color:#D980FA;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+
+			<h1> Heading Tag 1 </h1>
+			<h1> Heading Tag 2 </h1>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

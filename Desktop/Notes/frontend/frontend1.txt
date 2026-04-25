@@ -1,0 +1,281 @@
+HTML5
+======
+HTML stands for Hypertext Markup Language.
+
+It is widely used language on web to develop web pages and web applications.
+
+It is developed by Burner's Lee in late 1991. 
+
+It is a tag based language.
+ex:
+	<html>
+
+It is a case insensitive language.
+ex:
+	<html>
+	<HTML>
+
+In HTML, for every tag we have opening tag and closing tag.
+ex:
+	<html> --> opening tag 
+	</html> --> closing tag 
+
+HTML tag may contains attribute and ach attribute contains attribute name and attribute value.
+ex:
+	<body bgcolor="red">
+
+HTML tags may contains multiple attributes and each attribute we need to seperated with space.
+ex:
+	<body bgcolor="red"  background="image.jpg">
+
+All HTML documents we need to save with .html or .htm extension.
+
+All HTML documents execute in a browser window.
+ex:
+	Chrome 
+	Firefox Mozilla 
+	Edge 
+	IE
+	Opera 
+	and etc.
+
+It is used to develop client side components.
+
+HTML2.0 specification was released in the year of 1995.
+
+HTML4.0 specification was released in the year of 1999.
+
+HTML5 which is a extension of HTML4 was released in the year of 2005.
+
+The main objective of HTML5 is used to develop leight weight components.
+
+HTML5 is also known as advanced hypertext markup language.
+
+
+HTML skeleton 
+=============
+<!DOCTYPE html>
+<html>
+	<head>
+		// Head related tags 
+	</head>
+	<body>
+		// Body related tags 
+	</body>
+</html>
+
+<!DOCTYPE html>
+---------------
+	It is used to represent HTML5 document.
+
+<html>
+------
+	It is a root tag for entire HTML document.
+	It contains two child tags.
+	1) <head> tag
+	2) <body> tag  
+
+<head> 
+-------
+	A <head> tag is used to declare following things.
+	ex:
+		Page Titles 
+		Favrouite Icons 
+		MetaData 
+		Styles 
+		Scripts 
+
+<body> 
+-------
+	A <body> tag contains actual content of a web page.
+	
+ex:1
+----
+<!DOCTYPE html>
+<html>
+	<head>
+			
+	</head>
+	<body>
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+ex:2
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!!</title>	
+	</head>
+	<body>
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+ex:3
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!!</title>	
+		<link rel="icon" href="images/facebook.png">	
+	</head>
+	<body>
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+ex:4
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!!</title>	
+		<link rel="icon" href="images/facebook.png">	
+	</head>
+	<body>
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+ex:5
+-----
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- page title --> 
+		<title>MyPage!!</title>
+
+		<!-- favicon --> 	
+		<link rel="icon" href="images/facebook.png">	
+	</head>
+	<body>
+		<!-- custom msg -->
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+ex:6
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- page title --> 
+		<title>MyPage!!</title>
+
+		<!-- favicon --> 	
+		<link rel="icon" href="images/facebook.png">	
+	</head>
+	<body bgcolor="cyan">
+		<!-- custom msg -->
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+ex:7
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- page title --> 
+		<title>MyPage!!</title>
+
+		<!-- favicon --> 	
+		<link rel="icon" href="images/facebook.png">	
+	</head>
+	<body bgcolor="white" background="images/wallpaper.png">
+		<!-- custom msg -->
+		Welcome to HTML5 classes
+	</body>
+</html>
+
+
+HTML Meta Tag
+==============
+HTML meta tag is used to declare metadata of a document.
+
+Metadata used by browser , search engine and other web services.
+
+To declare metadata we need to use <meta> tag.
+
+A <meta> tag must be declare inside <head> tag.
+
+A <meta> tag is used declare following things.
+
+1) Description 
+
+2) Author 
+
+3) Keywords 
+
+4) copyright 
+
+5) viewport 
+
+6) refresh 
+
+and etc.
+
+UTF-8
+-----
+UTF stands for Universal Transformation Format.
+UTF is a encoding method which describes what character set a website is written with.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- page title --> 
+		<title>MyPage!!</title>
+
+		<!-- favicon --> 	
+		<link rel="icon" href="images/facebook.png">
+	
+		<!-- metadata -->
+		<meta charset="UTF-8" />
+    		<meta name="description" content="Niyaz sir web page">
+		<meta name="author" content="niyaz sir">
+		<meta name="keywords" content="">
+		<meta name="copyright" content="copy right by niyaz sir">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta http-equiv="refresh" content="05">	
+	</head>
+	<body bgcolor="white" background="images/wallpaper.png">
+		<!-- custom msg -->
+		Welcome to 2026 - 
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

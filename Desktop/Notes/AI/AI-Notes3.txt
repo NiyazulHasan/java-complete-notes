@@ -1,0 +1,273 @@
+Text to Audio 
+==============
+Spring AI prefers OpenAiAudioSpeechModel to convert text to audio.
+
+
+Steps to develop text to audio  application 
+-------------------------------------------
+step1:
+------
+	Keep OpenAI key ready.
+	ex:
+		https://platform.openai.com/settings/organization/api-keys
+step2:
+------
+	Create a spring boot starter project i.e tts-backend.
+	ex:
+		starters:
+				Spring Web
+				OpenAI 
+				Spring DevTools	
+Project structure 
+------------------
+tts-backend 
+|
+|---src/main/java
+	|
+	|---com.ihub.www
+	|
+	|---com.ihub.www.controller
+		|
+		|----AIController.java
+	
+|---src/main/resources
+	|
+	|---application.properties 
+
+|---src/test/java
+|
+|---pom.xml 
+
+step3:
+------
+	Create a AIController.java file inside "com.ihub.www.controller" pkg.
+
+TextToSpeechController.java
+----------------------------
+package com.ihub.www.controller;
+
+import org.springframework.ai.audio.tts.TextToSpeechPrompt;
+import org.springframework.ai.openai.OpenAiAudioSpeechModel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin(origins = "http://localhost:5173")
+@RestController
+public class AIController 
+{
+	private final OpenAiAudioSpeechModel speechModel;
+	
+	@Autowired
+	public AIController(OpenAiAudioSpeechModel speechModel)
+	{
+		this.speechModel = speechModel;
+	}
+	
+	@PostMapping("/api/audio")
+	public ResponseEntity<byte[]> generateSpeech(@RequestBody String text)
+	{
+		byte[] audioBytes = speechModel.call(new TextToSpeechPrompt(text)).getResult().getOutput();
+		
+		return ResponseEntity.ok().header("Content-Type", "audio/mpeg")
+							.body(audioBytes);
+	}
+}
+
+step4:
+------
+	Configure server port, application name, api key and other configurations 
+	inside application.properties file.
+
+application.properties 
+---------------------
+spring.application.name=tts-backend
+server.port = 9191
+spring.ai.openai.api-key= YOUR-API-KEY
+spring.ai.openai.audio.voice=nova
+
+step5:
+------
+	Run spring boot starter project.
+step6:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/api/audio 
+
+step7:
+------
+	Create a react project i.e tts-frontend.
+	ex:
+		npm create vite@latest 
+
+step8:
+-----
+	Open a new terminal and switch to the project
+	ex:
+		cd tts-frontend
+
+step9:
+------
+	Install bootstrap and axios packages.
+	ex:
+		npm install bootstrap 
+		npm install axios 
+
+step10:
+-------
+	Import the bootstrap inside main.jsx file.
+
+main.jsx 
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+step11:
+------
+	Goto App.jsx file and write below code.
+
+App.jsx
+-------
+import { useState } from "react";
+import axios from 'axios';
+function App()
+{
+  const [text,setText] = useState('');
+  const [audioUrl, setAudioUrl] = useState(null);
+
+  const handleSubmit = async (e)=>{
+    e.preventDefault();
+    try
+    {
+        const response = await axios.post("http://localhost:9191/api/audio",
+          text,
+          {
+          responseType: 'arraybuffer',
+          headers: 
+          {
+            'Content-Type': 'text/plain',
+          },
+          }
+        );
+
+        const blob = new Blob([response.data], { type: 'audio/mpeg' });
+      const url = URL.createObjectURL(blob);
+      setAudioUrl(url);
+        
+    }
+    catch(Error)
+    {
+      console.log(Error);
+    }
+  }
+
+
+  return (
+    <div className="container mt-5">
+      <h3 className="text-center"> Text to Speech </h3>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          rows="5"
+          cols="10"
+          placeholder="Enter the text for speech"
+          className="form-control"
+          value={text}
+          onChange={(e)=> setText(e.target.value)}
+        >
+        </textarea>
+        
+        <button type="submit" className="mt-3 btn btn-primary d-block mx-auto"> 
+          Generate Audio 
+        </button>
+      </form>
+
+      {audioUrl && 
+          <div>
+          <h3> Audio File </h3>
+          <audio controls src={audioUrl} type="audio/mpeg"/>
+          </div>
+      }
+
+    </div>
+  )
+}
+export default App;
+
+
+
+step12:
+------
+	Test the application.
+	ex:
+		http://localhost:5173
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

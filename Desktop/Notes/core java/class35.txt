@@ -1,0 +1,469 @@
+ex:1
+----
+interface A 
+{
+	//abstract method 
+	public abstract void m1();
+}
+class B implements A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new B();
+		a.m1();
+	}
+}
+
+ex:2
+----
+interface A 
+{
+	//abstract method 
+	public abstract void m1();
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//Anonymous inner class
+		A a = new A()
+		{
+			public void m1()
+			{
+				System.out.println("From M1-Method");
+			}
+		};
+		a.m1();
+	}
+}
+
+If interface contains four methods then we need to override all methods.
+
+ex:3
+----
+interface ATM 
+{
+	public abstract void deposit();
+	public void withdrawl();
+	abstract void miniStatement();
+	void transfer();
+}
+class SBI implements ATM 
+{
+	@Override
+	public void deposit()
+	{
+		System.out.println("Deposit-Method");
+	}
+	@Override
+	public void withdrawl()
+	{
+		System.out.println("Withdrawl-Method");
+	}
+	@Override
+	public void miniStatement()
+	{
+		System.out.println("MiniStatement-Method");
+	}
+	@Override
+	public void transfer()
+	{
+		System.out.println("Transfer-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		ATM atm = new SBI();
+		atm.deposit();
+		atm.withdrawl();
+		atm.miniStatement();
+		atm.transfer();
+	}
+}
+
+Interface can extends more then one interface.
+
+ex:4
+----
+interface A 
+{
+	void m1();
+}
+interface B
+{
+	void m2();
+}
+interface C extends A,B 
+{
+	void m3();
+}
+class D implements C 
+{
+	@Override
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+	@Override
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+	@Override
+	public void m3()
+	{
+		System.out.println("M3-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)		
+	{
+		C c = new D();
+		c.m1();
+		c.m2();
+		c.m3();
+	}
+}
+
+Q) Write a java program to achieve multiple inheritance in java?
+
+interface Dog 
+{
+	public abstract void sleeping();
+}
+interface Cat 
+{
+	public abstract void eating();
+}
+class Animal implements Dog,Cat
+{
+	@Override
+	public void sleeping()
+	{
+		System.out.println("Dog Sleep's");
+	}
+	@Override
+	public void eating()
+	{
+		System.out.println("Cat Eat's");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Animal a = new Animal();
+		a.sleeping();
+		a.eating();
+	}
+}
+
+A class can't extends more then one class simulteneously.
+But a class can implements more then one interface simulteneously.
+
+ex:
+---
+interface Father 
+{
+	float HT = 6.2f;
+	void height();
+}
+interface Mother 
+{
+	float HT = 5.8f;
+	void height();
+}
+class Child implements Father,Mother
+{
+	@Override
+	public void height()
+	{
+		float height = (Father.HT + Mother.HT)/2;
+		System.out.println("Child Height :"+height);
+	}
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		Child c = new Child();
+		c.height();
+	}
+}
+
+Marker interface 
+================
+Interface which does not have any methods or constants is called marker interface.
+
+In general, empty  or special interface is a marker interface.
+
+We have following list of marker interfaces.
+
+ex:
+	Serializable 
+	Cloneable 
+	Remote 
+	and etc.
+
+By using marker interfaces we will get some ability from JVM.
+
+
+
+
+Abstract classes
+================
+It is a collection of zero or more abstract methods and concrete(regular) methods.
+
+A abstract keyword is applicable for classes and methods but not for variables.
+
+It is not possible to create object for abstract class.
+
+To write the implementation of abstract methods we will use sub classes.
+
+To declare abstract method we need to use abstract keyword.
+
+Abstract class contains only instance variables.
+
+syntax:
+------
+	abstract class <class_name>
+	{
+		-
+		- // abstract methods 
+		- // concrete methods 
+		- // instance variables 
+		-
+	}
+
+ex:
+---
+abstract class Vehicle
+{
+	//abstract method 
+	abstract void sound();
+}
+class Bike extends Vehicle
+{
+	@Override
+	public void sound()
+	{
+		System.out.println("Rooor Rooor");
+	}
+}
+class Car extends Vehicle
+{
+	@Override
+	public void sound()
+	{
+		System.out.println("Booor Booor");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Bike b = new Bike();
+		b.sound();
+		
+		Car c = new Car();
+		c.sound();
+	}
+}
+
+If we know partial implementation then we need to use abstract class.
+
+ex:
+---
+abstract class Plan 
+{
+	//instance variable 
+	protected double rate;
+	
+	//abstract method 
+	public abstract void getRate();
+	
+	//concrete method 
+	public void calculateBillAmt(int units)
+	{
+		System.out.println("Total Units :"+units);
+		System.out.println("Total Bill : "+(units*rate));
+	}
+}
+class DomesticPlan extends Plan 
+{
+	@Override
+	public void getRate()
+	{
+		rate = 2.5d;
+	}
+}
+class CommercialPlan extends Plan 
+{
+	@Override
+	public void getRate()
+	{
+		rate = 5.0d;
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		DomesticPlan dp = new DomesticPlan();
+		dp.getRate();
+		dp.calculateBillAmt(250);
+		
+		CommercialPlan cp = new CommercialPlan();
+		cp.getRate();
+		cp.calculateBillAmt(250);
+	}
+}
+
+
+Abstraction Example 
+===================
+abstract class Animal 
+{
+	//abstract method 
+	public abstract void sound();
+	
+	//concrete method 
+	public void eat()
+	{
+		System.out.println("Animal Eat's");
+	}
+}
+class Dog extends Animal 
+{
+	@Override
+	public void sound()
+	{
+		System.out.println("Bow Bow");
+	}
+}
+class Cat extends Animal 
+{
+	@Override
+	public void sound()
+	{
+		System.out.println("Meow Meow");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Dog d = new Dog();
+		d.sound();
+		d.eat();
+		
+		Cat c = new Cat();
+		c.sound();
+		c.eat();
+	}
+}
+
+Q) What is the difference between interface and abstract class?
+
+interface					abstract class
+------------					---------------
+To declare interface we will use		To declare abstract class we will use  
+interface keyword.				abstract keyword.
+
+It is a blue print of a class and it is a 	It is a collection of abstract methods
+collection of abstract methods, default 	and concrete methods.
+methods, static methods and private methods.
+
+It contains constants.				It contains instance variables.
+
+It does not allow constructor.			It allows constructor.
+
+It does not allow blocks.			It allows blocks.
+
+We can achieve multiple inheritance.		We can't achieve multiple inheritance.
+
+To write the implementation of abstract methods	To write the implementation of abstract
+we will use implementation class.		methods we will use sub class.
+
+If we know only specifications then we need 	If we know partial implementation 
+to use interface.(what to do)			then we need to use abstract class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

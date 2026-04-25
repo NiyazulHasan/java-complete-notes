@@ -1,0 +1,362 @@
+iii) for loop
+=============
+It is used to execute the source code how long our condition is true.
+
+syntax:
+-------
+	for(initialization;condition;increment/decrement)
+	{
+		-
+		- //code to be execute
+		-
+	}
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.print(i+" "); // 1 2 3 4 5 6 7 8 9 10
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.print(i+" "); //finite 1 
+			
+			i--;
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				System.out.print(i+" "); // 2 4 6 8 10
+			}
+		}
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int i=1;i<=10;i++)
+		{
+			if(i%2==0)
+			{
+				System.out.print(i+" "); // 2 6 10
+				
+				i+=2;
+			}
+		}
+	}
+}
+
+Q) Write a java program to find out given number is prime or not?
+
+input:
+	5
+output:
+	It is a prime number 
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();
+		
+		boolean flag=true;
+		for(int i=2;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				flag=false;
+				break;
+			}
+		}
+		if(flag==true)
+			System.out.println("It is prime number");
+		else
+			System.out.println("It is not prime number");
+	}
+}
+
+
+Q) Write a java program to display prime number between 1 to 100?
+
+output:
+	2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 
+	43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		for(int n=2;n<=100;n++)
+		{
+			boolean flag=true;
+			for(int i=2;i<=n/2;i++)
+			{
+				if(n%i==0)
+				{
+					flag=false;
+					break;
+				}
+			}
+			if(flag==true)
+				System.out.print(n+" ");
+		}
+	}
+}
+
+Q) Write a java program to find out given number is perfect or not?
+
+input:
+	6
+output:
+	It is a perfect number 
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); //6
+		
+		int sum=0;
+		for(int i=1;i<n;i++)
+		{
+			if(n%i==0)
+			{
+				sum+=i;
+			}
+		}
+		if(n==sum)
+			System.out.println("It is perfect number");
+		else
+			System.out.println("It is not perfect number");
+		
+	}
+}
+
+
+Q) Write a java program to display fibonacci series of a given number?
+
+input:
+	6
+output:
+	0 1 1 2 3 5
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); //6
+		
+		int a=0,b=1,c;
+		System.out.print(a+" "+b+" ");
+		
+		for(int i=3;i<=n;i++)
+		{
+			c = a + b;
+			System.out.print(c+" ");
+			a=b;
+			b=c;
+		}
+	}
+}
+
+
+Q) Write a java program to find out GCD (Greatest Common Divisor) of two numbers?
+
+input:
+	12   18
+
+output:
+	6
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a=12,b=18,gcd=0;
+		
+		for(int i=1;i<=a && i<=b;i++)
+		{
+			if((a%i==0) && (b%i==0))
+			{
+				gcd=i;
+			}
+		}
+		System.out.println("GCD of two numbers is ="+gcd);
+	}
+}
+
+
+
+Loop Patterns 
+=============
+
+1) 
+1 1 1 1 
+2 2 2 2
+3 3 3 3 
+4 4 4 4 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+2) 
+
+1 2 3 4
+1 2 3 4
+1 2 3 4
+1 2 3 4 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(j+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+3) 
+* * * *
+* * * *
+* * * * 
+* * * * 
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=1;i<=4;i++)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print("* ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+
+4) 
+
+4 4 4 4 
+3 3 3 3
+2 2 2 2 
+1 1 1 1 
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		//rows
+		for(int i=4;i>=1;i--)
+		{
+			//cols
+			for(int j=1;j<=4;j++)
+			{
+				System.out.print(i+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

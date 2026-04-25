@@ -1,0 +1,387 @@
+ii) while loop 
+==============
+It is used to execute the source code how long our condition is true.
+
+syntax:
+-------
+	while(condition)
+	{
+		-
+		- //code to be execute 
+		-
+	}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		while(i<=10)
+		{
+			System.out.print(i+" "); //infinite 1
+		}
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=11;
+		while(i<=10)
+		{
+			System.out.print(i+" "); // No output 
+		}
+	}
+}
+
+Q) Write a java program to display 10 natural numbers?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		while(i<=10)
+		{
+			System.out.print(i+" "); // 1 2 3 4 5  6 7 8 9 10
+			i++;
+		}
+	}
+}
+
+Q) Write a java program to perform sum of 10 natural numbers?
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int i=1,sum=0;
+		while(i<=10)
+		{
+			sum=sum+i;
+			i++;
+		}
+		System.out.println(sum);//55
+	}
+}
+
+
+Q) Write a java program to find out factorial of a given number?
+
+input:
+	5
+output:
+	120 
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();
+		
+		int i = n,fact=1;
+		while(i>=1)
+		{
+			fact = fact * i;
+			i--;
+		}
+		System.out.println(fact);
+	}
+}
+
+Q) Write a java program to find out multiplication table of a given number?
+
+input:
+	5
+output:
+	5 * 1 = 5
+	-
+	-
+	5 * 10 = 50
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();
+		
+		int i=1;
+		while(i<=10)
+		{
+			System.out.println(n+" * "+i+" = "+n*i);
+			i++;
+		}
+	}
+}
+
+
+Q) Write a java program to find out sum of digits of a given number?
+
+input:
+	123
+output:
+	6 (1+2+3)
+
+ex:
+---
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 123
+		
+		int rem,sum=0;
+		while(n>0)
+		{
+			rem = n%10;
+			sum = sum + rem;
+			n = n/10;
+		}
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program to find out given number is Armstrong or not?
+
+input:
+	153
+output:
+	It is a Armstrong number 
+	
+	1*1*1+5*5*5+3*3*3
+	1 + 125 + 27
+	153
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 153
+		
+		int temp = n;
+		
+		int rem,sum=0;
+		while(n>0)
+		{
+			rem = n%10;
+			sum = sum + rem * rem * rem;
+			n = n/10;
+		}
+		if(sum==temp)
+			System.out.println("It is a Armstrong number");
+		else
+			System.out.println("It is not a Armstrong number");
+	}
+}
+
+
+Q) Write a java program to display reverse of a given number?
+
+input:
+	123
+output:
+	321
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 123
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem = n%10;
+			rev = rev * 10 + rem;
+			n = n/10;
+		}
+		System.out.println(rev);
+	}
+}
+
+Q) Write a java program to find out given number is palindrome or not?
+
+input:
+	121
+output:
+	It is a palindrome number 
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 121
+		
+		int temp=n;
+		
+		int rem,rev=0;
+		while(n>0)
+		{
+			rem = n%10;
+			rev = rev * 10 + rem;
+			n = n/10;
+		}
+		if(temp==rev)
+			System.out.println("It is a palindrome number");
+		else
+			System.out.println("It is not a palindrome number");
+	}
+}
+
+Q) Write a java program to display reverse of a given number?
+
+input:
+	123
+output:
+	ThreeTwoOne 
+
+ex:
+---
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 123
+		
+		while(n>0)
+		{
+			switch(n%10)
+			{
+				case 0 : System.out.print("Zero");break;
+				case 1 : System.out.print("One");break;
+				case 2 : System.out.print("Two");break;
+				case 3 : System.out.print("Three");break;
+				case 4 : System.out.print("Four");break;
+				case 5 : System.out.print("Five");break;
+				case 6 : System.out.print("Six");break;
+				case 7 : System.out.print("Seven");break;
+				case 8 : System.out.print("Eight");break;
+				case 9 : System.out.print("Nine");break;
+			}
+			n=n/10;
+		}
+	}
+}
+
+Q) Write a java program to display magic number?
+
+input:
+	976
+output:
+	4
+
+	9+7+6 = 22
+	2 + 2 = 4
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 976
+		
+		while(n>9)
+		{
+			int rem,sum=0;
+			while(n>0)
+			{
+				rem = n%10;
+				sum = sum + rem;
+				n = n/10;
+			}
+			n=sum;
+		}
+		System.out.println(n);
+	}
+}
+
+Q) A frog felt down in a well of 10 meters. Every day frog tries to come out from the well. He jumps 2 meters and rollback 1 meter. So write a java program to find out in how many days a frog will come out from the well.
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		int wellLength = 10;
+		int jumps = 2;
+		int rollback = 1;
+		
+		int currentPosition=0;
+		int days=0;
+		
+		while(currentPosition<wellLength)
+		{
+			currentPosition+=jumps;
+			if(currentPosition>wellLength)
+			{
+				break;
+			}
+			currentPosition-=rollback;
+			days++;
+		}
+		System.out.println("In "+days+" days frog will come out from the well");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

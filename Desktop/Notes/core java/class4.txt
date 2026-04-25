@@ -1,0 +1,125 @@
+Java
+====
+Version		:	25
+
+Vendor		:	Oracle Corporation 
+
+Creator		:	James Gosling
+
+Website		:	www.oracle.com/java
+
+Open source	:	Open source 
+
+Tutorials	:	www.tutorialspoint.com
+			www.geeksforgeeks.com
+			www. w3schools.com 
+			and etc.
+
+Download link	:	
+https://drive.google.com/file/d/1oLBh5FWTASeJbDedrJRFlSF2DkmbTeaB/view?usp=drive_link
+
+Steps to setup environmental variables 
+======================================
+step1:
+------
+	Make sure JDK installed successfully.
+
+step2:
+------
+	Copy "bin" directory from "JAVA_HOME" folder.
+	ex:
+		C:\Program Files\Java\jdk-24\bin
+
+step3:
+-----
+	Paste "bin" directory from in environmental variables.
+	ex:
+		Right click to This PC --> properties --> Advanced System settings 
+		--> Environmental variables --> system variables --> click to new button
+		--> variable name :  path 
+	            variable value : C:\Program Files\Java\jdk-24\bin;
+		--> ok --> ok --> ok.
+
+step4:
+------
+	Check environmental setup done perfectly or not?
+	ex:
+		cmd> javap 
+		cmd> java  -version 
+	
+
+Steps to develop first java application development 
+===================================================
+step1:
+-----
+	Create a "javaprog" folder inside 'D' drive.
+
+step2:
+------
+	Open the notepad and develop simple Hello World Program.
+	ex:
+		class Test
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("Hello World");
+			}
+		}
+step3:
+------
+	Save java program with same name as class name inside "javaprog" folder.
+
+step4:
+------
+	Open the command prompt from "javaprog" location.
+
+step5:
+------
+	Compile above program by using below command.
+	ex:
+		javac    Test.java
+				|
+				filename 
+
+step6:
+------
+	Run above program by using below command.
+	ex:
+		java    Test
+			|
+			classname 
+
+Note:
+-----
+	We can compile and execute our program at time by using below command.
+	ex:
+		java    Test.java 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

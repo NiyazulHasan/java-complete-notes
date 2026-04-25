@@ -1,0 +1,527 @@
+<del> and <ins> tag 
+====================
+The <del> tag defines text that has been deleted from a document
+
+The <ins> tag defines a text that has been inserted into a document
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<h1>
+				This is <del>Java</del> <ins>HTML</ins> class
+			</h1>
+	</body>
+</html>
+
+<small> tag 
+===========
+It displays content in a smaller font size relative to the surrounding text. 
+
+It define text that is visually and semantically less important, such as copyright notices or legal disclaimers.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			&copy; All Right Reserved - 2026
+			<br>
+			<small>&copy; All Right Reserved - 2026</small>
+	</body>
+</html>
+
+<big> tag 
+=========
+The HTML <big> tag was used to make text one font size larger than the surrounding text, but it is deprecated in HTML5.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			HTML is widely used language 
+			<br>
+			HTML is <big>widely</big> used language 
+	</body>
+</html>
+
+
+Semantic Elements
+==================
+It clearly describes to a developer or a browser about it's content.
+
+We have following list of semantic elements.
+
+1)  <datalist> 
+2)  <details>
+3)  <summary>
+4)  <header>
+5)  <nav>
+6)  <section>
+7)  <main>
+8)  <article>
+9)  <figure>
+10) <aside>
+11) <footer>
+
+Diagram: frontend5.1
+
+
+<datalist> 
+==========
+A <datalist> tag/element is used to specify list of predefine options for an <input> tag/element.
+
+A <datalist> tag/element provides autocomplete features for an <input> element/tag.
+
+User will see a drop-down list of predefine options for an <input> tag/element.
+
+A <datalist> tag/element  "id" attribute must be same as <input> tag/element "list" attribute.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			City: <input type="text" name="t1" list="myId"/>
+			
+			<datalist  id="myId">
+				<option value="Hyderabad">
+				<option value="Banglore">
+				<option value="Mumbai">
+				<option value="Pune">
+				<option value="Vizag">
+			</datalist>
+	</body>
+</html>
+
+<details> & <summary> tag
+=========================
+A <details> tag/element is used display special content where a user can open and close on demand. 
+
+A <details> tag is used to design interactive widgets where user can open and close.
+
+A <details> tag contains <summary> tag.
+
+We can keep any sort of tags inside <details> tags.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<details>
+				<summary>HTML5</summary>
+				<h4>It stands for Hypertext Markup Language</h4>
+	<h3>It is widely used to develop web pages and web applicaitons</h3>
+				<h2>It document executed in a browser window</h2>
+				<h1>It is developed by Burner's Lee in late 1991</h1>
+			</details>
+	</body>
+</html>
+
+<header> and <nav> tag 
+=======================
+The <header> element represents a container for introductory content or a set of navigational links.
+
+The <nav> tag in HTML is used to define navigation sections on a webpage. 
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<header>
+				<center>
+					<nav>
+						<a href="" style="text-decoration:none"> Home </a> &nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="" style="text-decoration:none"> About </a> &nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="" style="text-decoration:none"> Service </a> &nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="" style="text-decoration:none"> Portfolio </a> &nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="" style="text-decoration:none"> Contact </a> 
+					</nav>
+				</center>
+			</header>
+	</body>
+</html>
+
+
+<section>, <main>, <article> and <figure>
+=========================================
+
+The <section> tag defines a section in a document.
+
+The <main> tag specifies the main content of a document. The content inside the <main> element should be unique to the document.
+
+The <article> tag specifies independent, self-contained content. 
+
+The <figure> tag is used to insert self-contained content such as illustrations, diagrams, photos, or code listings in a document.
+
+ex:
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body bgcolor="#FFFF00">
+			<section>
+				<!-- main content -->
+				<main>
+					<!-- self-contained block -->
+					<article>
+						<center>
+							<h3> Hollywood Actor</h3>
+							<figure>
+								<img src="images/rock.jpg" width="200px" height="200px"/>
+								<figcaption>Dwayne Johnson</figcaption>
+							</figure>
+							<p>
+								Dwayne Douglas Johnson (born May 2, 1972), also known by his ring name "the Rock", is an American actor and professional wrestler. He is signed to WWE, where he performs on a part-time basis. Widely regarded as one of the greatest professional wrestlers of all time,[6][7] Johnson was integral to the development and success of the World Wrestling Federation (WWF, now WWE) during the Attitude Era. He wrestled for the WWF full-time for eight years before pursuing an acting career. His films have grossed over $11.4 billion worldwide,[8] making him one of the world's highest-grossing actors of all time.[9][10][11] He is a co-owner of the United Football League,[12][13][14] a member of the board of directors of TKO Group Holdings—the parent company of UFC and WWE[15][16][17]—and co-founder of Seven Bucks Productions
+							</p>
+						</center>
+					</article>
+				</main>
+			</section>
+	</body>
+</html>
+
+
+<aside> tag 
+===========
+The <aside> tag defines some content aside from the content it is placed in. The aside content should be indirectly related to the surrounding content.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<aside>
+				<ul type="none">
+					<li>Home</li>
+					<li>About</li>
+					<li>Service</li>
+					<li>Portfolio</li>
+					<li>Contact</li>
+				</ul>
+			</aside>				
+	</body>
+</html>
+
+footer tag
+===========
+The <footer> tag defines a footer for a document or section.
+
+A <footer> element typically contains:
+
+ex:
+	authorship information
+	copyright information	
+	contact information
+	sitemap
+	back to top links
+	related documents
+Note:
+	You can have several <footer> elements in one document.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+			<footer>
+				<center>
+				<p>Home | About | Service | Portfolio | Contact </p>
+				<small>&copy; All Right Reserved - 2026</small>
+				</center>
+			</footer>				
+	</body>
+</html>
+
+HTML Frames
+=============
+To use frames on a web page we need to use <frameset> tag instead of <body> tag.
+
+The <frameset> tag defines how to divide the window into frames.
+
+The "rows" attribute of <frameset> tag defines horizontal frames.
+
+The "cols" attribute of <frameset> tag defines vertical frames.
+
+Each frame is indicated by <frame> tag and it defines which document should 
+be open into that place.
+
+Note:
+----
+The <frame> tag is deprecated in HTML5 so that don't use this tag.
+
+
+Example1
+---------
+
+index.html 
+-----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<frameset cols="33%,*,33%">
+			<frame src="A.html"/>
+			<frame src="B.html"/>
+			<frame src="C.html"/>
+	</frameset>
+</html>
+
+
+a.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A.HTML</title>
+	</head>
+	<body bgcolor="red">
+						
+	</body>
+</html>
+
+
+
+b.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>B.HTML</title>
+	</head>
+	<body bgcolor="green">
+						
+	</body>
+</html>
+
+
+
+c.html
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C.HTML</title>
+	</head>
+	<body bgcolor="blue">
+						
+	</body>
+</html>
+
+Example2
+--------
+
+index.html
+---------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<frameset rows="33%,*,33%">
+			<frame src="A.html"/>
+			<frame src="B.html"/>
+			<frame src="C.html"/>
+	</frameset>
+</html>
+
+a.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>A.HTML</title>
+	</head>
+	<body bgcolor="#e67e22">
+						
+	</body>
+</html>
+
+
+
+
+b.html
+------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>B.HTML</title>
+	</head>
+	<body bgcolor="#FFFFFF">
+		
+		<center>
+			<img src="images/chakra.png" width="130px" height="130px"/>
+		</center>
+				
+	</body>
+</html>
+
+
+
+c.html
+-------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>C.HTML</title>
+	</head>
+	<body bgcolor="#2ecc71">
+						
+	</body>
+</html>
+
+
+<iframe> tag 
+============
+It is used to specify inline frame.
+
+A <iframe> tag/element is used to embed a document into current HTML document.
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<iframe src="http://www.ihubtalent.com" width="300px" height="300px">
+		
+		</iframe>
+	</body>
+</html>
+
+Steps to display google map in a web page
+========================================
+step1:
+------
+	Goto google maps.
+	ex:
+		https://www.google.com/maps
+
+step2:
+------
+	Type Ihub Talent Managemnt in search box.
+
+step3:
+------
+	Click to menu button.
+
+step4:
+-----
+	select to shared or embed map.
+
+step5:
+-----
+	select to embed a map (link).
+
+step6:
+------
+	Now copy the html and paste in HTML document.
+
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4876565021073!2d78.44202777358616!3d17.436358401395655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb919633f78bef%3A0xbb63515db9bc2eba!2siHub%20Talent%20Info%20Systems!5e0!3m2!1sen!2sin!4v1760350187007!5m2!1sen!2sin" 
+		width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		
+	</body>	
+</html>
+
+
+		 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

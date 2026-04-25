@@ -1,0 +1,493 @@
+JavaScript Recursion 
+====================
+Recursion is a programming technique in which a function call itself for many number of times to solve complex problem by breaking down into small or subproblems.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        function display(i)
+        {
+            if(i<=10)
+            {
+                document.writeln(i);//1 2 3 4 5 6 7 8 9 10
+                display(i+1);
+            }
+        }
+        //calling 
+        display(1);
+    </script>
+</body>
+</html>
+
+
+Q) Write a javascript program to find out factorial of a given number using recursion?
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Enter the number :"));//5
+        document.writeln(factorial(n));
+
+        function factorial(n)
+        {
+            if(n<0)
+                return -1;
+            if(n==0)
+                return 1;
+            return n * factorial(n-1); 
+        }        
+    </script>
+</body>
+</html>
+
+
+JavaScript Closure 
+==================
+JavaScript closure is a functions bundled together along with lexical scope.
+
+JavaScript closure is created whenever function is created.
+
+In JavaScript closure, inner function can access the data of outer function.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        
+        //lexical scope 
+        var a=10;
+
+        function Outer() 
+        {
+                var b=20;
+
+                function Inner()
+                {
+                    var c=30;
+                    document.writeln(a+" "+b+" "+c+"<br>");
+                } 
+                //calling 
+                Inner();    
+                document.writeln(a+" "+b+"<br>");
+        }
+        //calling 
+        Outer();
+    </script>
+</body>
+</html>
+
+Types of functions in JavaScript 
+===============================
+We have three types of functions in JavaScript.
+
+1) Named Function 
+
+2) Anonymous Function 
+
+3) Arrow Function 
+
+1) Named Function 
+-------------------
+It contains name at the time of declaration.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        function f1()
+        {
+            document.writeln("Named Function");
+        }
+        f1();
+    </script>
+</body>
+</html>
+
+2) Anonymous Function
+--------------------
+It does not contain name at the time of declaration.
+Anonymous function used by JavaScript dynamically.
+
+ex:
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var f1 = function()
+        {
+            document.writeln("Anonymous Function");
+        }
+        f1();
+    </script>
+</body>
+</html>
+
+3) Arrow Function
+---------------
+According to ES6 standards it is recommanded to use arrow function.
+It is a concise ways to declare functions in javascript.
+Arrow functions are more secure when compare to anonymous functions.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var f1 = ()=>
+        {
+            document.writeln("Arrow Function");
+        }
+        f1();
+    </script>
+</body>
+</html>
+
+
+JavaScript Object
+==================
+It is a entity have states and behaviours.
+
+It is a collection of properties and actions.
+
+There are three ways to create Objects in javascript.
+
+1) Object literal 
+
+2) By creating instance of an Object i.e by using new operator 
+
+3) By using Object constructor i.e by using new operator 
+
+1) Object literal
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+       var emp = 
+       {
+            eid:101,
+            ename:"Alan",
+            esal:10000,
+            details: function(){ return "My Function"; }
+       }
+       document.writeln("Employee Id :"+emp.eid+"<br>");
+       document.writeln("Employee Name :"+emp.ename+"<br>");
+       document.writeln("Employee Salary :"+emp.esal+"<br>");
+       document.writeln(emp.details()+"<br>");
+    </script>
+</body>
+</html>
+
+2) By creating instance of an Object
+------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+       var emp = new Object();
+       emp.eid=201;
+       emp.ename="Jessica";
+       emp.esal=20000;
+       emp.details=function(){return "My Function"; }
+       
+       document.writeln("Employee Id :"+emp.eid+"<br>");
+       document.writeln("Employee Name :"+emp.ename+"<br>");
+       document.writeln("Employee Salary :"+emp.esal+"<br>");
+       document.writeln(emp.details()+"<br>");
+    </script>
+</body>
+</html>
+
+3) By using Object constructor
+-------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+       function Emp(eid,ename,esal,details)
+       {
+            this.eid=eid;
+            this.ename=ename;
+            this.esal=esal;
+            this.details=details;
+       }
+       var e = new Emp(103,"Kelvin",30000,function(){return "My Function"});
+
+       document.writeln("Employee Id :"+e.eid+"<br>");
+       document.writeln("Employee Name :"+e.ename+"<br>");
+       document.writeln("Employee Salary :"+e.esal+"<br>");
+       document.writeln(e.details()+"<br>");
+    </script>
+</body>
+</html>
+
+
+JavaScript Arrays 
+=================
+It is a collection of similar elements.
+
+Array index always starts with '0' because it is a logical process.
+
+There are three ways to create Arrays in JavaScript.
+
+1) By using Array Literal 
+
+2) By creating instance of an Array i.e using new operator 
+
+3) By using Array constructor i.e using new operator 
+
+1) By using Array Literal 
+--------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+      var arr = [10,20,30];
+
+      for(var i in arr)
+      {
+            document.writeln(arr[i]);
+      }
+    </script>
+</body>
+</html>
+
+2) By creating instance of an Array
+-----------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+      var arr = new Array();
+      arr[0]=10;
+      arr[1]=20;
+      arr[2]=30;
+      arr[3]=40;
+
+      for(var i in arr)
+      {
+            document.writeln(arr[i]);
+      }
+    </script>
+</body>
+</html>
+
+3) By using Array constructor 
+------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+      var arr = new Array(10,20,30,40,50);
+
+      for(var i in arr)
+      {
+            document.writeln(arr[i]);
+      }
+    </script>
+</body>
+</html>
+
+Q) Write a javascript program to perform sum of array elements?
+
+input:
+	6 9 1 4 2 7
+output:
+	29
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var arr = [6,9,1,4,2,7];
+        var sum=0;
+        for(var i in arr)
+        {
+            sum += arr[i];
+        }
+        document.writeln(sum);
+    </script>
+</body>
+</html>
+
+
+Q) Write a javascript program to find out highest element from given array?
+
+input:
+	6 9 1 4 2 7
+output:
+	9
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var arr = [6,9,1,4,2,7];
+        
+        var max = Math.max(...arr);
+
+        document.writeln(max);
+    </script>
+</body>
+</html>
+
+Q) Write a javascript program to sort the elements?
+
+input:
+	6 9 1 4 2 7
+output:
+	1 2 4 6 7 9 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+        var arr = [6,9,1,4,2,7];
+        
+        arr.sort();
+
+        for(var i in arr)
+        {
+            document.writeln(arr[i]);
+        }
+    </script>
+</body>
+</html>
+
+Q) Write a javascript program to insert and remove elements from empty array?
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+            var arr=[];
+
+            //insert
+            arr.push(10);
+            arr.push(20);
+            arr.push(30);
+
+            //remove
+            arr.pop();    
+
+            for(var i in arr)
+            {
+                document.writeln(arr[i]);
+            }
+    </script>
+</body>
+</html>
+
+Q) Write a javascript program to display array elements in descending order?
+
+input:
+	6 9 1 4 2 7
+output:
+	9 7 6 4 2 1 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+    <script>
+            var arr = [6,9,1,4,2,7];
+            
+            arr.sort(); // 1 2 4 6 7 9 
+            
+            //reading reverse
+            for(var i=arr.length-1;i>=0;i--)
+            {
+                document.writeln(arr[i]);
+            }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

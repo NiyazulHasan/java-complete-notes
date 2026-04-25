@@ -1,0 +1,397 @@
+Method Overriding 
+=================
+Having same method name with same parameters/signatures in two different classes is called method overriding.
+
+Methods which are present in parent class are called overridden methods.
+
+Methods which are present in child class are called overridding methods.
+
+Method resolution will taken care by JVM based on runtime object.
+
+ex:
+---
+class Parent  
+{
+	//overridden method 
+	public void property()
+	{
+		System.out.println("Cash+Gold+Land");
+	}
+	public void marry()
+	{
+		System.out.println("Trisha");	
+	}
+}
+class Child extends Parent 
+{
+	//overriding method 
+	@Override
+	public void marry()
+	{
+		System.out.println("Rashmika");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p = new Parent();
+		p.property(); // Cash+Gold+Land
+		p.marry(); // Trisha 
+		
+		Child c = new Child();
+		c.property(); // Cash+Gold+land
+		c.marry(); // Rashmika 
+		
+		Parent p1 = new Child();
+		p1.property(); // Cash+Gold+Land
+		p1.marry(); // Rashmika
+	}
+}
+
+If we declare any variable as final then overriding of that method is not possible.
+
+ex:
+---
+class Parent  
+{
+	//overridden method 
+	public final void property()
+	{
+		System.out.println("House-Not For Sale");
+	}
+}
+class Child extends Parent 
+{
+	//overriding method 
+	@Override
+	public void property()
+	{
+		System.out.println("House-For Sale");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p = new Child();
+		p.property(); 
+	}
+}
+o/p:
+	C.T.E :  overridden method is final
+
+Method Hiding 
+==============
+Method hiding is exactly same as method overriding with following differences.
+
+Method overriding			Method hiding
+-------------------			--------------
+Methods should be non-static.		Methods should be static.
+
+Method resolution will taken care	Method resolution will taken care 
+by JVM based on runtime object.		by compiler based on reference type.
+
+It is also known as runtime 		It is also known as compile time 
+polymorphism, dynamic polymorphism or	polymorphism, static polymorphism or 
+late binding.				early binding.
+
+ex:
+---
+class Parent  
+{
+	public static void property()
+	{
+		System.out.println("House-Not For Sale");
+	}
+}
+class Child extends Parent 
+{
+	public static void property()
+	{
+		System.out.println("House-For Sale");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Parent p = new Child();
+		p.property(); // House- Not For Sale 
+		
+		Child c = new Child();
+		c.property(); // House - For Sale 
+		
+		Parent p1 = new Child();
+		p1.property(); // House - Not For Sale 
+	}
+}
+
+interview Questions 
+===================
+Q) Can we overload main method in java?
+
+Yes, we can overload main method in java but JVM always execute main method with String[] parameter only.
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("String[] parameter");
+	}
+	public static void main(int[] iargs)
+	{
+		System.out.println("int[] parameter");
+	}
+}
+
+Q) Can we override main method in java?
+
+No, we can't override main method in java because it is static.
+
+
+
+
+Polymorphism 
+============
+Polymorphism has take from Greek word.
+
+Here poly means many and morphism means forms. 
+
+The ability to represent in different forms is called polymorphism.
+
+Diagram: class34.1
+
+The main objective of polymorphism is to provide flexibility.
+
+In java, polymorphism is divided into two types.
+
+1) Compile time polymorphism
+---------------------------
+A polymorphism which exhibits at compile time is called compile time polymorphism.
+Method resolution will taken care by a compiler based on reference type.
+It is also known as static polymorphism or early binding.
+ex:
+	Method Overloading 
+	Method Hiding 
+
+
+2) Runtime polymorphism 
+------------------------
+A polymorphism which exhibits at runtime is called runtime polymorphism.
+Method resolution will taken care by JVM based on runtime object.
+It is also known as dynamic polymorphism or late binding.
+ex:
+	Method overriding 
+
+
+
+Sealed class
+=============
+A sealed class introduced in Java 17.
+
+It provide a mechanism to restrict which other classes can extend or implement a given class or interface. 
+
+sealed modifier: 
+----------------
+The superclass or interface is declared with the sealed keyword.
+
+permits clause:
+---------------
+The declaration must include a permits clause to explicitly list the direct subclasses or subinterfaces that are allowed to extend or implement it.
+
+
+Every permitted subclass must be declared with one of three modifiers to define how the hierarchy continues:
+
+final: 
+------
+The class cannot be extended any further (record classes are implicitly final).
+
+sealed: 
+-------
+The class can be extended further, but only by its own specific permitted subclasses.
+
+non-sealed: 
+-----------
+The class breaks the sealing hierarchy and can be extended by any unknown class (reverts to traditional open inheritance). 
+
+
+
+ex:
+---
+sealed class A permits B,C,D
+{
+	public void m1()
+	{
+		System.out.println("A-class method");
+	}
+}
+//hierarchy ends here
+final class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("B-class method");
+	}
+}
+//any class can extend it
+non-sealed class C extends A 
+{
+	public void m3()
+	{
+		System.out.println("C-class method");
+	}	
+}
+//only its permitted subclasses can extend it
+sealed class D extends A 
+{
+	public void m4()
+	{
+		System.out.println("D-class method");
+	}
+}
+final class E extends D 
+{
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b = new B();
+		b.m1();
+		b.m2(); 
+		
+		C c = new C();
+		c.m1();
+		c.m3();
+		
+		D d = new D();
+		d.m1();
+		d.m4();
+		
+	}
+}
+
+
+Diagram : class34.2
+
+ex:
+---
+sealed class A permits B,D
+{
+	public void m1()
+	{
+		System.out.println("A-class method");
+	}
+}
+non-sealed class B extends A 
+{
+	public void m2()
+	{
+		System.out.println("B-class method");
+	}
+}
+class C 
+{
+	public void m3()
+	{
+		System.out.println("C-class method");
+	}	
+}
+non-sealed class D extends A 
+{
+	public void m4()
+	{
+		System.out.println("D-class method");
+	}
+}
+final class E extends D 
+{
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b = new B();
+		b.m1();
+		b.m2(); 
+		
+		C c = new C();
+		c.m3();
+		
+		D d = new D();
+		d.m1();
+		d.m4();
+		
+	}
+}
+
+
+Interface 
+=========
+Interface is a blue print of a class and it is a collection of abstract methods, default methods, static methods and private methods.
+
+Abstract method is a incomplete method because it ends with semicolon and does not have any body.
+ex:
+	public abstract void methodOne();
+
+It is not possible to create object for interfaces.
+
+To write the implementation of abstract methods in interface we will use implementation class.
+
+It is possible to create object for implementation class because it contains method with body.
+
+By default every abstract method is a public and abstract.
+ex:
+	void methodOne(); 
+
+Interface contains only constants i.e public static final.
+
+If we know only service requirement specifications then we need to use interface.
+
+Diagram: class34.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

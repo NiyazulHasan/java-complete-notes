@@ -1,0 +1,449 @@
+Q) 
+Write a java program to find out the cost based on user inputs. A program must prompt users to enter total weight of items (in kilograms) and shipping destination (domestic or international). For domestic orders, a program must charge Rs.500 upto 5kg and Rs.100 per additional kg.For international orders a program must charge  Rs.1000 upto 5kg and Rs.200 per additional kg, and Rs.500 surcharge if weight exceeded to 10 kg.Find out calculated shipping cost.
+
+input:
+	Total weight of items : 11
+	Shipping Destination : domestic 
+
+output:
+	Shipping Cost : 1100
+	500(5kg) + 600(6kg)
+
+	Shipping Cost : 2700
+	1000(5kg) + 1200(6kg) + 500
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter total weight of items :");
+		int weight = sc.nextInt();//11kg
+		
+		System.out.println("Enter Shipping Destination :");
+		String destination = sc.next().toLowerCase(); // domestic 
+		
+		int cost = 0;
+		if(destination.equals("domestic"))
+		{
+			if(weight<=5)
+			{
+				cost = 500;
+			}
+			else
+			{
+				cost = 500 + (weight-5)*100;				
+			}
+		}
+		if(destination.equals("international"))
+		{
+			if(weight<=5)
+			{
+				cost = 1000;
+			}
+			else if(weight>5 && weight<=10)
+			{
+				cost = 1000 + (weight-5)*200;
+			}
+			else
+			{
+				cost = 1000 + (weight-5)*200 + 500;
+			}
+		}
+		
+		System.out.println("Shipping Cost :"+cost);
+	}
+}
+
+
+v) switch case 
+===============
+It is used to execute the source code based on multiple conditions.
+
+It is similar to if else if ladder.
+
+syntax:
+-------
+	switch(condition)
+	{
+		case value1 : 
+				//code to be execute
+				break;		
+
+		case value2 :   //code to be execute 
+				break; 
+		-		
+		-
+		default     :   //code to be execute if all cases are false 
+	}		
+
+ex:
+---
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the option :");
+		int option = sc.nextInt(); // 108
+		
+		switch(option)
+		{
+			case 100 : System.out.println("It is a police number");
+					   break;
+			case 103 : System.out.println("It is a enquiry number");
+					   break;
+			case 108 : System.out.println("It is a emergency number");
+					   break;
+			default :  System.out.println("Invalid option");
+		}
+		
+	}
+}
+
+Note:
+-----
+Declaration of break statement is optional. If we won't define break statement then from where our condition is satisfied from there all cases will be executed that state is called "Fall Through State" of switch case.
+
+ex:
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the option :");
+		int option = sc.nextInt(); // 108
+		
+		switch(option)
+		{
+			case 100 : System.out.println("It is a police number");
+					   //break;
+			case 103 : System.out.println("It is a enquiry number");
+					   //break;
+			case 108 : System.out.println("It is a emergency number");
+					   //break;
+			default :  System.out.println("Invalid option");
+		}
+		
+	}
+}
+
+Note:
+-----
+If we want to read options from the enduser then we need to use switch case.
+If we want to declare more than two conditions then we need to use if else if ladder.
+
+
+The allowed datatype for switch case are byte,short,int,char and string.
+
+
+ex:
+----
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the String :");
+		String str = sc.next();
+		
+		switch(str)
+		{
+			case "one" : System.out.println("January");
+					     break;
+			case "two" : System.out.println("February");
+					     break;
+			case "three" : System.out.println("March");
+					     break;
+			default :  System.out.println("Coming Soon..");
+		}
+		
+	}
+}
+
+
+Q) Write a java program to find out given alphabet is a vowel or not?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the Alphabet :");
+		char ch = sc.next().charAt(0);
+		
+		switch(ch)
+		{
+			case 'a','e','i','o','u' -> System.out.println("It is a vowel");
+			default  -> System.out.println("It is not a vowel");
+		}
+		
+	}
+}
+
+yield 
+=====
+A yield keyword introduced in Java 14.
+
+It returns a value in a switch case.
+
+It replaces the need for a break statement in traditional switch statements and avoids the "fall-through" errors associated with them. 
+
+ex:
+---
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();
+		
+		String result = switch(n)
+		{
+			case 1,2,3,4,5 -> { yield "Weekdays"; }
+			case 6,7 -> { yield "Weekends"; }
+			default -> { yield "Invalid Number"; }
+		};
+		System.out.println(result);
+	}
+}
+
+
+2) Iteration statements 
+=======================
+Iteration statements are used to execute the code repeatedly.
+
+Iteration statement is possible by using LOOPS.
+
+We have four types of loops.
+
+i) do while loop 
+
+ii) while loop 
+
+iii) for loop 
+
+iv) for each loop 
+
+i) do while loop 
+================
+It is used to execute the source code how long our condition is true.
+
+syntax:
+-------
+	do
+	{
+		-
+		- //code to be execute 
+		-
+	}while(condition);
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		do
+		{
+			System.out.print(i+" ");//infinite 1
+		}
+		while(i<=10);
+	}
+}
+
+Note:
+-----
+In do while loop, our code will execute atleast for one time either our condition is true or false.
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=11;
+		do
+		{
+			System.out.print(i+" ");// 11
+		}
+		while(i<=10);
+	}
+}
+
+Q) Write a java program to display 10 natural numbers?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=1;
+		do
+		{
+			System.out.print(i+" ");// 1 2 3 4 5 6 7 8 9 10
+			i++;
+		}
+		while(i<=10);
+	}
+}
+
+
+Q) Write a java program to perform sum of 10 natural numbers?
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=1,sum=0;
+		do
+		{
+			sum=sum+i;
+			i++;
+		}
+		while(i<=10);
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program to find out factorial of a given number?
+
+input:
+	5
+output:
+	120 (5*4*3*2*1)
+
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();//5
+		
+		int i=n,fact=1;
+		do
+		{
+			fact = fact * i;
+			i--;
+		}
+		while (i>=1);
+		System.out.println(fact);
+	}
+}
+
+Q) Write a java program to display multiplication table of a given number?
+
+input:
+	5
+output:
+	5 * 1 = 5 
+	-
+	-
+	5 * 10 = 50
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();//5
+		
+		int i=1;
+		do
+		{
+			System.out.println(n+" * "+i+" = "+n*i);
+			i++;
+		}
+		while (i<=10);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

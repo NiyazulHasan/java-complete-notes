@@ -1,0 +1,570 @@
+Vector 
+======
+The underlying data structure is resizable array or growable array.
+
+Duplicate objects are allowed.
+
+Insertion order is preserved.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+It implements List, Serializable, Cloneable  and RandomAccess interface.
+
+Vector class contains following methods.
+
+cmd> javap  java.util.Vector 
+
+public synchronized void addElement(E);
+public synchronized E firstElement();
+public synchronized E lastElement();
+public synchronized boolean removeElement(java.lang.Object);
+public synchronized void removeAllElements();
+public synchronized void insertElementAt(E, int);
+and etc.
+
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Vector<Integer> v = new Vector<>();
+		System.out.println(v.capacity()); // 10
+		
+		for(int i=1;i<=10;i++)
+		{
+			v.addElement(i);
+		}
+		System.out.println(v); //[1,2,3,4,5,6,7,8,9,10]
+		
+		System.out.println(v.firstElement());//1
+		System.out.println(v.lastElement()); //10
+		
+		v.removeElement(10);
+		System.out.println(v); //[1,2,3,4,5,6,7,8,9]
+		
+		v.insertElementAt(10,4);
+		System.out.println(v); //[1,2,3,4,10,5,6,7,8,9]
+	}
+}
+
+Q) What is the difference between ArrayList and Vector?
+
+ArrayList				Vector 
+---------				--------
+It is a non-legacy class.		It is a legacy class.
+
+It is introduced in 1.2 version.	It is introduced in 1.0 version.
+
+Methods are not synchronized.		Methods are synchronized.
+
+At a time multiple threads are allowed	At a time only one thread is allowed to 
+to execute.Hence ArrayList is not 	execute.Hence Vector is thread safe.
+thread safe.
+
+Performance is high because there is 	Performance is low because there is a waiting 
+no waiting threads.			threads.
+
+
+Stack 
+=====
+It is a child class of Vector class.
+
+If we depend upon Last In First Out order then we need to use stack.
+
+constructor 
+-----------
+	Stack s = new Stack();
+
+Methods
+-------
+
+1) push(E)
+--------
+	It is used to push the element to stack.
+
+2) pop()
+---------
+	It is used to remove the element from stack.
+
+3) peek()
+---------
+	It is used to return toppest element from stack.
+
+4) isEmpty() 
+-----------
+	It is used to check stack is empty or not.
+
+5) search(E) 
+------------
+	It returns offset value if element is found otherwise it will return -1.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Stack<String> stack = new Stack<>();
+		stack.push("A");
+		stack.push("B");
+		stack.push("C");
+		System.out.println(stack); // [A,B,C]
+		
+		System.out.println(stack.peek()); // C 
+		
+		stack.pop();
+		System.out.println(stack); //[A,B]
+		
+		System.out.println(stack.isEmpty()); //false 
+		
+		System.out.println(stack.search("Z")); // -1
+		
+		System.out.println(stack.search("A")); // 2 
+		
+	}
+}
+
+Interview Questions 
+===================
+Q) Write a java program to sort the list?
+
+input:
+	dog apple cat ball elephant
+
+output:
+	apple ball cat dog elephant 
+	
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="dog apple cat ball elephant";
+		
+		List<String> list = new ArrayList<>(Arrays.asList(str.split(" ")));
+		
+		Collections.sort(list);
+		
+		list.forEach(ele -> System.out.print(ele+" "));
+	}
+}
+
+Q) Write a java program to display the list in reverse order?
+
+input:
+	this is java class
+
+output:
+	class java is this 
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="this is java class";
+		
+		List<String> list = new ArrayList<>(Arrays.asList(str.split(" ")));
+		
+		Collections.reverse(list);
+		
+		list.forEach(ele -> System.out.print(ele+" "));
+	}
+}
+
+Q) How to make ArrayList as synchronized in java?
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		List<String> list = new ArrayList<>();
+		
+		List<String> synList = Collections.synchronizedList(list);
+		
+		synList.add("one");
+		synList.add("two");
+		synList.add("three");
+		
+		System.out.println(synList);//[one,two,three]
+	}
+}
+
+Q) Write a java program to find out both lists same or not?
+
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		
+		List<String> list1 = List.of("this","is","java","class");
+		List<String> list2 = List.of("this","java","class","is");
+		if(list1.equals(list2))
+			System.out.println("Both are same");
+		else
+			System.out.println("Both are not same");
+	}
+}
+
+Q) Write a java program to check given string is balanced or not?
+
+input:
+	{[()]}
+output:
+	It is a balanced string 
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str="{[()]}";
+		if(isBalanced(str))
+			System.out.println("It is a balanced string");
+		else
+			System.out.println("It is not a balanced string");
+	}
+	public static boolean isBalanced(String str)
+	{
+		Stack<Character> s = new Stack<>();
+		
+		for(int i=0;i<str.length();i++)
+		{
+			char ch = str.charAt(i);
+			if(ch=='{' || ch=='[' || ch=='(')
+			{
+				s.push(ch);
+			}
+			else if(ch==')' && !s.isEmpty() && s.peek()=='(')
+			{
+				s.pop();
+			}
+			else if(ch==']' && !s.isEmpty() && s.peek()=='[')
+			{
+				s.pop();
+			}
+			else if(ch=='}' && !s.isEmpty() && s.peek()=='{')
+			{
+				s.pop();
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		return s.isEmpty();
+	}
+}
+
+Set 
+=====
+It is a child interface of Collection interface.
+
+If we want to represent group of individual objects in a single entity where duplicate objects are not allowed and order is not preserved then we need to use Set interface.
+
+Diagram: class44.1
+
+
+HashSet 
+=========
+The underlying data structure is Hashtable.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it takes hashcode of an object.
+
+Hetrogeneous objects are allowed.
+
+Null insertion is possible.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		HashSet hs = new HashSet();
+		hs.add("nine");
+		hs.add("one");
+		hs.add("five");
+		hs.add("six");
+		System.out.println(hs); // [nine, six, one, five]
+		
+		hs.add("one");
+		System.out.println(hs); // [nine, six, one, five]
+		
+		hs.add(10);
+		System.out.println(hs); // [nine, six, one, 10, five]
+		
+		hs.add(null);
+		System.out.println(hs); // [null, nine, six, one, 10, five]
+	}
+}
+
+
+LinkedHashSet 
+==============
+It is a child class of HashSet class.'
+
+LinkedHashSet is exactly same as HashSet class with following differences.
+
+HashSet					LinkedHashSet
+------------				--------------
+The underlying data structure is 	The underlying data structure is 
+Hashtable.				Hashtable and LinkedList.
+
+Insertion order is not preserved.	Insertion order is preserved.
+
+It is introduced in 1.2 version.	It is introduced in 1.4 version.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		LinkedHashSet lhs = new LinkedHashSet();
+		lhs.add("nine");
+		lhs.add("one");
+		lhs.add("five");
+		lhs.add("six");
+		System.out.println(lhs); // [nine,one,five,six]
+		
+		lhs.add("one");
+		System.out.println(lhs); // [nine,one,five,six]
+		
+		lhs.add(10);
+		System.out.println(lhs); // [nine,one,five,six,10]
+		
+		lhs.add(null);
+		System.out.println(lhs); // [nine,one,five,six,10,null]
+	}
+}
+
+
+Interview Question
+------------------
+Q) Write a java program to display distinct elements from given array?
+
+input:
+	1 2 2 3 3 3 4 4 4 4
+output:
+	1 2 3 4 
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr = {1,2,2,3,3,3,4,4,4,4};
+		
+		Set<Integer> set = new LinkedHashSet<>();
+		
+		for(int i : arr)
+		{
+			set.add(i);
+		}
+		
+		set.forEach(ele -> System.out.print(ele+" "));	
+	}
+}
+
+TreeSet 
+=======
+The underlying data structure is Balanced Tree.
+
+Duplicate objects are not allowed.
+
+Insertion order is not preserved because it takes sorting order of an object.
+
+Hetrogeneous objects are not allowed otherwise we will get ClassCastException.
+
+Null insertion is not possible otherwiser we will get NullPointerException.
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet ts = new TreeSet();
+		ts.add(1);
+		ts.add(10);
+		ts.add(5);
+		ts.add(7);
+		System.out.println(ts); //[1,5,7,10]
+		
+		ts.add(1);
+		System.out.println(ts); //[1,5,7,10]
+		
+		//ts.add("Hi");
+		//System.out.println(ts); // R.E ClassCastException
+		
+		//ts.add(null);
+		//System.out.println(ts); // R.E NullPointerException
+	}
+}
+
+Q) What is the difference between Comparable and Comparator interface?
+
+Comparable 
+---------
+Comparable is an interface which is present in java.lang package.
+
+Comparable interface contains only one method i.e compareTo() method.
+
+ex:
+	obj1.compareTo(obj2)
+
+	It returns -ve if obj1 comes before obj2
+	It returns +ve if obj1 comes after obj2
+	It returns 0 if both objects are same
+
+If we depend upon default natural sorting order then we need to use Comparable interface.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("A".compareTo("Z")); // -25
+		
+		System.out.println("Z".compareTo("A")); // 25
+		
+		System.out.println("K".compareTo("K")); // 0
+	}
+}
+
+Comparator 
+----------
+Comparator is an interface which is present in java.util package.
+
+Comparator interface contains following two methods i.e compare() and equals() method.
+
+ex:
+	public int compare(Object obj1,Object obj2)
+		
+	
+	It returns ve if obj1 comes before obj2
+	It returns -ve if obj1 comes after obj2
+	It returns 0 if both objects are same
+
+Implementation of equals() method is optional because it is present in Object class which is available to our program through inheritance.
+
+If we depend upon customized sorting order then we need to use Comparator interface.
+
+ex:
+---
+
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts = new TreeSet<>(new MyComparator());
+		ts.add(1);
+		ts.add(10);
+		ts.add(7);
+		ts.add(4);
+		System.out.println(ts); // [10,7,4,1]
+	}
+}
+class MyComparator implements Comparator 
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1 = (Integer)obj1;
+		Integer i2 = (Integer)obj2;
+		if(i1<i2)
+			return 1;
+		else if(i1>i2)
+			return -1;
+		else 
+			return 0;
+	}
+}
+
+ex:
+---
+import java.util.*;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		TreeSet<Integer> ts = new TreeSet<>(new MyComparator());
+		ts.add(1);
+		ts.add(10);
+		ts.add(7);
+		ts.add(4);
+		System.out.println(ts); // [1,4,7,10]
+	}
+}
+class MyComparator implements Comparator 
+{
+	public int compare(Object obj1,Object obj2)
+	{
+		Integer i1 = (Integer)obj1;
+		Integer i2 = (Integer)obj2;
+		if(i1<i2)
+			return -1;
+		else if(i1>i2)
+			return 1;
+		else 
+			return 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

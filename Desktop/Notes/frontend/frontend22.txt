@@ -1,0 +1,536 @@
+JavaScript code to select multiple checkboxes
+============================================
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+      Courses Completed? 
+      <br>
+      <button onclick="f1()"> select all </button>    
+      <br>  
+      <input type="checkbox" name="t1" value="html"/> HTML <br>
+      <input type="checkbox" name="t1" value="css"/> CSS <br>
+      <input type="checkbox" name="t1" value="js"/> JavaScript <br>
+      <input type="checkbox" name="t1" value="bs"/> Bootstrap <br>
+      <script>
+         function f1()
+         {
+            var x = document.getElementsByName('t1');
+            for(var i=0;i<x.length;i++)
+            {
+               if(x[i].type=="checkbox")
+               {
+                  x[i].checked = true;
+               }
+            }
+         }
+      </script>
+</body>
+</html>
+
+5) document.getElementsByTagName
+==================================
+It is used to select the elements based on specified tag name.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+         Name : <input type="text"/>
+         <button onclick="f1()"> click </button>
+         <script>
+            function f1()
+            {
+               var name = document.getElementsByTagName('input')[0].value; 
+               document.writeln("welcome :"+name); 
+            }
+         </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+         Name : <input type="text"/>
+         <button onclick="f1()"> click </button>
+         <script>
+            function f1()
+            {
+               var len = document.getElementsByTagName('input').length; 
+               document.writeln("Size :"+len); 
+            }
+         </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+         <div> Division Tag 1 </div>
+         <div> Division Tag 2 </div>
+         <div> Division Tag 3 </div>
+
+         <button onclick="f1()"> flip </button>
+
+         <script>
+            function f1()
+            {
+                  var x = document.getElementsByTagName('div');
+                  x[0].innerHTML=" HTML Tags ";
+                  x[1].innerHTML=" CSS Styles ";
+                  x[2].innerHTML=" JavaScript Scripts ";
+            }
+         </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+         <div> Division Tag 1 </div>
+         <div> Division Tag 2 </div>
+         <div> Division Tag 3 </div>
+
+         <button onclick="f1()"> flip </button>
+
+         <script>
+            function f1()
+            {
+                  var x = document.getElementsByTagName('div');
+                  x[0].innerHTML=" HTML Tags ";
+                  x[1].innerHTML=" CSS Styles ";
+                  x[2].innerHTML=" JavaScript Scripts ";
+
+                  x[0].style.color="blue";
+                  x[1].style.backgroundColor="cyan";
+                  x[2].style.fontSize="40px";
+                  x[2].style.color="blue";
+            }
+         </script>
+</body>
+</html>
+
+
+6) document.getElementsByClassName()
+====================================
+It is used to select the elements based on specified class name.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+   <style>
+      .myStyle
+      {
+         color:red;
+         font-size: 30px;
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+         <div class="myStyle"> Division Tag </div>
+
+         <button onclick="f1()"> clickme </button>
+         <script>
+            function f1()
+            {
+               var len = document.getElementsByClassName('myStyle').length;
+               document.writeln("size :"+len);  
+            }
+         </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+   <style>
+      .myStyle
+      {
+         color:red;
+         font-size: 30px;
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+         <div class="myStyle"> Division Tag </div>
+
+         <button onclick="f1()"> clickme </button>
+         <script>
+            function f1()
+            {
+               var c = document.getElementsByClassName('myStyle');
+               c[0].innerHTML="My Division Tag";
+            }
+         </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+   <style>
+      .myStyle
+      {
+         color:red;
+         font-size: 30px;
+         text-align: center;
+      }
+   </style>
+</head>
+<body>
+         <div class="myStyle"> Division Tag </div>
+
+         <button onclick="f1()"> clickme </button>
+         <script>
+            function f1()
+            {
+               var c = document.getElementsByClassName('myStyle');
+               c[0].innerHTML="My Division Tag";
+               c[0].style.color="blue";
+            }
+         </script>
+</body>
+</html>
+
+
+7) document.addEventListener()
+==============================
+It is used to add event listener to HTML Element in a DOM.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+      <h1 style="text-align: center;"> Click Any Where </h1>
+
+      <script>
+         document.addEventListener("click",function(){
+            alert("Yahooo! You have Clicked");
+         });
+      </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+      <h1 id="hover"> Mouse Over Here  </h1>
+
+      <div id="result"></div>
+
+      <script>
+         var x = document.getElementById('hover');
+         x.addEventListener('mouseover', function(){
+               document.getElementById('result').innerHTML="Mouse Is Over";
+         })
+      </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+      <h1 id="hover"> Mouse Over and Out Here  </h1>
+
+      <div id="result"></div>
+
+      <script>
+         var x = document.getElementById('hover');
+         x.addEventListener('mouseout', function(){
+               document.getElementById('result').innerHTML="Mouse Is Out";
+         })
+      </script>
+
+</body>
+</html>
+
+How to convert Feet to Inches using JavaScript
+==============================================
+
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+      <center>
+         <h3>Conversion Application</h3>
+         <table align="center">
+            <tr>
+               <td>Feet</td>
+               <td>&nbsp;</td>
+               <td>Inches</td>
+            </tr>
+            <tr>
+               <td><input type="text" id="feet"/></td>
+               <td><big>=</big></td>
+               <td><input type="text" id="inches"/></td>
+            </tr>
+         </table>
+      </center>
+      <script>
+            var feet = document.getElementById('feet');
+            var inches = document.getElementById('inches');
+            feet.addEventListener('input',function(){
+               var f = this.value;
+               var i = f * 12;
+               inches.value=i;
+            })   
+
+            inches.addEventListener('input',function(){
+               var i = this.value;
+               var f = i/12;
+               if(!Number.isInteger(f))
+               {
+                  f =f.toFixed(2);
+               }
+               feet.value=f;
+            })
+      </script>
+
+</body>
+</html>
+
+
+8) document.removeEventListener()
+=================================
+It is used to remove the event listener from HTML element in a DOM.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+      <h1 id="hover"> Mouse Over and Out Here </h1>
+      <button onclick="f2()"> stop </button>
+      <span id="result"></span>
+      <script>
+         var x = document.getElementById('hover');
+         x.addEventListener('mouseover',f1);
+         function f1()
+         {
+       document.getElementById('result').innerHTML+="<p>Mouse is Over</p>";
+         }
+         function f2()
+         {
+            x.removeEventListener('mouseover',f1);
+      document.getElementById('result').innerHTML+="<p>Mouse is Out</p>"
+         }
+      </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

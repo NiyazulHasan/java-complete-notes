@@ -1,0 +1,698 @@
+Bootstrap Collapse Plugin
+==============================
+collapse plugin is useful when you want to hide and show large amount of content:
+
+A data-bs-toggle="collapse" attribute is used to show and hide the content.
+
+A  data-bs-target attribute is used to connect a button with div tag.
+
+A "collapse" class inside <div> is used to hide/collapse the content for first time.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+
+            <button class="btn btn-primary" data-bs-target="#myId"
+                                          data-bs-toggle="collapse">
+                  Toggle
+            </button> 
+
+            <div class="collapse" id="myId">
+                  <h3>Bootstrap Tutorial!!!</h3>
+                  <p> It is used to develop web applications rapidly.</p>
+            </div>
+         
+         </div>
+        
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+
+           <a href="#myId" data-bs-toggle="collapse"> ReadMore </a>
+
+            <div class="collapse" id="myId">
+                  <h3>Bootstrap Tutorial!!!</h3>
+                  <p> It is used to develop web applications rapidly.</p>
+            </div>
+         
+         </div>
+        
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+
+          <div class="card">
+               <div class="card-header">
+                     <button class="btn btn-primary" data-bs-target="#myId"
+                                 data-bs-toggle="collapse"> Toggle </button>
+               </div>
+               <div class="card-body collapse" id="myId">
+                     <div class="row">
+                           <div class="col-4">
+                              <img src="images/thumbnail1.jpg" class="w-100 h-100" />
+                           </div>
+                            <div class="col-4">
+                              <img src="images/thumbnail2.jpg" class="w-100 h-100"/>
+                           </div>
+                            <div class="col-4">
+                              <img src="images/thumbnail3.jpg" class="w-100 h-100"/>
+                           </div>
+                     </div>
+               </div>
+          </div>
+         
+         </div>
+        
+   </body>
+</html>
+
+
+
+
+
+Bootstrap Responsive Navbar 
+===========================
+Navbars require a wrapping .navbar with .navbar-expand{-sm|-md|-lg|-xl|-xxl} for responsive collapsing and color scheme classes.
+
+Navbars and their contents are fluid by default.
+Change the container to limit their horizontal width in different ways.
+
+Use our spacing and flex utility classes for controlling spacing and alignment within navbars.
+
+Navbars are responsive by default, but you can easily modify them to change that. 
+
+Responsive behavior depends on our Collapse JavaScript plugin.
+
+.navbar-brand for your company, product, or project name.
+
+.navbar-nav for a full-height and lightweight navigation (including support for dropdowns).
+
+.navbar-toggler for use with our collapse plugin and other navigation toggling behaviors.
+
+Flex and spacing utilities for any form controls and actions.
+
+.navbar-text for adding vertically centered strings of text.
+
+.collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.
+
+Add an optional .navbar-scroll to set a max-height and scroll expanded navbar content.
+
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+         
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+         
+   </body>
+</html>
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+   </head>
+   <body>
+         
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+         <h1>Scroll Down </h1>
+   </body>
+</html>
+
+
+
+
+Bootstrap scrollspy
+===================
+Scrollspy is a Bootstrap feature that automatically updates navigation links based on the user's scroll position on a webpage. 
+
+ex:
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <style>
+         .section1
+         {
+            background-color: #55efc4;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+         .section2
+         {
+            background-color: #81ecec;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+         .section3
+         {
+            background-color: #74b9ff;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+         .section4
+         {
+            background-color: #fab1a0;
+            height:560px;
+            width:100%;
+            padding : 100px 400px;
+         }
+         .section5
+         {
+            background-color: #fd79a8;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+      </style>
+
+   </head>
+   <body>
+         
+         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#homeId">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#aboutId">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#serviceId">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#portfolioId">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#contactId">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+         <div class="section1" id="homeId">
+            <h1> Home Page </h1>
+         </div>
+         <div class="section2" id="aboutId">
+            <h1> About Page </h1>
+         </div>
+         <div class="section3" id="serviceId">
+            <h1> Service Page </h1>
+         </div>
+         <div class="section4" id="portfolioId">
+            <h1> Portfolio Page </h1>
+         </div>
+         <div class="section5" id="contactId">
+            <h1> Contact Page </h1>
+         </div>
+   </body>
+</html>
+
+
+Adding the background image for response navbar
+================================================
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <!-- add external css-->
+      <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+   </head>
+   <body>
+         
+         <div class="bg-img">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#homeId">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#aboutId">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#serviceId">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#portfolioId">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#contactId">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+            <div class="img-content">
+               <h1 class="text-center"> Welcome to Web Development Tutorial </h1>
+               <h4 class="text-center"> Share your experience with us!!!</h4> 
+            </div>
+         </div>
+
+
+         <div class="section1" id="homeId">
+            <h1> Home Page </h1>
+         </div>
+         <div class="section2" id="aboutId">
+            <h1> About Page </h1>
+         </div>
+         <div class="section3" id="serviceId">
+            <h1> Service Page </h1>
+         </div>
+         <div class="section4" id="portfolioId">
+            <h1> Portfolio Page </h1>
+         </div>
+         <div class="section5" id="contactId">
+            <h1> Contact Page </h1>
+         </div>
+   </body>
+</html>
+
+
+mystyles.css
+-----------
+.bg-img
+{
+   background-image: url("../images/office.png");
+   background-size: cover;
+   background-attachment: fixed;
+   width:100%;
+   height:656px;
+}
+.img-content
+{
+   height: 100vh;
+   padding:200px 0;
+   color:red;
+}
+
+
+.section1
+         {
+            background-color: #55efc4;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+         .section2
+         {
+            background-color: #81ecec;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+         .section3
+         {
+            background-color: #74b9ff;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+         .section4
+         {
+            background-color: #fab1a0;
+            height:560px;
+            width:100%;
+            padding : 100px 400px;
+         }
+         .section5
+         {
+            background-color: #fd79a8;
+            height:560px;
+            width:100%;
+            padding : 100px 450px;
+         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

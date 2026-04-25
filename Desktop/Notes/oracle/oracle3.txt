@@ -1,0 +1,331 @@
+delete command 
+==============
+It is used to delete the rows from database table.
+
+syntax:
+-------
+	delete from <table_name> where condition;
+
+ex:
+	delete from student where sno=105;
+	delete from student where sname='ramulu';
+	delete from student where sadd='vizag';
+Note:
+-----
+	If we won't declare where clause then all rows will be deleted.
+
+ex:
+	delete from student;
+	delete from emp;
+	delete from dept;
+
+Q) Write a query to terminate all the employees whose salary is greater than 35000?
+
+	delete from emp where esal>35000;
+
+
+Q) Write a query to delete employee record whose comm is null?
+
+	delete from emp where comm is null;
+
+Logical Operators 
+=================
+Logical operators are used to declare multiple conditions in where clause.
+
+We have three logic operators.
+
+1) AND 
+
+2) OR 
+
+3) NOT 
+
+1) AND 
+----------
+It returns records only if all our conditions are true.
+Here conditions must be from same row.
+ex:
+	select * from emp where eid=201 AND ename='Alan';
+
+	select * from emp where eid=202 AND ename='Kelvin'; // no rows selected 
+
+	select * from emp where eid=209 AND ename='Linda'; // no rows selected 
+	
+
+2) OR 
+------
+It returns records if any one condition is true.
+Here conditions can be from any row.
+ex:
+	select * from emp where eid=201 OR ename='Alan';  // 1 record 
+
+	select * from emp where eid=202 OR ename='Kelvin'; // 2 records 
+
+	select * from emp where eid=209 OR ename='Linda'; // 1 record 
+
+3) NOT 
+-------
+It returns records except the condition.
+A <> symbol denoted as NOT operator.
+ex:
+	select * from student where NOT sno=101;
+	select * from student where sno<>101;
+
+	select * from student where NOT sname='ramana';
+	select * from student where sname<>'ramana';
+	
+BETWEEN operator 
+================
+It is used to return the records those who are in the range of values.
+In between operator , first we need to declare lower limit then higher limit.
+ex:
+	select * from student where sno between 101 and 106;
+	select * from student where sno between 106 and 101; // no rows selected 
+
+	
+IN operator 
+============
+It is used to return the records whose who are matching in the list of values.
+IN operator is a replacement of OR operator.
+ex:
+	select * from student where sno IN(101,104,106);
+	select * from student where sname IN('raja','ramana','rakesh');
+
+
+Q) Write a query to display employee information whose salary is 42000 and working for 30 department?
+
+	select * from emp where esal=42000 AND deptno=30;
+
+
+Q) Write a query to display employees information those who working in 10,20 and 30 department?
+
+	select * from emp where deptno=10 OR deptno=20 OR deptno=30;
+	
+	or 
+
+	select * from emp where deptno IN(10,20,30);
+
+	or 
+
+	select * from emp where deptno between 10 AND 30;
+
+
+Q) Write a query to display employees information those who are not working in 10 department?
+
+	select * from emp where deptno<>10;	
+
+
+Pattern Matching operators 
+==========================
+Pattern matching operators are used to select the letters from database table.
+
+We have two types of pattern matching operators.
+
+1) Percentage (%)
+
+2) Underscore (_) 
+
+1) Percentage (%)
+-----------------
+
+Q) Write a query to display employees information whose employee name starts with 'K' letter?
+
+	select * from emp where ename like 'K%';	
+
+
+Q) Write a query to display employees information whose employee name ends with 'n' letter?
+
+	select * from emp where ename like '%n';
+
+
+Q) Write a query to display employees information whose employee name having middle letter as 'l'?
+
+	select * from emp where ename like '%l%';
+
+2) Underscore (_) 
+-----------------
+
+Q) Write a query to display employees information whose employee name having second letter as 'l' ?
+
+	select * from emp where ename like '_l%';
+
+
+Q) Write a query to display employees information whose employee name having second last letter as 'd'?
+
+	select * from emp where ename like '%d_';
+
+
+
+Q) Write a query to display employees information whose employee name having third letter as 'l'?
+
+	select * from emp where ename like '__l%';	
+
+DDL commands 
+============
+We have five DDL commands.
+
+1) create - tables 
+
+2) alter  - columns 
+
+3) drop   - tables 
+
+4) truncate - rows/records 
+
+5) rename - tables 
+
+2) alter command 
+=================
+Using alter command we can perform following activities very easily.
+
+1) Adding new columns 
+
+2) Modifying existing columns
+
+3) Dropping the columns 
+
+4) Renaming the columns 
+
+
+1) Adding new columns 
+----------------------
+Using alter command we can add new columns.
+
+syntax:
+------
+	alter table <table_name> ADD (col datatype(size));
+
+ex:
+	alter table student ADD(state varchar2(10),pincode number(8));
+
+	update student set state='Telangana' where sno=101;
+
+2) Modifying existing columns
+-----------------------------
+Using alter command we can modify existing columns.
+
+We can increase or decrease size of a column only when existing values are fit into new size.
+
+We can change the datatype only if that column is empty.
+
+syntax:
+-------
+	alter table <table_name> MODIFY (col datatype(size));
+
+ex:
+	desc student;
+
+	alter table student MODIFY(state varchar2(12));	
+
+	desc student;
+
+	alter table student MODIFY(pincode varchar2(8));
+
+
+3) Dropping the columns 
+------------------------
+Using alter command we can drop the columns.
+
+syntax:
+-------
+	alter table <table_name> DROP(col1,col2,...,colN);
+ex:
+	alter table student DROP(state,pincode);
+
+	select * from student;
+
+
+4) Renaming the columns 
+----------------------
+Using alter command we can rename the column name.
+
+syntax:
+-------
+	alter table <table_name> rename column old_name to new_name;
+ex:
+	alter table student rename column sadd to city;	
+	
+	alter table emp rename column esal to dailywages;
+
+	alter table emp rename column job to designation;
+
+
+3) drop command
+===============
+It is used to drop the tables permanently from database.
+
+syntax:
+------
+	drop table <table_name>;
+	
+ex:
+	drop table emp;
+	drop table student;
+	drop table dept;
+
+
+
+
+
+4) truncate command 
+====================
+It is used to delete the rows permenently from database table.
+
+syntax:
+-------
+	truncate table <table_name>;
+ex:
+	truncate table emp;
+	truncate table dept;
+	truncate table student;
+
+Q) What is the difference between delete and truncate command ?
+
+delete					truncate 
+----------				----------
+It is a DML command.			It is a DDL command.
+
+It deletes the records temperory.	It deletes the records permanently.
+
+Where clause can be used.		Where clause can't be used.
+
+We can rollback the data.		We can't rollback the data.
+
+
+
+
+
+
+5) rename command 
+==================
+It is used to rename the table name.
+
+syntax:
+-------
+	rename <old_name> to <new_name>;
+ex:
+	rename emp to employees;
+	rename dept to department;
+	rename student to students;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

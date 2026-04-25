@@ -1,0 +1,324 @@
+HTML images 
+==========
+A <img> tag is used to display the images in a web page.
+
+It is a opening tag and does not have any closing tag.
+
+A <img> tag contains following attributes.
+
+ex:
+	Attribute	Description
+	-----------	--------------
+	src		It is used to find or locate an image 
+	height		It is used to set the height of an image 
+	width		It is used to set the width of an image 
+	alt		It is used display alternate message if image not found.
+
+We have following list of images.
+ex:
+	File Format	Abbreviation 
+	----------	-----------
+	JPEG		Joint Photographic Expert Group
+	PNG		Portable Network Graphics
+	SVG		Scalable Vector Graphics
+	GIF		Graphical Interchance Format 
+	and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="images/teddy.jpg" width="300px" height="300px"/> 
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="images/teddy1.jpg" 
+			width="300px" height="300px"
+				alt="Image Not Found"/> 
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<img src="https://i.pinimg.com/originals/23/bf/a7/23bfa774eb503426d3278247aa6aaae3.jpg" 
+			width="300px" height="300px"
+				alt="Image Not Found"/> 
+	</body>
+</html>
+
+Hyperlink in HTML
+=================
+A <a> anchor tag is used to display hyperlink in a web page.
+
+A hyperlink is used to route from one page to another page.
+
+A "href" attribute of <a> anchor tag is used to navigate from one page to another page.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<a href="http://www.facebook.com/login">
+			Facebook
+		</a> 
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<a href="http://www.facebook.com/login">
+			<button> click here </button>
+		</a> 
+	</body>
+</html>
+
+A linked document is opening in a same window or current window/tab.
+
+In order to change the behaviour we need to use "target" attribute.
+
+A target attribute describes a linked document must be open in a same window or new window.
+
+A target attribute contains following values.
+
+ex:
+	value		Description 
+	------		--------------	
+	_self		It is used to open a linked document in a same window.
+	_blank		IT is used to open a linked document in a new window.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<a href="http://www.facebook.com/login" target="_self">
+			<button> click here </button>
+		</a> 
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<a href="http://www.facebook.com/login" target="_blank">
+			<button> click here </button>
+		</a> 
+	</body>
+</html>
+
+
+Image with Hyperlink
+--------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<center>
+		<a href="https://en.wikipedia.org/wiki/Dwayne_Johnson"
+				target="_blank">	
+			<img src="images/rock.jpg" 
+				width="200px" height="200px"
+				alt="Image Not Found"/>
+		</a>
+		</center>
+	</body>
+</html>
+
+
+Interview Questions 
+===================
+
+Q) What is the difference between HTML Tag and HTML Element?
+
+HTML Tag 
+========
+HTML tag contains '<' and '>' symbol.
+We have following list of HTML tags.
+ex:
+	<html>, <body>, <title>, <h1>, <p>, <b>, <i> and etc.
+
+HTML Element
+------------
+HTML element contains opening tag, some content and closing tag.
+We have following list of HTML elements.
+ex:
+	<h1> Heading Tag </h1>
+	<p> Paragraph Tag </p>
+	<i> Italic Tag </i>
+
+
+
+
+Q) Types of tags in HTML?
+
+We have two types of tags in HTML.
+
+1) Paired Tags 
+---------------
+Paired  tags contain opening tag and closing tag.
+Paried tags are also known as container tags.
+We have following list of paired tags.
+ex:
+	<html>, <body>, <title>, <h1>, <p>, <i>, <b> and etc.
+
+
+2) Unpaired Tags 
+-------------------
+Unpaired tags contain only opening tag and do not have any closing tag.
+Unpaired tags are also known a empty tags.
+We have following list of unpaired tags.
+ex:
+	<link>, <meta>, <img>, <hr> , <br> and etc.
+
+
+Q) Types of Elements in HTML ?
+
+We have two types of elements in HTML.
+
+1) Block Elements 
+-----------------
+Block elements always start with new line.
+They will take 100% of width.
+We have following list of block elements.
+ex:
+	<h1>, <p>, <div> and etc.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> Heading Tag </h1>
+		<p> Paragraph Tag </p>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+
+2) Inline Elements 
+-------------------
+Inline elements start with same line.
+They will take width as much as required.
+We have following list of inline elements.
+ex:
+	<i> , <u> , <b> , <span> and etc.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<i>Italic Tag</i>
+		<b>Bold Tag</b>
+		<u> Underline Tag </u>
+		<span> Span Tag </span>
+	</body>
+</html>
+
+Q) What is HTML Entity?
+
+HTML Entity starts with '&' and ends with semicolon(;).
+
+HTML entities are used to display reserved characters or hidden characters.
+
+We have following list of HTML entities.
+
+ex:
+	HTML Entity	Description	
+	----------	-----------
+	&gt;		>
+	&lt;		<
+	&laquo;		<<
+	&raquo;		>>
+	&copy;		
+	&nbsp;		space	
+	and etc.
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1>&gt;</h1>
+		<h1>&lt;</h1>
+		<h1>&laquo;</h1>
+		<h1>&raquo;</h1>
+		<h1>&copy;</h1>
+		<h1>&nbsp;</h1>
+
+	
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

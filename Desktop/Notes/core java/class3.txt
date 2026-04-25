@@ -1,0 +1,130 @@
+Naming conventions in java
+==========================
+In java, uppercase letters consider as different and lowercase letters consider as different.Hence we consider java is a case sensitive programming language.
+
+Diagram : class3.1
+
+As java is a case sensitive, we must and should follow naming conventions for followings.
+
+ex:
+	classes 
+	interfaces
+	variables
+	methods
+	keywords 
+	packages and 
+	constants 
+
+classes 
+--------
+In java, a class name must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+ex:
+	Predefined classes		Userdefined classes 
+	------------------		-------------------
+	System 				Test			
+	String 				DemoApp	
+	StringBuffer 			ExampleTest
+	FileWriter 			MyProgram 
+	and etc.			and etc.
+
+interfaces
+----------
+in java, an interface name must and should starts with uppercase letter and if it contains multiple words then each inner word must starts with initcap.
+ex:
+	Predefined interfaces		userdefined interfaces
+	--------------------		----------------------
+	Runnable 			ITest	
+	Serializable 			IDemoApp
+	ListIterator 			IExampleApp
+	Enumeration 			IMyProgram
+	and etc				and etc.
+
+variables
+---------
+In java, a variable name must and should starts with lower case letter and if it contains multiple words then each inner word must starts with initcap.
+
+ex:
+	Predefined variables		Userdefined variables 
+	-------------------		--------------------
+	length 				empId
+	out 				studName
+	in				deptNo
+	err 				empSalary 
+	and etc.			and etc.
+
+methods
+-------
+In java, a method name must and should starts with lowercase letter and if it contains multiple words then each inner word must starts with initcap.
+ex:
+	predefined methods		userdefined methods
+	--------------------		-------------------
+	getName()			getDetails()
+	setPriority()			calculateBillAmt()
+	hashCode()			setEmployeeDetails()
+	toString()			getDeptInfo()
+	and etc.			and etc.
+
+keywords 
+--------
+In java, all keywords we need to declare under lowercase letters.
+ex:
+	Predefined keywords 
+	-------------------
+	class, public, static, void, if, else, for, do and etc.
+
+packages
+---------
+In java, all packages we need to declare under lowercase letters.
+ex:
+	Predefined packages		Userdefined packages
+	--------------------		---------------------
+	java.lang (default pkg)		com.ihub.www
+	java.io				com.google.www
+	java.util			com.qt.www
+	java.util.stream 		and etc.
+	java.util.concurrent 
+	java.sql
+	java.time 
+	java.text 
+	and etc.
+
+constants 
+----------
+In java, all constants we need to declare under uppercase letters.
+
+ex:
+	Predefined constants 		Userdefined constants 
+	--------------------		----------------------
+	MAX_PRIORITY			N=10; 
+	MIN_PRIORITY 			LIMIT
+	NORM_PRIORITY 			URI 
+	MIN_VALUE			URL 
+	MAX_VALUE 			DRIVER 
+	and etc.			and etc.
+
+Assignment 
+==========
+1) class 		:	QualityThought
+
+2) interface 		:	IQualityThought 
+
+3) variable 		:	qualityThought 
+		
+4) method 		:	qualityThought()
+
+5) package 		:	com.qualitythought.www
+
+6) constant 		:	QUALITY_THOUGHT
+
+
+
+
+
+
+
+
+
+
+
+
+

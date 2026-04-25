@@ -1,0 +1,467 @@
+Types of API's 
+===============
+API stands for Application Programming Interface.
+
+API is a mechanism that enables two software components to communication with each other using set of rules and protocols.
+
+API acts like a interface between two software applications to exchange the data.
+
+Diagram: sb10.1
+
+
+We have four types of API's.
+
+1) public API 
+------------
+	It is open and available for use by any outside developers.
+	ex:
+		https://api.restful-api.dev/objects
+
+2) private API 
+----------------
+	It is also known as internal API.
+	It is available for use in enterprise to connect the system.
+
+3) partner API 
+-------------
+	It is available to specifically selected and authorized outside developers.
+
+4) Composite API 
+----------------
+	It is generally combination of two or more then two API's.
+
+
+
+Spring Boot API Validation 
+==========================
+API validation is a process of ensuring that the data recieved by the API is valid before it is processed. It helps in maintaining data integrity, prevent errors and improve overall reliability of the application.
+
+To perform API validation in spring boot we need to use DTO's.
+
+DTO stands for Data Transfer Object.
+
+DTO is essential in java applications to transfer the data between multiple layers and services.
+
+DTO encapsulate the data, reduces number of methods calls , improve performance and decoupling the layers.
+
+DTO is usedful in multi-layered architecture, microservices and when we are interacting with external API's.
+
+DTO makes our application maintainable, scalable and efficient.
+
+Project Structure 
+-----------------
+api-validation 
+|
+|---src/main/java
+	|
+	|---com.ihub.www
+	|
+	|---com.ihub.www.model
+		|
+		|---User.java
+
+	|---com.ihub.www.dto 
+		|
+		|---UserRequest.java
+
+	|---com.ihub.www.repo
+		|
+		|---UserRepository.java
+
+	|---com.ihub.www.service
+		|
+		|---UserService.java
+
+	|---com.ihub.www.controller
+		|
+		|---UserController.java
+
+	|---com.ihub.www.exception 
+		|
+		|---ApplicationExceptionHandler.java
+
+|---src/main/resources
+	|
+	|---application.yml
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring boot starter project i.e api-validation.
+	ex:
+		starters:
+				Spring Web
+				Spring Data JPA
+				Lombok 
+				MySQL Driver 
+				validation 
+
+step2:
+------
+	Create a User.java file inside "com.ihub.www.model" package.
+
+User.java
+----------
+package com.ihub.www.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "user_tbl")
+@Data
+@AllArgsConstructor(staticName = "build")
+@NoArgsConstructor
+public class User 
+{
+	@Id
+	@GeneratedValue
+	private Integer id;
+	@Column
+	private String name;
+	@Column
+	private String email;
+	
+	@Column
+	private String phone;
+	
+	@Column
+	private int age;
+	@Column
+	private String gender;
+	@Column
+	private String nationality;
+}
+
+
+
+step3:
+-----
+	Create a UserRequest.java file inside "com.ihub.www.dto" package.
+
+UserRequest.java
+----------------
+package com.ihub.www.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor (staticName = "build")
+@NoArgsConstructor
+public class UserRequest
+{
+	@NotNull(message = "Name is mandatory")
+	private String name;
+	
+	@Email(message="Invalid Email")
+	private String email;
+	
+	@NotNull
+	@Pattern(regexp = "^\\d{10}$", message="Invalid phone number")
+	private String phone;
+	
+	@Min(18)
+	@Max(30)
+	private Integer age;
+	
+	@NotNull
+	private String gender;
+	
+	@NotBlank
+	private String nationality;
+}
+
+
+
+
+step4:
+------
+	Create a UserRepository.java file inside "com.ihub.www.repo" package.
+
+UserRepository.java
+--------------------
+package com.ihub.www.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ihub.www.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer>
+{
+
+}
+
+step5:
+-----
+	Create and use schema in mysql database.
+	ex:
+		drop schema batch56;
+		create schema batch56;
+		use batch56;
+
+step6:
+------
+	Rename application.properties to application.yml file.
+
+step7:
+------
+	Configure application name, server port and database properites in application.yml.
+
+application.yml
+---------------
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-VALIDATION
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/batch56
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true 
+
+step8:
+-----
+	Create a UserService.java file inside "com.ihub.www.service" package.
+
+UserService.java
+----------------
+package com.ihub.www.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.ihub.www.dto.UserRequest;
+import com.ihub.www.model.User;
+import com.ihub.www.repo.UserRepository;
+
+@Service
+public class UserService 
+{
+	@Autowired
+	UserRepository userRepository;
+	
+	public User saveUser(UserRequest userRequest)
+	{
+		User user = User.build(null,userRequest.getName(), userRequest.getEmail(), userRequest.getPhone(), 
+				userRequest.getAge(), userRequest.getGender(), userRequest.getNationality());
+		
+		return userRepository.save(user);
+	}
+	public List<User> findAllUsers()
+	{
+		return userRepository.findAll();
+	}
+}
+
+
+step9:
+------
+	Create a UserController.java file inside "com.ihub.www.controller" package.
+
+UserController.java
+-----------------
+package com.ihub.www.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ihub.www.dto.UserRequest;
+import com.ihub.www.model.User;
+import com.ihub.www.service.UserService;
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/users")
+public class UserController 
+{
+	@Autowired
+	UserService userService;
+	
+	@PostMapping("/login")
+	public ResponseEntity<User> saveUser(@RequestBody @Valid UserRequest userRequest)
+	{
+		return new ResponseEntity<>(userService.saveUser(userRequest),HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/fetch")
+	public ResponseEntity<List<User>> findAllUsers()
+	{
+		return ResponseEntity.ok(userService.findAllUsers());
+	}
+}
+
+
+
+
+step10:
+-------
+	Create a ApplicationExceptionHandler.java file inside "com.ihub.www.exception" pkg.
+
+ApplicationExceptionHandler.java
+-------------------------------
+package com.ihub.www.exception;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+public class ApplicationExceptionHandler 
+{
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public Map<String,String> handleMethodArgument(MethodArgumentNotValidException ex)
+	{
+		Map<String,String> errorMap = new LinkedHashMap<>();
+		
+		ex.getBindingResult().getFieldErrors().forEach(error->{
+			errorMap.put(error.getField(), error.getDefaultMessage());
+		});
+		
+		return errorMap;
+	}
+}
+
+step11:
+------
+	Run spring boot starter project.
+
+step12:
+------
+	Open the postman and give below request url.
+	ex:
+		Method		URL
+		------		----
+		POST		http://localhost:9191/users/login 
+				Body 
+					Raw(JSON)
+				{	
+					"name":"Alan",
+    					"email":"alan@gmail.com",
+    					"phone":1234567890,
+    					"age":26,
+    					"gender":"male",
+    					"nationality":"American"
+				}
+		GET		http://localhost:9191/users/fetch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

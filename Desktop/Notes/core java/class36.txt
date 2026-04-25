@@ -1,0 +1,516 @@
+Packages
+========
+A package is a collection of classes,interfaces,enums and annotations.
+
+Here enum is a special class and annotation is a special interface.
+
+In general, a package is a collection of classes and interfaces.
+
+A package is also known as folder or directory.
+
+In java, packages are divided into two types.
+
+1) Predefined packages
+
+2) Userdefined packages 
+
+1) Predefined packages
+-----------------------
+Built-in packages are called predefined packages.
+ex:
+	java.lang 
+	java.io
+	java.time
+	java.util
+	java.util.stream 
+	java.text 
+	java.sql
+	javax.servlet 
+	and etc.
+
+2) Userdefined packages 
+-----------------------
+Packages which are created by the user based on the application requirements are called userdefined packages.
+
+We can declare custom package as follow.
+
+syntax:
+------
+	package  <package_name>;
+
+It is always recommanded to declare package name in reverse order of url.
+ex:
+	package com.google.www;
+	package com.facebook.www;
+	
+ex:
+----
+package com.ihub.www;
+import java.util.Calendar;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Calendar c = Calendar.getInstance();
+		
+		//time in 24 hours 
+		int h = c.get(Calendar.HOUR_OF_DAY);
+		
+		if(h<12)
+			System.out.println("Good Morning");
+		else if(h<16)
+			System.out.println("Good Afternoon");
+		else if(h<20)
+			System.out.println("Good Evening");
+		else
+			System.out.println("Good Night");
+	}
+}
+
+We can compile above program by using below command.
+ex:		
+		current directory 
+		    |	  
+	javac  -d   .   Test.java
+		|
+	destination 
+	folder 
+
+We can execute above program by using below command.
+ex:
+	java   com.ihub.www.Test
+			|
+		package_name 
+
+
+
+Enum 
+=====
+Enum concept introduced in 1.5 version.
+
+Enum is a group of named constants.
+
+Enum is used to create our own datatype called enumerated datatype.
+
+When compare to old language enum, java enum is more powerful.
+
+To declare enum, we will use enum keyword.
+
+syntax:
+------
+	enum  <type_name>
+	{
+		VALUE1,VALUE2,.....,VALUEN
+	}
+
+Internal implementation of enum 
+--------------------------------
+Internally,enum concept implemented as class concept and it extends with java.lang.Enum class.
+
+Every enum constant is a reference variable of enum type.
+
+ex:
+
+enum Months			public final class Months extends java.lang.Enum 
+{				{
+	JAN,FEB,MAR	==>		public static final Months JAN = new Months();
+}					public static final Months FEB = new Months();
+					public static final Months MAR = new Months();
+				}
+
+Declaration and Usage of enum 
+------------------------------
+enum Months
+{
+	JAN,FEB,MAR
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Months m = Months.JAN;
+		System.out.println(m); // JAN 
+	}
+}	
+
+ex:
+---
+enum Drinks
+{
+	PEPSI, COKE, COLA
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Drinks d = Drinks.COKE;
+		switch(d)
+		{
+			 case PEPSI : System.out.println("This is Pepsi"); break;
+			 case COKE : System.out.println("This is Coke"); break;
+			 case COLA : System.out.println("This is Cola"); break;
+		}
+	}
+}	
+
+
+java.lang.Enum
+---------------
+A power to enum will be inherited from java.lang.Enum class.
+
+It contains following two methods.
+
+1) values() 
+-----------
+	It is a static method which returns group of constants from enum.
+
+2) ordinal()  
+------------
+	It returns ordinal number.
+
+ex:
+---
+enum Week
+{
+	MON,TUE,WED,THU,FRI,SAT,SUN	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Week[] w = Week.values();
+		for(Week w1 : w )
+		{
+			System.out.println(w1+" ---------- "+w1.ordinal());
+		}
+	}
+}	
+
+When compare to old language enum , java enum is more powerful because in addition to constants we declare variables, methods and constructors.
+
+ex:
+---
+enum Cloth
+{
+	SILK, COTTON, KHADI;
+	
+	Cloth()
+	{
+		System.out.println("constructor");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Cloth c = Cloth.SILK;
+	}
+}	
+
+ex:
+---
+enum Cloth
+{
+	SILK, COTTON, KHADI;
+	
+	static int i=10;
+	public static void main(String[] args)
+	{
+		System.out.println(i);
+	}
+}
+
+Wrapper classes 
+===============
+The main objective of wrapper classes are 
+
+1) To wrap primitive type to wrapper object and vice versa.
+
+2) To define several utility methods.
+
+ex:
+	Primitive type 		Wrapper class 
+	--------------		--------------
+	byte 			Byte		
+	short 			Short
+	int 			Integer
+	long 			Long
+	float			Float
+	double			Double 
+	boolean			Boolean 
+	char 			Character 
+
+constructor 
+-----------
+Every wrapper class contains two constructors. One will take corresponding primitive as an argument and another will take corresponding String as an argument.
+
+ex:
+	Wrapper class		Constructor 
+	----------------	------------
+	Byte			byte or String 	
+	Short			short or String 
+	Integer			int or String 
+	Long			long or String 
+	Float			float or String
+	Double 			double or String 
+	Boolean			boolean or String 
+	Character 		char
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Integer i1 = Integer.valueOf(10);
+		System.out.println(i1);
+		
+		Integer i2 = Integer.valueOf("20");
+		System.out.println(i2);
+	}
+}
+ 
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Boolean b1 = Boolean.valueOf(true);
+		System.out.println(b1); 
+		
+		Boolean b2 = Boolean.valueOf("false");
+		System.out.println(b2);
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Character c = Character.valueOf('a');
+		System.out.println(c); // a 
+	}
+}
+
+Utility Methods 
+---------------
+We have following utility methods in java.
+
+1) valueOf() 
+------------
+It is used to convert primitive type or string type to wrapper object.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//primitive type 
+		int a=10;
+		
+		//wrapper object
+		Integer i = Integer.valueOf(a);
+		
+		System.out.println(i);
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//string type 
+		String s="20";
+		
+		//wrapper object
+		Integer i = Integer.valueOf(s);
+		
+		System.out.println(i);
+	}
+}
+
+2) xxxValue() 
+--------------
+It is used to convert wrapper object to primitive types.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//wrapper object
+		Integer i = Integer.valueOf(10);
+		
+		//primitive type 
+		byte b = i.byteValue();
+		System.out.println(b); 
+		
+		short s = i.shortValue();
+		System.out.println(s);
+		
+		int a = i.intValue();
+		System.out.println(a); 
+	}
+}
+		
+3) parseXxx() 
+-------------
+It is used to convert string type to primitive type or wrapper object.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String str="100";
+		
+		int i = Integer.parseInt(str);
+		System.out.println(i); //100
+		
+		long l = Long.parseLong(str);
+		System.out.println(l); //100
+		
+		float f = Float.parseFloat(str);
+		System.out.println(f); //100.0
+	}
+}
+
+4) toString()
+-------------
+It is used to convert wrapper object to string type.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//wrapper object 
+		Integer i = Integer.valueOf(10);
+		
+		//string type 
+		String s = i.toString();
+		
+		System.out.println(s); 
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String s = Integer.toString(100);
+		System.out.println(s); 
+	}
+}
+
+
+Q) Write a java program to perform sum of two binary numbers?
+
+input:
+	1010
+	0101
+output:
+	1111
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter first binary number :");
+		String binary1 = sc.next(); //1010
+		
+		System.out.println("Enter the second binary number :");
+		String binary2 = sc.next(); //0101
+		
+		//convert binary to decimal 
+		int a = Integer.parseInt(binary1,2);
+		int b = Integer.parseInt(binary2,2);
+		
+		//logic
+		int c = a + b;
+		
+		//convert decimal to binary 
+		String result = Integer.toBinaryString(c);
+		System.out.println(result);
+	}
+}
+
+
+Q) What is Autoboxing and Autounboxing in java?
+
+Autoboxing
+==========
+Automatic conversion performed by the compiler from primitive type to wrapper object is called autboxing.
+
+Autoboxing internally uses valueOf() method.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//primitive type 
+		int a = 200;
+		
+		//wrapper object 
+		Integer i = a;   // Integer i = Integer.valueOf(a);
+		
+		System.out.println(i); 
+	}
+}
+
+
+Autounboxing
+==============
+Automatic conversion performed by the compiler from wrapper object to primitive type is called autounboxing.
+
+Autounboxing internally uses xxxValue() method.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		//wrapper object 
+		Integer i = Integer.valueOf(300);
+		
+		//primitive type 
+		int a = i;   // int a = i.intValue();
+		
+		System.out.println(a); //300
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

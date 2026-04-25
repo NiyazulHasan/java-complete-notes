@@ -1,0 +1,334 @@
+Q) Write a java program to find out N-th element of fibonacci series?
+
+Fibonacci series : 0 1 1 2 3 5 8 ........
+
+input:
+	4
+output:
+	2
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();//4
+		
+		//caller method 
+		System.out.println(fib(n));
+	}
+	//callie method 
+	public static int fib(int n)
+	{
+		if(n==0 || n==1)
+			return 0;
+		if(n==2)
+			return 1;
+		
+		return fib(n-1)+fib(n-2);
+	}
+}
+
+Arrays 
+=======
+In a normal variable we can store only one value at a time.
+
+To store more than one value we need to use arrays.
+
+Array is a collection of homogeneous data elements.
+
+The main advantages of arrays are 
+
+1) We can represent multiple elements using single variable name.
+   ex:
+	int[] arr = {10,20,30};
+
+2) Performance point of view arrays are recommanded to use.
+
+The main disadvantages of arrays are 
+
+1) Arrays are fixed in size. Once if we create an array there is no chance of increasing
+   or decreasing the size of an array.
+
+2) To use array concept in advanced we should know what is the size of an array  which
+   is always not possible.
+
+In java, arrays are classified into three types.
+
+1) Single Dimensional Array 
+
+2) Double Dimensional Array 
+
+3) Multi-Dimensional Array 
+
+
+Array Declaration 
+-----------------
+At the time of array declaration we should not specify array size.
+ex:
+
+					  Array
+	|-----------------------------------|---------------------------|
+Single Dimensional Array	Double Dimensional Array	Multi-Dimensional Array
+
+int[] arr;			int[][] arr;			int[][][] arr;
+int []arr;			int [][]arr;			int [][][]arr;
+int arr[];			int arr[][];			int arr[][][];
+				int[] []arr;			int[][] []arr;
+				int[] arr[];			int[][] arr[];
+				int []arr[];			int[] [][]arr;
+								int[] arr[][];
+								int[] []arr[];
+								int [][]arr[];
+								int []arr[][];
+
+
+Array Creation 
+--------------
+In java, every array consider as an object. Hence we will use new operator to create an array.
+ex:
+	int[] arr = new int[3];
+
+Rules to construct an array
+----------------------------
+Rule1:
+------
+	At the time of array creation compulsary we need to specify array size.
+	ex:	
+		int[] arr = new int[3];
+		int[] arr = new int[]; // C.T.E array dimension missing 
+
+Rule2:
+------
+	It is legal to have an array size with zero.
+	ex:
+		int[] arr = new int[0];
+		System.out.println(arr.length);//0
+
+Rule3:
+-----
+	We can't negative number as an array size otherwise we will get 
+	NegativeArraySizeException.
+	ex:
+		int[] arr = new int[-3]; // R.E NegativeArraySizeException
+
+Rule4:
+------
+	The allowed datatype for an array size is byte,short,int and char.
+	If we take other datatypes then we will get compile time error.
+	ex:
+		byte b=10;
+		int[] arr = new int[b];
+
+		int[] arr = new int['a'];
+
+		int[] arr = new int[10.5]; //C.T.E 
+
+Rule5:
+-----
+	The maximum length we can take for an array size is maximum length of int.
+	ex:
+		int[] arr = new int[2147483647];
+
+
+Array Initialization 
+--------------------
+Once if we create an array , every array element is initialized with default values.
+
+If we are not happy with default values then we can change with customized values.
+
+Diagram: class25.1
+
+
+Array Declaration, Creation and Intialization using single line 
+---------------------------------------------------------------
+
+	int[] arr;
+	arr = new int[3];
+	arr[0]=10;
+	arr[1]=20;
+	arr[2]=30;	--->	int[] arr = {10,20,30};
+
+			--->	char[] arr = {'a','b','c'};
+
+			--->	String[] arr = {"Hi","Hello","Bye"};
+
+
+Q) What is the difference between length and length() method?
+
+length
+-------
+It is a final variable which is applicable only for arrays.
+It returns size of an array.
+ex:
+	int[] arr = new int[4];
+	System.out.println(arr.length); // 4 
+
+length() 
+--------
+It is a predefined method which is applicable for String objects.
+It returns number of characters present in string.
+ex:
+	String s="hello";
+	System.out.println(s.length());//5 
+
+Single Dimensional Array Programs 
+==================================
+
+Q) Write a java program to accept array elements and display them?
+
+
+import java.util.Scanner;
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter the array size :");
+		int size = sc.nextInt(); // 4
+		
+		int[] arr = new int[size];
+		
+		//insert elements 
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.print("Enter the element :");
+			arr[i] = sc.nextInt();
+		}
+		
+		//display elements
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+For Each Loop
+=============
+It is used to iterate the elements/objects from arrays/collections.
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr = {6,9,1,3,4};
+		
+		/*
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");	
+		}
+		*/
+		
+		for(int i : arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+ex:
+---
+class Test 
+{
+	public static void main(String[] args)
+	{
+		char[] carr = {'h','e','l','l','o'};
+		
+		for(char ch : carr)
+		{
+			System.out.print(ch);
+		}
+		
+	}
+}
+
+ex:
+--
+class Test 
+{
+	public static void main(String[] args)
+	{
+		String[] sarr = {"Hi","Hello","Bye"};
+		
+		for(String s : sarr)
+		{
+			System.out.print(s+" ");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

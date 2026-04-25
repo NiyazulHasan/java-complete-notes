@@ -1,0 +1,158 @@
+System.out.println()
+====================
+It is a output statement in java.
+
+Whenever we want to print any userdefined statements or data then we need ot use output statement.
+
+syntax:
+-------
+	   static variable 
+		|
+	System.out.println();
+	|		|
+	predefined 	predefined method 
+	final class 
+
+Diagram: class12.1
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.print("IHUB");
+		System.out.print("TALENT");	
+	}
+}
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println("IHUB");
+		System.out.println("TALENT");	
+	}
+}
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		double d = 10.123456d;
+		System.out.printf("%.2f",d);	
+	}
+}
+
+Various ways to display the variables 
+-------------------------------------
+1) custom message 
+   ex:
+	System.out.println("Hello World");
+
+2) int i=10;
+   ex:
+	System.out.println(i);
+	System.out.println("The value is = "+i);
+	System.out.println(i+" is the value");
+
+3) int i=10,j=20;
+   ex:
+	System.out.println(i+" "+j);
+	System.out.println(i+" and "+j);
+
+
+4) int a=1,b=2,c=3;
+   ex:
+	System.out.println(a+" "+b+" "+c);
+	System.out.println(a+","+b+","+c); 
+
+
+
+
+Q) What is the difference between System.out.println() and System.err.println()?
+
+System.out.println()
+--------------------
+It is used to display standard outputs.
+It is used to display the output on console.
+
+
+System.err.println()
+--------------------
+It is used to display error outputs.
+
+It is used to display the output on console as well as it redirects the output to physical file.
+
+ex:
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.err.println("File Output");	
+	}
+}
+o/p:
+	javac  Test.java
+	java   Test 2>abc.txt 
+
+
+Q) Write a java program to display Hello World without using print(), println(), or printf()?
+
+class Test
+{
+	public static void main(String[] args)throws java.io.IOException
+	{
+		String str="Hello World";
+		System.out.write(str.getBytes());	
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

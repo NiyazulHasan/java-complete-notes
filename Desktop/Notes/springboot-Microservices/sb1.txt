@@ -1,0 +1,205 @@
+Limitations of Spring Framework
+===============================
+In spring framework , a programmer is responsible for following things.
+
+1) Adding the dependencies/jar files.
+
+2) Performing the configurations inside applicationContext.xml file.
+
+3) Arranging the physical server like Tomcat.
+
+4) Managing the database like Oracle. 
+
+To overcome above limitations we need to use spring boot.
+
+ex:
+	Developer 
+	   |
+	Spring Boot 
+	   |
+	Spring Framework 
+
+Spring Boot 
+============
+It is a application framework developed by Pivotal Team.
+
+It provides RAD (Rapid Application Development) features for spring based applications.
+
+It is standalone, production ready grade spring based applications with minimum configurations.
+
+In short, spring boot is a combination of 
+
+	Spring Framework  + Embedded Database 	+ Embedded Server 
+
+
+Advantages of Spring Boot 
+==========================
+1) It is used to develop standalone applications which can be run by using java -jar.
+
+2) It does not support xml configurations instead we will use annotations.
+
+3) It provides optionate starters to simplify maven development process.
+
+4) It gives production ready grade features like metrics, healthchecks and externalized
+   configurations and etc.
+
+5) It allows us to test web application by using HTTP servers like Tomcat, Jetty and
+   Undertow.
+
+6) It provides in-memory databases like H2, HSQL and Derby.
+
+7) It contains CLI (Command Line Interface) tool for developing and testing spring boot
+   applications. 
+
+
+
+
+
+Q) What is the difference between Spring and Spring Boot?
+
+Spring 						Spring Boot 
+------------------				-------------
+It is a opensource framework widely 		It is build on top of spring framework
+used to develop enterprise applications.	widely used to develop REST API's.
+
+The main feature of spring framework is 	The main feature of spring boot is 
+dependency injection.				auto configurations.
+
+It is used to develop loosely coupled 		It is used to develop standalone 
+applications.					applications.
+
+To test web applications a programmer need 	It comes with embedded servers like 	
+to arrange physical server.			Tomcat, Jetty and Undertow.
+
+It does not give in-memory databases.		It gives in-memory databases.
+
+It supports xml configurations.			It does not support xml configurations.
+
+
+
+
+Q) How many components are there in spring boot?
+
+We have four important components in spring boot.
+
+1) Auto Configuration 
+
+2) Starters
+
+3) Actuators
+
+4) CLI Tool 
+
+
+
+Q) What is Dependency Injection ?
+
+It is a design pattern in which objects get their dependencies from external resources rather then creating them manually.
+
+It promotes loose coupling, easy testing and code maintainability.
+
+It makes our class independent to it's dependencies.
+
+To perform automatic dependency injection in spring boot we will use @Autowired annotation.
+
+There are three ways to create dependency injection in spring boot.
+
+1) Field injection (Not Recommanded)
+
+2) Constructor injection (Recommanded)
+
+3) Setter injection (If values are changing then it is recommand)
+
+1) Field injection
+------------------
+	class Recording 
+	{
+		-
+		-
+	}
+	class Student 
+	{
+		@Autowired
+		Recording r;	
+	}
+
+
+2) Constructor injection
+------------------------
+	class Recording 
+	{
+		-
+		-
+	}
+	class Student
+	{
+		Recording r;
+		Student(Recording r)
+		{
+			this.r = r;
+		}		
+	}
+
+3) Setter injection
+--------------------
+	class Recording 
+	{
+		-
+		-
+	}
+	class Student
+	{
+		Recording r;
+			
+		@Autowired
+		public void setRecording(Recording r)
+		{
+			this.r =r;
+		}	
+	}
+
+
+Ways to develop spring boot applications
+========================================
+There are two ways to develop spring boot applications.
+
+1) Spring Initializr
+
+2) Using IDE's (Intellij / STS - Spring Tool Suit)
+
+
+
+Spring Initializr
+=================
+It is web based tool that is used to create spring boot project structure.
+
+It generate spring boot project structure in zip format.
+
+Once if we extracted we need to open that project in IDE (Intellij / STS).
+
+To use spring initializr we need to use https://start.spring.io .
+
+
+STS IDE
+=======
+
+Environment 	: Java 
+
+Format		: Zip
+
+Download link 	: https://spring.io/tools
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

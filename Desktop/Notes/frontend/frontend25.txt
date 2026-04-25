@@ -1,0 +1,421 @@
+JavaScript Promises 
+==================
+JavaScript run on single thread. It means JavaScript can execute only one line at a time.
+
+In JavaScript, Promises are used to perform Asynchronous operations.
+
+JavaScript promises is used to check our operations done or not.
+
+In real world scenario JavaScript promises are used to 
+
+ex:	
+	Call the API's 
+	Handling Files and Network Input/Output 
+	Waiting for animation and transition 
+	and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var promise = new Promise((resolve,reject)=>{
+                  resolve();
+          })
+          promise.then((success)=>{
+            console.log("Positive Response");
+          })
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var promise = new Promise((resolve,reject)=>{
+                  reject();
+          })
+          promise.then((success)=>{
+            console.log("Positive Response");
+          })
+          .catch((error)=>{
+            console.log("Error Response");
+          })
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var flag=true;
+          var promise = new Promise((resolve,reject)=>{
+                  
+                  if(flag==true)
+                     resolve();
+                  else
+                     reject();
+          })
+          promise.then((success)=>{
+            console.log("Positive Response");
+          })
+          .catch((error)=>{
+            console.log("Error Response");
+          })
+       </script>
+
+</body>
+</html>
+
+
+
+
+JavaScript Regular Expression 
+==============================
+A regular expression is a pattern used to search, match, or replace text in a string.	
+Regex helps you find specific words, letters, numbers, or formats inside text.
+
+ex:
+	Symbols 	Meaning
+	---------	---------
+	.		Any single character
+	\d		Any digit (0–9)
+	\w		Any letter or number
+	+		One or more times
+	*		Zero or more times
+	^		Start of string
+	$		End of string
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var str="ihub talent";
+          var pattern = /ihub/;
+          document.writeln(pattern.test(str));
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var str="ihub talent7";
+          var pattern = /\d/;
+          document.writeln(pattern.test(str));
+       </script>
+
+</body>
+</html>
+
+Note:
+------
+	Regular Expression is an object in JavaScript.
+
+
+JavaScript Form validation using RegularExpression
+=====================================================
+To generate proper patterns in regular expression we need to use below url.
+
+ex:
+	https://regex101.com/
+
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+   input[type=text],input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width:500px;
+  position: relative;
+  left:400px;
+  top:20px;
+}
+</style>
+
+<script type="text/javascript">
+  
+  function validate()
+  {
+    var name=document.getElementById('name').value;
+    var pwd=document.getElementById('pwd').value;
+    var phone=document.getElementById('phone').value;
+    var email=document.getElementById('email').value;
+    var country=document.getElementById('country').value;
+
+
+    var namecheck=/^[A-Za-z. ]{3,6}$/;
+    
+    var pwdcheck=/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{6,15}$/;
+
+    var phonecheck=/^[6789][0-9]{9}$/;
+
+    var emailcheck=/[A-Za-z.]{1,}@[A-Za-z]{2,15}[.][A-Za-z]{3,}$/;
+    
+    if(!(namecheck.test(name)))
+    {
+        alert("UserName must be 3 characters without numbers & special characters");
+        document.getElementById('name').value="";
+        document.getElementById('name').focus();
+        return false;
+    }
+
+    if(!(pwdcheck.test(pwd)))
+    {
+      alert("password must have 1 uppercase, 1 special symbol and 1 digit with 6 letters");
+      document.getElementById('pwd').value="";
+      document.getElementById('pwd').focus();
+       return false;
+    }
+
+    if(!(phonecheck.test(phone)))
+    {
+      alert("Phone must start with 6,7,8,9 series with  10 digits");
+      document.getElementById('phone').value="";
+      document.getElementById('phone').focus();
+       return false;
+    }
+
+    if(!(emailcheck.test(email)))
+    {
+      alert("Please insert valid email");
+      document.getElementById('email').value="";
+      document.getElementById('email').focus();
+       return false;
+    }
+
+    if(country=="")
+    {
+      alert("Please select the country option ");
+      return false;
+    }
+
+    
+    return true;
+}
+
+</script>
+
+</head>
+<body>
+
+
+<div>
+  <form action="/test" onsubmit="validate()">
+
+    <label for="name">UserName</label>
+    <input type="text" id="name" name="name" placeholder="Your username.."/>
+
+    <label for="pwd">Password</label>
+    <input type="text" id="pwd" name="pwd" placeholder="Your password.."/>
+
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" name="phone" placeholder="Your phone.."/>
+
+     <label for="email">Email</label>
+    <input type="text" id="email" name="email" placeholder="Your email.."/>
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="">none</option>
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
+
+
+JavaScript OOPS 
+================
+OOPS stands for Object Oriented Programming System/Structure.
+
+OOPS introduced to deal with real world entities using programming language.
+
+JavaScript consider as object based programming language because we don't need to create a class inorder to get the object.
+
+Programming language is known as "object-based" when it provides fundamental constructors for working with objects, but it may not fully implement all the core principles of Object-Oriented Programming (OOP), particularly inheritance and polymorphism.
+
+We have following list of OOPS features.
+
+ex:
+	class
+	object 
+	inheritance 
+	Abstraction 
+	Encapsulation 
+	and Polymorphism. 
+
+
+
+class
+======
+It is a template of an object.
+
+To declare a class we need to use class keyword.
+
+According to JavaScript naming convention a class name must starts with uppercase letter.
+
+ex:
+	class  Example
+	{
+		-
+		-
+	}
+
+constructor 
+===========
+A constructor is a special function which is used to initialized an object.
+
+A class can have only one constructor.
+
+To declare a constructor we will use constructor keyword.
+
+Constructor will execute when object of a class is created.
+
+We can declare constructor as follow.
+ex:
+	class Example 
+	{
+		constructor()
+		{
+			-
+			-
+		}
+	}
+
+object 
+========
+It an entity having states and behaviours.
+
+In short, it is a collection of variables and functions.
+
+To declare an object we will use new keyword.
+
+ex:
+	var obj = new Example();
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+       <script>
+          class Example
+          {
+               constructor()
+               {
+                  document.writeln("zero-arg const");
+               }
+          }
+          var e = new Example();
+       </script>  
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+       <script>
+          class Example
+          {
+               constructor(arg1,arg2)
+               {
+                  document.writeln(arg1+arg2);
+               }
+          }
+          var e = new Example(10,20);
+       </script>  
+   </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

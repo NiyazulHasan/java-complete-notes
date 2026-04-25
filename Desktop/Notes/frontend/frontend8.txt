@@ -1,0 +1,771 @@
+3) External CSS
+================
+In external CSS, we will declare HTML code in .html file and CSS code in .css file.
+
+We can't execute CSS file directly to the browser window.
+
+To execute CSS file we need to link that file with HTML document.
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		
+		<!-- add external css -->
+		<link rel="stylesheet" href="css/mystyles.css">
+	
+	</head>
+	<body>
+			<h1>Welcome to CSS class</h1>
+			<p> This is External CSS </p>
+	</body>
+</html>
+
+mystyles.css
+------------
+h1
+{
+	color:#FFFFFF;
+	background-color:#079992;
+}
+p
+{
+	font-size:40px;
+	text-align:center;
+}
+
+
+
+CSS border property
+===================
+CSS border property is used to specify style, width and color of a HTML element border.
+
+We have following list of CSS border properties.
+
+ex:
+	border-style 
+	border-color 
+	border-width 
+	border shorthand 
+
+border-style 
+------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+			}
+			h2
+			{
+				border-style:dotted;
+			}
+			h3
+			{
+				border-style:dashed;
+			}
+			h4
+			{
+				border-style:double;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag 1</h1>
+			<h2> Heading Tag 2</h2>
+			<h3> Heading Tag 3</h3>
+			<h4> Heading Tag 4</h4>
+	</body>
+</html>
+
+
+border-color
+------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-color : violet;
+			}
+			h2
+			{
+				border-style:dotted;
+				border-color: #00FF00;
+			}
+			h3
+			{
+				border-style:dashed;
+				border-color: rgb(255,0,0);
+			}
+			h4
+			{
+				border-style:double;
+				border-color : hsl(210, 100%, 50%);
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag 1</h1>
+			<h2> Heading Tag 2</h2>
+			<h3> Heading Tag 3</h3>
+			<h4> Heading Tag 4</h4>
+	</body>
+</html>
+
+border-width 
+-------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border-style:solid;
+				border-color : violet;
+				border-width : 2px;
+			}
+			h2
+			{
+				border-style:dotted;
+				border-color: #00FF00;
+				border-width : 4px;
+			}
+			h3
+			{
+				border-style:dashed;
+				border-color: rgb(255,0,0);
+				border-width : 6px;
+			}
+			h4
+			{
+				border-style:double;
+				border-color : hsl(210, 100%, 50%);
+				border-width : 8px;	
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag 1</h1>
+			<h2> Heading Tag 2</h2>
+			<h3> Heading Tag 3</h3>
+			<h4> Heading Tag 4</h4>
+	</body>
+</html>
+
+
+border-shorthand 
+-----------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border : 2px solid violet;
+			}
+			h2
+			{
+				border : 4px dotted #00FF00;
+			}
+			h3
+			{	
+				border : 6px dashed rgb(255,0,0);
+			}
+			h4
+			{
+				border : 8px double hsl(210, 100%, 50%);
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag 1</h1>
+			<h2> Heading Tag 2</h2>
+			<h3> Heading Tag 3</h3>
+			<h4> Heading Tag 4</h4>
+	</body>
+</html>
+
+
+
+CSS margin property 
+===================
+CSS margin property is used to specify space around the elements(outside defined border).
+
+We have following list of CSS margin properties.
+
+ex:
+	margin-top 
+	margin-right 
+	margin-bottom 
+	margin-left 
+	margin shorthand 
+
+We have following list of values for margin property.
+ex:
+	value			Description 
+	-------			-----------
+	auto 			Browser calculates the margin 
+	length 			It specifies the margin in px,pt,cm,em and etc.
+	percentage 		It specifies the margin in percentage(%)
+	inherit 		It specified the margin from parent element.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				margin-top:100px;
+				margin-right:100px;
+				margin-bottom:100px;
+				margin-left:100px;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag 1</h1>
+
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				border:2px solid black;
+				margin-top:10%;
+				margin-right:20%;
+				margin-bottom:30%;
+				margin-left:40%;
+			}
+		</style>
+	</head>
+	<body>
+			<h1> Heading Tag 1</h1>
+
+	</body>
+</html>
+
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				margin-top:100px;
+			}
+			h1
+			{
+				border:2px solid black;
+				margin-top: inherit;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1> Heading Tag 1</h1>
+		</div>
+	</body>
+</html>
+
+margin shorthand property 
+========================
+> If margin contains four values.
+  ex:
+	margin : 25px  50px  75px  100px;
+
+	top , right, bottom and left	
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				margin : 25px  50px  75px  100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag 
+		</div>
+	</body>
+</html>
+
+
+> If margin contains three values.
+  ex:
+	margin : 25px  75px  100px;
+
+	top , left and right, bottom 
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				margin : 25px  75px  100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag 
+		</div>
+	</body>
+</html>
+
+
+> If margin contains two values.
+  ex:
+	margin : 25px  100px;
+
+	top and bottom , left and right
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				margin : 25px  100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag 
+		</div>
+	</body>
+</html>
+
+
+> If margin contains one value.
+  ex:
+	margin : 100px;
+
+	All sides are 100px;
+
+
+CSS padding property 
+===================
+CSS padding property is used to specify space around the elements content (inside defined border).
+
+We have following list of CSS padding properties.
+
+ex:
+	padding-top 
+	padding-right 
+	padding-bottom 
+	padding-left 
+	padding shorthand 
+
+We have following list of values for padding property.
+ex:
+	value			Description 
+	-------			-----------
+	auto 			Browser calculates the padding 
+	length 			It specifies the padding in px,pt,cm,em and etc.
+	percentage 		It specifies the padding in percentage(%)
+	inherit 		It specified the padding from parent element.
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding-top:100px;
+				padding-right:100px;
+				padding-bottom:100px;
+				padding-left:100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag 
+		</div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding-top:10%;
+				padding-right:20%;
+				padding-bottom:30%;
+				padding-left:40%;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag 
+		</div>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding-top:100px;
+			}
+			h1
+			{
+				border :2px solid black;
+				padding-top: inherit;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>Division Tag</h1> 
+		</div>
+	</body>
+</html>
+
+padding shorthand property
+==========================
+> If padding contains four values.
+  ex:
+	padding : 25px 50px 75px 100px;
+
+	top, right, bottom , left 
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding : 25px 50px 75px 100px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+
+> If padding contains three values.
+  ex:
+	padding : 25px 75px 100px;
+
+	top, left and right, bottom
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding : 25px 75px 100px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+> If padding contains two values.
+  ex:
+	padding : 25px 100px;
+
+	top and bottom, left and right;
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding : 25px 100px;
+
+
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+> If padding contains one values.
+  ex:
+	padding : 100px;
+
+	all sides are 100px
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				padding :100px;
+
+
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+CSS Height and Width property 
+=============================
+CSS height property is used to set the height of HTML element.
+CSS width property is used to set the width of HTML element.
+CSS height and width property does not include border, margin and padding.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				height:200px;
+				width:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border:2px solid red;
+				min-height:200px;
+				max-width:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				border-style:solid dotted dashed double;
+				border-color: red green blue yellow;
+				border-width:2px 4px 6px 8px;
+				height:200px;
+				width:200px;
+				margin : 100px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Division Tag
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

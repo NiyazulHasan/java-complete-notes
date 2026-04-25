@@ -1,0 +1,305 @@
+AI - Artificial Intelligence
+============================
+It is a field of computer science which focuses on creating systems or machines that can perform multiple tasks typically required human intelligence.
+ex:
+	surveillance, Cars, Video games and etc.
+
+It is a capability of a computer or a machine to mimic or simulate intelligence human behaviours such as thinking ,reasoning, perception, language understanding and etc.
+
+It is a scientific discpline which embracing several data science fields ranging from Narrow AI to Strong AI which includes Machine learning, Deep learning, Generative AI , Data mining and etc.
+
+Diagram: AI-Notes1.1
+
+Q) What is difference between Narrow AI and Strong AI?
+
+Narrow AI 
+---------
+	It is limited to narrow area.
+	ex:
+		ChatGpt, Google Map, Siri and etc.
+
+Strong AI 
+--------
+	It is used to simulate human intelligence.
+	ex:
+		Not Yet Achieved.
+
+
+Q) What is the difference between AI, ML, DL and Generative AI?
+
+AI 
+===
+AI stands for Artificial Intelligence.
+AI is designed to think and adopt the solutions.
+ex:
+	Google Maps, Face Recognition and etc.
+
+ML
+====
+ML stands for Machine Learning.
+ML is a subset of Aritifical Intelligence.
+It is designed to learn from data instead of explicitly programmed.
+ex:
+	Spam calls, spam email deductions and etc.
+
+DL 
+====
+DL stands for Deep Learning.
+DL is a subset of Machine Learning.
+It uses multi-layered neural networks to learn from large amount of data.
+Here neural network means , it is one type of machine learning algorithm which is inspired by human brain.
+ex:
+	ChatGPT, Finger Prints and etc.
+
+Generative AI 
+=============
+It is a subset of Deep Learning.
+It is used to generate the data.
+ex:
+	Images, Videos, Audio, Text and etc.
+
+
+Realtime AI Applications
+========================
+1	Healthcare 		Dieseas Diagnosis, Drug Discovery
+2	Finance			Trading Algorithms, Fraud Detections 
+3	Automative		Self Driving Cars
+4	Customer Support	ChatGPT, GoogleMaps  and etc.
+5	Entertainment		Spotify, Netflix, Jio Hot Star and etc.	
+
+
+Spring AI 
+==========
+Day to day AI becoming important for every modern application.
+
+Spring AI makes this process easy to integrate AI with java based projects.
+
+Spring AI is a extension of Spring Framework.
+
+Spring AI allows us to intergrate with many AI models or platforms like OpenAI, TensorFlow, Hugging Face and etc.
+
+
+Steps to develop Chatbot application
+====================================
+Step1:
+------
+	Take a Open AI key.
+	ex:
+		https://platform.openai.com/login
+
+step2:
+------
+	Create a spring boot starter project i.e chatbot-backend.
+	ex:
+		starters:
+				Spring Web 
+				OpenAI 
+
+step3:
+------
+	Create a AIController.java file inside "com.ihub.www.controller" package.
+
+AIController.java
+-----------------
+package com.ihub.www.controller;
+
+import java.util.Map;
+
+import com.ihub.www.ChatbotBackendApplication;
+import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin(origins = "http://localhost:5173")
+@RestController
+@RequestMapping("/api/ai")
+public class AIController 
+{
+
+    private final ChatbotBackendApplication chatbotBackendApplication;
+	private final ChatClient chatClient;
+	
+	AIController(ChatClient.Builder builder, ChatbotBackendApplication chatbotBackendApplication)
+	{
+		this.chatClient = builder.build();
+		this.chatbotBackendApplication = chatbotBackendApplication;
+	}
+	
+	@PostMapping("/ask")
+	public ResponseEntity<String> ask(@RequestBody Map<String,String> payload)
+	{
+			String question = payload.get("question");
+			String response = chatClient.prompt().user(question).call().content();
+			return ResponseEntity.ok(response);
+	}
+}
+
+step4:
+------
+	Configure application name , server port and open ai key.
+
+application.properties 
+----------------------
+spring.application.name=chatbot-backend
+server.port=9191
+spring.ai.openai.api-key= YOUR-API-KEY
+
+step5:
+-----
+	Run spring boot starter project.
+
+
+step6:
+------
+	Open VSC editor from perticular location.
+	ex:
+		cmd> code . 
+
+step7:
+-----
+	Create a react project i.e chatbot-frontend.
+	ex:
+		npm create vite@latest
+
+
+step8:
+------
+	Open a new terminal and switch to the project.
+	ex:
+		cd  chatbot-frontend
+
+step9:
+------
+	install bootstrap and axios library.
+	ex:
+		npm install bootstrap 
+		npm install axios 
+
+step10:
+------
+	Import bootstrap inside "main.jsx" file.
+
+main.jsx
+--------
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+step11:
+------
+	Remove all the code from index.css file.
+
+step12:
+------
+	Goto App.jsx file and write below code.
+
+App.jsx
+--------
+import axios from "axios";
+import { useState } from "react";
+function App()
+{
+   const [question,setQuestion] = useState("");
+   const [answer , setAnswer] = useState("");
+
+   const handleClick= async ()=>{
+
+    const response = await axios.post("http://localhost:9191/api/ai/ask",{question});
+    setAnswer(response.data);
+   }
+
+    return (
+      <div className="container mt-5">
+      <h4 className="text-center"> Chat GPT </h4>
+      <textarea name="address" cols={10} rows={8} className="form-control"
+      placeholder="Ask something Here...."
+      value={question}
+      onChange={(e)=> setQuestion(e.target.value)}>
+      </textarea>
+      <button className="btn btn-primary mt-3 d-block mx-auto" onClick={handleClick}> Search </button>
+
+
+      <div className="container mt-4">
+        <p>
+          {
+              answer
+          }
+        </p>
+      </div>  
+
+      </div>
+    )
+}
+export default App;
+
+step13:
+------
+	Test the application.
+	ex:
+		http://localhost:5173
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+
+
+
+
+
+
+
+
+
+
+
+

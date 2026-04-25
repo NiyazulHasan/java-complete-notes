@@ -1,0 +1,518 @@
+HTML Basic Tags 
+===============
+
+Heading Tags 
+------------
+It is used to display headings in our web page.
+
+We have six heading tags i.e h1 to h6.
+
+It is used to display the text in bold and size of the text is depend upon number of heading tags.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> Heading Tag 1 </h1>
+		<h2> Heading Tag 2 </h2>
+		<h3> Heading Tag 3 </h3>
+		<h4> Heading Tag 4 </h4>
+		<h5> Heading Tag 5 </h5>
+		<h6> Heading Tag 6 </h6>
+		
+	</body>
+</html>
+
+Paragarph tag 
+-------------
+A <p> tag is used to display the paragraph in a web page.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<p>
+			HTML is widely used language on web to develop web pages
+			and web applications. It is used to develop static web 
+			pages only and all HTML documents executed in a browser.
+		</p>		
+	</body>
+</html>
+
+Q) What is the difference between <b> and <strong> tag ?
+
+<b>
+----
+A bold tag is used to display the text in bold without importance.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<b>It is Bold Tag</b>	
+	</body>
+</html>
+
+
+<strong>
+--------
+A strong tag is used to display the text in bold with importance.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<strong>It is Strong Tag</strong>	
+	</body>
+</html>
+
+
+Q) What is the difference between <i>  and <em> tag?
+
+<i> tag 
+------
+A italic tag is used to display the text in italic without force.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<i>It is italic tag</i>	
+	</body>
+</html>
+
+<em> tag 
+--------
+A emphasize tag is used to display the text in italic with force.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<em>It is Emphasize tag</em>	
+	</body>
+</html>
+
+Underline tag 
+--------------
+A <u> tag is used to display the text in underline.
+In HTML5 it is deprecated. 
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<u>It is underline tag </u>
+	</body>
+</html>
+
+center tag 
+----------
+A <center> tag is used to display the text in center.
+In HTML5 it is deprecated.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<center>Center Tag </center>
+	</body>
+</html>
+
+font tag 
+---------
+A <font> tag is used to set the font size, color and face.
+In HTML5 , it is deprecated.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<font color="blue" size="20" face="arial">
+			It is a Font Tag
+		</font>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<font color="blue" size="20" face="cursive">
+			It is a Font Tag
+		</font>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<font color="blue" size="20" face="monospace">
+			It is a Font Tag
+		</font>
+	</body>
+</html>
+
+Horizontal line 
+----------------
+A <hr> tag is used to display horizontal line.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Welcome to HTML classes
+		<hr/>
+		Welcome to New Year-2026
+	</body>
+</html>
+
+Breakline 
+----------
+A <br> tag is used to break the line a web page.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Welcome to HTML classes
+		<br/>
+		Welcome to New Year-2026
+	</body>
+</html>
+
+Marquee Tag 
+-----------
+A <marquee> tag is used to display text with scroll.
+ex:
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<marquee direction="right">
+		Welcome to HTML classes it is a greate experience for your
+		</marquee>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<marquee direction="left">
+		Welcome to HTML classes it is a greate experience for your
+		</marquee>
+	</body>
+</html>
+
+Nested Tags in HTML
+===================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<center>
+			<h1>
+				<font color="blue" size="18" face="serif">
+					Welcome to HTML5
+				</font>
+			</h1>
+		</center>
+	</body>
+</html>
+
+
+Phrase Tags 
+===========
+Phrase tags are special purpose tags because they define special meaning to text or block of code.
+
+We have following list of phrase tags in HTML5.
+
+1) Abbreviation - <abbr> 
+2) blockquote   - <blockquote> 
+3) address 	- <address>
+4) code		- <code> 
+5) preformatted tag - <pre> 
+6) variable 	- <var>
+7) sample	- <samp> 
+8) short quote	- <q>
+9) strike	- <s> 
+10) cite	- <cite> 
+11) mark	- <mark>
+12) subscript	- <sub>
+13) superscript	- <sup> 
+14) keyboard	- <kbd> 
+15) bi directional order - <bdi> 
+and etc.
+
+1) Abbreviation - <abbr> 
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<abbr title="Hypertext Markup Language">HTML</abbr> 
+		is a markup language to develop web pages
+	</body>
+</html>
+
+2) blockquote   - <blockquote>
+------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<p>
+			Respected Sir,
+			<blockquote>
+				I am Niyaz from QualityThought
+			</blockquote>
+		</p>
+	</body>
+</html>
+
+3) address 	- <address>
+---------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<address>
+			1-6-5/4/1, Nilgiri Block, Ameerpet, Hyderabad-36
+		</address>
+	</body>
+</html>
+
+4) code		- <code> 
+-----------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<code>
+		void main()
+		{
+			System.out.println("Hello World");
+		}
+		</code>
+	</body>
+</html>
+
+5) preformatted tag - <pre>
+----------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<code>
+<pre>
+void main()
+{
+	System.out.println("Hello World");
+}
+</pre>
+		</code>
+	</body>
+</html>
+
+6) variable 	- <var>
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<code> int <var>a</var>=10; </code>
+		<br>
+		<code> int <var>b</var>=20; </code>	
+	</body>
+</html>
+
+7) sample	- <samp> 
+-------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		The value is = 10 
+		<br>	
+		<samp>The value is = 10</samp>
+	</body>
+</html>
+
+
+8) short quote	- <q>
+-----------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<p>
+			<q>HTML is widely used langauge for static web pages and it is 
+			developed by Burner's Lee in late 1991</q>
+		</p>
+	</body>
+</html>
+
+9) strike	- <s>
+---------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		This is <s>Java</s> class
+	</body>
+</html>
+
+10) cite	- <cite> 
+-----------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Movie Name : <cite>Rajasaab</cite>
+	</body>
+</html>
+
+11) mark	- <mark>
+-------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		I am planning to <mark>quit</mark> the job 
+	</body>
+</html>
+
+12) subscript	- <sub>
+-----------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> H<sub>2</sub>O</h1> 
+	</body>
+</html>
+
+13) superscript	- <sup>
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> x<sup>2</sup>+y<sup>2</sup></h1> 
+	</body>
+</html>
+
+14) keyboard	- <kbd> 
+------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> To copy press CTRL + C </h1>
+		<h1> To copy press <kbd>CTRL + C</kbd> </h1> 
+	</body>
+</html>
+
+
+15) bi directional order - <bdi>
+---------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> <bdo dir="rtl">Hello</bdo> </h1> 
+	</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<h1> <bdo dir="ltr">Hello</bdo> </h1> 
+	</body>
+</html>
+
+
+
+
+
+
+

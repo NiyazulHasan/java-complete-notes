@@ -1,0 +1,330 @@
+Synonyms 
+========
+Alternate name given to a table is called synonym.
+
+We can use synonym name for all the commands.
+
+They are mainly used for convenience, abstraction, and security.
+
+syntax:
+-------
+	create synonym <synonym_name> for <object_name>;
+ex:
+	create synonym sy1 for student; 
+
+	select * from sy1;
+	
+	delete from sy1;
+
+Q) Write a query to see the list of synonyms present in database?
+
+	select synonym_name from user_synonyms;
+
+Q) Write a query to drop the synonym ?
+
+	drop synonym sy1;
+
+Indexes 
+=======
+Index is used to improve the performance of select command/stmt.
+
+Index is a database is similar to index in a book.
+
+We can create index only for those columns which are widely used in where clause.
+
+When we create index , two columns will be created one is ROWID and another is index column. All records will store in ascending order inside index column.
+
+ex:		
+		INDEX_TABLE
+	----------------------------
+	ROWID		INDEX_COLUMN
+	-----------------------------
+		|	 9000
+     		|	17000
+     		|	19000
+     		|	25000
+     		|	32000
+     		|	42000
+	------------------------------	
+	
+Indexes divided into two types.
+
+1) Simple index 
+
+2) Complex index 
+
+
+1) Simple index 
+---------------
+If index is created for one column is called simple index.
+
+syntax:
+-------
+	create index <index_name> on <table_name>(col_name);
+ex:
+	create index idx1 on emp(esal);
+
+	Here index is used when we use "esal" in where clause.
+	ex:
+		select * from emp where esal=17000;
+2) Complex index
+-----------------
+If index is created for multiple columns is called complex index.
+
+syntax:
+-------
+	create index <index_name> on <table_name>(col1,col2,...,colN);
+ex:
+	create index idx2 on emp(eid,ename);
+
+	Here index is used when we use eid and ename in where clause.
+	ex:
+		select * from emp where eid=201 and ename='Alan';
+
+Q) Write a query to see the list of indexes present in database?
+
+	select index_name from user_indexes;
+
+
+Q) Write a query to drop the indexes?
+
+	drop index idx1;
+	drop index idx2;
+
+
+
+Duplicate table or copy of a table 
+==================================
+Using create and select command we can create duplicate or copy of a table.
+
+If something goes wrong then we can recover situation with the help of duplicate table or copy of a table.
+
+ex:
+	create table employees as select * from emp;
+	create table employees as select eid,ename,esal from emp;
+	create table employees as select * from emp where deptno=10;
+	create table employees as select * from emp where ename like 'A%';
+	create table employees as select * from emp where eid IN (201,202,203);
+	create table employees as select * from emp where comm is null;
+	create table employees as select * from emp where esal>35000;
+
+
+CL SCR 
+======
+It is used to clear the output screen of SQL command prompt.
+ex:
+	cl scr
+
+
+
+
+Joins 
+======
+select * from emp,dept; // 6*4=24 records 
+
+select eid,ename,esal,deptno,dname,dloc from emp,dept; 
+					-- column ambiguously defined
+
+In order to overcome above limitation we need to use table_name.column_name.
+ex:
+	select emp.eid,emp.ename,emp.esal,dept.deptno,dept.dname,dept.dloc 
+		from emp,dept;  // 6 * 4 = 24 records 
+
+Table Alias 
+------------
+A userdefined name given to a table is called table alias.
+
+Table alias is temperory.
+
+We can create table alias for any table.
+
+Using table alias length of the query will reduce mean while performance is maintained.
+
+ex:
+	select e.eid,e.ename,e.esal,d.deptno,d.dname,d.dloc 
+		from emp e,dept d; // 6 * 4 = 24 records  
+
+
+Definition:
+-----------
+A join is used to retrieve the data from one or more than one table.
+
+We have following list of joins.
+
+1) Equi Join 
+------------
+When two tables are joined based on common column is called equi-join.
+In equi join we will use equality(=) operator.
+ex:
+	select e.eid,e.ename,e.esal,d.dname,d.dloc 
+		from emp e,dept d where(e.deptno=d.deptno);
+		
+
+2) Non-Equi Join 
+----------------
+If two tables are joined without equi-join condition is called non-equi join.
+ex:
+---
+	select e.eid,e.ename,e.esal,d.dname,d.dloc 
+	from emp e,dept d where esal>25000; // 2 * 4 = 8 records 
+ 
+
+3) Self Join 
+============
+When table is joined to itself is calle self join.
+
+In self join , we need to create two table alias for same table.
+
+ex:
+	select e1.eid,e1.ename,e1.esal,e2.job,e2.comm 
+	from emp e1, emp e2 where (e1.deptno=e2.deptno); // 6 + 6 = 12 records 
+
+
+4) Cartisian Product 
+---------------------
+It returns all the possible combinations.
+ex:
+	select e.eid,e.ename,e.esal,d.dname,d.dloc from emp e,dept d; // 6*4=24 
+
+
+5) Inner Join 
+-------------
+It is similar to equi-join.
+It is given by ANSI people.
+ANSI stands for American National Standards Institute.
+
+ex:
+	select e.eid,e.ename,e.esal,d.dname,d.dloc 
+		from emp e INNER JOIN dept d ON(e.deptno=d.deptno);
+	
+	or 
+
+	select e.eid,e.ename,e.esal,d.dname,d.dloc 
+		from emp e JOIN dept d ON(e.deptno=d.deptno);
+
+
+6) Outer Join 
+-------------
+It is a extension of equi-join.
+
+It returns matching as well as not matching records.
+
+A '+' symbol denoted as outer join operator.
+
+We have three outer joins.
+
+i) Left Outer Join 
+-----------------
+	SQL
+	----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc 
+		from emp e,dept d where (e.deptno=d.deptno(+));
+	ANSI 
+	-----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc 
+		from emp e LEFT OUTER JOIN dept d ON(e.deptno=d.deptno);
+
+
+ii) Right Outer Join 
+--------------------
+	SQL
+	----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc 
+		from emp e,dept d where (e.deptno(+)=d.deptno);
+	ANSI 
+	-----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc 
+		from emp e RIGHT OUTER JOIN dept d ON(e.deptno=d.deptno);	
+
+iii) Full Outer Join 
+--------------------
+	ANSI 
+	----
+		select e.eid,e.ename,e.esal,e.deptno,d.deptno,d.dname,d.dloc 
+		from emp e FULL OUTER JOIN dept d ON(e.deptno=d.deptno);
+
+
+Interview Query 
+===============
+Diagram : oracle7.1
+ 
+Q) Write a query to select person id, name, gender and annual_income?
+
+	select p.id,p.name,dl.gender,i.annual_income 
+		from person p JOIN drivers_license dl 
+		 ON (p.license_id = dl.id) JOIN income i
+			ON (p.ssn=i.ssn);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

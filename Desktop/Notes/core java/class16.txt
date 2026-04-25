@@ -1,0 +1,665 @@
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 1,2,3,4,5;
+		System.out.println(i); // C.T.E 
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i,j;
+		i = j = 10;
+		System.out.println(i+" "+j); //10  10
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i += 5;  // i = i + 5 
+		System.out.println(i); // 15
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i -= 5;  // i = i - 5 
+		System.out.println(i); // 5
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i *= 5;  // i = i * 5 
+		System.out.println(i); // 50
+	}
+}
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i /= 5;  // i = i / 5 
+		System.out.println(i); // 2
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i /= 50;  // i = i / 50
+		System.out.println(i); // 0
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i %= 50;  // i = i % 5
+		System.out.println(i); // 0
+	}
+}
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i=10;
+		i %= 50;  // i = i % 50
+		System.out.println(i); //10
+	}
+}
+
+2) Ternary operator/conditional operator 
+----------------------------------------
+syntax:
+-------
+	(condition)?value1:value2;
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str = (true)?"Hi":"Bye";
+		System.out.println(str); // Hi
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String str = (false)?"Hi":"Bye";
+		System.out.println(str); // Bye
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		char ch = (5>2)?'T':'F';
+		System.out.println(ch); // T
+	}
+}
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = (5>20)?true:false;
+		System.out.println(b); // false
+	}
+}
+
+Q) Write a java program to find out greatest of two numbers?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a = sc.nextInt();
+		
+		System.out.println("Enter the second number :");
+		int b = sc.nextInt();
+		
+		int max = (a>b)?a:b;
+		
+		System.out.println(max+" is greatest");
+	}
+}
+
+Q) Write a java program to find out greatest of three numbers?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the first number :");
+		int a = sc.nextInt();
+		
+		System.out.println("Enter the second number :");
+		int b = sc.nextInt();
+		
+		System.out.println("Enter the third number :");
+		int c = sc.nextInt();
+		
+		int max = (a>b)?((a>c)?a:c):((b>c)?b:c);
+		
+		System.out.println(max+" is greatest");
+	}
+}
+
+
+3) Bitwise operators 
+---------------------
+
+How to convert decimal number to binary number 
+----------------------------------------------
+
+	10 - decimal number 
+	1010 - binary number 
+
+	2|10
+	 ---- 0
+	2|5	
+	 ---- 1
+	2|2 
+	 ---- 0
+	  1 
+
+Q) Java program to convert decimal number to binary number ?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int decimal = 10;
+		String binary = Integer.toBinaryString(decimal);
+		System.out.println(binary);
+	}
+}
+
+How to convert binary number to decimal number 
+----------------------------------------------
+	1010 - binary number 
+	10   - decimal number 
+
+	1010 <----
+	
+	0*1 + 1*2 + 0*4 + 1*8
+	0   +  2  + 0  + 8
+ 	10
+	
+Q) Write a java program to convert binary number to decimal number?
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		String binary = "1010";
+		int decimal=Integer.parseInt(binary,2);
+		System.out.println(decimal);
+	}
+}
+
+
+Bitwise AND operator (&)
+----------------------
+Bitwise AND operator deals with binary numbers.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= F 
+F	T	= F
+F	F	= F 
+
+ex:
+----
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a = 10;
+		int b = 15;
+		int c = a & b;
+		System.out.println(c); //10
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	---------
+	&  - 1010  <---
+	
+	0*1 + 1*2 + 0*4 + 1*8 
+	
+	0 + 2 + 0 + 8 = 10
+*/
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a = 10;
+		int b = 5;
+		int c = a & b;
+		System.out.println(c); //0
+	}
+}
+/*
+	10 - 1010
+	5  - 0101
+	---------
+	&  - 0000 
+*/
+
+Bitwise OR operator (|) 
+-----------------------
+Bitwise OR operator deals with binary numbers.
+
+Truth table 
+------------
+T	T	= T
+T	F	= T
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a = 10;
+		int b = 5;
+		int c = a | b;
+		System.out.println(c); //15
+	}
+}
+/*
+	10 - 1010
+	5  - 0101
+	---------
+	|  - 1111 <---
+	
+	1*1 + 1*2 + 1*4 + 1*8 
+	
+	1 + 2 + 4 + 8 = 15
+*/
+
+Bitwise NOT operator (~)
+------------------------
+syntax:
+------
+	-(n+1)
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a = ~10;
+		System.out.println(a); // -11
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a = ~(-22);
+		System.out.println(a); // 21
+	}
+}
+
+Q) Write a java program to find out given number is even or odd?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt(); // 10
+		
+		String str = ((n&1)==0)?"It is even number":"It is odd number";
+		
+		System.out.println(str); 
+	}
+}
+
+
+Bitwise XOR operator (^)
+-------------------------
+Bitwise XOR operator deals with binary numbers.
+
+Truth table 
+----------
+T	T	= F
+T	F	= T
+F	T	= T
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int a = 10;
+		int b = 15;
+		int c = a ^ b;
+		System.out.println(c); // 
+	}
+}
+/*
+	10 - 1010
+	15 - 1111
+	---------
+	^  - 0101 <----
+	
+	1*1 + 0*2 + 1*4  + 0*8 
+	
+	1 + 0 + 4 + 0 = 5 
+*/
+
+
+
+
+4) Logical operators 
+---------------------
+
+Logical AND operator (&&)
+-------------------------
+Logical AND operator deals with boolean values either true or false.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= F 
+F	T	= F 
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(true && true); // true 
+		System.out.println(true && false); // false
+		System.out.println(false && true); // false 
+		System.out.println(false && false); // false 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = (5>2) && (6<10);
+		System.out.println(b); // true 
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = (5>20) && (6<10);
+		System.out.println(b); // false 
+	}
+}
+
+Logical OR operator (||)
+------------------------
+Logical OR operator deals with boolean values either true or false.
+
+Truth table 
+-------------
+T	T	= T
+T	F	= T
+F	T	= T
+F	F	= F 
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		System.out.println(true || true); // true
+		System.out.println(true || false); // true 
+		System.out.println(false || true); // true 
+		System.out.println(false || false); // false 
+	}
+}
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = (5>20) || (6<1);
+		System.out.println(b); // false 
+	}
+}
+
+ex:
+--
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = (5>2) || (6<1);
+		System.out.println(b); // true
+	}
+}
+
+Logical NOT operator (!)
+------------------------
+Logical NOT operator deals with boolean values either true or false.
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = !(5>2);
+		System.out.println(b); // false
+	}
+}
+
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		boolean b = !(5>20);
+		System.out.println(b); // true
+	}
+}
+
+
+
+
+
+
+5) Arithmetic operators 
+-----------------------
+% - modules 
+/ - division 
+* - multiplication 
++ - addition 
+- - subtraction 
+
+
+Operators precedences
+----------------------
+
+Precedence	Operators	Description
+---------	---------	----------
+1		*, /, %		Multiplication, division, modulo
+2		+, -		Addition, subtraction
+3		<<, >>		Bitwise shift
+
+ex:
+---
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int i = 5+10*2+6/3+10%3+10/20+9%30+6*2+12-50;
+		System.out.println(i); //11 
+	}
+}
+/*
+	5 + 10*2 + 6/3 + 10%3 + 10/20 + 9%30 + 6*2 + 12 - 50
+	
+	5 + 20 + 6/3 + 10%3 + 10/20 + 9%30 + 12 + 12 - 50 
+	
+	5 + 20 + 2 + 10%3 + 0 + 9%30 + 12 + 12 - 50 
+	
+	5 + 20 + 2 + 1 + 0 + 9 + 12 + 12 - 50
+	
+	61 - 50
+	
+	11
+*/
+
+
+Assignment 
+===========
+1) Write a java program to convert decimal to binary number?
+2) Write a java program to convert binary number to decimal number?
+3) Write a java program to find out given number is even or odd?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

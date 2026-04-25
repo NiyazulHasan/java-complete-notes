@@ -1,0 +1,535 @@
+Inner classes 
+=============
+Sometimes we will declare a class inside another class such concept is called inner class.
+
+Inner class introduced in 1.1 version as a part of event handling to remove GUI bugs.
+
+But due to powerful feature and benefits of inner classes , programmers started to use inner classes in regular programming.
+
+We can't declare static members inside inner classes.
+
+We have four types of inner classes.
+
+1) Normal/Regular Inner class
+
+2) Static inner class 
+
+3) Method local inner class 
+
+4) Anonymous inner class 
+
+1) Normal/Regular Inner class
+------------------------------
+Sometimes we will declare a class inside another class such type of inner class is called normal/regular inner class.
+
+ex:
+---
+class Outer 
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("Inner-M1-Method");
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		Outer.Inner i = new Outer().new Inner();
+		i.m1();
+	}
+}
+
+If we compile above program we will get two .class files i.e 
+Outer.class and Outer$Inner.class.
+
+ex:
+---
+class Outer 
+{
+	class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("Inner-M1-Method");
+		}
+	}
+	
+	public void m2()
+	{
+		Inner i = new Inner();
+		i.m1();
+	}
+	
+	public static void main(String[] args)
+	{
+		Outer o = new Outer();
+		o.m2();
+	}
+}
+
+2) Static inner class 
+----------------------
+Sometimes we will declare a class inside another class using static keyword such type of class is called static inner class.
+
+In normal/regular inner class , without existing container object there is a no chance of having contained object.
+
+ex:
+---
+class Outer 
+{
+	static class Inner 
+	{
+		public void m1()
+		{
+			System.out.println("Inner-M1-Method");
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		Inner i = new Inner();
+		i.m1();
+	}
+}
+
+3) Method local inner class 
+---------------------------
+Somtimes we will declare a class inside a method such type of inner class is called method local inner class.
+
+The main objective of method local inner class is to execute method specific repeated execution logic.
+
+ex:
+---
+class Outer 
+{
+	public void sum()
+	{
+		class Inner 
+		{
+			public void add(int a,int b)
+			{
+				System.out.println(a+b);
+			}
+		}
+		Inner i = new Inner();
+		i.add(10,20);
+		i.add(100,200);
+		i.add(1000,2000);
+	}
+	
+	public static void main(String[] args)
+	{
+		Outer o = new Outer();
+		o.sum();
+	}
+}
+
+
+4) Anonymous inner class 
+------------------------
+Sometimes we will declare a class without name such type of nameless class is called anonymous inner class.
+
+ex:
+---
+interface ATM
+{
+	public abstract void deposit();	
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//Anonymous inner class 
+		ATM atm = new ATM()
+		{
+			public void deposit()
+			{
+				System.out.println("Deposit Method");
+			}
+		};
+		atm.deposit();
+	}
+}
+
+ex:
+---
+abstract class Payment 
+{
+	public abstract void paymentMethod();
+}
+class Test
+{
+	public static void main(String[] args)
+	{
+		//Anonymous inner class
+		Payment p = new Payment ()
+		{
+			public void paymentMethod()
+			{
+				System.out.println("UPI-Method");
+			}
+		};
+		p.paymentMethod();
+	}
+}
+
+
+
+Cloning in Java
+===============
+The process of creating exact duplicate object is called cloning.
+
+The main objective of cloning is to keep backup.
+
+We can perform cloning only for cloneable objects.
+
+To create a cloneable object our class must implements Cloneable interface.
+
+Cloneable is a marker interface which does not have any methods and constants.
+
+Using Cloneable interface we will get some ability by JVM.
+
+To perform cloning we will use clone() method as given below.
+ex:
+	 protected native Object clone()throws CloneNotSupportedException
+
+ex:
+---
+class Test implements Cloneable 
+{
+	//instance variable 
+	int i=10;
+	
+	public static void main(String[] args)throws CloneNotSupportedException
+	{
+		Test t1 = new Test();
+		Test t2 = (Test)t1.clone();
+		
+		System.out.println(t1.i); // 10
+		System.out.println(t1.hashCode());//2060468723
+		
+		System.out.println(t2.i); // 10
+		System.out.println(t2.hashCode());//622488023
+	}
+}
+
+
+Q) What is the difference between shallow cloning or deep cloning?
+
+Shallow cloning 
+---------------
+The process of creating exact duplicate object reference is called shallow cloning.
+
+Diagram: class37.1
+
+ex:
+---
+class Test
+{
+	//instance variable 
+	int i=10;
+	
+	public static void main(String[] args)
+	{
+		Test t1 = new Test();
+		System.out.println(t1.i); //10
+		System.out.println(t1.hashCode());//2060468723
+		
+		Test t2 = t1;
+		System.out.println(t2.i); //10
+		System.out.println(t2.hashCode());//2060468723
+		
+	}
+}
+
+Deeping cloning
+--------------
+The process of creating exact duplicate object is called deeping cloning.
+
+Diagram: class37.2
+
+class Test implements Cloneable 
+{
+	//instance variable 
+	int i=10;
+	
+	public static void main(String[] args)throws CloneNotSupportedException
+	{
+		Test t1 = new Test();
+		System.out.println(t1.i); //10
+		System.out.println(t1.hashCode());//1881129850
+		
+		Test t2 = (Test)t1.clone();
+		System.out.println(t2.i); //10
+		System.out.println(t2.hashCode());//1095293768
+		
+	}
+}
+
+Types of objects in Java
+========================
+We have two types of objects in java.
+
+1) Immutable object 
+
+2) Mutable object 
+
+1) Immutable object 
+-------------------
+After object creation if we perform any changes then for every change a new object will be created such type of object is called immutable object.
+ex:
+	String and Wrapper classes 
+
+2) Mutable object 
+-------------------
+After object creation if we perform any changes then all the required changes will be done in a same object.
+ex:
+	StringBuffer and StringBuilder 
+
+
+String 
+======
+It is a collection of characters which is enclosed in a double quotation.
+
+case1:
+------
+Once if we create a String object we can't perform any changes. If we perform any changes then for every change a new object will be created such behaviour is called immutability of an object.
+
+Diagram: class37.3
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s = new String("ihub");
+		s.concat("talent");
+		System.out.println(s); // ihub
+		
+	}
+}
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s = new String("ihub");
+		s = s.concat("talent");
+		System.out.println(s); // ihubtalent 
+		
+	}
+}
+
+case2:
+-----
+What is the difference between == and .equals() method?
+
+==
+---
+It is used for address comparision or reference comparision.
+It returns boolean value either true or false.
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s1 = new String("ihub");
+		String s2 = new String("ihub");
+		System.out.println(s1 == s2);// false
+	}
+}
+
+.equals()
+--------
+It is used for content comparision and it is case sensitive.
+It returns boolean value either true or false.
+ex:
+--
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s1 = new String("ihub");
+		String s2 = new String("ihub");
+		System.out.println(s1.equals(s2));// true
+	}
+}
+
+
+case3:
+------
+Once if we create a String object ,two objects will be created one is on heap and another is on SCP (String Constant Pool) area. But 's' always points to heap area.
+
+Diagram: class37.4
+
+Object creation in SCP area is always optional. First JVM will check is there any object is created with same content or not. If it is created then it simplify refer's to that objects. If it not created then JVM will create new object. Hence there is no chance of having duplicate objects in SCP area.
+
+Even though SCP objects do not have any reference, Garbage Collector can't access them.
+
+SCP area objects will destroy automatically whenever JVM shutdown's or terminated.
+
+Diagram: class37.5
+
+
+String important Methods 
+========================
+Q) Write a java program to find out length of a string?
+
+input:
+	Hello 
+output:
+	5
+
+ex:
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s = "Hello";
+		int len=s.length();
+		System.out.println(len);
+	}
+}
+
+Q) Write a java program to convert lowercase string to uppercase?
+
+input:
+	hello 
+output:
+	HELLO 
+
+ex:
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s = "hello";
+		s = s.toUpperCase();
+		System.out.println(s); 
+	}
+}
+
+Q) Write a java program to convert uppercase string to lowercase?
+
+input:
+	HELLO
+output:
+	hello  
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s = "HELLO";
+		s = s.toLowerCase();
+		System.out.println(s); 
+	}
+}
+
+
+Q) Write a java program to display number of vowels present in string?
+
+input:
+	umbrella 
+output:
+	3
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s = "umbrella";
+	
+		int cnt=0;
+		for(int i=0;i<s.length();i++)
+		{
+			char ch  = s.charAt(i);
+			if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+			{
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
+}
+
+
+Q) Write a java program to concatinate two strings?
+
+input:
+	ihub
+	talent
+output:
+	ihubtalent 
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s1 = "ihub";
+		String s2 = "talent";
+		String result = s1.concat(s2);
+		System.out.println(result);
+	}
+}
+
+
+Q) Write a java program to find out both the strings are equal or not?
+
+input:
+	ihub
+	ihub
+output:
+	Both are same 
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s1 = "ihub";
+		String s2 = "ihub";
+		if(s1.equals(s2))
+			System.out.println("Both are same");
+		else
+			System.out.println("Both are not same");
+	}
+}
+
+Q) Write a java program to find out both the strings are equal or not?
+
+input:
+	ihub
+	IHUB
+output:
+	Both are same 
+
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		String s1 = "ihub";
+		String s2 = "IHUB";
+		if(s1.equalsIgnoreCase(s2))
+			System.out.println("Both are same");
+		else
+			System.out.println("Both are not same");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

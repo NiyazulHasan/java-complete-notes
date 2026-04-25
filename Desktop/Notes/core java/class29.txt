@@ -1,0 +1,454 @@
+Q) Write a java program to delete first occurance of a given element in positive integer array?
+
+input:
+	arr = 7 2 9 2 4 8 2 6 
+	ele = 2
+output:
+	7 9 2 4 8 2 6 
+
+import java.util.Arrays;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr ={7,2,9,2,4,8,2,6}; 
+		int ele = 2;
+		
+		int index = findIndex(arr,ele);
+		if(index!=-1)
+		{
+			for(int i=index;i<arr.length-1;i++)
+			{
+				arr[i]=arr[i+1];
+			}
+			arr = Arrays.copyOf(arr,arr.length-1);
+			
+			//print the elements 
+			for(int i : arr)
+			{
+				System.out.print(i+" ");
+			}
+		}
+		else
+		{
+			System.out.println("Element Not Foudn");
+		}
+	}
+	public static int findIndex(int[] arr,int ele)
+	{
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]==ele)
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+}
+
+
+Q) Prime Numbers in an Array
+
+You are given an array of integers, arr, of size array length. If a prime number which is contained in arr can be written as a+b, where a and b are also both contained somewhere in arr then it is called a special prime number. It is given that a and b may be the same element.
+
+Find the index of the first occurrence of a special prime number in arr. If a special prime number does not exist in arr, return -1.
+
+Input:
+	8 2 4 3 7  
+
+Output:
+	4
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr ={8,2,4,3,7};
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			int value = arr[i];
+			if(isPrime(value))
+			{
+				for(int j=0;j<arr.length;j++)
+				{
+					for(int k=j+1;k<arr.length;k++)
+					{
+						if(arr[j]+arr[k]==value)
+						{
+							System.out.print(i+" ");
+						}
+					}
+				}
+			}
+		}
+	}
+	public static boolean isPrime(int n)
+	{
+		boolean flag=true;
+		for(int i=2;i<=n/2;i++)
+		{
+			if(n%i==0)
+			{
+				flag=false;
+				break;
+			}
+		}
+		return flag;
+	}
+}
+
+
+
+
+Q) Write a java program to display distinct elements from given array?
+
+input:
+	5 9 1 3 7 6 9 3 4 2 2
+
+output:
+	5 9 1 3 7 6 4 2
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[] arr ={5,9,1,3,7,6,9,3,4,2,2};
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			int cnt=0;
+			for(int j=0;j<i;j++)
+			{
+				if(arr[i] == arr[j])
+				{
+					cnt++;
+					break;
+				}
+			}
+			if(cnt==0)
+				System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+
+
+Double Dimensional Array 
+========================
+Double dimensional array is a combination of rows and columns.
+
+Double dimensional array is implemented based on array of arrays approach but not matrix form.
+
+Double dimensional array is used to develop business oriented applications, gaming applications, matrix type of applications and etc.
+
+The main objective of double dimensional array is memory utilization.
+
+We can create double dimensional array as follow.
+
+ex:			    rows
+			      |
+	int[][] arr = new int[3][3];
+				 |
+				cols 
+
+	Here we can store 9 elements.
+
+We can create and initialized double dimensional array as follow.
+ex:
+	int[][] arr = {
+				{1,2,3},		
+				{4,5,6},
+				{7,8,9}
+			}; 
+
+Q) Write a java program to display array elements in matrix form?
+
+import java.util.Scanner;
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the rows :");
+		int rows = sc.nextInt();//3
+		
+		System.out.println("Enter the cols :");
+		int cols = sc.nextInt();//3
+		
+		int[][] arr = new int[rows][cols];
+		
+		
+		//insert elements 
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.println("Enter the element :");
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		
+		//display elements 
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(arr[i][j]+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display square of a matrix?
+
+input:
+	1 2 3 
+	4 5 6 
+	7 8 9
+output:
+	1  4  9
+	16 25 36
+	49 64 81
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix = {	{1,2,3}, 
+							{4,5,6}, 
+							{7,8,9}		
+						  };
+						  
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+		
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				System.out.print(matrix[i][j] * matrix[i][j]+" ");
+			}
+			//new line 
+			System.out.println();
+		}
+	}
+}
+
+Q) Write a java program to display sum of digonal elements?
+
+input:
+	1 2 3 
+	4 5 6
+	7 8 9
+output:
+	15
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix = {	{1,2,3}, 
+							{4,5,6}, 
+							{7,8,9}		
+						  };
+						  
+		int rows = matrix.length;				  
+		int cols = matrix[0].length;
+		
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i==j)
+				{
+					sum += matrix[i][j];
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+
+Q) Write a java program to display sum of upper triangle elements?
+
+input:
+	1 2 3 
+	4 5 6
+	7 8 9
+output:
+	11
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix = {	{1,2,3}, 
+							{4,5,6}, 
+							{7,8,9}		
+						  };
+						  
+		int rows = matrix.length;				  
+		int cols = matrix[0].length;
+		
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i<j)
+				{
+					sum += matrix[i][j];
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+Q) Write a java program to display sum of lower triangle elements?
+
+input:
+	1 2 3 
+	4 5 6
+	7 8 9
+output:
+	19
+
+
+class Test  
+{
+	public static void main(String[] args) 
+	{
+		int[][] matrix = {	{1,2,3}, 
+							{4,5,6}, 
+							{7,8,9}		
+						  };
+						  
+		int rows = matrix.length;				  
+		int cols = matrix[0].length;
+		
+		int sum=0;
+		for(int i=0;i<rows;i++)
+		{
+			for(int j=0;j<cols;j++)
+			{
+				if(i>j)
+				{
+					sum += matrix[i][j];
+				}
+			}
+		}
+		System.out.println(sum);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

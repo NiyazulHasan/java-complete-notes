@@ -1,0 +1,633 @@
+JavaScript Datatypes
+====================
+JavaScript is a dynamically typed language we need to declare datatype at the time of variable declaration.
+
+To declare a variable we need to use "var" keyword.
+
+JavaScript engine determines type of datatype based on the assigned value.
+
+In JavaScript, Datatypes are divided into two types.
+
+1) Primitive Datatypes 
+
+2) Non-Primitive Datatypes 
+
+1) Primitive Datatypes
+----------------------
+We have following list of primitive datatypes.
+
+ex:
+	Datatype	Description
+	-------		------------
+	number 		It is used to represent number 
+	string		It is used to represent string 
+	boolean		It is used to represent boolean
+	null		It is used to represent null
+	undefined	It is used to represent undefined
+	bigInt		It isu sed to represent large number
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=10;
+		document.writeln(a+"<br>");
+
+		var b=10.56;
+		document.writeln(b+"<br>");
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a="Hi";
+		document.writeln(a+"<br>");
+
+		var b='Bye';
+		document.writeln(b+"<br>");
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=true;
+		document.writeln(a+"<br>");
+
+		var b=false;
+		document.writeln(b+"<br>");
+	</script>
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=null;
+		document.writeln(a+"<br>");
+
+		var b;
+		document.writeln(b+"<br>");
+	</script>
+</body>
+</html>
+
+
+
+Q) What is difference between null and undefined?
+
+null
+----
+It represent a variable has been initialized as null.
+Explicitly assigned by developer.
+ex:
+	var a = null;
+	document.writeln(a);
+
+undefined
+---------
+It represent a variable has not been initialized.
+Automatically assigned by JavaScript.
+ex:
+	var a;
+	document.writeln(a);
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=123456789101112131415n;
+		document.writeln(a+"<br>");
+	</script>
+</body>
+</html>
+
+2) Non-Primitive Datatypes 
+--------------------------
+We have following list of non-primitive datatypes.
+
+ex:
+	Datatype	Description 
+	---------	------------
+	Object		It represent instance through we can access the members.
+
+	Arrays		It is used to represent similar elements.
+
+	RegEx 		It is used to represent regular expression.
+
+
+Operators 
+==========
+Operator is a symbol which is used to perform some operations on operands.
+ex:
+	c = a + b;
+
+	Here a,b and c are operands.
+	Here = and + are operators.
+
+We have following list of operators in JavaScript.
+
+1) Arithmetic Operators 
+
+2) Conditional Operators 
+
+3) Bitwise Operators 
+
+4) Logical Operators 
+
+5) Assignment Operators 
+
+6) Special Operators 
+
+
+1) Arithmetic Operators
+----------------------
+We have following list of arithmetic operators.
+ex:
+	Operator	Description 
+	---------	-----------
+	%		Modules 
+	/		Division 
+	*		Multiplication 
+	+		Addition 
+	-		Subtraction 
+	++		Increment 
+	--		Decrement 
+
+ex:
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		document.writeln((10+20)+"<br>"); // 30
+
+		document.writeln((10-20)+"<br>"); // -10
+
+		document.writeln((10*20)+"<br>"); // 200
+
+		document.writeln((10/20)+"<br>"); // 0.5
+
+		document.writeln((10%20)+"<br>"); // 10
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+
+		var b = a++ + a++; //10+11
+
+		document.writeln(a+" "+b); //12  21
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+
+		var b = a-- + a--; //10 + 9 
+
+		document.writeln(a+" "+b); // 8 19
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+
+		var b = ++a + ++a; // 11 + 12 
+
+		document.writeln(a+" "+b); // 12  23
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+
+		var b = --a - --a; // 9 - 8 
+
+		document.writeln(a+" "+b); //8 1 
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = 10;
+
+		var b = a++ + ++a; //10 + 12
+
+		document.writeln(a+" "+b); // 12  22
+	</script>
+</body>
+</html>
+
+2) Conditional Operators
+-------------------------
+We have following list of conditional operatores.
+ex:
+	Operator	Description 
+	---------	-----------
+	>		Greater Than 
+	>=		Greater than Equals to 
+	<		Less than 
+	<=		Less than Equals to 
+	==		Equals to 
+	!=		Not Equals to 
+	===		Triple Equals to 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		document.writeln((10>2)+"<br>"); // true 
+		document.writeln((10<2)+"<br>"); // false
+		document.writeln((10>=2)+"<br>"); // true 
+		document.writeln((10<=2)+"<br>"); // false
+		document.writeln((10==20)+"<br>"); // false
+		document.writeln((10==10)+"<br>"); // true 
+		document.writeln((10!=20)+"<br>"); // true  
+		document.writeln((10!=10)+"<br>"); // false 
+	</script>
+</body>
+</html>
+
+Q) What is the difference between == and === ?
+
+==
+---
+It is used to check values are same or not.
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		document.writeln((10 == "10")+"<br>"); //true 
+		document.writeln((1 == true)+"<br>");  //true 
+		document.writeln((false == 0)+"<br>"); //true
+		document.writeln((10 == 10)+"<br>");   //true 
+	</script>
+</body>
+</html>
+
+===
+----
+It is used to check values and datatypes are same or not.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		document.writeln((10 === "10")+"<br>"); //false
+		document.writeln((1 === true)+"<br>");  //false
+		document.writeln((false === 0)+"<br>"); //false
+		document.writeln((10 === 10)+"<br>");   //true 
+	</script>
+</body>
+</html>
+
+3) Bitwise Operators 
+---------------------
+We have following list of bitwise operators.
+ex:
+	Operator	Description 
+	--------	-----------
+	&		Bitwise AND 
+	|		Bitwise OR 
+	^		Bitwise XOR 
+	~		Bitwise NOT
+	>>		Right Shift 
+	<<		Left Shift 
+
+Bitwise AND (&)
+---------------
+It deals with binary numbers.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= F
+F	T	= F 
+F	F	= F 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=10;
+		var b=15;
+		var c = a & b;
+		document.writeln(c);
+
+		/*
+			10 - 1010
+			15 - 1111
+			---------
+			&  - 1010 <---
+
+			0*1 + 1*2 + 0*4  + 1*8 
+
+			0 + 2 + 0 + 8 = 10
+		*/
+	</script>
+</body>
+</html>
+
+Bitwise OR (|)
+---------------
+It deals with binary numbers.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= T
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=10;
+		var b=15;
+		var c = a | b;
+		document.writeln(c);
+
+		/*
+			10 - 1010
+			15 - 1111
+			---------
+			|  - 1111 <---
+
+			1*1 + 1*2 + 1*4 + 1*8
+
+			1 + 2 + 4 + 8 = 15
+		*/
+	</script>
+</body>
+</html>
+
+Bitwise XOR (^)
+---------------
+It deals with binary numbers.
+
+Truth table 
+-----------
+T	T	= F
+T	F	= T
+F	T	= T 
+F	F	= F 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=10;
+		var b=15;
+		var c = a ^ b;
+		document.writeln(c);
+
+		/*
+			10 - 1010
+			15 - 1111
+			---------
+			^  - 0101 <----
+
+			1*1 + 0*2 + 1*4 + 0*8
+			1 + 0 + 4 + 0 = 5 
+		*/
+	</script>
+</body>
+</html>
+
+Bitwise NOT operator (~)
+------------------------
+syntax:
+-------
+	-(n+1)
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=~10;
+		document.writeln(a); // -11
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=~45;
+		document.writeln(a); // -46
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=~(-97);
+		document.writeln(a); // 96
+	</script>
+</body>
+</html>
+
+Right Shift operator (>>)
+-------------------------
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a=10 >> 2;
+		document.writeln(a); //10/4  = 2
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a= 100 >> 4;
+		document.writeln(a); //100/16 =6
+	</script>
+</body>
+</html>
+
+Left Shift operator (<<)
+-------------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a= 10 << 2;
+		document.writeln(a); //10 * 4 = 40
+	</script>
+</body>
+</html>
+
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a= 100 << 4;
+		document.writeln(a); //100 * 16 = 1600
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

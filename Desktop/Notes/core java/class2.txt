@@ -1,0 +1,147 @@
+Flavours in Java
+================
+We have three flavours in java.
+
+					JAVA	|---------------------------------|---------------------------|
+	JSE/J2SE			JEE/J2EE		JME/J2ME
+(Java Standard Edition)		(Java Enterprise Edition) 	(Java Micro Edition)
+
+> Standalone app 		> Distributed app 	
+
+> Desktop app 			> Enterprise app 
+
+> Two-tier app 			> ERP app 
+
+				> N-tier app 
+
+
+> Standalone app
+----------------
+A normal java program which contains main method is called standlone application.
+
+ex:
+	class Demo
+	{
+		public static void main(String[] args)
+		{
+			-
+			-
+			-
+		}
+	} 
+
+
+> Desktop app 
+--------------
+It is a software application specially designed to perform perticular task.
+ex:
+	Control Panel 
+	Recycle Bin 
+	VLC Media player 
+	and etc.
+
+> Two-tier app
+--------------
+Having more than one tier is called two-tier application.
+
+Diagram: class2.1
+Diagram: class2.2
+
+
+> Distributed app
+-----------------
+Diagram: class2.3
+
+In client/server application, if multiple requests go to main server then main server will distribute those requests to it's parallel servers to reduce the burdun of main server such type of application is called distributed application.
+
+
+
+> Enterprise app
+-----------------
+Application which deals with large business complex logic with the help of middleware services is called enterprise application.
+
+Here middleware services means authentication, autherization, malware production, security and etc.
+
+ex:
+	Amazon 
+	Skype 
+	ZoomMetting 
+	and etc
+
+
+> ERP app
+--------
+ERP stands for Enterprise Resource Planning.
+
+ERP is used to maintain the data in a enterprise.
+
+Diagram: class2.4
+
+
+> N-tier app 
+-------------
+Having more then two tiers is called N-tier application.
+
+
+Note:
+-----
+In java, JME flavour is outdate because we got many alternate technologies to develop mobile applications like Android, Flutter, React native, Swift Programming and etc.
+
+
+Mobile app
+----------
+It is a software application or a program which is specially designed for wireless network devices like Phone, Cell, Tab, Cellular and etc rather than laptop's and pc's.
+ex:
+	PubG
+	Gpay 
+	PhonePay
+	and etc.
+
+Interview question 
+==================
+Q) What is Java?
+
+Java is a versatile programming language which is used to develop various applications like standalone applications, desktop applications, two-tier applications, distributed applications, enterprise applications, ERP applications, networking applications, mobile applications and etc. 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+

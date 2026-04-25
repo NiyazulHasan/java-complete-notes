@@ -1,0 +1,736 @@
+4) Logical Operators 
+---------------------
+We have following list of logical operators.
+ex:
+	Operator	Description 
+	--------	-----------
+	&&		Logical AND 
+	||		Logical OR 
+	!		Logical NOT
+
+Logical AND (&&)
+----------------
+Logical ANd operator deals with boolean values either true or false.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= F 
+F	T	= F 
+F	F	= F 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+	document.writeln(((5>2) && (6<10))+"<br>");
+
+        document.writeln(((5>20) && (6<10))+"<br>");
+
+        document.writeln(((5>20) && (6<1))+"<br>");
+	</script>
+</body>
+</html>
+
+Logical AND (||)
+----------------
+Logical OR operator deals with boolean values either true or false.
+
+Truth table 
+-----------
+T	T	= T
+T	F	= T 
+F	T	= T 
+F	F	= F 
+
+ex:
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		document.writeln(((5>2) || (6<10))+"<br>"); //true 
+
+        document.writeln(((5>20) || (6<10))+"<br>"); //true 
+
+        document.writeln(((5>20) || (6<1))+"<br>"); // false 
+	</script>
+</body>
+</html>
+
+
+Logical NOT (!)
+----------------
+Logical NOT operator deals with boolean values either true or false.
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = !(5>20);
+        document.writeln(a); // true 
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = !(5>2);
+        document.writeln(a); // false
+	</script>
+</body>
+</html>
+
+
+5) Assignment Operators
+---------------------
+We have following list of assingment operators.
+
+ex:
+	Operator	Description 
+	------		-----------
+	+=		Addition and equals to 
+	-=		Subtraction and equals to 
+	*=		multiplication and equals to 
+	/=		division and equals to 
+	%=		modules and equals to 
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=10;
+
+        i+=5; // i = i + 5 ;
+
+        document.writeln(i); // 15
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=10;
+
+        i-=5; // i = i - 5 ;
+
+        document.writeln(i); // 5
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=10;
+
+        i*=5; // i = i * 5 ;
+
+        document.writeln(i); // 50
+	</script>
+</body>
+</html>
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=10;
+
+        i/=5; // i = i / 5 ;
+
+        document.writeln(i); // 2
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=10;
+
+        i%=5; // i = i % 5 ;
+
+        document.writeln(i); // 0
+	</script>
+</body>
+</html>
+
+
+6) Special Operators 
+--------------------
+We have following list of special operators.
+ex:
+	Operator	Description 
+	----------	-----------
+	?:		conditional 
+	new 		It is used to create a instance.
+	typeof 		It is used to check type of an object.
+
+
+conditional (?:)
+----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		(0)?document.writeln("Hi"):document.writeln("Bye");
+	</script>
+</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		(1)?document.writeln("Hi"):document.writeln("Bye");
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		(-4)?document.writeln("Hi"):document.writeln("Bye");
+	</script>
+</body>
+</html>
+
+
+Q) Write a javascript program to find out greatest of two numbers?
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var a = parseInt(prompt("Enter the first number :"));
+        var b = parseInt(prompt("Enter the second number :"));
+        (a>b)?document.writeln(a+" is greatest"):document.writeln(b+" is greatest");
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+	var a=10;
+        document.writeln(typeof(a)+"<br>");
+        var b=true;
+        document.writeln(typeof(b)+"<br>");
+        var c="Hi"
+        document.writeln(typeof(c)+"<br>");
+        var d=null;
+        document.writeln(typeof(d)+"<br>");
+        var e;
+        document.writeln(typeof(e)+"<br>");
+	</script>
+</body>
+</html>
+
+
+JavaScript If Else Stmt 
+=======================
+We have three forms of JavaScript If Else Stmt.
+
+1) IF stmt 
+
+2) IF ELSE stmt 
+
+3) IF ELSE IF stmt 
+
+1) IF stmt 
+----------
+It evaluates the code only if our condition is true.
+
+ex:
+	if(condition)
+	{
+		-
+		- //code to be evaluate 
+		-
+	}
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+	if(document.write("Hello"))
+        {
+            document.writeln("Hi");
+        }
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		if(1)
+        {
+            document.writeln("Hi");
+        }
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+	if(0)
+        {
+            document.writeln("Hi");
+        }
+	</script>
+</body>
+</html>
+
+2) IF ELSE stmt
+----------------
+It evaluates the code either our condition is true or false.
+
+syntax:
+------
+	if(condition)
+	{
+		- //code to be evaluate if cond is true 
+	}
+	else
+	{
+		- //code to be evaluate if cond is false 
+	}
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		if(5>2)
+        {
+            document.writeln("TRUE");
+        }
+        else
+        {
+            document.writeln("FALSE");  
+        }
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		if(5>20)
+        {
+            document.writeln("TRUE");
+        }
+        else
+        {
+            document.writeln("FALSE");  
+        }
+	</script>
+</body>
+</html>
+
+Q) Write a javascript program to find out given number is even or odd?
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var n = parseInt(prompt("Enter the number :"));
+        if(n%2==0)
+            document.writeln("It is even number");
+        else
+            document.writeln("It is odd number");
+	</script>
+</body>
+</html>
+
+
+Q) Write a javascript program to check given number is positive or negative?
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var n = parseInt(prompt("Enter the number :"));//6
+        if(n!=0)
+        {
+            if(n>0)
+            {
+                document.writeln("It is positive number");
+                throw new Error("Script Terminate");
+            }
+            document.writeln("It is a negative number");
+        }
+	</script>
+</body>
+</html>
+
+
+
+3) IF ELSE IF stmt 
+------------------
+It evaluates the code based on multiple conditions.
+
+syntax:
+-------
+	if(cond1)
+	{
+		- //code to be evaluate if cond1 is true 
+	}
+	else if(cond2)
+	{
+		- //code to be evaluate if cond2 is true 
+	}
+	else if(cond3)
+	{
+		- //code to be evaluate if cond3 is true 
+	}
+	else
+	{
+		- //code to be evaluate if all conditions are false
+	}
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var n = parseInt(prompt("Enter the option :"));//
+        if(n==100)
+            document.writeln("It is a police number");
+        else if(n==103)
+            document.writeln("It is enquiry number");
+        else if(n==108)
+            document.writeln("It is emergency number");
+        else
+            document.writeln("Invalid option");
+	</script>
+</body>
+</html>
+
+JavaScript Switch 
+==================
+It evaluates the code based on multiple conditions.
+It is similar to if else if stmt.
+A switch statement is used to read options from the enduser.
+
+syntax:
+-------
+	switch(condition/expression)
+	{
+		case  value1: //code to be evaluate 
+			      break stmt;
+
+		case  value2: //code to be evaluate 
+			      break stmt;
+		-
+		-
+		default : //code to be evaluate if all cases are false.
+
+	}
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var n = parseInt(prompt("Enter the option :"));//
+        switch(n)
+        {
+            case 100 : document.writeln("It is police number");
+                        break;
+
+            case 103 : document.writeln("It is enquiry number");
+                        break;
+
+            case 108 : document.writeln("It is emergency number");
+                        break;
+
+            default : document.writeln("Invalid option");
+        }
+	</script>
+</body>
+</html>
+
+Note:
+-----
+Declaration of break stmt is optional. Suppose if we won't declare break statement then from where our condition is satisfied from there all cases will be executed.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var n = parseInt(prompt("Enter the option :"));//
+        switch(n)
+        {
+            case 100 : document.writeln("It is police number");
+                        //break;
+
+            case 103 : document.writeln("It is enquiry number");
+                        //break;
+
+            case 108 : document.writeln("It is emergency number");
+                        //break;
+
+            default : document.writeln("Invalid option");
+        }
+	</script>
+</body>
+</html>
+
+
+JavaScript Loops 
+=================
+Loops are used to evaluate the code repeatedly.
+
+We have four types of loops in JavaScript.
+
+1) do while loop 
+
+2) while loop 
+
+3) for loop 
+
+4) for in loop 
+
+1) do while loop 
+---------------
+It evalutes the code how long our condition is true.
+
+syntax:
+------
+	do
+	{
+		-
+		- //code to be evaluate 
+		-
+	}while(condition);
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=1;
+        do
+        {
+            document.writeln(i);//1 2 3 4 5 6 7 8 9 10
+            i++;
+        }while(i<=10);
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=11;
+        do
+        {
+            document.writeln(i);//11
+            i++;
+        }while(i<=10);
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+	var i=1,sum=0;
+        do
+        {
+            sum+=i;
+            i++;
+            
+        }while(i<=10);
+        document.writeln(sum);
+	</script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+</head>
+<body>
+	<script>
+		var i=1,n=5;
+        do
+        {
+            document.writeln(n+" * "+i+" = "+n*i+"<br>");
+            i++;
+
+        }while(i<=10);
+    
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

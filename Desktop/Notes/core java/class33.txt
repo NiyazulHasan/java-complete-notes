@@ -1,0 +1,619 @@
+Constructors 
+============
+It is a special type of method which is used to initialized an object.
+
+A constructor is called when we create an object(instance).
+
+Having same name as class name is called constructor.
+
+A constructor does not allow any returntype.
+
+A constructor will accept following modifiers.
+ex:
+	default 
+	public
+	private 
+	protected 
+
+In java , constructors are categories into two types.
+
+1) Userdefined constructor
+
+2) Default constructor
+
+1) Userdefined constructor
+---------------------------
+Constructor which is created by the user based on the application requirements is called userdefined constructor.
+
+It is classified into two types.
+
+i) Zero Argument Constructor 
+
+ii) Parameterized Constructor 
+
+i) Zero Argument Constructor 
+----------------------------
+Suppose if we are not passing any argument to user defined constructor then that constructor is called zero-argument constructor.
+
+ex:1
+----
+class Test 
+{
+	Test()
+	{
+		System.out.println("0-arg const");	
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+	}
+}
+o/p:
+	main-method
+
+
+ex:2
+----
+class Test 
+{
+	public Test()
+	{
+		System.out.println("0-arg const");	
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println("main-method");
+		Test t = new Test();
+	}
+}
+o/p:
+	main-method 
+	0-arg constructor
+
+ex:3
+----
+class Test 
+{
+	protected Test()
+	{
+		System.out.println("0-arg const");	
+	}
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("main-method");
+		Test t2= new Test();
+	}
+}
+o/p:
+	0-arg const 
+	main-method 
+	0-arg const 
+
+ex:4
+----
+class Test 
+{
+	private Test()
+	{
+		System.out.println("0-arg const");	
+	}
+	public static void main(String[] args) 
+	{
+		Test t1=new Test();
+		System.out.println("main-method");
+		Test t2= new Test();
+	}
+}
+
+o/p:
+	0-arg const 
+	main-method 
+	0-arg const 
+
+
+ii) Parameterized Constructor 
+-------------------------
+Suppose if we are passing atleast one argument to userdefined constructor then that constructor is called parameterized constructor.
+
+ex:
+---
+class Employee
+{
+	//current class variable 
+	private int empId;
+	private String empName;
+	private double empSal;
+	
+	Employee(int empId,String empName,double empSal)
+	{
+		this.empId=empId;
+		this.empName=empName;
+		this.empSal=empSal;
+	}
+	public void getEmployeeDetails()
+	{
+		System.out.println("Employee Id : "+empId);
+		System.out.println("Employee Name : "+empName);
+		System.out.println("Employee Salary : "+empSal);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Employee e = new Employee(101,"Alan",10000d);
+		e.getEmployeeDetails();
+	}
+}
+
+
+2) Default constructor
+-----------------------
+A constructor which is created by the compiler at the time of compilation is called default constructor.
+
+Default constructor is created when we are not defining atleast zero argument constructor in our program.
+
+To see the default constructor we need to use below command.
+ex:
+	javap  -c   Test 
+
+program
+-------
+class Test 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("Happy New Year");
+	}
+}
+o/p:
+	javac  Test.java
+
+	javap  -c  Test 
+
+
+Constructor Overloading 
+=======================
+Having same constructor name with different parameters in a single class is called constructor overloading. 
+
+ex:
+---
+class A 
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		System.out.println("double-arg const");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a1 = new A();
+		A a2 = new A(10);
+		A a3 = new A(10.5d);
+	}
+}
+
+this keyword
+=============
+A this keyword is a java keyword which is used to refer current class object reference.
+
+We can utilize this keyword in following ways.
+
+1) To refer current class variables 
+
+2) To refer current class methods 
+
+3) To refer current class constructors 
+
+1) To refer current class variables
+-----------------------------------
+class A 
+{
+	int i=10;
+	int j=20;
+	A(int i,int j)
+	{
+		System.out.println(i+" "+j); // 100 200 
+		System.out.println(this.i+" "+this.j); //10 20
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A(100,200);
+	}
+}
+
+2) To refer current class methods 
+----------------------------------
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+		this.m2();
+	}
+	public void m2()
+	{
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A();
+		a.m1();
+	}
+}
+
+3) To refer current class constructors 
+--------------------------------------
+class A 
+{
+	A()
+	{
+		System.out.println("0-arg const");
+	}
+	A(int i)
+	{
+		this();
+		System.out.println("int-arg const");
+	}
+	A(double d)
+	{
+		this(10);
+		System.out.println("double-arg const");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		A a = new A(10.5d);
+	}
+}
+
+
+super keyword
+==============
+A super is a java keyword which is used to refer super class object reference.
+
+We can utilize super keyword in following ways.
+
+1) To refer super class variables 
+
+2) To refer super class methods 
+
+3) To refer super class constructors 
+
+1) To refer super class variables 
+---------------------------------
+class A 
+{
+	int i=10;
+	int j=20;
+}
+class B extends A 
+{
+	int i=100;
+	int j=200;
+	B(int i,int j)
+	{
+		System.out.println(this.i+" "+this.j); // 100 300
+		System.out.println(super.i+" "+super.j);//10 20
+		System.out.println(i+" "+j);//1000 2000
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b = new B(1000,2000);
+	}
+}
+
+2) To refer super class methods 
+-------------------------------
+class A 
+{
+	public void m1()
+	{
+		System.out.println("M1-Method");
+	}
+}
+class B extends A 
+{
+	public void m2()
+	{
+		super.m1();
+		System.out.println("M2-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b = new B();
+		b.m2();
+	}
+}
+
+
+3) To refer super class constructors
+------------------------------------
+class A 
+{
+	A()
+	{
+		System.out.println("A-const");
+	}
+}
+class B extends A 
+{
+	B()
+	{
+		super();
+		System.out.println("B-const");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		B b = new B();
+	}
+}
+
+Assignment program
+==================
+Q) How to set zeros at last in array?
+input:
+	2 0 1 9 0 5 0
+output:
+	2 1 9 5 0 0 0
+
+class Test 
+{
+	public static void main(String[] args)
+	{
+		int[] arr= {2,0,1,9,0,5,0};
+		int pos=0;
+		for(int i=0;i<arr.length;i++)
+		{
+			if(arr[i]!=0)
+			{
+				int temp = arr[i];
+				arr[i]=arr[pos];
+				arr[pos]=temp;
+				
+				pos++;
+			}
+		}
+		for(int i : arr)
+		{
+			System.out.print(i+" ");
+		}
+	}
+}
+
+
+Composition 
+===========
+Without existing container object there is no chance of having contained object then the relationship between container and contained object is called composition which is strongly association.
+
+Diagram: class33.1
+
+
+class Engine 
+{
+	public void engineStart()
+	{
+		System.out.println("Engine Started");
+	}
+}
+class Car 
+{
+	Engine engine;
+	Car()
+	{
+		engine = new Engine();
+	}
+	public void carStart()
+	{
+		engine.engineStart();
+		System.out.println("car started");
+	}
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Car c = new Car();
+		c.carStart();
+	}
+}
+
+
+Aggregation
+===========
+Without existing container object there is a chance of having contained object then the relationship between container and contained object is called aggregation which is loosely association.
+
+Diagram: class33.2
+
+
+class Engine 
+{
+	public void engineStart()
+	{
+		System.out.println("Engine Started");
+	}
+}
+class Car 
+{
+	Engine engine;
+	Car(Engine engine)
+	{
+		this.engine = engine;
+	}
+	public void carStart()
+	{
+		engine.engineStart();
+		System.out.println("car started");
+	}
+	
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Engine e = new Engine();
+		Car c = new Car(e);
+		c.carStart();
+	}
+}
+
+
+Method overloading 
+==================
+Having same method name with different parameters/signatures in a single class is called method overloading.
+
+Method overloading is used to reduce complexity of the programming.
+
+All the methods present in a class are called overloaded methods.
+
+Method resolution will taken care by a compiler based on reference type.
+
+ex:
+---
+class MeeSeva 
+{
+	//overloaded methods 
+	public void search(int voterId)
+	{
+		System.out.println("Details Found via voterId");
+	}
+	public void search(long aadharNo)
+	{
+		System.out.println("Details Found via aadharNo");
+	}
+	public void search(String houseNo)
+	{
+		System.out.println("Details Found via houseNo");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MeeSeva  ms = new MeeSeva();
+		ms.search(101);
+		ms.search(1234L);
+		ms.search("1-6-7/1");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

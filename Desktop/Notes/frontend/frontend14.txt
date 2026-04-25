@@ -1,0 +1,303 @@
+CSS Pseudo Elements ::before ::after 
+================================
+A CSS pseudo-element is used to style specific parts of an element.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		h1
+		{
+			text-align: center;
+		}
+		h1::before
+		{
+			content:"Ihub";
+			color:#FF0000;
+		}
+		h1::after
+		{
+			content:"Institute";
+			color:#FF0000;
+		}
+	</style>
+</head>
+<body>
+	<h1>Talent</h1>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		button
+		{
+			display: block;
+			margin: 150px auto;
+			width:200px;
+			height:50px;
+			position: relative;
+		}
+		button::before
+		{
+			content:"";
+			width:50px;
+			height:50px;
+			background-color: #FF0000;
+			position: absolute;
+			top:-26px;
+			left:70px;
+			transform: rotate(45deg);
+			z-index: -1;
+		}
+		button::after
+		{
+			content:"";
+			width:50px;
+			height:50px;
+			background-color: #FF0000;
+			position: absolute;
+			top:24px;
+			left:70px;
+			transform: rotate(45deg);
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+		<button> clickMe </button>
+</body>
+</html>
+
+
+Global variable in CSS
+======================
+In CSS, global variables (officially called custom properties) are declared within the :root pseudo-class selector. This selector targets the highest-level element in the document (the <html> tag), ensuring the variables are available and can be accessed throughout the entire document via the var() function. 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		:root
+		{
+			--purple-color:#D980FA;
+			--mahroon-color:#B53471;
+			--blue-color:#1B1464;
+			--text-center:center;
+		}
+		body
+		{
+			background-color: var(--purple-color);
+		}	
+		h1
+		{
+			color : var(--mahroon-color);
+			text-align: var(--text-center);
+		}
+		p
+		{
+			color : var(--blue-color);
+		}
+	</style>
+</head>
+<body>
+		<h1> Heading Tag </h1>
+		<p> Paragraph Tag</p>
+</body>
+</html>
+
+CSS Form
+=========
+Forms are used to accept the inputs from enduser.
+
+Form forwards the data to database or server for processing.
+
+
+Form
+|
+|------css	
+	|
+	|---mystyles.css
+
+|------images
+	|
+	|---micky.png
+
+|------index.html
+
+
+index.html
+-----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+</head>
+<body>
+		<div class="container">
+			<div class="box1">
+				<img src="images/profile.jpg"/>
+				<form>
+					<input type="text" name="t1" autocomplete="off" placeholder="username" required/>
+					<input type="password" name="t2" placeholder="password" required/>
+					<input type="submit" value="Login"/>
+				</form>
+			</div>
+			<div class="box2">
+				<img src="images/micky.png"/>
+			</div>
+		</div>
+</body>
+</html>
+
+mystyles.css
+--------------
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body
+{
+	height: 100vh;
+	background : linear-gradient(#FDA7DF,#ED4C67);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container
+{
+	width:800px;
+	height:400px;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 18px 6px #dfe4ea;
+}
+.container .box1
+{
+	width:400px;
+	height:400px;
+	box-sizing: border-box;
+	float:left;
+	padding:20px;
+}
+.container .box1 img
+{
+	width:80px;
+	height:80px;	
+	display: block;
+	margin:10px auto;
+	border-radius: 50%;
+	border:2px solid #FFF;
+}
+.container .box1 input[type="text"],input[type="password"]
+{
+	width:300px;
+	height:33px;
+	display: block;
+	margin: 20px auto;	
+	border:2px solid black;
+	background-color: transparent;
+	border-radius: 5px;
+}
+.container .box1 input[placeholder]
+{
+		text-align: center;
+		font-size:19px;
+}
+
+.container .box1 input[type="submit"]
+{
+
+	display: block;
+	margin:0 auto;
+	width:100px;
+	padding:8px;
+	transition: 2s all linear;
+}
+.container .box1 input[type="submit"]:hover
+{
+	width:300px;
+	cursor: pointer;
+}
+
+.container .box2
+{
+	width:400px;
+	height:400px;
+	box-sizing: border-box;
+	background-color: #F79F1F;
+	float:right;
+	padding:20px;
+}
+.container .box2 img
+{
+	width: 100%;
+	height:100%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

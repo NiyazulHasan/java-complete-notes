@@ -1,0 +1,890 @@
+Need of position property 
+=========================
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		#id1
+		{
+			width:300px;
+			height:300px;
+			position: relative;
+			left:608px;
+		}
+		#id2
+		{
+			width:300px;
+			height:300px;
+		}
+	</style>
+</head>
+<body>
+
+		<img id="id1" src="images/image3.jpg"/>
+		<img id="id2" src="images/image2.jpg"/>
+		
+		
+</body>
+</html>
+
+
+CSS z-index property 
+====================
+The z-index property specifies the stack order of an element.
+
+An element with greater stack order is always in front of an element with a lower stack order.
+
+Note: z-index only works on positioned elements.
+	
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: absolute;
+			left:0;
+			top:0;
+			z-index: 1;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		
+		<img src="images/image1.jpg"/>	
+</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: absolute;
+			left:0;
+			top:0;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		<p>
+			Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.
+		</p>
+		
+		<img src="images/image1.jpg"/>	
+</body>
+</html>
+
+
+
+CSS Google Fonts
+=================
+If we do not want to use any of the standard fonts in HTML, you can use Google Fonts.
+
+Google Fonts are free to use, and have more than 1000 fonts to choose.
+
+
+To use any google fonts we need to use below url.
+ex:
+	https://fonts.google.com/
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
+	<style>
+		h1
+		{
+			text-align: center;
+			font-family: "Jacquard 24", system-ui;
+		}
+	</style>
+</head>
+<body>
+	<h1> Welcome to 2026 to Build Bright Future </h1>
+</body>
+</html> 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap');
+		h1
+		{
+			text-align: center;
+			font-family: "Jacquard 24", system-ui;
+		}
+	</style>
+</head>
+<body>
+	<h1> Welcome to 2026 to Build Bright Future </h1>
+</body>
+</html>
+
+
+
+
+CSS Fontawesome Icons 
+=====================
+Font Awesome gives you scalable vector icons that can instantly be customized.
+
+To use fontawesome icons we need to add below <link> inside <head> tag.
+ex:
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		.fa-heart
+		{
+			font-size : 100px;
+			color : #FF0000;
+		}
+	</style>
+
+</head>
+<body>
+	<i class="fa fa-heart"></i>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+	</style>
+
+</head>
+<body>
+		<span class="fa fa-home"></span>
+		<span class="fa fa-phone"></span>
+		<span class="fa fa-envelope"></span>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+	</style>
+
+</head>
+<body>
+		<span class="fa fa-facebook" style="color:blue;"></span>
+		<span class="fa fa-instagram"></span>
+		<span class="fa fa-twitter"></span>
+		<span class="fa fa-youtube"></span>
+		<span class="fa fa-whatsapp"></span>
+</body>
+</html>
+
+
+CSS Gradients
+==============
+CSS gradients let you display smooth transitions between two or more specified colors.
+
+CSS defines three types of gradients:
+
+1)Linear Gradients (goes down/up/left/right/diagonally)
+
+2)Conic Gradients (rotated around a center point)
+
+3)Radial Gradients (defined by their center)
+		 
+
+1) Linear Gradient
+------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		body
+		{
+			height: 100vh;
+			background : linear-gradient(yellow,red);
+		}
+	</style>
+</head>
+<body>
+		
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		body
+		{
+			height: 100vh;
+			background : linear-gradient(to top,yellow,red);
+		}
+	</style>
+</head>
+<body>
+		
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		body
+		{
+			height: 100vh;
+			background : linear-gradient(to left,yellow,red);
+		}
+	</style>
+</head>
+<body>
+		
+</body>
+</html>
+
+2) Conic Gradient
+--------------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		body
+		{
+			height: 100vh;
+			background : conic-gradient(yellow,red);
+		}
+	</style>
+</head>
+<body>
+		
+</body>
+</html>
+
+3) Radial Gradient 
+-----------------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		body
+		{
+			height: 100vh;
+			background : radial-gradient(yellow,red);
+		}
+	</style>
+</head>
+<body>
+		
+</body>
+</html>
+
+
+
+CSS flexbox
+=============
+Flexbox is a one-dimensional layout methods for laying out items in rows and columns.
+
+CSS flexbox is a better way to align items into a container.
+
+Flexbox= flexible + box.
+
+To create a flexbox model, we need to define a "flex-container".
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row-reverse;
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		.container 
+		{
+			width:100%;
+			height:450px;
+			border:2px solid black;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+
+		}
+		.container .item
+		{
+			width:150px;
+			height:150px;
+			border:2px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+		<div class="container">
+			<div class="item">Item1</div>
+			<div class="item">Item2</div>
+			<div class="item">Item3</div>
+			<div class="item">Item4</div>
+			<div class="item">Item5</div>
+			<div class="item">Item6</div>
+		</div>
+</body>
+</html>
+
+
+
+CSS cursor property 
+===================
+The cursor property specifies the mouse cursor to be displayed when pointing over an element.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:300px;
+			height:300px;
+			display: block;
+			margin: 100px auto;
+			border:2px solid black;
+			cursor : pointer;
+		}
+	</style>
+</head>
+<body>
+		<img src="images/loki.png"/>
+</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:300px;
+			height:300px;
+			display: block;
+			margin: 100px auto;
+			border:2px solid black;
+			cursor : progress;
+		}
+	</style>
+</head>
+<body>
+		<img src="images/loki.png"/>
+</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:300px;
+			height:300px;
+			display: block;
+			margin: 100px auto;
+			border:2px solid black;
+			cursor : zoom-in;
+		}
+	</style>
+</head>
+<body>
+		<img src="images/loki.png"/>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:300px;
+			height:300px;
+			display: block;
+			margin: 100px auto;
+			border:2px solid black;
+			cursor : zoom-out;
+		}
+	</style>
+</head>
+<body>
+		<img src="images/loki.png"/>
+</body>
+</html>
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

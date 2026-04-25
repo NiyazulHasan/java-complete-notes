@@ -1,0 +1,428 @@
+Q) Write a java program to find out given number is positive or negative?
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();
+		
+		if(n==0)
+		{
+			System.out.println("It is not a positive or negative number");
+			System.exit(0);
+		}
+		
+		if(n>0)
+			System.out.println("It is a positive number");
+		else
+			System.out.println("It is a negative number");
+		
+	}
+}
+
+
+
+
+Q) Write a java program to find out given year is a leap year or not?
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the year :");
+		int year = sc.nextInt();
+		
+		if(year%4==0  && year%100!=0 || year%400==0)
+			System.out.println("It is a leap year");
+		else
+			System.out.println("It is not a leap year");
+		
+	}
+}
+
+Q) Write a java program to find out given year is a leap year or not without using modules(%) operator?
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the year :");
+		int year = sc.nextInt();
+		
+		if((year/4)*4==year  && (year/100)*100!=year || (year/400)*400==year)
+			System.out.println("It is a leap year");
+		else
+			System.out.println("It is not a leap year");	
+	}
+}
+
+
+Q) John wants to buy new shoes. He visited a big commercial showroom to buy a shoe. He has a myth that if shoe cost divisible by 3 and 5 then only he can buy that shoe. So write a java program to find out John can buy the shoe or not?
+
+input:
+	Enter the shoe cost : 
+	1500
+output:
+	John can buy the shoe  
+
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the shoe cost :");
+		int cost = sc.nextInt();
+		
+		if(cost%3==0 && cost%5==0)
+			System.out.println("John can buy the shoe");
+		else
+			System.out.println("John can't buy the shoe");
+	}
+}
+
+
+
+iii) if else if ladder 
+======================
+It is used to execute the source code based on multiple conditions.
+
+syntax:
+------
+	if(cond1)
+	{
+		- //code to be execute if cond1 is true 
+	}
+	else  if(cond2)
+	{
+		- //code to be execute if cond2 is true 	
+	}
+	else if(cond3)
+	{
+		- //code to be execute if cond3 is true 
+	}
+	else
+	{
+		- //code to be execute if all conditions are false 
+	}
+
+ex:
+---
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the option :");
+		int option = sc.nextInt();
+		
+		if(option==100)
+			System.out.println("It is a police number");
+		else if(option==103)
+			System.out.println("It is a enquiry number");
+		else if(option==108)
+			System.out.println("It is a emergency number");
+		else 
+			System.out.println("Invalid option");
+	}
+}
+
+Q) Write a java program to find out given alphabet is a uppercase letter, lowercase letter, digit or a special symbol?
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the alphabet :");
+		char ch = sc.next().charAt(0);
+		
+		if(ch>='A' && ch<='Z')
+			System.out.println("It is uppercase letter");
+		else if(ch>='a' && ch<='z')
+			System.out.println("It is lowercase letter");
+		else if(ch>='0' && ch<='9')
+			System.out.println("It is digit");
+		else
+			System.out.println("It is special symbol");
+	}
+}
+
+
+Q) Write a java program to find out given alphabet is a vowel or not?
+
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the alphabet :");
+		char ch = sc.next().charAt(0);
+		
+		if(ch=='a' || ch=='A')
+			System.out.println("It is a vowel");
+		else if(ch=='e' || ch=='E')
+			System.out.println("It is a vowel");
+		else if(ch=='i' || ch=='I')
+			System.out.println("It is a vowel");
+		else if(ch=='o' || ch=='O')
+			System.out.println("It is a vowel");
+		else if(ch=='u' || ch=='U')
+			System.out.println("It is a vowel");
+		else
+			System.out.println("It is not a vowel");
+	}
+}
+
+Q) Write a java program to accept six marks of a student then find out total,average and grade?
+
+i) If average is greater than equals to 70 then A grade.
+
+ii) If average is greater than equals to 50 then B grade.
+
+iii) If average is greater than equals to 35 then C grade.
+
+iv) If average is less then 35 then failed.
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the six marks of a student :");
+		int m1 = sc.nextInt();
+		int m2 = sc.nextInt();
+		int m3 = sc.nextInt();
+		int m4 = sc.nextInt();
+		int m5 = sc.nextInt();
+		int m6 = sc.nextInt();
+		
+		int total = m1+m2+m3+m4+m5+m6;
+		System.out.println("Total :"+total);
+		
+		double average = (double)total/6;
+		System.out.println("Average :"+average);
+		
+		if(average>=70)
+			System.out.println("Grade : A grade");
+		else if(average>=50)
+			System.out.println("Grade : B grade");
+		else if(average>=35)
+			System.out.println("Grade : C grade");
+		else
+			System.out.println("Grade : Failed");
+	}
+}
+
+
+iv) nested if stmt 
+==================
+If stmt contains another if stmt is called nested if stmt.
+
+syntax:
+-------
+	if(condition)
+	{
+		if(condition)
+		{
+			-
+			- //code to be execute 
+			-
+		}
+	}
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!false)
+		{
+			System.out.println("stmt2");
+			
+			if(5>10)
+			{
+				System.out.println("stmt3");
+			}
+			
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+	stmt1
+	stmt2
+	stmt4		
+	stmt5
+
+ex:
+---
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("stmt1");
+		if(!true)
+		{
+			System.out.println("stmt2");
+			
+			if(5>10)
+			{
+				System.out.println("stmt3");
+			}
+			
+			System.out.println("stmt4");
+		}
+		System.out.println("stmt5");
+	}
+}
+o/p:
+	stmt1
+	stmt5
+
+
+Q) Write a java program to find out given number is a positive or negative using nested if stmt ?
+
+
+import java.util.Scanner;
+class  Test 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int n = sc.nextInt();
+		
+		if(n!=0)
+		{
+			if(n>0)
+			{
+				System.out.println("It is a positive number");
+				System.exit(0);
+			}
+			
+			System.out.println("It is a negative number");
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

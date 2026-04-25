@@ -1,0 +1,94 @@
+SDLC
+=====
+SDLC stands for Software Development Life Cycle.
+
+It is a process adopt by IT industries to develop accurate and quality of softwares.
+
+We have six phases in SDLC.
+
+1) Feasibility study 
+
+2) Analysis 
+
+3) Designing 
+
+4) Coding 
+
+5) Testing 
+
+6) Delivery and Maintainence
+
+
+1) Feasibility study
+--------------------
+Feasibility study completely depends upon TELOS formulea.
+ex:
+	T - Technical Feasibility 
+	E - Economical Feasibility 
+	L - Legal Feasibility 
+	O - Operational Feasibility 
+	S - Schedule Feasibility
+
+All the above information they will keep in a document called BDD.
+BDD stands for Business Design Document.
+
+2) Analysis 
+-----------
+In analysis phase, system analyst or product owner will involved.
+They will seperate system requirements and software requirements.
+They will keep above information in a document called SRS.
+SRS stands for Software Requirement Specifications.
+
+3) Designing
+---------------
+We have two types of designing.
+
+1) Low Level Designing (LLD)
+----------------------------
+A team lead or project lead is responsible to perform low level designing.
+In low level designing, they will design child /sub modules.
+
+2) High Level Designing (HLD)
+-----------------------------
+A manager is responsible to perform high level designing.
+In high level designing , they will design main/major modules.
+
+
+4) Coding 
+----------
+In coding phase, developers will involved.
+They are responsible to generate the build(code) and to perform unit testing also.
+
+
+5) Testing 
+----------
+In testing phase, testing team or QA team will involved.
+They will test the project by using one software component called STLC (Software Testing Life Cycle) and they makes our project as bug free.
+
+6) Delivery and Maintainence
+-----------------------------
+Before delivery they perform UAT testing.
+
+UAT stands for User Acceptance Testing.
+
+It is classified into two types.
+
+i) Alpha Testing 
+
+ii) Beta Testing 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

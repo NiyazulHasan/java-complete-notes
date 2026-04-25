@@ -1,0 +1,477 @@
+@RestController
+===============
+It is used to create RESTful webservices using @RestController annotation.
+
+It is a class level annotation and makes our class to intercept all incoming requests.
+
+It is a combination of two annotations i.e @Controller and @ResponseBody.
+
+We have following list of REST annotations.
+ex:
+	HTTP Method		Annotation 
+	-----------		----------
+	GET			@GetMapping 
+	POST			@PostMapping 
+	PUT 			@PutMapping 
+	DELETE 			@DeleteMapping 
+	PATCH 			@PatchMapping 
+	and etc.
+
+Project Structure 
+-----------------
+rest-controller
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base package)
+	
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring starter project i.e rest-controller.
+	ex:
+		starters:
+				Spring Web 
+
+step2:
+------
+	Create a "com.ihub.www.controller" package inside "src/main/java" folder.
+
+step3:
+------
+	Create a HomeController.java file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/home")
+public class HomeController 
+{
+	//handler method 
+	@GetMapping("/msg")
+	public String show()
+	{
+		return "Rest Controller Example";
+	}
+}
+
+step4:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties 
+-----------------------
+spring.application.name=rest-controller
+server.port=9191
+
+step5:
+------
+	Run spring boot starter project.
+
+step6:
+------
+	Test the application by usng below request url.
+	ex:
+		http://localhost:9191/home/msg
+
+
+Q) What is difference between @Controller and @RestController annotation?
+
+@Controller 					@RestController
+----------------				----------------
+It is used to develop spring MVC based 		It is used to develop RESTful web 
+web applications.				services.
+
+It is a specialized version of @Component 	It is as specialized version of 
+annotation.					@Controller annotation.
+
+For every handler method we need to declare 	It is a combination of @Controller 
+@ResponseBody annotation.			and @ResponseBody annotation.
+
+It returns view in spring MVC.			It does not return view.
+
+It is added in spring 2.5 version.		It is added in spring 4.0 version.	
+
+
+
+How to read the data from properties file 
+==========================================
+In Spring Boot, you can read properties file data using the @Value annotation, the Environment abstraction, or the type-safe @ConfigurationProperties.
+
+
+
+Approach1
+---------
+The @Value annotation in Spring Boot is used to inject values from external sources (such as property files, environment variables, or system properties) into fields, method parameters, or constructor parameters in Spring-managed beans. 
+
+
+Project Structure 
+-----------------
+properties-data1
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base package)
+	
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring starter project i.e properties-data1.
+	ex:
+		starters:
+				Spring Web 
+
+step2:
+------
+	Create a "com.ihub.www.controller" package inside "src/main/java" folder.
+
+step3:
+------
+	Create a HomeController.java file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController 
+{
+	@Value("${spring.application.name}")
+	private String name;
+	
+	@Value("${server.port}")
+	private String port;
+	
+	@GetMapping("/fetch")
+	public String getDetails()
+	{
+		return "Application Name :"+name+" | Port No :"+port;
+	}
+}
+
+
+
+step4:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties 
+-----------------------
+spring.application.name=rest-controller
+server.port=9191
+
+step5:
+------
+	Run spring boot starter project.
+
+step6:
+------
+	Test the application by usng below request url.
+	ex:
+		http://localhost:9191/fetch
+
+
+
+Approach2
+---------
+You can autowire the Environment object into any Spring-managed component and retrieve properties programmatically using the getProperty() method.
+
+Project Structure 
+-----------------
+properties-data1
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base package)
+	
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+------
+	Create a spring starter project i.e properties-data1.
+	ex:
+		starters:
+				Spring Web 
+
+step2:
+------
+	Create a "com.ihub.www.controller" package inside "src/main/java" folder.
+
+step3:
+------
+	Create a HomeController.java file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController 
+{
+	//constructor injection 
+	private final Environment env;
+	public HomeController(Environment env)
+	{
+		this.env = env;
+	}
+	
+	@GetMapping("/fetch")
+	public String getDetails()
+	{
+		String name = env.getProperty("spring.application.name");
+		String port = env.getProperty("server.port");
+		return  "Application name : "+name+" | Port No : "+port;
+	}
+}
+
+
+
+step4:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties 
+-----------------------
+spring.application.name=rest-controller
+server.port=9191
+
+step5:
+------
+	Run spring boot starter project.
+
+step6:
+------
+	Test the application by usng below request url.
+	ex:
+		http://localhost:9191/fetch
+
+
+Approach3
+----------
+@ConfigurationProperties: This approach is useful for binding related properties to a single, type-safe Java object (POJO). This eliminates the need for @Value on each individual field.
+
+
+Project Structure 
+-----------------
+properties-data2
+|
+|---src/main/java
+	|
+	|---com.ihub.www (base package)
+	
+	|---com.ihub.www.controller
+		|
+		|---HomeController.java
+
+	|---com.ihub.www.config
+		|
+		|---AppConfig.java
+
+|---src/main/resources
+	|
+	|---application.properties
+
+|---src/test/java
+|
+|---pom.xml 
+
+step1:
+-----
+	Create a spring boot starter project i.e properties-data2.
+
+step2:
+------
+	Configure application name and server port inside application.properties file.
+
+application.properties 
+---------------------
+spring.application.name=properties-data2
+server.port=9191
+
+step3:
+------
+	Create a "com.ihub.www.config" package inside "src/main/java" folder.
+
+step4:
+------
+	Create a AppConfig.java file inside "com.ihub.www.config" package.
+
+AppConfig.java
+--------------
+package com.ihub.www.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+@Component
+@ConfigurationProperties(prefix = "spring.application")
+public class AppConfig 
+{
+	private String name;
+
+	//setter and getter 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}	
+}
+step5:
+------
+	Create a "com.ihub.www.controller" package inside "src/main/java" folder.
+
+step6:
+------
+	Create a HomeController.java file inside "com.ihub.www.controller" package.
+
+HomeController.java
+-------------------
+package com.ihub.www.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ihub.www.config.AppConfig;
+
+@RestController
+public class HomeController 
+{	
+	//constructor injection 
+	private final AppConfig config;
+	
+	public HomeController(AppConfig config)
+	{
+		this.config = config;
+	}
+	
+	@GetMapping("/fetch")
+	public String getDetails()
+	{
+		return config.getName();
+	}
+}
+
+step7:
+------
+	Run spring boot starter project.
+	
+
+step8:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:9191/fetch 
+
+
+Q)what is @Component annotation ?
+================================
+The @Component annotation in Spring Boot is a class-level annotation that marks a Java class as a Spring-managed bean. This makes the class eligible for automatic detection (via classpath scanning) and dependency injection by the Spring IoC (Inversion of Control) container during application startup. 
+
+
+
+
+Q) What is the difference between Monolithic Architecture vs Microservice Architecture?
+
+Monolithic Architecture 
+=======================
+It is a software design pattern in which all application components are tightly coupled and build as single unified unit.
+
+For example, In monolithic architecture we develop independent services and at the end of the development we pack all the services into a single war file. Later we deploy that war file on top of the server.
+
+Diagram: sb5.1
+
+Advantages:
+
+1) Simple Develop
+
+2) Simple Deploy 
+
+3) Simple Test 
+
+Disadvantages:
+
+1) Large and Complex application
+
+2) Blocks continue development
+
+3) Slow Development 
+
+4) Inflexible 
+
+5) Inreliable 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

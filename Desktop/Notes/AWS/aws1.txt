@@ -1,0 +1,169 @@
+Types of applications 
+=====================
+We have two types of applications.
+
+1) Client based applications 
+
+2) Web based applications 
+
+
+1) Client based applications
+----------------------------
+Applications which need to be installed in a user's computer are called client based applications.
+
+Applications which are running in a user's computer are called client based applications.
+
+All client based applications are ruled out.
+
+ex:
+	VLC Media Player 
+
+
+2) Web based applications
+--------------------------
+Applications which can be access from anywhere over the network are called web based applications.
+ex:
+	amazon 
+	facebook 
+	gmail 
+	and etc.
+
+Q) How can we develop an application accessible by thousands of user's?
+
+First we need to develop application and later we need to host our application on top of the server.
+
+Diagram: aws1.1
+
+
+Q) What is the difference between PC and server?
+
+PC					Server
+-----------				--------------
+It is a designed for perticular user.	It is designed to operate multiple user's.
+
+It contains simple structure.		It contains complex structure.
+
+It contains less storage from metabytes	It contains large store from terabytes to  
+to terabytes.				petabytes.
+
+It contains single processor.		It contains multiple processors.
+
+Low network capability.			High network capability.
+
+
+
+Q) Will company use one server or multiple server's?
+
+It depends upon scale of a company because companies revenue is completely depend upon these servers and they must ensure that these server's are operating all the times. 
+
+
+To host any application on top of the server we required infrastructure.
+
+Every IT company has it's own data center.
+
+A data center is a place where we can host our server's.
+
+Diagram: aws1.2
+
+
+Q) Is it easy to maintain the data center?
+
+No, it is not easy to maintain data center specially to startup's because it is capital intensive.
+
+We required following things to maintain data center.
+
+1) Server Maintainence Team 
+2) Private and Secure Place
+3) Dual Networks (ISP)
+4) Dual Power Supply 
+5) Need to follow geographical standards to secure customer data physically and over the
+   network.
+6) Hardware Refresh 
+and etc.
+
+To overcome this limitations we need to use cloud concepts.
+
+Cloud Computing 
+================
+It is a on-demand delivery of IT resources over the network with pay-as-you-go model.
+
+Cloud concept started in 2004.
+
+We have following list of cloud providers.
+
+ex:
+	Provider	Cloud
+	-------		--------
+	Oracle		OCI - Oracle Cloud Infrastructure 
+	Amazon		AWS - Amazon Web Services 
+	Microsoft	Azure 
+	Google		Google Cloud 
+	IBM		IBM Cloud 
+	Alibaba 	Alibaba Coud 
+	and etc.
+
+
+AWS 
+====
+AWS stands for Amazon Web Services.
+
+It is world’s most comprehensive and broadly adopted cloud platform, providing over 200 fully featured services from data centers globally. 
+
+It is introduced in 2004 and it is monopoly for 10 years.
+
+
+
+Cloud Business/Service Models
+==============================
+We have three cloud business/service models.
+
+1) IaaS  (Infrastructure As a Service)
+
+2) PaaS  (Platform As a Service)
+
+3) SaaS  (Software As a Service)
+
+All the comes with and ends with shared responsibility model.
+
+Some group of expertice engineers in a company decide which business model is best for their organization.
+
+Diagram: aws1.3
+
+
+
+How to create an account in AWS 
+==============================
+To create an account in AWS we required following things.
+
+1) Gmail Id 
+
+2) Debit Card/ Credit Card 
+
+3) Minimum 2 rupees must be there in account.
+
+Note:
+----
+If we use debit card to create an account then it takes less then 24 hours to activate account.
+
+If we use credit card to creat an account then it takes less then 3 hours to activate account.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1298 @@
+CSS Text Properties 
+===================
+
+color
+=======
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+text-align 
+===========
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:left;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:right;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+text-decoration 
+===============
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+text-transform
+===============
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: uppercase;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: lowercase;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+
+letter-spacing 
+===============
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+word-spacing 
+=============
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+font-size
+===========
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+font-style 
+==========
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:italic;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+font-family
+============
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:bold;
+				font-family:serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:bold;
+				font-family:sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:bold;
+				font-family:monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:bold;
+				font-family:cursive;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+font-weight 
+===========
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:italic;
+				font-family:cursive;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				color: #FF00FF;
+				text-align:center;
+				text-decoration:underline;
+				text-transform: capitalize;
+				letter-spacing: 1px;
+				word-spacing:10px;
+				font-size:30px;
+				font-style:italic;
+				font-family:cursive;
+				font-weight:thin;
+			}
+		</style>
+	</head>
+	<body>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+CSS Design 
+==========
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:300px;
+					height:300px;
+					border:2px solid black;
+					margin: 200px auto;
+					padding: 20px;
+			}
+			p
+			{
+				color:#B53471;
+				font-size:19px;
+				text-align:justify;
+			}
+		</style>
+	</head>
+	<body>
+		<div> 
+			<p>
+				Web technology refers to the tools, protocols, and languages 
+				(like HTML, CSS, JavaScript, servers, databases) used to build,
+				run, and interact with websites and web applications, enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.  
+			</p>
+		</div>
+	</body>
+</html>
+
+
+
+CSS overflow property
+========================
+The overflow property specifies what should happen if content overflow.
+
+This property spcifies weither to clip content or to add scrollbars  when an element content is too big to fit in a specified area.
+
+Note:
+---------
+The overflow property works for block elements with  a specified height.
+
+value		Description
+---------	-----------------
+visible		The overflow is not clipped.It rendered outside the element 's box and 
+		it is default value.
+
+hidden		the overflow is clipped  and rest of the content will be invisible.
+
+scroll		The overflow is clipped,but a scroll-bar is added to see the rest of the 
+		content .
+
+auto		The overflow is clipped,a scroll-bar should be added to the rest of the 
+		content.
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:200px;
+					height:200px;
+					border:2px solid black;
+					overflow:visible;			
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+				Web technology refers to the tools, protocols, and languages 
+				(like HTML, CSS, JavaScript, servers, databases) used to build,
+				run, and interact with websites and web applications, enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.  
+		</div>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:200px;
+					height:200px;
+					border:2px solid black;
+					overflow:hidden;			
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+				Web technology refers to the tools, protocols, and languages 
+				(like HTML, CSS, JavaScript, servers, databases) used to build,
+				run, and interact with websites and web applications, enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.  
+		</div>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:200px;
+					height:200px;
+					border:2px solid black;
+					overflow:scroll;			
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+				Web technology refers to the tools, protocols, and languages 
+				(like HTML, CSS, JavaScript, servers, databases) used to build,
+				run, and interact  enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.
+		</div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:200px;
+					height:200px;
+					border:2px solid black;
+					overflow:auto;			
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+				Web technology refers to the tools, protocols, and languages 
+				(like HTML, CSS, JavaScript, servers, databases) used to build,
+				run, and interact with websites and web applications, enabling 
+				communication and content delivery over the internet for activities
+				from browsing to online shopping and banking.
+		</div>
+	</body>
+</html>
+
+
+CSS box-shadow property
+=======================
+The box-shadow property attaches one or more shadows to an element.
+
+syntax
+--------
+	box-shadow: none |h-offset  v-offset  blur spread  color
+ex:
+	box-shadow: 2px 2px 3px 10px blue;
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:300px;
+					height:300px;
+					margin:200px auto;
+					box-shadow: 2px 2px 12px 6px #C3C3C3;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+			
+		</div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:300px;
+					height:300px;
+					margin:200px auto;
+					box-shadow: 2px 2px 12px 6px #C3C3C3 inset;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+			
+		</div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+					width:300px;
+					height:300px;
+					margin:200px auto;
+					box-shadow: 2px 2px 12px 6px #C3C3C3, 4px 4px 24px 12px #FF0000;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div> 
+			
+		</div>
+	</body>
+</html>
+
+
+CSS image shadow property
+===========================
+A drop shadow is effectively a blurred, offset version of the input image's alpha mask, drawn in a specific color and composited below the image.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			img
+			{
+				width:300px;
+				height:300px;
+				margin: 150px 500px;
+				filter:drop-shadow(18px 12px #C3C3C3);
+			}
+
+		</style>
+	</head>
+	<body>
+		<img src="images/micky.png"/>
+	</body>
+</html>
+
+
+CSS text-shadow property
+========================
+The text-shadow property adds shadow to text.
+
+syntax:
+		text-shadow: h-shadow v-shadow blur-radius color|none;
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				text-align:center;
+				text-shadow: 3px 2px #FF0000;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1> Text Shadow </h1>
+	</body>
+</html>
+
+
+
+CSS float property
+==================
+It is widely used property on a web page.
+
+The float property specifies how an element should float.
+
+value			Description
+-----------		-----------------
+none			The element does not float.
+
+left			The element floats to the left of its container.
+
+right			The element floats to the right of its container.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				float:left;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				float:right;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				float:none;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				float:left;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			div
+			{
+				width:200px;
+				height:200px;
+				border:2px solid black;
+				float:right;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+
+
+Types of selectors in CSS
+=========================
+We have five selectors in CSS.
+
+1) Element selector 
+2) Group selector 
+3) Id selector 
+4) class selector 
+5) Universal selector 
+
+1) Element selector 
+-------------------
+The element selector selects HTML elements based on element name.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1
+			{
+				color:#6F1E51;
+				text-align:center;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1> Heading Tag </h1>
+		<h1> Heading Tag </h1>
+		<h1> Heading Tag </h1>
+	</body>
+</html>
+
+
+2) Group Selector 
+-----------------
+The grouping selector selects all the HTML elements with the same style definitions.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			h1,p,div
+			{
+				color:#6F1E51;
+				text-align:center;
+				background-color:#D980FA;
+			}
+
+		</style>
+	</head>
+	<body>
+		<h1> Heading Tag </h1>
+		<p> Paragraph Tag </p>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+3) Id Selector 
+---------------
+The id selector uses the id attribute of an HTML element to select a specific element.
+
+The id of an element is unique within a page, so the id selector is used to select one unique element.
+
+To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			#myId1 
+			{
+				color : #B53471;
+			}
+			#myId2
+			{
+				background-color : #0652DD;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="myId1"> Heading Tag1 </h1>
+		<h1 id="myId2"> Heading Tag2 </h1>
+		
+	</body>
+</html>
+
+One element can use only one ID at a time.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			#myId1 
+			{
+				color : #B53471;
+			}
+			#myId2
+			{
+				background-color : #0652DD;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="myId1"> Heading Tag1 </h1>
+		<h1 id="myId2"> Heading Tag2 </h1>
+		<h1 id="myId1 myId2"> Heading Tag3 </h1>
+	</body>
+</html>
+
+
+4) Class Selector
+------------------
+The class selector selects HTML elements with a specific class attribute.
+
+To select elements with a specific class, write a period (.) character,
+followed by the class name.
+
+ex:
+---
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			.myClass1
+			{
+				color : #B53471;
+			}
+			.myClass2
+			{
+				background-color : #0652DD;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="myClass1"> Heading Tag1 </h1>
+		<h1 class="myClass2"> Heading Tag2 </h1>
+		
+	</body>
+</html>
+
+One element can use multiple classes.
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			.myClass1
+			{
+				color : #B53471;
+			}
+			.myClass2
+			{
+				background-color : #0652DD;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="myClass1"> Heading Tag1 </h1>
+		<h1 class="myClass2"> Heading Tag2 </h1>
+		<h1 class="myClass1 myClass2"> Heading Tag3 </h1>
+	</body>
+</html>
+
+
+
+5) Universal Selector 
+----------------------
+The universal selector (*) selects all HTML elements on the page.
+
+ex:
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+		<style>
+			*
+			{
+				color : #FF0000;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1> Heading Tag </h1>
+		<p> Paragraph Tag </p>
+		<div> Division Tag </div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

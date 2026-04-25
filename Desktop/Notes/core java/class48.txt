@@ -1,0 +1,739 @@
+Synchronization 
+===============
+A synchronized keyword is applicable for methods and blocks.
+
+It allows to execute only on thread at a time.Hence it is a thread safe.
+
+The main advangage of synchronization is we can achieve data consistency.
+
+The main disadvantage of synchronization is waiting time of a thread will increase which reduces the performance.
+
+Synchronization deals with lock mechanism.
+
+Whenever a thread wants to access object first it has to acquire lock of it and release it when thread complete its's task.
+
+In synchronized method threads will get the lock automatically.
+
+If a thread is executing synchronized method then other threads are not allowed to execute other synchronized method but they can execute non-synchronized methods parallely/concurently.
+
+In reallife we can use synchronization as given below.
+ex:
+	Whatsapp Message 
+	Ticket Booking 
+	Bank Transaction 
+	and etc.
+
+If there is a special requirement then only go for synchronization otherwise it will reduce the performance.
+
+ex:
+---
+class Table 
+{
+	synchronized void printTable(int n)
+	{
+		for(int i=1;i<=5;i++)
+		{
+			System.out.println(n*i);
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch (InterruptedException ie)
+			{
+				ie.printStackTrace();
+			}
+		}
+	}
+}
+class MyThread1 extends Thread 
+{
+	Table t;
+	MyThread1(Table t)
+	{
+		this.t = t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	Table t;
+	MyThread2(Table t)
+	{
+		this.t = t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Table obj = new Table();
+		MyThread1 t1 = new MyThread1(obj);
+		MyThread2 t2 = new MyThread2(obj);
+		
+		t1.start();
+		t2.start();
+	}
+}
+
+synchronized block 
+=================
+If we want to perform synchronization on specific resource of a program then we need to use synchronized block.
+
+ex:
+	If we have 100 lines of code and we want to perform synchronization only for 
+	5  lines then we need to use synchronized block.
+
+If we keep all the logics inside synchronized block then it acts like a synchronized method.
+
+ex:
+----
+class Table 
+{
+	void printTable(int n)
+	{
+		synchronized(this)
+		{
+			for(int i=1;i<=5;i++)
+			{
+				System.out.println(n*i);
+				try
+				{
+					Thread.sleep(2000);
+				}
+				catch (InterruptedException ie)
+				{
+					ie.printStackTrace();
+				}
+			}
+		}//sync
+	}
+}
+class MyThread1 extends Thread 
+{
+	Table t;
+	MyThread1(Table t)
+	{
+		this.t = t;
+	}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	Table t;
+	MyThread2(Table t)
+	{
+		this.t = t;
+	}
+	public void run()
+	{
+		t.printTable(10);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Table obj = new Table();
+		MyThread1 t1 = new MyThread1(obj);
+		MyThread2 t2 = new MyThread2(obj);
+		
+		t1.start();
+		t2.start();
+	}
+}
+
+Static Synchronization 
+======================
+If we declare any static method as synchronized then it is called static synchronization.
+
+In static synchronization the lock will be on class not on object.
+
+ex:
+---
+class Table 
+{
+	static synchronized void printTable(int n)
+	{
+			for(int i=1;i<=5;i++)
+			{
+				System.out.println(n*i);
+				try
+				{
+					Thread.sleep(2000);
+				}
+				catch (InterruptedException ie)
+				{
+					ie.printStackTrace();
+				}
+			}
+	}
+}
+class MyThread1 extends Thread 
+{
+	public void run()
+	{
+		Table.printTable(5);
+	}
+}
+class MyThread2 extends Thread 
+{
+	public void run()
+	{
+		Table.printTable(10);
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		MyThread1 t1 = new MyThread1();
+		MyThread2 t2 = new MyThread2();
+		
+		t1.start();
+		t2.start();
+	}
+}
+
+Inter-Thread Communication 
+==========================
+Inter-thread communication is possible by using wait(), notify() and notifyAll() method.
+
+wait(), notify() and notifyAll() methods of Object class.
+
+A thread which is waiting for notification has to call wait() method.
+
+A thread which is giving the notification has to call notify() or notifyAll() method.
+
+To call wait(), notify() and notifyAll() method we required synchronized area.
+
+A thread which calls wait() method will release the lock immediately and goes to waiting state.
+
+A thread which calls notify() or notifyAll() method will release the lock but not immediately.
+
+Except wait(), notify() and notifyAll() method there is no way to relase the lock.
+
+ex:
+---
+class MyThread extends Thread 
+{
+	int total = 0;
+	public void run()
+	{
+		synchronized(this)
+		{
+			System.out.println("Child-started calculation");
+			
+			for(int i=1;i<=10;i++)
+			{
+				total+=i;
+			}
+			System.out.println("Child giving notification");
+			this.notify();
+		}
+	}
+}
+class Test 
+{
+	public static void main(String[] args)throws InterruptedException 
+	{
+		MyThread t = new MyThread();
+		t.start(); 
+		
+		synchronized(t)
+		{
+			System.out.println("Main-Method waiting for notification");
+			t.wait();
+			System.out.println("Main method got notification");
+			System.out.println(t.total);
+		}
+	}
+}
+
+Deadlock in java
+===============
+A deadlock will occur in a situation where first thread wants to access object lock which is acquired by another thread and that thread wants to access object lock which is acquired by another thread . Both threads are ready the release the lock but they will not release such concept is called deadlock.
+
+ex:
+---
+
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		final String res1 = "Hi";
+		final String res2 = "bye";
+		
+		//anonymous inner class 
+		Thread t1 = new Thread()
+		{
+			public void run()
+			{
+				synchronized(res1)
+				{
+					System.out.println("Thread1-Locking Resource1");
+					synchronized(res2)
+					{
+						System.out.println("Thread1-Locking Resource2");
+					}
+				}
+			}
+		};
+		//anonymous inner class 
+		Thread t2= new Thread()
+		{
+			public void run()
+			{
+				synchronized(res2)
+				{
+					System.out.println("Thread2-Locking Resource2");
+					synchronized(res1)
+					{
+						System.out.println("Thread2-Locking Resource1");
+					}
+				}
+			}
+		};
+		t1.start();
+		t2.start();
+	}
+}
+
+Disadvantages of multithreading
+==============================
+1) Thread starvation 
+
+2) Deadlock 
+
+3) Debugging 
+
+Java 8 Features 
+================
+
+Functional interface 
+====================
+Functional interface introduced in java 8.
+
+Interface which contains only one abstract method is called functional interface.
+
+It can have any number of default methods and static methods.
+
+It is also known as SAM (Single Abstract Method) interface. 
+
+There are many functional interfaces in java.
+ex:
+	Runnable --> run() 
+	Comparable --> compareTo() 
+	ActionListener --> actionPerformed()
+	and etc.
+	
+@FunctionalInterface annotation is used to declare function interface.
+
+The main objective of functional interface is to achieve functional programming.
+ex:
+	a = f1(){}
+
+	f1(f2(){})
+	{
+	}
+
+ex:
+---
+@FunctionalInterface 
+interface ATM
+{
+	//abstract method 
+	public abstract void deposit();
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		//Anonymous inner 
+		ATM atm = new ATM()
+		{
+			public void deposit()
+			{
+				System.out.println("Deposit Method");
+			}
+		};
+		atm.deposit();
+	}
+}
+
+Lamda Expression 
+================
+Lamda expression introduced in Java 8.
+
+Lamda expression is used to concise the code.
+
+We can use lamda expression when we have functional interface.
+
+Lamda expression consider as method.
+
+The main objective of lamda expression is to achieve functional programming.
+
+Lamda expression does not allow names, returntypes and modifiers.
+
+ex:
+	Java Method 
+	----------
+		public void methodOne()
+		{
+			
+		}
+
+	Lamda expression
+	----------------
+		()->
+		{
+				
+		};
+
+
+ex:
+---
+@FunctionalInterface 
+interface ATM
+{
+	//abstract method 
+	public abstract void deposit();
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ATM atm = ()->
+				{
+					System.out.println("Deposit Method");
+				};
+				
+		atm.deposit();
+	}
+}
+
+ex:
+---
+@FunctionalInterface 
+interface ATM
+{
+	//abstract method 
+	public abstract void deposit(int amt);
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ATM atm = (int amt)->
+				{
+					System.out.println("Available Balance :"+amt);
+				};
+				
+		atm.deposit(5000);
+	}
+}
+
+ex:
+--
+@FunctionalInterface 
+interface ATM
+{
+	//abstract method 
+	public abstract int deposit(int amt);
+}
+class Test 
+{
+	public static void main(String[] args) 
+	{
+		ATM atm = (int amt)->
+				{
+					return amt;
+				};
+				
+		System.out.println("Available Balance :"+atm.deposit(5000));
+	}
+}
+
+Default methods in interface 
+===========================
+Default methods in interface introduced in Java 8.
+
+Java provides facility to declare methods in interface and tagged with default keyword.
+
+Default methods are non-abstract methods.
+
+Default methods we can override.
+
+ex:
+---
+interface ATM
+{
+	//abstract method 
+	public abstract void deposit();
+	
+	//default method
+	default void withdrawl()
+	{
+		System.out.println("Withdrawl Method");
+	}
+}
+class ATMImpl implements ATM
+{
+	@Override
+	public void deposit()
+	{
+		System.out.println("Deposit Method");
+	}
+}
+class Test 
+{	
+	public static void main(String[] args)
+	{
+		ATM atm = new ATMImpl();	
+		atm.deposit();
+		atm.withdrawl();
+	}
+}
+
+ex:
+---
+interface ATM
+{
+	//abstract method 
+	public abstract void deposit();
+	
+	//default method
+	default void withdrawl()
+	{
+		System.out.println("Withdrawl Method");
+	}
+}
+class ATMImpl implements ATM
+{
+	@Override
+	public void deposit()
+	{
+		System.out.println("Deposit Method");
+	}
+	@Override
+	public void withdrawl()
+	{
+		System.out.println("Override-Withdrawl Method");
+	}
+}
+class Test 
+{	
+	public static void main(String[] args)
+	{
+		ATM atm = new ATMImpl();	
+		atm.deposit();
+		atm.withdrawl();
+	}
+}
+
+Static methods in interface
+===========================
+Static methods in interface introduced in Java 8.
+
+Java provides facility to declare methods in interface and tagged with static keyword.
+
+Static method is a non-abstract method.
+
+Static method can't be override.
+
+ex:
+---
+interface ATM 
+{
+	//non-abstract method 
+	static void generatePin()
+	{
+		System.out.println("generate Pin");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		ATM.generatePin();
+	}
+}
+
+
+Solution for diamond problem
+============================
+
+ex:
+---
+interface Left 
+{
+	default void m1()
+	{
+		System.out.println("Left M1-Method");
+	}
+}
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right M1-Method");
+	}
+}
+class Middle implements Left,Right
+{
+	@Override 
+	public void m1()
+	{
+		System.out.println("Middle M1-Method");
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m = new Middle();
+		m.m1();
+	}
+}
+
+ex:
+---
+interface Left 
+{
+	default void m1()
+	{
+		System.out.println("Left M1-Method");
+	}
+}
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right M1-Method");
+	}
+}
+class Middle implements Left,Right
+{
+	@Override 
+	public void m1()
+	{
+		Left.super.m1();
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m = new Middle();
+		m.m1();
+	}
+}
+
+ex:
+---
+interface Left 
+{
+	default void m1()
+	{
+		System.out.println("Left M1-Method");
+	}
+}
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right M1-Method");
+	}
+}
+class Middle implements Left,Right
+{
+	@Override 
+	public void m1()
+	{
+		Right.super.m1();
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m = new Middle();
+		m.m1();
+	}
+}
+
+ex:
+---
+interface Left 
+{
+	default void m1()
+	{
+		System.out.println("Left M1-Method");
+	}
+}
+interface Right 
+{
+	default void m1()
+	{
+		System.out.println("Right M1-Method");
+	}
+}
+class Middle implements Left,Right
+{
+	@Override 
+	public void m1()
+	{
+		Left.super.m1();	
+		Right.super.m1();
+	}
+}
+class Test 
+{
+	public static void main(String[] args)
+	{
+		Middle m = new Middle();
+		m.m1();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

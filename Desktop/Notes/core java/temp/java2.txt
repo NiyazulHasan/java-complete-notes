@@ -1,0 +1,94 @@
+Comments in Java
+================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommanded to use comments in regular programming.
+
+Diagram: java2.1
+
+Comments will not display in output because they won't compiled by the compiler.
+
+In short, compiler ignore comments.
+
+In java, we have two types of comments.
+
+1) Single Line Comment 
+---------------------
+	It is used to comment a single line.
+	ex:
+		// comment here 
+
+2) Multiple Line Comment 
+--------------------
+	It is used to comment multiple lines.
+	ex:
+		/*
+			-
+			- comment here 
+			-
+		*/
+
+program
+-------
+//class declaration 
+class  Test
+{
+	//main method
+	public static void main(String[] args)
+	{
+
+		//variable declaration 
+		int x = 10;
+
+		//output stmt
+		System.out.println(x);
+	}
+}
+
+Project
+=======
+It is a individual or collaborative enterprise which is carefully designed to achieve perticular goal/aim.
+
+Technically, project is a collection of modules.
+ex:
+	Admin module 
+	customer module 
+	report generation module 
+	payment module 
+	and etc.
+
+Every project contains two domains.
+
+1) Technical Domain 
+-------------------
+	Technical domain describes using which technology we developed our project.
+	ex:
+		Java
+
+2) Functional Domain 
+-----------------
+	Functional domain describes state of a project.	
+	ex:
+		Healthcare domain
+		Banking domain 
+		ERP domain 
+		Insaurance domain 
+		and etc.
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

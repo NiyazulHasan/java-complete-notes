@@ -1,0 +1,425 @@
+Media Query
+============
+Media query is used to create a responsive design.
+
+Media queries can be used to check many things, such as:
+
+1) width and height of the viewport
+2) orientation of the viewport (landscape or portrait)
+3) resolution
+
+Using media queries are a popular technique for delivering a tailored style sheet to desktops, laptops, tablets, and mobile phones (such as iPhone and Android phones).
+
+ex:
+
+
+/*
+//////////////// response /////////////
+*/
+@media(min-width:992px)
+{
+
+}
+@media(min-width:768px) and (max-width:991px)
+{
+
+}
+@media(min-width:575px) and (max-midth:767px)
+{
+
+}
+@media(min-width: 480px) and (max-width: 574px)
+{
+	
+}
+@media(max-width:479px)
+{
+        
+}
+
+
+index.html
+==========
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <!-- add external css-->
+      <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+   </head>
+   <body>
+         
+         <div class="bg-img">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+               
+               <div class="container">
+                  <a href="" class="navbar-brand fw-bold">QualityThought</a>
+
+                  <button class="navbar-toggler"
+                           data-bs-target="#myId"
+                           data-bs-toggle="collapse">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+               </div>
+               
+            <div class="navbar-collapse collapse" id="myId">
+               <div class="container ">
+               <ul class="navbar-nav me-5 text-center">
+                     <li class="nav-item">
+                           <a class="nav-link active " href="#homeId">Home</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#aboutId">About</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#serviceId">Service</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#portfolioId">Portfolio</a>
+                     </li>
+                     <li class="nav-item">
+                           <a class="nav-link " href="#contactId">Contact</a>
+                     </li>
+               </ul>
+               </div>
+            </div>
+         </nav>
+
+            <div class="img-content">
+               <h1> Welcome to Web Development Tutorial </h1>
+               <h4> Share your experience with us!!!</h4> 
+            </div>
+
+         </div>
+
+
+         <section class="section1" id="homeId">
+            <h1 class="text-center"> Home Page </h1>
+         </section>
+         <section class="section2" id="homeId">
+            <h1 class="text-center"> About Page </h1>
+         </section>
+         <section class="section3" id="homeId">
+            <h1 class="text-center"> Service Page </h1>
+         </section>
+         <section class="section4" id="homeId">
+            <h1 class="text-center"> Portfolio Page </h1>
+         </section>
+         <section class="section5" id="homeId">
+            <h1 class="text-center"> Contact Page </h1>
+         </section>
+         
+   </body>
+</html>
+
+mystyles.css
+------------
+.bg-img
+{
+   background-image: url("../images/office.png");
+   background-size: 100% 100%;
+   background-attachment: fixed;
+   width:100%;
+   height:656px;
+}
+
+.img-content
+{
+   padding-top:200px;
+}
+.img-content h1
+{
+   text-align: center;
+   font-size:72px;
+   color:red;
+}
+.img-content h4
+{
+   text-align: center;
+   font-size:42px;
+   color:red;
+}
+
+.section1
+{
+   height: 580px;
+   width:100%;
+   background-color: #81ecec;
+   padding-top: 100px;
+}
+.section2
+{
+   height: 580px;
+   width:100%;
+   background-color: #FFFF00;
+   padding-top: 100px;
+}
+.section3
+{
+   height: 580px;
+   width:100%;
+   background-color: #FF0000;
+   padding-top: 100px;
+}
+.section4
+{
+   height: 580px;
+   width:100%;
+   background-color: #00FF00;
+   padding-top: 100px;
+}
+.section5
+{
+   height: 580px;
+   width:100%;
+   background-color: #FF00FF;
+   padding-top: 100px;
+}
+        
+/*
+//////////////// response /////////////
+*/
+@media(min-width:992px)
+{
+
+}
+@media(min-width:768px) and (max-width:991px)
+{
+
+}
+@media(min-width:575px) and (max-midth:767px)
+{
+
+}
+@media(min-width: 480px) and (max-width: 574px)
+{
+      .img-content h1
+      {
+         font-size: 40px;
+      } 
+      .img-content h4
+      {
+         font-size:22px;
+      }
+
+      .section1
+      {
+         height: 1200px;
+      }
+
+}
+@media(max-width:479px)
+{
+
+}
+
+
+Bootstrap forms 
+================
+There are two styles to create bootstrap forms.
+
+1) Stack Form 
+
+2) Inline Form 
+
+1) Stack Form 
+-------------
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <!-- add external css-->
+      <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+
+            <form class="w-50 d-block mx-auto">
+                <label class="my-2">UserName:</label>
+                <input type="text" name="username" class="form-control" />
+               
+                <label class="my-2">Password:</label>
+                <input type="password" name="password" class="form-control"/>  
+               
+                <label class="my-2">Country:</label>
+                <select name="country" class="form-select">
+                     <option value="">none</option>
+                     <option value="ind">India</option>
+                     <option value="usa">USA</option>
+                     <option value="aus">Australia</option>
+                </select>
+
+                <label class="my-2">Comments</label>
+                <textarea class="form-control" cols="10" rows="8"></textarea>
+
+                <input type="submit" value="submit" class="btn btn-primary mt-3 w-100"/>
+            </form>
+         </div>
+         
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <!-- add external css-->
+      <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+
+            <form class="w-50 d-block mx-auto">
+                <label class="my-2">UserName:</label>
+                <input type="text" name="username" class="form-control" />
+               
+                <label class="my-2">Password:</label>
+                <input type="password" name="password" class="form-control"/>  
+               
+                <div class="form-check mt-3">
+                    <input type="checkbox"  name="cb" class="form-check-input"/>
+                    <label class="form-check-label">Remember Me?</label>
+                </div>
+
+                <input type="submit" value="submit" class="btn btn-primary mt-3 w-100"/>
+            </form>
+         </div>
+         
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <!-- add external css-->
+      <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+
+            <form class="w-50 d-block mx-auto">
+
+                <label class="my-2">Range:</label>
+                <input type="range" name="r" class="form-range" />
+
+                <div class="input-group">
+                   <span class="input-group-text">www.</span>
+                   <input type="text" name="t1" class="form-control" />
+                </div>
+                <div class="input-group">
+                   
+                   <input type="text" name="t2" class="form-control" /><span class="input-group-text">.com</span>
+                </div>
+            </form>
+         </div>
+         
+   </body>
+</html>
+
+
+2) Inline Form 
+----------------
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+     
+      <!-- Bootstrap plugins -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" ></script>
+
+      <!-- add external css-->
+      <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+   </head>
+   <body>
+         
+         <div class="container mt-5">
+             <form>
+                <div class="row">
+                   <div class="col-1">
+                      <label> UserName: </label>
+                   </div>
+                   <div class="col-3">
+                      <input type="text" name="t1" class="form-control"/>
+                   </div>
+                   <div class="col-1">
+                      <label>Password: </label>
+                   </div>
+                   <div class="col-3">
+                      <input type="password" name="t2" class="form-control"/>
+                   </div>
+                   <div class="col-2">
+                      <input type='submit' value="submit" class="btn btn-primary">
+                   </div>
+                </div>
+             </form>  
+         </div>
+         
+   </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

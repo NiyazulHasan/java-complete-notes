@@ -1,0 +1,467 @@
+JavaScript querySelector() 
+==========================
+The querySelector() method in JavaScript is a powerful tool for selecting elements within the Document Object Model (DOM) using CSS selectors. 
+
+It is essential for interacting with the Document Object Model (DOM) and manipulating web page elements.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <h1> Heading Tag </h1>
+         <script>
+            var x = document.querySelector('h1');
+            x.innerHTML = "My Heading Tag";
+         </script>
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <h1 id="myId"> Heading Tag </h1>
+         <script>
+            var x = document.querySelector('#myId');
+            x.innerHTML = "My Heading Tag Again";
+         </script>
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <h1 id="myId"> Heading Tag </h1>
+         <script>
+            var x = document.querySelector('#myId');
+            x.style.color="blue";
+         </script>
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <h1 class="myClass">My Heading Tag </h1>
+         <script>
+            var x = document.querySelector('.myClass');
+            x.style.color="blue";
+         </script>
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <h1 class="myClass">My Heading Tag </h1>
+         <script>
+            var x = document.querySelector('.myClass');
+            x.style.color="blue";
+            x.innerHTML="Your Heading Tag";
+         </script>
+   </body>
+</html>
+
+
+
+Abstraction 
+===========
+Hiding the internal implementation and highlighting the set of services is called abstraction.
+
+In JavaScript, Abstraction often we can achieve using functions and classes that encapsulate behaviour by exposing neccesarry part to outside world.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class Circle
+            {
+               //private field
+               #radius;
+
+               constructor(radius)
+               {
+                  this.#radius = radius;
+               }
+               getResult()
+               {
+                     return Math.PI * this.#radius * this.#radius;
+               }
+            }
+            var c = new Circle(5);
+            document.writeln(c.getResult());
+         </script>
+   </body>
+</html>
+
+
+
+Encapsulation 
+=============
+The process of encapsulating or grouping fields and associate functions in a single entity is called encapsulation.
+
+Abstraction is used to hide the data and encapsulation is used to protect the data.
+
+In encapsulation we need to declare setter and getter methods.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class Employee
+            {
+                  setId(id)
+                  {
+                     this.id=id;
+                  }
+                  setName(name)
+                  {
+                     this.name=name;
+                  }
+                  getId()
+                  {
+                     return this.id;
+                  }
+                  getName()
+                  {
+                     return this.name;
+                  }
+            }
+            var e = new Employee();
+            e.setId(101);
+            e.setName("Alan");
+            document.writeln("Employee Id :"+e.getId()+"<br>");
+            document.writeln("Employee Name :"+e.getName()+"<br>");
+         </script>
+   </body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class Employee
+            {
+                  constructor(id,name)
+                  {
+                     this.id=id;
+                     this.name=name;
+                  }
+                  getId()
+                  {
+                     return this.id;
+                  }
+                  getName()
+                  {
+                     return this.name;
+                  }
+            }
+            var e = new Employee(201,"Kelvin");
+            document.writeln("Employee Id :"+e.getId()+"<br>");
+            document.writeln("Employee Name :"+e.getName()+"<br>");
+         </script>
+   </body>
+</html>
+
+Inheritance 
+============
+Inheritance is a mechanism in which one class will inherits the properties of another class.
+
+In inheritance a one class can inherits the properties of a another class.
+
+The main objective of inheritance is to provide reusability.
+
+In JavaScript , we have following types of inheritance.
+
+1) Single Level Inheritance 
+
+2) Multi Level Inheritance 
+
+3) Multiple Inheritance 
+
+4) Hierarchical Inheritance 
+
+5) Hybrid Inheritance 
+
+1) Single Level Inheritance 
+--------------------------
+If we derived a class in the presence of one base class is called single level inheritance.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class A 
+            {
+               f1()
+               {
+                  document.writeln("F1-Function <br>");
+               }
+            }
+            class B extends A 
+            {
+               f2()
+               {
+                  document.writeln("F2-Function <br>");
+               }
+            }
+            var a = new A();
+            a.f1();
+
+            var b = new B();
+            b.f1();
+            b.f2();
+         </script>
+   </body>
+</html>
+
+2) Multi Level Inheritance 
+--------------------------
+If we derived a class in the presence of one base class and that class inherits from another base class is called multi level inheritance.
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class A 
+            {
+               f1()
+               {
+                  document.writeln("F1-Function <br>");
+               }
+            }
+            class B extends A 
+            {
+               f2()
+               {
+                  document.writeln("F2-Function <br>");
+               }
+            }
+            class C extends B 
+            {
+               f3()
+               {
+                  document.writeln("F3-Function <br>")
+               }
+            }
+            var a = new A();
+            a.f1();
+
+            var b = new B();
+            b.f1();
+            b.f2();
+
+            var c = new C();
+            c.f1();
+            c.f2();
+            c.f3();
+         </script>
+   </body>
+</html>
+
+
+3) Multiple inheritance
+------------------------
+If we derived a class in the presence of multiple base classes is called multiple inheritance.
+
+JavaScript does not support multiple inheritance.
+
+
+4) Hierarchical inheritance 
+---------------------------
+If we derived multiple classes using one base class is called hierarchical inheritance.
+
+ex:
+---
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class A 
+            {
+               f1()
+               {
+                  document.writeln("F1-Function <br>");
+               }
+            }
+            class B extends A 
+            {
+               f2()
+               {
+                  document.writeln("F2-Function <br>");
+               }
+            }
+            class C extends A
+            {
+               f3()
+               {
+                  document.writeln("F3-Function <br>")
+               }
+            }
+            var a = new A();
+            a.f1();
+
+            var b = new B();
+            b.f1();
+            b.f2();
+
+            var c = new C();
+            c.f1();
+            c.f3();
+         </script>
+   </body>
+</html>
+
+
+5) Hybrid inheritance 
+---------------------
+It is a combination of more than two inheritance.
+JavaScript does not support hybrid inheritance.
+
+
+Polymorphism
+=============
+Polymorphism has take from Greek word.
+
+Here poly means many and morphism means forms.
+
+The ability to represent in different forms is called polymorphism.
+
+The main objective of polymorphism is to provide flexibility.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class A 
+            {
+               f1()
+               {
+                  document.writeln("0-arg function");
+               }
+               f1(arg1)
+               {
+                  document.writeln("one-arg function");
+               }
+               f1(arg1,arg2)
+               {
+                  document.writeln("two-arg function");
+               }
+            }
+            var a = new A();
+            a.f1();
+         </script>
+   </body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>MyPage!</title>
+   </head>
+   <body>
+         <script>
+            class A 
+            {
+                 f1()
+                 {
+                     document.writeln("A-F1-Function <br>");
+                 } 
+            }
+            class B extends A 
+            {
+                 f1()
+                 {
+                     document.writeln("B-F1-Function <br>");
+                 }  
+            }
+            var a = new A();
+            a.f1();
+
+            var b  = new B();
+            b.f1();
+         </script>
+   </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

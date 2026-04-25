@@ -1,0 +1,888 @@
+Sublime Editor 
+==============
+Download link : https://www.sublimetext.com/download
+
+CSS Design 
+==========
+Task
+|
+|-----css
+	|
+	|---mystyles.css 
+
+|-----images
+	|
+	|---micky.png
+|
+|-----index.html 
+
+index.html
+----------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+
+	<!-- add external CSS -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+</head>
+<body>
+		<div class="container">
+			<div class="box1">
+				<img src="images/micky.png"/>
+			</div>
+			<div class="box2">
+				<h3>Micky Mouse</h3>
+				<p>
+					Mickey Mouse is a cartoon character co-created in 1928 by Walt Disney and Ub Iwerks. The longtime icon and mascot of the Walt Disney Company, Mickey is an anthropomorphic mouse who typically wears red shorts, large shoes, and white gloves. He is often depicted with a cast of characters including his girlfriend Minnie Mouse, his pet dog Pluto, his best friends Donald Duck and Goofy, and his nemesis Pete.
+				</p>
+				<p>
+					Mickey Mouse is a cartoon character co-created in 1928 by Walt Disney and Ub Iwerks. The longtime icon and mascot of the Walt Disney Company, Mickey is an anthropomorphic mouse who typically wears red shorts, large shoes, and white gloves. He is often depicted with a cast of characters including his girlfriend Minnie Mouse, his pet dog Pluto, his best friends Donald Duck and Goofy, and his nemesis Pete.
+				</p>
+			</div>
+		</div>
+</body>
+</html>
+
+
+mystyles.css
+------------
+*
+{
+	margin:0;
+	padding:0;
+}
+.container
+{
+	width:800px;
+	height: 400px;
+	background-color: #ffeaa7;
+	margin: 100px auto;
+}
+.container .box1
+{
+	width:400px;
+	height:400px;
+	background-color:#55efc4;
+	float:left;
+}
+.container .box1 img
+{
+	width:100%;
+	height:100%;
+}
+.container .box2
+{
+	width:400px;
+	height:400px;
+	background-color:#dfe6e9;
+	float:right;
+}
+.container .box2 h3
+{
+	text-align: center;
+	padding : 10px 0;
+}
+
+.container .box2 p
+{
+	padding:20px;
+	text-align: justify;
+}
+
+
+
+
+CSS clear property 
+===================
+
+The clear property specifies on which side of an element floating elements are not allowed to float.
+
+value		Description
+-------		----------------
+none		Default allows floating elements to both the side.
+
+left		No floating elements allowed on the left side.
+
+right 		No floating elements allowed on the right side.
+
+both		No floating elements allowed on the both side.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.box1
+		{
+			width:200px;
+			height:200px;
+			background-color: #00b894;
+			float:left;
+		}
+		.box2
+		{
+			width:200px;
+			height:200px;
+			background-color: #d63031;
+			float:right;
+		}
+		.box3
+		{
+			width:100%;
+			height:200px;	
+			background-color: #e84393;
+			clear:both;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>	
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.box1
+		{
+			width:200px;
+			height:300px;
+			background-color: #00b894;
+			float:left;
+		}
+		.box2
+		{
+			width:200px;
+			height:200px;
+			background-color: #d63031;
+			float:right;
+		}
+		.box3
+		{
+			width:100%;
+			height:200px;	
+			background-color: #e84393;
+			clear:left;	
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>	
+</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.box1
+		{
+			width:200px;
+			height:300px;
+			background-color: #00b894;
+			float:left;
+		}
+		.box2
+		{
+			width:200px;
+			height:200px;
+			background-color: #d63031;
+			float:right;
+		}
+		.box3
+		{
+			width:100%;
+			height:200px;	
+			background-color: #e84393;
+			clear:right;	
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>	
+</body>
+</html>
+
+
+
+
+CSS List 
+=========
+The CSS list properties allow you to:
+
+> Set different list item markers for ordered lists
+> Set different list item markers for unordered lists
+> Set an image as the list item marker
+> Add background colors to lists and list items
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-type: disc;
+		}
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-type: square;
+		}
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-type: circle;
+		}
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-type: lower-alpha;
+		}
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-type: lower-roman;
+		}
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		.myList
+		{
+			list-style-image: url("images/arrow.png");
+		}		
+	</style>
+</head>
+<body>
+	Course :
+	<ul class="myList">
+		<li>MongoDB</li>
+		<li>ExpressJS</li>
+		<li>ReactJS</li>
+		<li>NodeJS</li>	
+	</ul>	
+</body>
+</html>
+
+
+CSS Tables 
+==========
+Table is used store the data in the form of rows and columns.
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		table,tr,th,td
+		{
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>alan@gmail.com</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>jose@zoho.com</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Mark</td>
+			<td>mark@yahoo.com</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Lara</td>
+			<td>lara@outlook.com</td>
+		</tr>
+	</table>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		table
+		{
+			border-collapse: collapse;
+			width:100%;
+		}
+		tr,th,td
+		{
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>alan@gmail.com</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>jose@zoho.com</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Mark</td>
+			<td>mark@yahoo.com</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Lara</td>
+			<td>lara@outlook.com</td>
+		</tr>
+	</table>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		table
+		{
+			border-collapse: collapse;
+			width:100%;
+		}
+		tr
+		{
+			border-bottom: 2px solid black;
+		}
+
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>alan@gmail.com</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>jose@zoho.com</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Mark</td>
+			<td>mark@yahoo.com</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Lara</td>
+			<td>lara@outlook.com</td>
+		</tr>
+	</table>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		table
+		{
+			border-collapse: collapse;
+			width:100%;
+		}
+		tr,th,td
+		{
+			border: 2px solid black;
+		}
+		tr:hover
+		{
+			background-color: #55efc4;
+		}
+
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>alan@gmail.com</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>jose@zoho.com</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Mark</td>
+			<td>mark@yahoo.com</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Lara</td>
+			<td>lara@outlook.com</td>
+		</tr>
+	</table>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		table
+		{
+			border-collapse: collapse;
+			width:100%;
+		}
+		tr,th,td
+		{
+			border: 2px solid black;
+		}
+		tr:nth-child(even)
+		{
+			background-color: #55efc4;
+		}
+
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>No</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>Alan</td>
+			<td>alan@gmail.com</td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>Jose</td>
+			<td>jose@zoho.com</td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>Mark</td>
+			<td>mark@yahoo.com</td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>Lara</td>
+			<td>lara@outlook.com</td>
+		</tr>
+	</table>
+
+</body>
+</html>
+
+
+CSS display property 
+====================
+The display property spcifies the display behaviour of an element.
+
+syntax
+--------
+	display: value;
+
+value		description
+---------	-------------------
+none		The element is completely removed.
+
+inline 		displays an element as on inline element.
+		Any height and width properties will not effect.
+
+block		Displays an element as block element.
+		IT starts on a new line and takes up the whole width.
+
+inline-block	displays an element as an inline-level container.
+		The element itself is formatting  as an inline element.
+		but we can apply height and width values.
+
+inherit		Inherits this property from its parent element.
+
+
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		h1
+		{
+			display: none;
+		}
+		p
+		{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1> Heading Tag </h1>
+	<p> Paragraph Tag </p>
+</body>
+</html>
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		span
+		{
+			display: block;
+			background-color: #81ecec;
+			width:50%;
+		}
+	</style>
+</head>
+<body>
+	<span> Span Tag 1</span>
+	<span> Span Tag 2</span>
+	<span> Span Tag 3</span>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		div
+		{
+			background-color: #a29bfe;
+			display: inline;
+			width:50%;
+		}
+	</style>
+</head>
+<body>
+	<div> Division Tag 1 </div>
+	<div> Division Tag 2 </div>
+	<div> Division Tag 3 </div>
+</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		div
+		{
+			background-color: #a29bfe;
+			display: inline-block;
+			width:30%;
+		}
+	</style>
+</head>
+<body>
+	<div> Division Tag 1 </div>
+	<div> Division Tag 2 </div>
+	<div> Division Tag 3 </div>
+</body>
+</html>
+
+
+box-sizing  property
+=====================
+The box-sizing property defines how the width and height of an element are calculated: should they include padding and borders, or not.
+
+
+box-sizing:content-box
+----------------------------
+It will take seperate width,border and padding.But it will not take  margin.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height: 200px;
+			background-color: #00cec9;
+			border:2px solid #d63031;
+			padding:10px;
+			box-sizing: content-box;
+		}
+	</style>
+</head>
+<body>
+	<div> </div>
+	
+</body>
+</html>
+
+
+
+box-sizing:border-box
+---------------------------
+It includes width,border and padding.But it will not include marging.
+
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height: 200px;
+			background-color: #00cec9;
+			border:2px solid #d63031;
+			padding:10px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div> </div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

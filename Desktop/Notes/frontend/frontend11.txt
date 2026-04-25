@@ -1,0 +1,925 @@
+CSS Design 
+==========
+Task2
+|
+|------css
+	|
+	|---mystyles.css
+|
+|------index.html
+
+index.html
+---------
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	
+	<!-- add external css -->
+	<link rel="stylesheet" type="text/css" href="css/mystyles.css">
+
+</head>
+<body>
+		<header class="header">
+				<h2>IHUBTALENT</h2>
+				<ul>
+					<li><a href="">Home</a></li>
+					<li><a href="">About</a></li>
+					<li><a href="">Service</a></li>
+					<li><a href="">Portfolio</a></li>
+					<li><a href="">Contact</a></li>
+				</ul>
+		</header>
+
+</body>
+</html>
+
+mystyles.css
+-------------
+*
+{
+	margin:0;
+	padding:0;
+}
+.header
+{
+	width: 100%;
+	height: 50px;
+	background-color: #F79F1F;
+}
+.header h2
+{
+	color:#FFF;
+	float:left;
+	padding: 10px 100px;
+}
+.header ul
+{
+	float:right;
+	list-style-type: none;
+	padding: 15px 100px;
+}
+.header ul li 
+{
+	display: inline-block;
+	padding: 0px 40px;
+}
+.header ul li a 
+{
+	color : #FFF;
+	text-decoration: none;
+}
+.header ul li a:hover
+{
+	color : #000;
+}
+
+
+CSS transform property 
+=======================
+CSS transform property is used to move, scale, skew and rotate elements.
+
+CSS transform property applies a 2D or 3D transformation to an element. 
+
+CSS transform property contains following transformation methods.
+
+ex:
+	translate()
+	scaleX()
+	scaleY()
+	scale() 
+	rotate()
+	skewX()
+	skewY()
+	skew() 
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			transform : translate(100px,100px);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : scaleX(1.5);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : scaleY(1.5);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : scale(1.5);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : rotate(45deg);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : rotate(-45deg);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : skewX(30deg);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : skewY(30deg);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			border:2px solid black;
+			margin:200px auto;
+			transform : skew(30deg);
+		}
+	</style>
+</head>
+<body>
+		
+		<div> Transform Property </div>	
+
+</body>
+</html>
+
+
+CSS transition property 
+=======================
+CSS transitions allows us to change property values smoothly, over a given duration. 
+
+In CSS transition property we need to use mouse over to the element to see the effect.
+
+We have following list of CSS transition properties.
+
+ex:
+	transition-property 
+	transition-duration 
+	transition-timing-function 
+	transition-delay 
+	or
+	transition shorthand 
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: width,height,background-color;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+			transition-duration: 2s;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: linear;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-in;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-out;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-in-out;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition-property: all;
+			transition-duration: 2s;
+			transition-timing-function: ease-in;
+			transition-delay: 5s;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		div
+		{
+			width:200px;
+			height:200px;
+			background-color: #0652DD;
+			transition: 2s all linear 5s;
+		}
+		div:hover
+		{
+			width: 400px;
+			height:400px;
+			background-color: #FF0000;
+		}
+
+	</style>
+</head>
+<body>
+		
+		<div> </div>	
+
+</body>
+</html>
+
+
+CSS Design1
+============
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:300px;
+			height: 300px;
+			display: block;
+			margin:100px auto;
+			transition: 2s all linear;
+		}
+		img:hover
+		{
+			transform: rotate(360deg);
+		}
+	</style>
+</head>
+<body>
+	
+	<img src="images/loki.png"/>
+
+</body>
+</html>
+
+CSS2
+----
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+
+		img
+		{
+			width:300px;
+			height:300px;
+			margin:100px 70px;
+			filter: grayscale(100%);
+			transition: 1s all linear;
+		}
+		img:hover
+		{
+			transform: scale(1.2);
+			filter: grayscale(0%);
+		}
+	</style>
+</head>
+<body>
+
+		<img src="images/image1.jpg"/>
+		<img src="images/image2.jpg"/>
+		<img src="images/image3.jpg"/>
+
+</body>
+</html>
+
+
+CSS position property
+=====================
+The position property specifies the type of positioning method used for an element (static, relative, absolute, fixed, or sticky).
+
+The following are the list of values to position property.
+
+static 
+---------------
+	It is default value. Elements render in order, as they appear in the document flow 	
+
+absolute 
+--------------
+	The element is positioned relative to its first positioned (not static) ancestor element 	
+fixed 	
+-----------
+	The element is positioned relative to the browser window 	
+relative 
+-------------
+	The element is positioned relative to its normal position, so "left:20px" adds 20 pixels 	to the element's LEFT position.
+ 	
+sticky 	
+-----------
+	The element is positioned based on the user's scroll position 
+
+
+css position property mandatory should have following properties.
+i)left
+ii)right
+iii)top
+iv)bottom
+
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: static;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<img src="images/loki.png">
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+</body>
+</html>
+
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: absolute;
+			left: 100px;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<img src="images/loki.png">
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: relative;
+			left: 100px;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<img src="images/loki.png">
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: fixed;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<img src="images/loki.png">
+		
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MyPage!!</title>
+	<style>
+		img
+		{
+			width:200px;
+			height:200px;
+			position: sticky;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<img src="images/loki.png">
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		<p>
+		Web technology refers to the tools, protocols, and languages (like HTML, CSS, JavaScript, servers, databases) used to build, run, and interact with websites and web applications, enabling communication and content delivery over the internet for activities from browsing to online shopping and banking.</p>
+		
+		
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

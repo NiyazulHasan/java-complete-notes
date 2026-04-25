@@ -1,0 +1,181 @@
+case3:
+------
+	If a java program contains multiple classes with main method
+	then one class we need to declare as public and that public 
+	class treated as main class.
+	ex:
+		A.java
+		-------
+		public class A
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("A-class");
+			}
+		}
+		class B
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("B-class");
+			}
+		}
+		class C
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("C-class");
+			}
+		}
+		If we compile above program we will get three .class files i.e 
+		A.class, B.class and C.class.
+		ex:
+			javac  A.java
+			java   A 
+			java   B
+			java   C 
+
+
+
+Main Method 
+===========
+Our program contains main method or not. Either it is properly declared or not. 
+It is not a responsibility of a compiler to check. It is a liability of a JVM
+to check for main method always at runtime. If JVM won't find main method then 
+it will throw one runtime error called main method not found.
+
+JVM always look for main method with following signature.
+
+signature:
+----------
+		public static void main(String[] args)
+
+If we perform any changes in above signature then JVM will throw one runtime error called main method not found.
+
+We can perform following changes in main method.
+
+1) Order of modifiers is not important incase of public static we can declare   
+   static public also.
+   ex:
+	 static public void main(String[] args)
+
+2) We can declare String[] in following acceptable formats.
+   ex:
+	public static void main(String[] args)
+	public static void main(String  []args)
+	public static void main(String  args[])
+
+3) We can replace String[] with var-arg parameter.
+   ex:
+	public static void main(String... args)
+	
+4) We can change args with any java valid identifier.
+   ex:
+	public static void main(String[] ihub)
+
+5) Main method will accept following modifiers.
+   ex:
+	synchronized 
+	strictfp 
+	final 
+
+
+
+Q) Explain main method in java?
+
+public 
+-------
+	JVM wants to call main method from anywhere.
+static 
+-------
+	JVM wants to call main method without using object reference.
+void 
+-----
+	Main method does not return any thing to JVM.
+main
+-----
+	It is an identifier given to a main method.
+
+String[] args
+------------
+	It is a command line arguments.
+
+
+Command Line Arguments
+=====================
+Arguments which are passing through command prompt such type of arguments are called command line arguments.
+
+In command line argument we need to pass our input values at runtime command.
+
+ex:
+	javac   Test.java 
+
+	java    Test  101  raja  M   10000.0		
+			|   |    |     |________ args[3]
+			|   |    |______________ args[2]
+			|   |___________________ args[1]
+			|_______________________ args[0]
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		System.out.println(args[0]);
+		System.out.println(args[1]);
+		System.out.println(args[2]);
+		System.out.println(args[3]);
+	}
+}
+
+Comment line argument we can use to read inputs.
+
+ex:
+---
+class Test
+{
+	public static void main(String[] args)
+	{
+		String name = args[0];
+		System.out.println("Welcome :"+name);
+	}
+}
+o/p:
+	javac   Test.java
+	java    Test   JackMa 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+

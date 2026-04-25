@@ -1,0 +1,81 @@
+Institute Name	: QualityThought 
+Website		: www.qualitythought.in 
+Location	: Ameerpet, Hyderabad.
+Trainer Name	: Niyaz Ul Hasan 
+Experience	: 16+ years of experience in development and training.
+Course Name	: Full Stack Java Development 
+Duration	: 5 Months 
+Mode		: Online/Offline 
+Project		: Employee Management System (React + Spring Boot + MYSQL)
+
+	JOIP -- Job Oriented Intensive Program 
+
+Addition classes	: 
+				Aptitude classes, 
+				Softskills, 
+				Practical classes.
+
+Programming skills 	: 	DSA 
+Integrations		: 	AWS + AI 				
+Internship		:	Ramana Soft 
+Batch No		: 	IH-JAVA-056
+Placements		: 	Placement Team
+
+
+
+Java
+====
+Object Oriented Programming language
+Platform independent programming language.
+Case sensitive programming language.
+Strongly typed checking language.
+High level programming language.
+Open source programming language.
+
+1995 --> James Gosling --> Sun Micro System (Oracle Corporation)
+Java sotware --> JDK software 	
+
+C
+===
+Procedure oriented programming language.
+Platform dependent programming language.
+Case sensitive programming language.
+Loosely typed checking language.
+Middle level language (Low + High)
+
+
+Interview Questions
+===================
+Q) What is Java?
+
+Java is a object oriented, platform independent, case sensitive, strongly typed checking, high level, open source programming language developed by James Gosling in the year of 1995.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

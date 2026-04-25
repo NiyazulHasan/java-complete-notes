@@ -1,0 +1,544 @@
+JavaScript Spread Operator 
+==========================
+JavaScript spread operator (...) allows us to spread the array, to copy an array/object, modify an array/object, to merge an array/object.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var arr = [10,20,30];
+
+          function f1(arg1,arg2,arg3)
+          {
+               document.writeln(arg1+" "+arg2+" "+arg3);
+          }
+
+          f1(...arr);
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var arr = [10,20,30];
+
+          var newArr = [...arr];
+
+          for(var i in newArr)
+          {
+            document.writeln(newArr[i]);
+          }
+       </script>
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var arr = [10,20,30];
+
+          var newArr = [...arr,40];
+
+          for(var i in newArr)
+          {
+            document.writeln(newArr[i]);
+          }
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var arr1 = [10,20,30];
+          var arr2 = [40,50];
+
+          var newArr = [...arr1,...arr2];
+
+          for(var i in newArr)
+          {
+            document.writeln(newArr[i]);
+          }
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var emp = 
+          {
+               eid:101,
+               ename:"Alan",
+               esal:10000
+          }
+          var newEmp = {...emp};
+          document.writeln("Employee Id : "+newEmp.eid+"<br>");
+          document.writeln("Employee Name : "+newEmp.ename+"<br>");
+          document.writeln("Employee Salary : "+newEmp.esal+"<br>");
+       </script>
+
+</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var emp = 
+          {
+               eid:101,
+               ename:"Alan",
+               esal:10000
+          }
+          var newEmp = {...emp,ename:"Jessica"};
+          document.writeln("Employee Id : "+newEmp.eid+"<br>");
+          document.writeln("Employee Name : "+newEmp.ename+"<br>");
+          document.writeln("Employee Salary : "+newEmp.esal+"<br>");
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var emp = 
+          {
+               eid:101,
+               ename:"Alan",
+               esal:10000
+          }
+          var newEmp = {...emp,deptno:10};
+          document.writeln("Employee Id : "+newEmp.eid+"<br>");
+          document.writeln("Employee Name : "+newEmp.ename+"<br>");
+          document.writeln("Employee Salary : "+newEmp.esal+"<br>");
+          document.writeln("Employee Dept No : "+newEmp.deptno+"<br>");
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var emp1 = 
+          {
+               eid:101,
+               ename:"Alan",
+          }
+          var emp2 = 
+          {
+                esal:10000
+          }
+          var newEmp = {...emp1,...emp2};
+          document.writeln("Employee Id : "+newEmp.eid+"<br>");
+          document.writeln("Employee Name : "+newEmp.ename+"<br>");
+          document.writeln("Employee Salary : "+newEmp.esal+"<br>");
+       </script>
+
+</body>
+</html>
+
+
+Q) Explain Synchronous and Asynchronous in JavaScript?
+
+
+Synchronous
+------------
+Synchronous JavaScript is a programming approach that enables the blocking execution of tasks, allowing sequence operations, degrading responsiveness, and non-efficient handling of time-consuming operations in web applications.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          document.writeln("stmt1");
+          document.writeln("<br>");
+          document.writeln("stmt2");
+          document.writeln("<br>");
+          document.writeln("stmt3");
+       </script>
+
+</body>
+</html>
+
+Asynchronous 
+------------
+Asynchronous JavaScript is a programming approach that enables the non-blocking execution of tasks, allowing concurrent operations, improved responsiveness, and efficient handling of no time-consuming operations in web applications.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          document.writeln("stmt1");
+          document.writeln("<br>");
+          
+          setTimeout(function(){
+            document.writeln("stmt2");
+          },3000);
+
+          document.writeln("<br>");
+          document.writeln("stmt3");
+       </script>
+
+</body>
+</html>
+
+
+JavaScript hoisting
+====================
+Hoisting is a default behavior of JavaScript where all the variable and function declarations are moved on top. This means that irrespective of where the variables and functions are declared, they are moved on top of the scope. The scope can be both local and global.
+
+ex:
+---
+i = 10;				var i;
+document.writeln(i);   => 	i=10;
+var i;				document.writeln(i);
+
+
+ex:				
+--
+ f1();						function f1()
+						{
+function f1()						document.writeln("F1");
+{					=>
+  document.writeln("F1");			}
+}						f1();
+
+
+JavaScript Set 
+===============
+A JavaScript Set is a collection of unique values. 
+Each value can only occur once in a Set. 
+The values can be of any type, primitive values or objects.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+         
+         var set = new Set();
+         set.add(10);
+         set.add(20);
+         set.add(30);
+
+         set.forEach(ele => document.writeln(ele));
+          
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+         
+         var set = new Set([10,20,30,40,50]);
+
+         set.forEach(ele => document.writeln(ele));
+          
+       </script>
+
+</body>
+</html>
+
+Q) Write a javascript program to display distinct elements?
+
+input:
+	1 2 2 3 3 3 4 4 4 4
+output:
+	1 2 3 4 
+
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+         var set = new Set();
+         var arr = [1,2,2,3,3,3,4,4,4,4];
+         for(var i in arr)
+         {
+            set.add(arr[i]);
+         }
+         set.forEach(ele => document.writeln(ele));
+       </script>
+
+</body>
+</html>
+
+
+JavaScript Map 
+===============
+JavaScript Map is used to store the data in the form of key and value pair where key can hold any datatype.
+
+Map remembers original insertion order.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var map = new Map();
+          map.set(1,"one");
+          map.set(2,"two");
+          map.set(3,"three");
+          map.forEach((key,value)=> document.writeln(value+"="+key+"<br>"));
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var map = new Map([[1,"one"],[2,"two"],[4,"four"]]);
+         
+          map.forEach((key,value)=> document.writeln(value+"="+key+"<br>"));
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var map = new Map([[1,"one"],[2,"two"],[4,"four"]]);
+         
+          for(var i of map.keys())
+          {
+            document.writeln(i);
+          }
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var map = new Map([[1,"one"],[2,"two"],[4,"four"]]);
+         
+          for(var i of map.values())
+          {
+            document.writeln(i);
+          }
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var map = new Map([[1,"one"],[2,"two"],[4,"four"]]);
+         
+          for(var i of map)
+          {
+            document.writeln(i);
+          }
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var set = new Set([7,1,9,4,2]);
+
+          document.writeln(set.has(7));
+
+          set.delete(7);
+
+          set.forEach(ele => document.writeln(ele));
+       </script>
+
+</body>
+</html>
+
+
+
+
+JavaScript Math
+===============
+JavaScript Math object is used to perform mathematical operations.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var n =5;
+          var square = Math.pow(n,2);
+          document.writeln(square);
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var a=10,b=20;
+          var max = Math.max(a,b);
+          document.writeln(max+" is greatest");
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var a=10,b=20,c=30;
+          var max = Math.max(Math.max(a,b),c);
+          document.writeln(max+" is greatest");
+       </script>
+
+</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+<head>
+   <title>MyPage!</title>
+</head>
+<body>
+       <script>
+          var n=25;
+          var val = Math.sqrt(n);
+          document.writeln(val);
+       </script>
+
+</body>
+</html>
+
+
+
+
+
+

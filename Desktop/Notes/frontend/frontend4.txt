@@ -1,0 +1,758 @@
+Types of list in HTML
+=====================
+We have three types of list in HTML.
+
+1) Unordered list 
+
+2) Ordered list 
+
+3) Description list 
+
+1) Unordered list
+-----------------
+Unordered list is for bullets.
+A <ul> tag is used to represent unordered list.
+Unordered list contains list of items.
+Each list of item we need to represent by using <li> tag.
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul>
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ul>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="circle">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ul>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="square">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ul>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="disc">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ul>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ul type="none">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ul>	
+	</body>
+</html>
+
+2) Ordered list 
+----------------
+Ordered list is for numerics and alphabets.
+A <ol> tag is used to represent ordered list.
+Ordered list contains list of items.
+Each list of item we need to represent by using <li> tag.
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol>
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ol>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol start="101">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ol>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="i">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ol>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="I">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ol>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="a">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ol>	
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		Courses:
+		<ol type="A">
+			<li>MongoDB</li>
+			<li>ExpressJS</li>
+			<li>ReactJS</li>
+			<li>NodeJS</li>
+		</ol>	
+	</body>
+</html>
+
+3) Description list 
+--------------------
+A description list contains description term and description definition.
+
+A <dl> tag is used to represent description list.
+
+A <dt> tag is used to represent description term.
+
+A <dd> tag is used to represent description definition.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<dl>
+			<dt>HTML5</dt>
+			<dd>
+				It is widely used language on web 
+				to develop web pages and web 
+				applications.
+			</dd>
+		</dl>
+	</body>
+</html>
+
+HTML colors 
+============
+HTML supports only two color values.
+
+1) Valid color name 
+2) Hexa value 
+
+1) Valid color name 
+--------------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body bgcolor="tomato">
+		<font color="white">
+			<h1> Heading Tag </h1>
+		</font>		
+	</body>
+</html>
+
+2) Hexa value
+--------------
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body bgcolor="#FFFF00">
+		<font color="FF0000">
+			<h1> Heading Tag </h1>
+		</font>		
+	</body>
+</html>
+
+Notepad++ Editor
+================
+Download link : https://notepad-plus-plus.org/downloads/v8.8.5/
+
+
+HTML table 
+===========
+A table is used to represent the data.
+
+A table is a collection of rows and columns.
+
+A <table> tag is used to represent table in a web page.
+
+A <tr> tag is used to represent table row.
+
+A <th> tag is used to represent table heading.
+
+A <td> tag is used to represent table data.
+
+A table heading is used to display the text in bold and centered.
+
+A table data is used to display the text in normal and left align.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<table border="0">
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Address</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>Florida</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Lisa</td>
+				<td>Chicago</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Nancy</td>
+				<td>Texas</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Mark</td>
+				<td>Vegas</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+ex:
+--
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<table border="1" align="center" width="50%">
+			<caption> Student Details </caption>
+			<tr bgcolor="#FF00FF">
+				<th>No</th>
+				<th>Name</th>
+				<th>Address</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>Florida</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Lisa</td>
+				<td>Chicago</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Nancy</td>
+				<td>Texas</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Mark</td>
+				<td>Vegas</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<table border="1" cellspacing="10px" cellpadding="10px">
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Address</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>Florida</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Lisa</td>
+				<td>Chicago</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Nancy</td>
+				<td>Texas</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Mark</td>
+				<td>Vegas</td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<th>No</th>
+				<th>Name</th>
+				<th>Address</th>
+			</tr>
+			<tr>
+				<td>101</td>
+				<td>Alan</td>
+				<td>Florida</td>
+			</tr>
+			<tr>
+				<td>102</td>
+				<td>Lisa</td>
+				<td>Chicago</td>
+			</tr>
+			<tr>
+				<td>103</td>
+				<td>Nancy</td>
+				<td>Texas</td>
+			</tr>
+			<tr>
+				<td>104</td>
+				<td>Mark</td>
+				<td>Vegas</td>
+			</tr>
+			<tr>
+				<td colspan="3"><center>Thank You </center></td>
+			</tr>
+		</table>
+	</body>
+</html>
+
+
+HTML form
+=========
+HTML form is used to accept the data from the enduser.
+
+It will forward the data to database or server for processing.
+
+To declare a form we need to use <form> tag.
+
+A HTML form contains following form components.
+ex:
+	Label 
+	TextField
+	PasswordField
+	TextArea 
+	radio button 
+	checkbox 
+	button 
+	and etc.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form>
+			<label>UserName:</label>
+			<input type="text" name="t1"/>  <br>
+			
+			<label>Password:</label>
+			<input type="password" name="t2"/>  <br>
+			
+			<label>Age:</label>
+			<input type="number" name="t3"/> 
+		</form>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form>
+			<label>DOJ:</label>
+			<input type="date" name="t1"/> <br> 
+			
+			<label>Range:</label>
+			<input type="range" name="t2"/> <br>
+			
+			<label>Color:</label>
+			<input type="color" name="t3"/> <br>
+			
+			<label>Email:</label>
+			<input type="email" name="t4"/> <br>
+			
+			<label>Search</label>
+			<input type="search" name="t5"/> <br>
+			
+			<label>File:</label>
+			<input type="file" name="t6"/> <br>
+			
+		</form>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form>
+			<label>Gender:</label>
+			<input type="radio" name="t1" value="male"/> MALE
+			<input type="radio" name="t1" value="female"/> FEMALE
+			
+			<br>
+			
+			<label>Maritial Status:</label>
+			<input type="checkbox" name="t2" value="married"/> MARRIED
+			<input type="checkbox" name="t2" value="single"/> SINGLE
+			
+		</form>
+	</body>
+</html>
+
+
+Core Java Question 
+==================
+
+Q) Write a java program to find out given number is even or odd without using modules(%) operator and  bitwise AND(&) operator ?
+
+class Test
+{
+	public static void main(String[] args)
+	{
+		int n=10;
+	System.out.println(((n/2)*2==n)?"It is even":"It is odd");		
+	}
+}
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form>
+			
+			<!-- simple button -->
+			<button> clickMe </button>   <br> 
+			
+			<!-- submit button -->
+			<input type="submit" value="submit"/> <br>
+			
+			<!-- reset button -->
+			<input type="reset" value="reset"/>
+			
+		</form>
+	</body>
+</html>
+
+Note:
+-----
+A "action" attribute describes where submitted data as to be transfer.
+
+A "target" attribute describes submitted data must be open in a same window or new window.
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form action=""  target="_self">
+			<label>UserName: </label>
+			<input type="text" name="t1"/> <br>
+			
+			<label>Password:</label>
+			<input type="password" name="t2"/> <br>
+			
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form action=""  target="_blank">
+			<label>UserName: </label>
+			<input type="text" name="t1"/> <br>
+			
+			<label>Password:</label>
+			<input type="password" name="t2"/> <br>
+			
+			<input type="submit" value="submit"/>
+		</form>
+	</body>
+</html>
+
+HTML form with table 
+====================
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form action=""  target="_blank">
+			<table align="center">
+				<tr>
+					<td>UserName:</td>
+					<td><input type="text" name="t1"/></td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="password" name="t2"/></td>
+				</tr>
+				<tr>
+					<td>Country:</td>
+					<td>
+							<select name="t3">
+								<option value="">none</option>
+								<option value="ind">India</option>
+								<option value="usa">America</option>
+								<option value="aus"> Australia</option>
+							</select>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="reset" value="reset"/></td>
+					<td><input type="submit" value="submit"/></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
+
+ex:
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MyPage!</title>
+	</head>
+	<body>
+		<form action=""  target="_blank">
+			<table align="center">
+				<tr>
+					<td><input type="text" name="t1" 
+						placeholder="Enter username" 
+						autocomplete="off" required/>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="password" name="t2" 
+						placeholder="Enter password" required/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Login"/></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
