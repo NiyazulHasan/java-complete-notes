@@ -1,0 +1,140 @@
+Q) What is Python ?
+
+Python is a high-level, interpreted, dynamically typed, object oriented, cross platform (Platform independent), general-purpose, open source  programming language created by  Guido van Rossum in 1991.
+
+
+
+Q) Explain some features of python?
+
+We have following important features of python.
+
+1) Simple and Readable Syntax
+
+2) Interpreted Language
+
+3) Dynamically Typed
+
+4) Object-Oriented 
+	> every thing in python is object,even functions and modules.
+
+5) Extensive Standard Library
+	> file I/O, regular expressions, networking, databases, GUI, and more.
+
+6) Cross-Platform Compatibility
+
+7) High-Level Memory Management
+	> Automatic garbage collection.
+
+8) Large Ecosystem of Third-Party Libraries
+	> NumPy/Pandas - Data science
+	> Django/Flask - Web development
+	> TensorFlow/PyTorch - Machine learning
+	> Matplotlib/Seaborn - Data visualization
+
+9) Supports Multiple Programming Paradigms
+	> Procedural programming
+	> Object-oriented programming
+	> Functional programming
+
+10) Extensible and Embeddable
+	> Can integrate with C, C++, Java, .NET languages
+	> Can be used as scripting language in other applications
+
+11) Exception Handling
+	> Robust error handling with try-except blocks
+	> Prevents program crashes due to errors
+
+12) Dynamic Memory Allocation
+	> Lists, dictionaries, and sets can grow/shrink dynamically
+
+13) Built-in Data Structures
+
+	> Lists (dynamic arrays)
+	> Tuples (immutable sequences)
+	> Dictionaries (key-value pairs)
+	> Sets (unique elements)
+
+14) Interactive Shell (REPL)
+	> Read-Eval-Print Loop for testing code instantly
+
+
+History of Python 
+==================
+In the late 1980s, a Dutch programmer named Guido van Rossum was working at Centrum Wiskunde & Informatica (CWI) in the Netherlands. At that time, he was involved in developing an operating system called Amoeba.
+
+During this work, Guido and his team developed a programming language called ABC programming language. ABC was designed to be simple and powerful, and it introduced useful features like exception handling. However, it had several limitations and problems:
+
+It was not extensible
+It lacked integration with other systems
+It was not suitable for real-world large-scale applications
+
+Because of these issues, Guido decided to create a new programming language that would:
+
+Be easy to learn and use
+Be more powerful and flexible
+Overcome the limitations of ABC
+
+During the Christmas holidays of 1989, Guido started working on this new language as a personal project. Within a few months, he developed the first version of a new programming language called Python.
+
+Why the Name “Python”?
+
+The name Python was not related to the snake. Guido was a fan of a British comedy show called Monty Python's Flying Circus, which aired on the BBC in the 1970s.
+
+Inspired by this show, he chose the name Python because it was short, unique, and slightly mysterious.   
+  
+
+Evolution of Python Versions
+Python 0.9.0 (1991)
+
+In 1991, Guido released the first public version of Python:
+
+Classes and objects
+Inheritance
+Exception handling
+Core data types (lists, strings, etc.)
+
+This version already showed the power and simplicity of Python.
+
+
+Python 1.0 (1994)
+
+In 1994, Python 1.0 was officially released with:
+
+Functional programming tools
+lambda, map(), filter(), reduce()
+Improved modularity
+
+
+Python 2.0 (2000)
+
+In 2000, Python 2.0 introduced major improvements:
+
+Unified object model (everything is an object)
+Garbage collection system
+Better memory management
+List comprehensions
+
+This version made Python more powerful and widely usable.
+
+Python 3.0 (2008)
+
+In 2008, Python 3.0 was released as a major upgrade (not fully backward compatible). Key improvements include:
+
+Cleaner and more consistent syntax
+Better Unicode (international language) support
+Improved integer division behavior
+Enhanced standard libraries
+Removal of outdated features
+
+
+After Python 3, the language became extremely popular worldwide. Today, Python is widely used in:
+
+Automation and scripting
+Web development
+Data science and analytics
+Artificial Intelligence and Machine Learning
+Cybersecurity
+
+Libraries like NumPy, Pandas, TensorFlow, and Django made Python even more powerful and industry-ready.
+
+

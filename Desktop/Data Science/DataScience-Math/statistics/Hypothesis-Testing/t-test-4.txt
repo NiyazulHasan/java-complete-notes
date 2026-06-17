@@ -1,0 +1,125 @@
+2) Paired t test (Testing the significance of an observed Correlation Coefficient)
+==================================================================================
+Diagram: t-test-4.1
+
+Question1
+----------
+A random sample of 27 pairs of observations from a normal population gives a correlation coefficient of 0.55 is likely that the variables in the population are correlated?
+
+Let consider:
+		Ho : Correlation = Not significant
+		Ha : Correlation ≠ Not significant
+
+Given Data:
+		n = 27
+		r = 0.55
+		
+		        0.55		--------
+		t = --------------  =  | 27 -2 
+		    --------------    V
+		   V 1 - (0.55)^2
+
+
+		        0.55		-----
+		t = --------------  x  | 25
+		    --------------    V
+		   V 1 - 0.3025
+
+
+		        0.55		
+		t = --------------  x 5  
+		      -------- 
+		     V 0.6975		
+
+                     0.55 * 5        2.75
+		t = -----------  =  ------   = 3.293 (tcal)
+                      0.835          0.835
+	
+	ν (nu) degree of freedom 
+ex:
+	ν (nu)  = n - 2
+		= 27 - 2 
+		= 25
+
+Diagram:  t-test-2.2 (With the help of diagram we can find the result)
+
+	t	= 2.060     
+	0.05,25
+
+	tcal > ttab  
+
+	So Ho cannot be accepted.
+
+
+
+Question2
+----------
+Is a correlation coefficient of 0.6 significant? if obtained from a random sample of 11 pairs of values from a normal population?
+
+Let consider:
+		Ho : Correlation = Not significant
+		Ha : Correlation ≠ Not significant
+
+Given Data:
+		n = 11
+		r = 0.6
+		
+		        0.6		--------
+		t = --------------  =  | 11 - 2 
+		    --------------    V
+		   V 1 - (0.6)^2
+
+
+		        0.6		-----
+		t = --------------  x  | 9
+		    --------------    V
+		   V 1 - 0.36
+
+
+		        0.6		
+		t = --------------  x 3 
+		      -------- 
+		     V 0.64		
+
+                       0.6            
+		t = -----------x 3 	
+			0.8
+
+			1.8
+		t =  ------   = 2.25 (tcal)
+                        0.8         
+	
+	ν (nu) degree of freedom 
+ex:
+	ν (nu)  = n - 2
+		= 11 - 2 
+		= 9
+
+Diagram:  t-test-2.2 (With the help of diagram we can find the result)
+
+	t	= 2.262     
+	0.05,9
+
+	tcal < ttab  
+
+	So Ho is accepted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

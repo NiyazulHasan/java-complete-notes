@@ -1,0 +1,66 @@
+https://youtu.be/3eSVw8zn8DU?si=OYKKNfiHNinr8KlP
+
+
+
+Linear Algebra
+=================
+Linear algebra is a branch of mathematics that studies vectors, matrices, and systems of linear equations.
+
+Linear algebra is the study of vectors and matrices and how they transform space and solve linear equations.
+
+
+Point and Vector 
+================
+A point is a fixed location/address in space.
+A vector is a direction + magnitude (movement).
+
+
+Example in 2D: (4,5)
+It means: “Go 4 units X-axis and 5 units Y-axis from the origin.”
+
+Example in 3D: (2,3,5)
+It means: “Go 2 units X-axis, 3 units Y-axis and 5 units Z-axis from the origin.”
+
+Diagram: linear-algebra1.1
+
+
+Find Distance from Origin 
+=========================
+Distance measures how far apart two points (or vectors) are.
+		     	   ________
+Distance Formulea for 2D: V a² + b² 
+                           ___________
+Distance Formulea for 3D: V a² + b² + c²
+
+Diagram: linear-algebra1.2
+
+
+Distance between two points
+============================
+The distance between two points is the length of the straight line joining them.
+	
+                      		_________________________
+Distance Formulea for 2D :     V (a1 - b1)² + (a2 - b2)²
+
+	              		_____________________________________
+Distance Formulea for 3D :     V (a1 - b1)² + (a2 - b2)² + (a3 - b3)²
+
+
+Diagram: linear-algebra1.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+Anova (One Way Anova)
+====================
+
+Question1
+---------
+To assess the significance of possible variation in performance in a certain test between the schools of a city, a common
+test was given to a number of students taken at random from the 12th class of the 3 schools concerned. The results given below.
+
+Make the analysis of variance for the given data.
+
+A		B		C
+---		-----		---
+2		3		4
+4		5		6
+6		7		8
+----	----------	-----------
+12		15		18
+
+
+1) State the Null and Alternative Hypothesis
+----------------------------------------------
+  Ho : μ1​=μ2​=μ3​=⋯  = μk​
+  Ha : μ1​≠μ2​≠μ3​≠⋯ ≠ μk​
+
+2) Calculate the variance between the samples
+---------------------------------------------
+a) Calculation of mean of each sample 
+   ex:
+		12
+	μ1 ​=  ------- = 4
+		3
+	
+		15
+	μ2​ =  ------- = 5
+		3
+
+		18 
+	μ3 ​= -------- = 6
+		3		
+
+b) Calculation of grand average of means
+   ex:
+
+	 	μ1​ + μ2​ + μ3​	  4 + 5 + 6	 15		
+	μ = 	------------  =  ------------ = ---- = 5
+		     3		     3		  3	
+
+c) Calculation of SSC (Sum of square between samples)
+ex:
+		
+(μ1 - μ)	(μ1 - μ)²     	(μ2 - μ)  	​(μ2 - μ)² ​    	(μ3 - μ)	(μ3 - μ)² ​
+---------    	--------	---------	---------	---------	---------
+4-5=-1		1		5-5=0		0		6-5=1		1
+4-5=-1		1		5-5=0		0		6-5=1		1
+4-5=-1		1		5-5=0		0		6-5=1		1
+		---------			--------			------
+		3				0				3
+
+∑(μˉ - μ)² =  3 + 0 + 3 = 6 
+
+SSC = 6
+
+3) Calculate the variance within the samples
+------------------------------------------
+
+a) Calculation of SSE (Sum of square within samples)
+
+A	B	C
+----	----	----
+2	3	4
+4	5	6	
+6	7	8
+
+(A−μ1)	(A−μ1)² (B−μ2​​)	(B−μ2​)² (C−μ3​)   (C−μ23​)² 
+------	------	------	------	------	------
+2-4=-2	4	3-5=-2	4	4-6=-2	4		
+4-4=0	0	5-5=0	0	6-6=0	0
+6-4=+2	4	7-5=+2	4	8-6=+2	4
+	----		----		-----
+	8		8		8
+	
+∑(μ- μˉ)² = 8 + 8 + 8 = 24
+
+SSE = 24
+
+
+4) Calculate the radio of F 
+------------------------------
+
+Source of variation 	sum of squares		Degree of Freedom	Mean sum of squares		F
+--------------------	-----------------	------------------	----------------------		----------
+														MSC
+between sample 		SSC = 	6		V₁ = c - 1 		MSC =  SSC/c-1			F = ----------
+						     3 - 1 = 2			6/2 = 3				MSE
+														3	
+Within sample		SSE = 	24		V₂ = n - c 		MSC = SSE/n-c			F =   ------ = 0.75	
+						     9 - 3 = 6			24/6 = 4 			4
+
+
+Note:
+----
+Here c means number of columns i.e 3 in a table 
+Here n means rows and columns (3*3=9) in a table
+
+
+
+5) Tabulated F value 
+-------------------
+Diagram: Anova-2.1
+
+
+F₂,₆ = 5.14
+
+
+Fcal < Ftab
+
+
+6) Take the decision
+-------------------
+Ho is accepted.
+μ1​=μ2​=μ3​  are same no significance difference
+
+
+Question 2
+----------
+To assess the significance of possible variation in performance is a certain test between the pharmacy colege of a city,
+a common test was given to a number of students taken at random from the Bachelor of pharmacy (final year) of the 3 colleges concerned. The results given below.
+
+A	B	C
+----	----	----
+9	13	14	
+11	12	13
+13	10	17
+9	15	7
+8	5	9	
+
+Make the analysis of variance for the given data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

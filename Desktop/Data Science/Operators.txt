@@ -1,0 +1,139 @@
+Operators 
+=========
+In Python, operators are special symbols or keywords that perform operations on values and variables. They are the building blocks of expressions like calculations, comparisons, logic checks, and more.
+
+Python divides the operators in the following groups:
+
+    Arithmetic operators
+    Comparison operators	
+    Logical operators
+    Assignment operators
+    Bitwise operators	
+    Membership operators
+    Identity operators
+
+
+1. Arithmetic Operators
+
+These are used for mathematical operations.
+
+Operator	Meaning			Example
+--------	---------		----------
++		Addition		5 + 3 = 8
+-		Subtraction		5 - 3 = 2
+*		Multiplication		5 * 3 = 15
+/		Division		5 / 2 = 2.5
+//		Floor Division		5 // 2 = 2
+%		Modulus (remainder)	5 % 2 = 1
+**		Exponent		2 ** 3 = 8
+
+
+2. Comparison (Relational) Operators
+
+These compare two values and return True or False.
+
+Operator	Meaning			Example
+----------	----------		---------
+==		Equal to		5 == 5 → True
+!=		Not equal		5 != 3 → True
+>		Greater than		5 > 3 → True
+<		Less than		5 < 3 → False
+>=		Greater or equal	5 >= 5 → True
+<=		Less or equal		3 <= 5 → True
+
+
+
+3. Logical Operators
+
+Used to combine conditional statements.
+
+Operator	Meaning			Example
+--------	----------		-------
+and		True if both are true	x > 5 and x < 15
+or		True if one is true	x > 5 or x < 3
+not		Reverses result		not(x > 5)
+
+
+
+4. Assignment Operators
+
+Used to assign values to variables.
+
+Operator	Meaning			Example
+=		Assign			x = 5
++=		Add and assign		x += 3 → x = x + 3
+-=		Subtract and assign	x -= 3
+*=		Multiply and assign	x *= 3
+/=		Divide and assign	x /= 3
+//=		Floor divide and assign	x //= 3
+%=		Modulus and assign	x %= 3
+**=		Power and assign	x **= 3
+
+
+5. Bitwise Operators
+
+These work on binary (bit-level) values.
+
+Operator	Meaning		Example
+----------	-------		-------
+&		AND		5 & 3
+`		`		OR
+^		XOR		5 ^ 3
+~		NOT		~5
+<<		Left shift	5 << 1
+>>		Right shift	5 >> 1
+
+
+
+
+6. Membership Operators
+
+Used to check if a value exists in a sequence (list, string, tuple, etc.)
+
+Operator	Meaning
+------		-------
+in		Exists in
+not in		Does not exist in
+
+ex:
+--
+fruits = ["apple", "banana", "mango"]
+
+print("apple" in fruits)     # True
+print("grape" not in fruits) # True
+
+
+
+7. Identity Operators
+
+Used to compare memory locations of objects.
+
+Operator	Meaning
+-------		-------
+is		Same object
+is not		Not same object
+
+ex:
+
+a = [1, 2, 3]
+b = a
+c = [1, 2, 3]
+
+print(a is b)      # True (same object)
+print(a is c)      # False (different objects)
+print(a == c)      # True (same values)
+
+
+Note:
+-----
+Python operators are grouped into:
+
+Arithmetic → math operations
+Comparison → value comparison
+Logical → combining conditions
+Assignment → assigning/updating values
+Bitwise → binary-level operations
+Membership → checking presence
+Identity → checking object identity
+
+

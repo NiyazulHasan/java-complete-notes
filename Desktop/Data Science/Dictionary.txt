@@ -1,0 +1,144 @@
+Python Dictionary 
+=================
+A Python dictionary is a collection used to store data in key-value pairs.
+
+Python dictionaries are:
+
+Ordered (insertion order is preserved)
+Mutable (elements can be changed after creation)
+Heterogeneous (different data types are allowed)
+Keys do not allow duplicates
+Allow None values for both keys and values
+
+
+Example:
+
+student = {
+    "name": "Ravi",
+    "age": 20,
+    "course": "Python"
+}
+
+Here:
+
+"name" → key
+"Ravi" → value
+
+
+Dictionaries are useful when data has a label.
+
+Examples:
+
+Student details
+Employee records
+Product information
+Settings/configuration
+
+Instead of remembering positions like lists, dictionaries use meaningful names.
+
+
+ex:
+---
+Use the key inside square brackets.
+
+person = {
+    "name": "Anita",
+    "city": "Hyderabad",
+    "age": 25
+}
+print(person["name"])
+
+Output:
+
+Anita
+
+ex:
+---
+Adding New Items
+person["job"] = "Teacher"
+
+Now dictionary becomes:
+
+{
+    "name": "Anita",
+    "city": "Hyderabad",
+    "age": 25,
+    "job": "Teacher"
+}
+
+ex:
+----
+
+Changing Values
+person["age"] = 26
+
+ex:
+
+Removing Items
+
+Using del
+del person["city"]
+
+Using pop()
+person.pop("age")
+
+ex:
+
+Looping Through Dictionary
+Print Keys
+for key in person:
+    print(key)
+
+Print Values
+for value in person.values():
+    print(value)
+
+Print Both
+for key, value in person.items():
+    print(key, value)
+
+
+Important Rules
+Keys must be unique
+data = {
+    "name": "Ravi",
+    "name": "Kumar"
+}
+
+Output keeps only the last value:
+
+{"name": "Kumar"}
+Keys are usually:
+strings
+numbers
+tuples
+Dictionaries are mutable
+(meaning values can change)
+
+
+ex:
+---
+A dictionary inside another dictionary.
+
+students = {
+    "s1": {
+        "name": "Ravi",
+        "marks": 90
+    },
+    "s2": {
+        "name": "Anita",
+        "marks": 95
+    }
+}
+
+Access:
+
+print(students["s1"]["name"])
+
+Output:
+Ravi
+
+
+
+
+

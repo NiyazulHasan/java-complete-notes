@@ -1,0 +1,180 @@
+Non-parametric
+===============
+Non-parametric tests are statistical tests that do not require assumptions about the population distribution (such as normality). 
+They are often used when:
+
+> Data are ordinal (ranked) rather than interval/ratio.
+> Sample sizes are small.
+> Data are not normally distributed.
+> Outliers make parametric tests unreliable.
+
+It is divided into two types.
+
+1) Signed Rank Test 
+	ex:
+		Wilcoxon Rank Signed-Test
+
+2) Rank Sum Test 
+	ex:
+		Mann-Whiteney U Test
+		or 
+		Wilcoxon Rank Sum Test
+
+
+Wilcoxon Signed-Rank Test
+=========================
+
+The Wilcoxon Signed-Rank Test is a non-parametric statistical test used to compare two related (paired/dependent) samples and determine whether their population median differences are significantly different from zero.
+
+It is the non-parametric alternative to the paired t-test.
+
+
+Question
+========
+A drug is given to 11 patients and difference in their BP were recorded to be:
+
+Before Drug A		After Drug A
+112			116
+113			120
+118			117
+120			125
+119			126
+113			111
+110			111
+122			117	
+126			126
+115			112
+119			129
+
+Use the wilcoxon signed rank test to test the hypothesis that the drug has no effect on change of BP?
+
+	|  R - Mean |	
+Z  = 	-------------
+	Standard Deviation 
+
+	n (n+1)
+Mean = --------
+	  4			
+	________________
+	|n(n+1)(2n+1)	
+S.D =   |--------------
+       V     24
+
+R = Sum of Ranks
+(Smaller or Larger any one)
+n = number of Samples
+(After Exluding 0 Difference)
+
+
+
+Before Drug A		After Drug A	  d = (X-Y)
+					  d = (Y-X)	|d|		R
+---------------		-------------	-------------	-------		-----
+112			116		-4		4		5	
+113			120		-7		7		8.5
+118			117		+1		1		1.5
+120			125		-5		5		6.6	
+119			126		-7		7		8.5
+113			111		+2		2		3
+110			111		-1		1		1.5
+122			117		+5		5		6.5
+126			126		0		0		-
+115			112		+3		3		4
+119			129		+10		10		10
+
+note:
+----
+	0 - don't consider for rank 
+				     1 + 2     3
+	1 - occuring for two times = ------ = ---- = 1.5  
+					2 	2
+
+	Here 1+2 means rank1 and rank2.
+
+
+	2 - assign Rank 3 
+
+	3 - assign Rank 4
+	
+	4 - assign Rank 5
+					6 + 7	  13 
+	5 - occuring for two times =  --------- = --  = 6.5
+					2	   2	
+	Here 6+7 are rank6 and rank7
+					8 + 9	  17
+	7 - occuring for two times =   ------- = ---- =  8.5
+					2 	  2	
+	
+	10 - assign Rank 10
+	
+Let's consider
+Ho : Drug A does not effect BP.
+Ha : Drug A does effect BP.
+
+
+
+R^+  = 1.5 + 3 + + 6.5 + 4 + 10 = 25
+(Take negative numbers R from table)
+
+R^-  = 5 + 8.5 + 6.5 + 8.5 + 1.5 = 30
+(Take negative numbers R from table)
+
+Note:
+-----
+	R value we can take 25 or 30.
+
+
+n = 10 (Because it is a top rank in table)
+
+	10 (10+1)	10*11	
+Mean = 	--------- =    ------- =  27.5	
+	   4		  4
+
+
+
+	________________
+	|10(10+1)(2*10+1)	
+S.D =   |--------------
+       V     24
+
+
+	_________
+	| 110*21	
+S.D =   | ------  
+       V     24
+
+	_________
+	| 2310	
+S.D =   | ------  
+       V     24
+
+	_________
+S.D =	| 96.25     = 9.81 
+       V    
+
+	| 30 - 27.5 |	 2.5
+Z = 	------------- = -----  = 0.255
+	    9.81	 9.81
+
+	| 25 - 27.5|	| -2.5 |	
+Z =     ------------ =  -------  =  0.255
+	     9.81	  9.81
+
+Z	= 0.255	
+cal 
+
+Take 5% or 1% of level of significance.
+
+ex:
+	Z      = 1.96
+	 0.05
+
+	Z	= 2.58
+	 0.01		
+
+Here Z	   <   Z
+      cal	tab 
+
+Drug A does not effect BP
+
+

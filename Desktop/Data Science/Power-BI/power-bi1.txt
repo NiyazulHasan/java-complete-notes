@@ -1,0 +1,351 @@
+Power BI
+========
+Power BI is a business analytics and data visualization tool from Microsoft that helps you turn data into interactive reports and dashboards.
+
+What Power BI is used for
+📊 Creating charts, graphs, and dashboards
+📈 Analyzing business performance and trends
+🔄 Connecting to data sources such as Excel, SQL databases, cloud services, and APIs
+🤝 Sharing reports across teams and organizations
+🧠 Performing data modeling and advanced analytics
+
+
+Main Components
+--------------
+> Power BI Desktop
+Free Windows application for creating reports and data models.
+> Power BI Service
+Cloud-based platform for publishing, sharing, and viewing reports online.
+> Power BI Mobile
+Mobile apps for accessing dashboards on smartphones and tablets.
+
+Power BI Job Opportunities
+===============================
+There are many jobs which required Power BI Skills.
+> Power BI Analyst 
+> Power BI Developer
+> BI Consultant 
+> BI Specialist 
+> Business Analyst 
+> Data Analyst and etc.
+
+
+
+Download and Install 
+==================
+Download power BI Desktop from the Microsoft store as windows will automatically update your Power BI Desktop with the latest version.
+
+(No need to download the entire application  for each update)
+
+ex:
+	Goto Microsoft store --> Search Power BI Desktop --> click to get button -->
+	 
+
+Agenda 
+=======
+Owner of E-commerce project wants us to help them to create a dashboard to track and analyze their online sales accross india.
+
+step1:
+-----
+	Create two CSV files.
+	ex:
+		Details.csv or Details.xlsx
+		Orders.csv or Orders.xlsx
+
+step2:
+-----
+	Launch Power BI Dashboard.
+
+	
+step3:
+-----
+	Go to Power BI interface.
+	ex:
+		click to Options and Settings --> Data Source settings.
+		
+
+step4:
+-----
+	Upload the data to Power BI.
+	
+	ex:
+		click to Get Data (option) --> Text/CSV file --> select xlsx/csv file
+		--> In Navigator select the sheet --> Load.
+		
+step5:
+------	
+	Check right side of POWER BI dashboard . It shows "Data" option.
+
+
+Transform Data using Power BI 
+=============================
+
+step:
+-----
+	Now transform the data.
+	ex:
+		click to transform Data option --> 
+
+		Here we can add , remove , duplicate columns,
+		Here we can change datatype of column.
+		Here we can filter the columns 
+		Here we can apply group by clause using power query	
+
+
+	Note:
+	------
+		Click close and apply to make the changes in data transformation.
+
+Data View in Power BI 
+=====================
+
+step:
+-----
+	Click on data view (left side option). 
+	ex:
+		Here we can perform DAX queries
+
+
+Model view in Power BI 
+=======================
+step:
+-----
+	Click on Model view (left side option) 
+	ex:
+		It is used to establish the relationship between the tables to 
+		create charts and graphs.
+
+
+DashBoard in Power BI 
+=====================
+step:
+-----
+	click to report view (left side option).
+	ex:
+		Niyaz E-commerce Sales Dashboard - (Text Box)
+		Create a profit chart - (Stacked Column Chat)
+		Add Date(from Orders) and Profit(from Details) inside the chart - (Drag and Drop)
+		Goto Table views --> Change the column datatype.
+					  	
+		We can add anything in x-axis and Y-axis (drag and drop)			
+
+	
+step:
+------
+	Add background in report.
+	ex:
+		click anywhere outside the chart --> Format your report page (Visualization) -->
+		 Goto canvas background --> click on image fit --> select the image --> 
+		reduce the transparent. 
+
+
+step:
+-----
+	Now add the chart as per the background.
+	ex:
+		click on the chart --> Goto format visual (Visualization) --> 
+		Visual(For removing titles) and General - properties (effects - making transparent 
+		background).
+
+
+step:
+----
+	We can remove the grid lines (horizontal lines which are their in chart)
+	ex:
+		click on the chart --> Goto format visual --> Gridlines -->  off	
+
+
+step:
+-----
+	Now change the Title of chart =
+	ex:
+		click on the chart --> Goto format visual --> Title --> 
+		Text : Profit By  Month  --> color : select the color also with alignment.		
+step:
+-----
+	click to refresh option if your values are not comes as expected.
+
+step:
+----
+	Now change the color of char bar 
+	ex:
+		click on the chart --> Goto format visual --> Columns --> change the color and 
+		set the rules using (click to fx button).		
+
+		ex:
+			Format style : Rules
+			What field should we base this on ? Details -> profit.
+			Rule1 : For positive values
+			Rule2 : For negative values
+ 
+step:
+-----
+	Now change the border radius of a chart
+	ex:
+		click on the chart --> Goto format visual --> General --> Effects --> Visual border
+		--> increase the border radius
+
+step:
+-----
+	Create a duplicate of a chart.
+	ex:
+		press ctrl+c and ctrl+v.		
+
+
+=================================================
+Create a sub-category chart bar
+=================================================
+step:
+----
+	select stacked bar chart 
+	ex:	
+		add  Details >> sub-category and profit
+
+	Note:
+	----
+		This will show which sub-category is giving more profit for my business.
+	 	
+step:
+-----
+	Now we need to display top 5 sub-categories.
+	ex:
+		Goto Filters option --> click on sub Categories --> Filter Type : Top N --> 
+		Show Items : 5 --> By value (means on which basis) : Details>> profit (drag and drop) -->
+		Apply Filter. 
+
+
+step:
+-----
+	To copy chart format.
+	ex:
+		click on the chart from where you want to take the format --> click on Format painter
+		---> click to second chart where you want to apply the format.
+		
+step:
+-----
+	Now change the color of bars.
+	ex:
+		click on the chart --> Goto format visual --> Visuals --> Bars --> select individual category and change the color.	
+
+==========================================================
+Create a donut chart
+==========================================================
+step:
+----
+	Create a sum of  quantity by category.
+	ex:
+		Add details >> Quantity and Category
+
+step:
+-----
+	To copy chart format.
+	ex:
+		click on the chart from where you want to take the format --> click on Format painter
+		---> click to second chart where you want to apply the format.
+
+step:
+-----
+	Change the colors.
+	ex:
+		Goto Format your visuals --> slices --> colors --> Apply settings to series --> select each category and 
+		change the color. 
+
+step:
+-----	
+	Change the color of a label.
+	ex:
+		Goto Format your visuals --> detail labels -->  Values --> change the colors.
+
+step:
+-----
+	Set label name with percentage 
+	ex:
+		Goto Format your visuals --> detail labels -->  Options --> Label contents : select -> 
+		Category , percent of total.	
+
+step:
+----
+	To remove decimal point.
+	ex:
+		Goto Format your visuals --> detail labels -->  Values --> Percentage decimal places : write -> 0.			
+step:
+------
+	Now close the legend of a chart.
+	ex:
+		Goto Format your visuals --> disable lagend. 		
+
+
+===============================================
+Create a donut chart 
+==============================================
+step:
+----
+	Copy and paste donut chart.
+	ex:
+		ctrl+c and ctrl+v
+
+step:
+-----
+	Create a sum of quantity with payment mode
+	ex:
+		click on copied chart --> change 
+		Legend : cancel Category and (drag and drop -> Details >> payment Mode)
+		Values : Sum of Quantity 
+		
+
+==================================================
+Create a Card 
+==================================================
+step:
+----
+	select the card for sum of amount .
+	ex:
+		click on card --> drag and drop -> Details>> amount.
+
+step:
+----
+	To copy chart format.
+	ex:
+		click on the chart from where you want to take the format --> click on Format painter
+		---> click to second chart where you want to apply the format.
+
+step:
+----
+	Make it proper transparent as per other charts.
+	ex:
+		Goto Format your visual --> Visual --> Multi-card layout --> Disable background.
+		Goto Format your visual --> Visual --> Cards --> Disable Border and background.
+		Goto Format your visual --> Visual --> callout --> value --> change the color.
+		Goto Format your visual --> Visual --> callout --> label --> change the color.
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

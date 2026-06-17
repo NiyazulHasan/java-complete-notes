@@ -1,0 +1,836 @@
+https://youtu.be/lv82j5TDwMM?si=RrHYQ0O4gx2IicsE
+
+
+Statistics for Data Science
+============================
+Statistics is the foundation of Data Science, involving the collection, organization, analysis, and interpretation of data to extract insights, identify patterns, make predictions, measure uncertainty, and build machine learning models.
+
+It helps answer key questions such as:
+
+What is the average value in the data? (central tendency: mean, median, mode)
+How much do values vary? (variance/standard deviation)
+What relationships exist between variables? (correlation/clustering)
+What will happen in the future? (prediction/modeling)
+How well does a model perform? (model evaluation)
+
+Statistics is mainly divided into two major types:
+
+1. Descriptive Statistics
+2. Inferential Statistics
+
+1. Descriptive Statistics
+-------------------------
+Descriptive statistics are methods used to summarize and describe data. 
+
+They include:
+
+> Measures of central tendency: Mean, Median, Mode
+> Measures of dispersion: Range, Variance, Standard deviation
+> Measures of position: Quartiles, Percentiles
+> Measures of Relationship (Association) : Covariance, Correlation
+> Shape of Distribution : Skewness (sometimes Kurtosis is also included)
+> Data distribution and graphical representation: Tables, Charts, Graph
+
+
+1) Measures of Central Tendency
+===============================
+These describe the “center” of the data.
+
+i) Mean (Average)
+-----------------
+Mean is the sum of all values divided by the number of values.
+
+Formula:
+		Mean =  ∑ x
+			-----
+	​		  n
+
+		Where:
+			∑  = Summation 
+			x  = data values
+			n  = number of observations
+
+Ex:
+
+	Data:  2,4,6,8,10
+
+	Step 1:    Add values
+		   ex:
+			2+4+6+8+10=30
+
+	Step 2:  Divide by total values
+		 ex:
+			30/5=6
+
+	Step 3: Collect the result.
+		ex:
+			Mean = 6
+
+Python Example:
+---------------
+import numpy as np
+data = [1,2,3,4,5]
+mean_value = np.mean(data);
+print(mean_value);
+
+output:
+	3.0
+
+
+ii) Median
+------------
+Median is the middle value after sorting data.
+
+ex:
+	Step1:	Arrange data in order
+
+	Step2: 	Find middle value
+
+
+Example 1 (Odd count):
+
+	Data: 1,3,5,7,9
+
+	Middle value = 5
+
+	Median = 5
+
+
+Example 2 (Even count):
+
+	Data: 1,2,4,6
+
+	Middle two values:
+	ex:		
+		2,4
+
+	Median: (2+4)/2=3
+
+	Median = 3
+
+Python Example:
+---------------
+import numpy as np
+data = [1,2,3,4,5]
+median_value = np.median(data);
+print(median_value);
+o/p:
+	3.0 
+
+or
+
+import numpy as np
+data = [1,2,3,4,5]
+median_value = int(np.median(data));
+print(median_value);
+o/p:
+	3
+
+
+iii) Mode
+------------
+Mode is the most frequently occurring value.
+
+Example:
+	Data: 1,2,2,3,4,4,4,5
+
+	Most frequent value = 4
+
+	Mode = 4
+
+
+Python Example:
+---------------
+from scipy import stats
+data = [1,2,2,3,4,4,4,5]
+mode_value = stats.mode(data);
+print(mode_value);
+Output:
+	ModeResult(mode=np.int64(4), count=np.int64(3))
+
+
+
+
+2. Measures of Dispersion
+=========================
+These measure how spread out data is.
+
+i) Range
+---------
+Formula:
+		Range = Maximum − Minimum
+
+Example:
+
+	Data:
+		2,4,6,8,10
+		10−2 = 8
+		Range = 8
+
+
+ii)  Variance
+-------------
+Variance measures how far data points are from the mean.
+
+> A small variance means: values are close to mean
+> A large variance means: values are spread out
+
+Population Variance Formula
+ex:
+	σ^2 = ∑(x−μ)^2
+	      ---------
+		 N
+Where:
+σ = Sigma
+∑ = simmulation 
+x = each value
+μ = population mean
+N = population size
+
+
+Sample Variance Formula
+
+ex:
+	s^2 = ∑(x−xˉ)^2​
+     	      -----------
+		 n-1
+
+Why n−1?
+Called Bessel’s correction
+Gives better estimate for sample data
+
+
+Variance Example
+
+	Data	:	2,4,6,8
+	Step 1	:	 Find Mean
+			(2+4+6+8)/4=5
+
+	Step 2	: 	Subtract Mean
+
+			Value	Minus Mean
+			-----	----------
+			2	-3
+			4	-1
+			6	1
+			8	3
+	
+	Step 3	: 	Square Differences
+			Difference	Squared
+			----------	-------
+			-3		9
+			-1		1
+			 1		1
+			 3		9
+
+			Sum:  9+1+1+9=20
+
+	​Step 4	: 	Divide
+
+			Population variance:
+			20/4=5
+			Variance = 5	
+
+Python Example
+---------------
+import numpy as np
+data = [2,4,6,8]
+variance_value = int(np.var(data))
+print(variance_value);
+Output:
+	5
+
+
+iii) Standard Deviation
+------------------------
+Square root of variance.
+
+ex:
+	     _________	
+	σ = V Variance
+
+Variance = 5
+ex:
+         ___
+	V 5 = 2.236
+
+Standard deviation ≈ 2.24
+
+Standard deviation returns to original units.
+
+Example:
+	salary spread in rupees
+	height spread in centimeters
+
+Python Example
+---------------
+import numpy as np
+data = [2,4,6,8]
+std_value = np.std(data))
+print(std_value);
+Output:
+	2.236
+
+
+3. Measures of position
+=======================
+
+i) Percentile
+-------------
+Indicates percentage of data below a value.
+
+Example:
+
+	90th percentile means 90% data is below that point.
+
+Used in:
+
+	exams
+	rankings
+	analytics
+
+ii) Quartiles
+--------------
+Divide data into 4 equal parts.
+
+ex:
+	Quartile	Meaning
+	--------	-------
+	Q1		25% data below
+	Q2		Median
+	Q3		75% data below
+
+
+iii) Interquartile Range (IQR)
+-----------------------
+Used for detecting outliers.
+ex:
+		IQR=Q3−Q1
+
+
+4. Measures of Relationship
+===========================
+In data science, we often want to understand:
+
+> How variables move together
+> Whether data is symmetric or distorted
+? How data is distributed visually
+
+These concepts are foundational for:
+
+Exploratory Data Analysis (EDA)
+Feature engineering
+Machine learning preprocessing
+Statistical modeling
+
+
+1. Covariance
+Definition
+
+Covariance measures how two variables change together.
+
+Positive covariance → variables increase together
+Negative covariance → one increases while the other decreases
+Near zero → little linear relationship
+Formula
+
+Diagram: statistics1.1
+
+
+Example
+
+Suppose:
+
+Student		Study Hours (X)	Marks (Y)
+A		2		50
+B		4		60
+C		6		70
+D		8		80
+
+Observation
+-------------
+	As study hours increase, marks increase.
+	So covariance will be positive.
+
+
+Interpretation
+================
+Covariance Value		Meaning
+---------------		--------
+Positive		Variables move together
+Negative		Variables move opposite
+Zero			No linear relation
+
+
+
+Limitation of Covariance
+======================
+Covariance magnitude depends on units.
+
+Example:
+
+	Height in cm vs weight in kg
+	Height in meters vs weight in kg
+
+	The covariance changes because units changed.
+	This is why we use correlation.
+
+
+
+2. Correlation
+-----------------
+Correlation measures  strength and direction of the linear relationship between variables.
+
+Unlike covariance, correlation is standardized.
+
+Diagram: statistics1.2
+
+
+Interpretation
+-----------------
+Correlation	Meaning
+------------	---------
++1		Perfect positive
++0.8		Strong positive
++0.5		Moderate positive
+0		No linear relation
+-0.5		Moderate negative
+-1		Perfect negative
+
+Example 1 — Positive Correlation
+-------------------------------
+Temperature	Ice Cream Sales
+-----------	-----------
+20		100
+25		150
+30		200
+
+As temperature rises, sales rise.
+→ Positive correlation.
+
+
+Example 2 — Negative Correlation
+--------------------------------
+Price	Demand
+----	------
+10	100
+20	80
+30	50
+
+As price increases, demand decreases.
+→ Negative correlation.
+
+
+
+
+
+5. Shape of Distribution
+========================
+Distribution shape tells us:
+
+> how data spreads
+> whether data is balanced
+> whether outliers exist
+
+
+i) Skewness
+------------
+Skewness measures the asymmetry of a distribution.
+
+Types of Skewness
+
+a) Symmetric Distribution
+----------------------
+Mean = Median = Mode
+Example:
+
+	Heights of adults
+	Bell-shaped curve.
+
+b) Positive Skewness (Right Skewed)
+----------------------------
+Tail extends to the right.
+
+Examples:
+
+	Income distribution
+	House prices
+
+Characteristics:
+	Mean > Median > Mode
+
+	Why?
+	A few very large values pull the mean rightward.
+
+c)  Negative Skewness (Left Skewed)
+------------------------------
+Tail extends to the left.
+
+Examples:
+	Easy exam scores
+
+Characteristics:
+	Mean < Median < Mode
+
+Diagram: statistics1.3
+
+Interpretation
+---------------
+Skewness	Shape
+--------	-------
+0		Symmetric
+> 0		Right skewed
+< 0		Left skewed
+
+
+
+
+6.  Data Distribution and Graphical Representation
+==============================================
+Visualization helps us:
+> understand patterns
+> detect anomalies
+> communicate findings
+
+
+A. Tables
+-----------
+Example
+
+Age Group	Count
+--------	-------
+0–18		50
+19–35		120
+36–60		90
+
+Tables provide structured representation.
+
+
+
+B. Charts
+------------
+Charts summarize information visually.
+
+1. Bar Chart
+-----------
+Used for categorical comparison.
+
+Example:
+Sales by product category
+Product		Sales
+--------	--------
+A		100
+B		150
+
+2. Pie Chart
+-----------
+Shows proportion/share.
+
+Example:
+
+Market share
+
+3. Line Graph
+----------
+Shows trends over time.
+
+Example:
+
+Stock prices
+Website traffic
+
+4. Histogram
+-------------
+Very important in data science.
+
+Used for:
+
+frequency distribution
+understanding shape
+
+Example:
+Exam scores distribution
+
+5. Scatter Plot
+-----------
+Shows relationship between two variables.
+
+Example:
+
+Height vs weight
+
+Useful for:
+
+correlation analysis
+clustering patterns
+
+
+6. Box Plot
+----------
+Shows:
+
+median
+quartiles
+outliers
+
+Very useful in EDA.
+
+
+
+Graphs in Data Science Workflow
+============================
+Step 1 — Understand Data
+
+Use:
+
+histogram
+boxplot
+Step 2 — Detect Relationships
+
+Use:
+
+scatter plots
+heatmaps
+Step 3 — Detect Outliers
+
+Use:
+
+boxplots
+density plots
+Step 4 — Feature Engineering
+
+Check:
+
+skewness
+distributions
+
+
+
+
+Example: Complete Data Science Scenario
+========================================
+Suppose you are analyzing housing prices.
+
+Variables
+	Area
+	Bedrooms
+	Price
+Analysis
+	Correlation
+	Area vs Price → strong positive
+Skewness
+	Price distribution right-skewed
+Histogram
+	Most houses in medium-price range
+Scatter Plot
+	Larger area → higher price
+Boxplot
+	Luxury houses appear as outliers
+
+
+
+
+
+2. Inferential Statistics
+--------------------------
+Inferential statistics use sample data to make predictions or conclusions about a larger population.
+
+Ex:
+	Hypothesis testing
+	Confidence intervals
+	Regression analysis
+	Probability testing
+
+
+1. Hypothesis testing 
+===================
+Hypothesis testing is a statistical method used to make decisions from data.
+
+In data science, it helps answer questions like:
+
+“Did the new website increase conversions?”
+“Is this model better than the previous one?”
+“Do customers from two regions behave differently?”
+“Is the observed improvement real or just random chance?”
+
+It is one of the core ideas in Statistics and Data Science.
+
+ex:
+---
+Imagine a company changes the color of a “Buy Now” button from blue to green.
+
+After one week:
+
+	Old button conversion rate = 5%
+	New button conversion rate = 6%
+
+Question:
+
+	Did the green button actually improve conversions?
+	OR
+	Could the 1% increase have happened just by random chance?
+
+	Hypothesis testing helps answer this scientifically.
+
+
+Key Terms
+------------
+1. Null Hypothesis (H₀)
+
+The default assumption.
+
+Usually says:
+
+“No effect” or “No difference”
+
+Example:
+
+H₀: The new button does NOT increase conversion rate.
+
+
+
+2. Alternative Hypothesis (H₁ or Ha)
+
+What we want to test.
+
+Example:
+
+H₁: The new button increases conversion rate.
+
+
+3. Significance Level (α)
+
+Threshold for deciding if results are statistically significant.
+
+Common choice:
+
+α=0.05
+
+Meaning:
+
+We allow a 5% chance of wrongly rejecting the null hypothesis.
+
+
+
+4. p-value
+
+The most important concept.
+
+The p-value tells us:
+
+“If the null hypothesis were true, how likely is it to observe results this extreme?”
+
+Small p-value → evidence against H₀.
+
+
+
+Step-by-Step Process
+Step 1: Define hypotheses
+
+Example:
+
+H₀: New model accuracy = Old model accuracy
+H₁: New model accuracy > Old model accuracy
+Step 2: Collect data
+
+Run experiment or gather samples.
+
+Step 3: Choose statistical test
+
+Common tests:
+
+Situation	Test
+Compare means	t-test
+Compare categories	Chi-square
+Compare proportions	Z-test
+More than 2 groups	ANOVA
+
+
+Step 4: Calculate test statistic
+
+This measures how different the observed data is from expectation.
+
+Example for a t-test:
+
+Diagram: statistics1.4
+
+Step 5: Compute p-value
+
+Software usually does this:
+
+Python
+R
+Excel
+SPSS
+Step 6: Make conclusion
+
+Example:
+
+p-value = 0.01
+α = 0.05
+
+Since:
+
+0.01<0.05
+
+Reject H₀.
+
+Conclusion:
+
+The new button likely improved conversions.
+
+
+
+
+
+Real Data Science Example (A/B Testing)
+======================================
+Suppose an e-commerce company tests two recommendation systems.
+
+Data
+Group		Users	Purchases
+--------	------	------------
+Old System	1000	80
+New System	1000	110
+
+Conversion rates:
+
+Old = 8%
+New = 11%
+
+Looks better — but is it statistically significant?
+
+Hypotheses
+H	:  p   =   p 
+  0	  old	  new 
+
+H	:  p   >   p 
+  1	  new	  old
+
+
+Type I and Type II Errors
+=========================
+These are extremely important in data science.
+
+Type I Error (False Positive)
+
+Rejecting H₀ when it is actually true.
+
+Example:
+
+You think the new model is better
+But actually it isn’t
+
+Probability = α
+
+Type II Error (False Negative)
+
+Failing to reject H₀ when H₀ is false.
+
+Example:
+
+The new model is actually better
+But your test misses it 
+	​
+	​
+​

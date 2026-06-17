@@ -1,0 +1,66 @@
+
+
+Identifiers
+============
+A name given to a program elements (variables,functions,classes, modules and other objects) is called identifier.
+
+Identifiers are names used to identify entities in a Python program.
+
+ex:
+	def calculate():
+    		a,b = 10,20
+    		print(a+b)
+	calculate();
+
+	Here calculate, a and b are identifiers
+
+Note:
+-----
+Your Python code has an indentation error. 
+Python uses indentation (spaces/tabs) to define blocks of code.
+
+Rules to declare an identifiers 
+-------------------------------
+
+Rule1:
+------
+	Identifier will accept following characters.
+	ex:
+		A-Z
+		a-z
+		0-9
+		_
+
+Rule2:
+------
+	Identifier must not start with digit.		
+	ex:
+		name1
+		1name  // invalid 
+
+
+Rule3:
+------
+	We can't take Reserved words as an identifier name.
+	ex:
+		class = 10
+		if = 20
+
+Rule4:
+-----
+	Every identifier is a case sensitive.
+	ex:
+		name
+		Name
+
+Rule5:
+-----
+	There is no length limit for an identifiers but it is recommanded to 
+	take short, meaningful and readable names.
+
+
+
+
+
+
+

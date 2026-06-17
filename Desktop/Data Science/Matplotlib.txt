@@ -1,0 +1,167 @@
+Matplotlib
+==========
+Matplotlib is one of the most widely used libraries in Python for creating static, animated, and interactive visualizations. If you’ve ever seen graphs made in Python—line charts, bar plots, scatter plots—there’s a very good chance Matplotlib was involved.
+
+Matplotlib is a 2D plotting library built on Python that allows you to turn numerical data into visual graphs. It works especially well with libraries like:
+
+NumPy (for arrays and math)
+Pandas (for structured datasets)
+
+It was originally inspired by MATLAB plotting, which is why many of its functions feel familiar if you’ve used MATLAB before.
+
+
+Matplotlib uses a hierarchical structure:
+
+Figure -> entire window or canvas
+Axes -> the actual plot inside the figure
+
+Think of it like:
+
+Figure = page
+Axes = chart on the page
+
+
+
+ex:
+
+step1:
+-----
+	Launch Anaconda prompt.
+
+step2:
+------
+	Create or activate Environment
+	ex:
+		conda create -n myenv python=3.10
+		or
+		conda activate myenv
+
+step3:
+------
+	Install Required Packages
+	ex:
+		conda install matplotlib notebook -y
+
+step4:
+------
+	Launch Jupyter Notebook
+	ex:
+		jupyter notebook
+
+step5:
+------
+	Create a New Notebook
+	ex:
+		Click New → Python (your environment)
+
+
+
+step6:
+-----	
+	Use Matplotlib in the Notebook and create a plot
+	ex:
+		%matplotlib inline
+		import matplotlib.pyplot as plt
+		x = [1, 2, 3, 4]
+		y = [10, 20, 25, 30]
+
+		plt.plot(x, y)
+		plt.title("Simple Plot")
+		plt.xlabel("X axis")
+		plt.ylabel("Y axis")
+
+		plt.show()
+
+Note:
+-----
+%matplotlib inline  is a magic command for jupyter.
+
+It tells the notebook to display plots directly inside the notebook output, instead of opening them in a separate window.
+
+> pyplot provides a simple, MATLAB-like interface.
+
+
+step7:
+-------
+	Deactivate environment.
+	ex:
+		conda deactivate
+
+ex:2
+-----
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+plt.plot([1,2,3], [4,5,6])
+plt.show()
+
+
+ex:3
+-----
+Matplotlib works very well with NumPy and Pandas
+ex:
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.plot(x, y)
+plt.show()
+
+Note:
+----	
+	Numpy we can use directly.
+
+ex:
+
+
+import pandas as pd
+
+df = pd.DataFrame({
+    'x': [1,2,3],
+    'y': [4,5,6]
+})
+
+df.plot(x='x', y='y')
+plt.show()
+
+
+Note:
+-----
+	We need to install pandas seperately.
+	ex:
+		!conda install pandas -y
+
+Common Plot Types in Notebook
+-------------------
+> Line plot
+  ex:
+	plt.plot(x, y)
+
+> Scatter plot
+  ex:
+	plt.scatter(x, y)
+
+> Bar chart
+  ex:
+	plt.bar(x, y)
+
+> Histogram
+  ex:
+	plt.hist(y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

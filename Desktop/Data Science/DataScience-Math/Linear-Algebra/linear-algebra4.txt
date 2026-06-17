@@ -1,0 +1,41 @@
+Angles between two vectors
+==========================
+The angle between two vectors is a measure of how much they point in the same direction.
+
+ex:1
+-----
+Diagram: linear-algebra4.1
+
+Note:
+-----
+   -1	
+Cos   is a cos inverse
+
+ex:2
+----
+Diagram : linear-algebra4.2
+
+
+Projection 
+===========
+A projection is the process of finding the component of one vector that lies in the direction of another vector (or onto a subspace).
+
+Diagram : linear-algebra4.3
+
+
+
+Unit Vector 
+=============
+A unit vector is a vector whose magnitude (length) is exactly 1.
+
+Diagram: linear-algebra4.4
+
+
+
+
+
+
+
+
+
+

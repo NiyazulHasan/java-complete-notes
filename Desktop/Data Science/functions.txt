@@ -1,0 +1,393 @@
+Functions in Python
+====================
+A function is a block of reusable code used to perform a specific task.
+
+Functions are used to Reduce code repetition, Improve readability, Make programs modular and reusable.
+
+Functions are mainly divided into two types:
+
+1) Built-in Functions
+----------------------
+Functions provided by python are called buit-in functions.
+ex:
+	print()
+	type()
+	id()
+	len()
+	input()
+	sum()
+	
+
+
+
+1. print() Function
+-----------------
+The print() function is used to display output on the screen.
+
+Syntax:
+	print(*objects, sep=' ', end='\n')
+
+Parameter	Meaning
+---------	---------
+objects		Values to print
+sep		Separator between objects
+end		What to print at the end
+file		Output stream
+flush		Force flushing output
+
+ex:
+---
+name = "Ravi"
+age = 20
+
+print(name, age)
+
+
+ex:
+----
+print("2026", "05", "14", sep="-")
+
+ex:
+---
+print("Hello", end=" ")
+print("World")
+
+
+
+2. type() Function
+------------------
+The type() function tells the datatype of an object.
+
+Syntax:
+	type(object)
+
+
+ex:
+---
+x = 10
+print(type(x))
+
+ex:
+---
+print(type(10))
+print(type(10.5))
+print(type("Python"))
+print(type([1,2,3]))
+
+
+3. id() Function
+----------------
+The id() function returns the unique memory identity of an object.
+
+Syntax
+id(object)
+
+ex:
+
+x = 10
+print(id(x))
+
+Every object in Python has an identity.
+id() represents the memory address
+
+
+
+4. len() Function
+--------------------
+
+The len() function returns the number of items in an object.
+
+Syntax:
+	len(object)
+
+
+String Example:
+
+name = "Python"
+print(len(name))
+
+
+ex:
+
+nums = [1,2,3,4]
+print(len(nums))
+
+ex:
+---
+t = (10,20,30)
+print(len(t))
+
+ex:
+---
+d = {"a":1, "b":2}
+print(len(d))
+
+
+5. input() 
+----------
+The input() function is used to take input from the user through the keyboard.
+
+ex:
+	name = input("Enter the name :");
+	no = int(input("Enter the no :"));
+
+
+6. sum()
+------------
+The sum() function is a built-in function used to add all elements of an iterable like List, Tuple and Set
+
+ex:
+	numbers = [10, 20, 30, 40]
+	result = sum(numbers)
+	print(result)
+
+ex:
+	numbers = [1, 2, 3]
+	result = sum(numbers, 10)
+	print(result)
+
+
+ex:
+	data = (5, 10, 15)	
+	print(sum(data))
+
+
+Interview Questions 
+--------------------
+
+Q) Difference Between type() and id()?
+
+Function	Purpose
+-------		--------
+type()		Returns datatype
+id()		Returns object identity
+
+Ex:
+	x = 10
+	print(type(x))
+	print(id(x))
+
+
+Q) Difference between type() and isinstance()?
+
+type() gives exact datatype.
+isinstance() checks inheritance also.
+	
+
+
+2) User-defined Functions
+-------------------------
+Functions which are created by the user based on the application requirements are called user defined functions.
+
+In Python, a function is defined using the def keyword, followed by a function name and parentheses.
+
+syntax:
+-------
+def function_name(parameters):
+    # code block
+    return result
+
+Function names follow the same rules as variable names in Python.
+
+> A function name must start with a letter or underscore
+> A function name can only contain letters, numbers, and underscores
+> Function names are case-sensitive (myFunction and myfunction are different)
+
+
+
+> To call a function, write its name followed by parentheses.
+
+ex:
+---
+def my_function():
+  print("Hello from a function")
+
+my_function()
+
+> You can call the same function multiple times:
+
+ex:
+---	
+def my_function():
+  print("Hello from a function")
+
+my_function()
+my_function()
+my_function()
+
+
+There are four ways to declare a function in python 
+
+1) No Return Type with No Argument Method
+----------------------------------------
+def sum_numbers():
+    a = 10
+    b = 20
+    c = a + b
+    print("Sum =", c)
+
+sum_numbers()
+
+
+2) No Return Type with Argument Method
+--------------------------------------
+def sum_numbers(a, b):
+    c = a + b
+    print("Sum =", c)
+
+sum_numbers(10, 20)
+
+
+3) With Return Type with No Argument Method
+--------------------------------------------
+def sum_numbers():
+    a = 10
+    b = 20
+    c = a + b
+    return c
+
+result = sum_numbers()
+print("Sum =", result)
+
+
+4) With Return Type with Argument Method
+---------------------------------------
+def sum_numbers(a, b):
+    c = a + b
+    return c
+
+result = sum_numbers(10, 20)
+print("Sum =", result)
+
+
+
+Functions with Default Parameters
+------------------
+ex:
+---
+#default argument
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+print(greet("Bob"))        # Hello, Bob!
+print(greet("Bob", "Hi"))  # Hi, Bob!
+
+
+ex:
+
+def add(*args):
+    return sum(args)
+
+print(add(2, 3))        # 5
+print(add(2, 3, 4))     # 9
+
+
+
+
+Variable-length Arguments
+--------------------------
+# *args - tuple of positional arguments
+def sum_all(*numbers):
+    return sum(numbers)
+
+print(sum_all(1, 2, 3, 4))  # 10
+
+# **kwargs - dictionary of keyword arguments
+def print_info(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=30, city="London")
+
+
+
+
+
+
+Return Values
+---------------
+def calculate_area(length, width):
+    area = length * width
+    return area
+print(calculate_area(5,5))
+
+def get_user_data():
+    # Can return multiple values as a tuple
+    return "Alice", 25, "Engineer"
+
+name, age, job = get_user_data()
+print({name}, {age}, {job});
+
+
+Scope of Variables
+------------------
+# Global variable
+global_var = "I'm global"
+
+def my_function():
+    #it treats global_var as a local variable
+    global global_var
+    
+    # Local variable
+    local_var = "I'm local"
+
+    # Access global variable
+    print(global_var)
+
+    # Modify global variable
+    global_var = "Modified global"  
+
+my_function()
+print(global_var)  # Modified global
+
+
+Lambda Functions (Anonymous Functions)
+---------------------------------------
+# Syntax: lambda arguments: expression
+
+# Regular function
+def square(x):
+    return x ** 2
+
+# Lambda equivalent
+square_lambda = lambda x: x ** 2
+
+# Common use with map, filter, sort
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x ** 2, numbers))  # [1, 4, 9, 16, 25]
+evens = list(filter(lambda x: x % 2 == 0, numbers))  # [2, 4]
+print(squared);
+print(evens)
+
+
+
+Type Hints (Python 3.5+)
+------------------------
+def add_numbers(a: int, b: int) -> int:
+    """Add two integers and return the result"""
+    return a + b
+
+def process_data(data: list[str]) -> dict[str, int]:
+    """Process a list of strings into a dictionary"""
+    return {item: len(item) for item in data}
+
+
+# Example usage
+result = add_numbers(5, 7)
+print("Sum:", result)
+
+words = ["apple", "banana", "kiwi"]
+processed = process_data(words)
+print("Processed data:", processed)
+
+
+
+
+
+
+
+
+
+
+
+

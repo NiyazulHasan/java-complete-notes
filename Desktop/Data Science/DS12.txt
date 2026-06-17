@@ -1,0 +1,60 @@
+Naming conventions in python
+============================
+Naming conventions in Python are standardized guidelines (mainly from PEP 8) that help make code readable, consistent, and maintainable. They’re not enforced by the language, but following them is strongly recommended.
+
+1. Variable Names
+Use lowercase letters with underscores (snake_case)
+user_name = "John"
+total_marks = 95
+
+2. Function Names
+Same as variables: snake_case
+def calculate_total():
+    pass
+
+
+3. Class Names
+Use PascalCase (CapWords)
+class StudentDetails:
+    pass
+
+4. Constants
+Use UPPERCASE with underscores
+MAX_LIMIT = 100
+PI_VALUE = 3.14
+
+
+5. Module Names (file names)
+Use short, lowercase names
+math_utils.py
+database.py
+
+6. Package Names
+Also lowercase, avoid underscores if possible
+mypackage/
+
+
+7. Private / Protected Naming
+
+Python doesn’t enforce access control strictly, but naming signals intent:
+
+Single underscore (_name) → “internal use”
+_internal_var = 5
+Double underscore (__name) → name mangling (used in classes)
+class Test:
+    def __hidden(self):
+        pass
+
+
+8. Special (Magic / Dunder) Methods
+Double underscores before and after
+def __init__(self):
+    pass
+
+
+9. Boolean Variables
+Use meaningful prefixes:
+is_valid = True
+has_access = False
+
+

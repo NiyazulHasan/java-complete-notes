@@ -1,0 +1,138 @@
+Type conversion 
+===============
+Process of changing a value from one data type to another is called type conversion.
+
+Python provides two ways to perform type conversion.
+
+1) Implicit/Automatic conversion 
+2) Explicit/Manual conversion 
+
+1) Implicit/Automatic conversion 
+-------------------------------
+Python automatically converts one data type to another when needed, usually to avoid data loss.
+
+Usually converts from smaller type → larger type (int → float → complex)
+
+ex:
+	x = 10      # int
+	y = 2.5     # float
+	result = x + y
+	print(result)        # 12.5
+	print(type(result))  # float
+
+# Integer to float
+num_int = 10
+num_float = 2.5
+result = num_int + num_float  # int automatically converted to float
+print(result)  # Output: 12.5
+print(type(result))  # Output: <class 'float'>
+
+# Integer to complex
+a = 5
+b = 2 + 3j
+result = a + b  # int converted to complex
+print(result)  # Output: (7+3j)
+print(type(result))  # Output: <class 'complex'>
+
+# No data loss in implicit conversion
+small_num = 5
+large_num = 5.0
+print(small_num == large_num)  # True - values are equal after conversion
+
+Limitation 
+------------
+num = 10
+text = "20"
+result = num + text  #  TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+# Even if the string contains a number
+num = 10
+text = "hello"
+result = num + text  #  TypeError
+
+2) Explicit/Manual conversion 
+-------------------------------
+Programmer explicitly convert data types using built-in functions. 
+
+
+Function	Description		Example
+--------	-----------		---------
+int()		Converts to integer	int(3.14) → 3
+float()		Converts to float	float(5) → 5.0
+str()		Converts to string	str(123) → "123"
+bool()		Converts to boolean	bool(1) → True
+complex()	Converts to complex	complex(2, 3) → (2+3j)
+list()		Converts to list	list("abc") → ['a','b','c']
+tuple()		Converts to tuple	tuple([1,2,3]) → (1,2,3)
+set()		Converts to set		set([1,2,2,3]) → {1,2,3}
+dict()		Converts to dictionary	dict([(1,'a'),(2,'b')]) → {1:'a',2:'b'}
+chr()		Integer to character	chr(65) → 'A'
+ord()		Character to integer	ord('A') → 65
+hex()		Integer to hex string	hex(255) → '0xff'
+bin()		Integer to binary stringbin(10) → '0b1010'
+
+
+1. int()
+
+Converts a value to an integer.
+
+x = "10"
+y = int(x)
+print(y)        # 10
+print(type(y))  # int
+2. float()
+
+Converts a value to a float.
+
+x = "10.5"
+y = float(x)
+print(y)        # 10.5
+3. str()
+
+Converts a value to a string.
+
+x = 100
+y = str(x)
+print(y)        # "100"
+print(type(y))  # str
+4. bool()
+
+Converts a value to boolean.
+
+print(bool(0))     # False
+print(bool(5))     # True
+print(bool(""))    # False
+5. list(), tuple(), set()
+
+Used to convert between collection types.
+
+x = (1, 2, 3)
+y = list(x)
+print(y)  # [1, 2, 3]
+3. Important Notes
+ Not all conversions are possible
+x = "hello"
+y = int(x)   #  Error
+
+ You cannot convert a non-numeric string into an integer.
+
+ Loss of Data
+x = 10.8
+y = int(x)
+print(y)  # 10
+
+ Decimal part is lost.
+
+Base Conversion
+x = "101"
+y = int(x, 2)   # binary to decimal
+print(y)        # 5
+
+
+
+
+
+
+
+
+

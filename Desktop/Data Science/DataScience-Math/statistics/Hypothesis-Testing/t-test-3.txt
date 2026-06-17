@@ -1,0 +1,81 @@
+To test the difference between Mean of the two samples (Independent Samples)
+============================================================================
+Diagram : t-test-3.1
+
+
+Question1
+=========
+Two types of drugs were used on 6 and 5 patients for reducing their weight. Drug A was imported 
+and Drug B was indigenous. The decrease in the weight(in kg) after using the drugs for 90 days
+was given below.
+
+Drug A : 8,10,12,9,14,13 &  Drug B : 7,9,14,12,8. Is there a significant difference in the 
+efficacy of the drug?
+
+x            (x  -  xˉ )      (x  -  xˉ )^2		
+ 1             1     1	       1     1
+----	     ----------	     -------------
+8		3		9
+10		-1		1	
+12		+1		1
+9		-2		4	
+14		+3		9
+13		+2		4
+----				---	
+66				28
+
+x            (x  -  xˉ )      (x  -  xˉ )^2		
+ 2             2     2	       2     2
+----	     ----------	     -------------
+7		-3		9
+9		-1		1
+14		+4		16
+12		+2		4
+8		-2		4	
+----				-----
+50				34
+
+
+Let's consider
+	Ho : Drug A = Drug B (Efficacy)
+	Ha : Drug A ≠ Drug B (Efficacy)
+
+Given Data : 
+		n1 = 6,
+		n2 = 5
+	
+			66
+		xˉ  =  ---- = 11,  
+		 1	6
+			
+			50
+		xˉ  =  ---- = 10
+	         2	 5 
+
+             _______________	    __________     ________
+	     |	28 + 34		   |	62	   |
+	s =  |   -------       =   |  -------  =  V  6.88   =  2.62
+	    V	 6 + 5 -2	  V	9
+
+			   _________		______		______
+	    | 11 - 10|	   | 6 * 5       1	| 30	 1     |	  1.65
+	t = ----------- x  |-------  =  ----- x |---- = ---- x V  2.72  = ----- = 0.63 (tcal)
+                 2.62	  V  6 + 5       2.62  V  11    2.62		   2.62	
+
+
+Note: If there is no level of signifance then take 5% by default.
+
+ν (nu) degree of freedom 
+ex:
+	ν (nu)  = n1 + n2 - 2
+		= 6 + 5 - 2
+		= 11 - 2 
+		= 9 
+
+Diagram:  t-test-2.2 (With the help of diagram we can find the result)
+
+	t	= 2.262      
+	0.05,9
+
+
+	tcal < ttab  Ho is accepted.

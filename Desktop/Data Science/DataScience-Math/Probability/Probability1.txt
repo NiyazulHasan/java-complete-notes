@@ -1,0 +1,173 @@
+Probability	
+===========
+"Probability" or "Chance" is very commonly used in day to day conversation.
+ex:
+	RCB vs GT (who will win)
+
+
+In statistical sense, the term "probability" is not connected with beliefs or any form of wishful-thinking.
+It is one of the foundations of Data Science and Machine Learning. 
+It is based on calculating numerical values.
+
+
+Probability is a number which ranges from 0 to 1.
+Zero for an event which cannot occur.
+One for an event certain to occur.
+
+
+Probability is a mathematical tool used to study randomness. It deals with the chance 
+(the likelihood) of an even occuring.
+ex:
+	IPL Teams - 2026
+
+	10 (10 teams) 
+	---
+	10 (10 changes)
+
+				10
+	Each team probability = --- = 1 
+				10
+
+	Each team probability is 1 or 10%. 
+
+
+
+Probability formulea:
+----------------------
+			Number of Favourable Cases(a)
+	p =  ---------------------------------------------
+		Total Number of equally Likely Cases (n) 
+
+	Here p + q = 1 
+	p - Probability of occurance (Success)
+	q - Probability of non-occurance (Failure)
+
+Example1
+--------
+	Consider Toss in a match.
+	ex:
+		Head / Tail 
+
+		     1	(Head)
+		p = ----
+	             2  (two options)
+
+
+		
+		     1	(Tails)
+		q = ----
+	             2  (two options)
+
+		Here half probability is there for head and tail.
+
+Example2
+---------
+	Consider rolling a fair dice:			
+	
+	ex:
+		dice : 1,2,3,4,5,6 
+		
+		What is the probability for getting 4?
+		ex:
+			1  (one time)
+		      ------
+			6  (probability from 6)
+					
+			
+		Hence p = 1/6 
+			
+
+		What is the probability for not getting 4?
+
+		p + q = 1
+		
+		1
+		-- + q = 1 
+		6 
+			  1		
+		q =  1 - --- 
+			  6
+		q = 5/6
+
+
+Example3
+----------
+	Consider rolling a fair dice:			
+	
+	ex:
+		dice : 1,2,3,4,5,6 
+		
+		What is the probability for getting even numbers?
+		ex:
+			even = 2,4,6
+			odd = 1,3,5
+	
+			Here even and odd we have two attributes.
+
+			even number probability = 1/2 
+			odd number probability = 1/2 	
+
+
+
+
+Question 
+==========
+A team of Medical Professionals are distributing free medicine in a villege from a bag containing 
+20 strips of Dolo and 10 strips of Crocin drawn of random. What is the probability of getting Crocin?
+
+
+Probability formulea:
+----------------------
+			Number of Favourable Cases(a)
+	p =  ---------------------------------------------
+		Total Number of equally Likely Cases (n) 
+
+	Here p + q = 1 
+	p - Probability of occurance (Success)
+	q - Probability of non-occurance (Failure)
+
+
+	a = 10
+	n = 10 + 20 = 30 (crocin+Dolo) 
+		
+	    10      1
+	p = ---  = ---
+	    30      3
+
+	For every 3rd person gets crocin
+
+		1	2	
+	q = 1 - --- =  ----
+		 3	3 
+	
+	For every 2 person out of 3 won't get crocin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+

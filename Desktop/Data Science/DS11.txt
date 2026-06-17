@@ -1,0 +1,209 @@
+Flow Control 
+============
+Flow control in Python refers to the order in which individual statements, instructions, or function calls are executed. By default, Python executes code line by line (top to bottom), but flow control statements let you change that order based on conditions, loops, or other logic.
+
+1. Conditional Statements (Decision Making)
+
+2. Loops (Iteration)
+
+3. Loop Control Statements
+
+1. Conditional Statements (Decision Making)
+--------------------------------------------
+These allow your program to make decisions.
+
+a) if statement
+----------------
+Executes a block only if a condition is true.
+ex:
+	age = 18
+	if age >= 18:
+    		print("You are eligible to vote")
+
+b) if-else
+-----------
+	Chooses between two paths.
+	Ex:
+		age = 16
+		if age >= 18:
+    			print("Adult")
+		else:
+    			print("Minor")
+
+c) if-elif-else (multiple conditions)
+-------------------------------------
+marks = 75
+if marks >= 90:
+    print("Grade A")
+elif marks >= 70:
+    print("Grade B")
+elif marks >= 50:
+    print("Grade C")
+else:
+    print("Fail")
+
+
+d) Nested if
+-------------
+num = 10
+
+if num > 0:
+    if num % 2 == 0:
+        print("Positive Even Number")
+
+
+
+2. Loops (Iteration)
+-----------------------
+Loops repeat a block of code.
+
+a) for loop
+------------
+Used to iterate over a sequence (list, string, range, etc.)
+
+for i in range(5):
+    print(i)
+
+
+> Iterating over a list
+ex:
+
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+
+
+> converting list of set 
+ex:
+
+py_list =  [1,2,3,4,5,5]
+for i in py_list:
+    print(i);
+
+py_set = set(py_list);
+for i in py_set:
+    print(i);
+
+> Tuple example
+
+py_tuple = ("Hi","Hello","Bye")
+for i in py_tuple:
+    print(i);
+
+
+b) while loop
+--------------
+Runs as long as a condition is true.
+ex:
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
+
+c) Infinite loop
+------------------
+while True:
+    print("This runs forever")
+
+(You must stop it manually or use break.)
+
+
+
+
+3. Loop Control Statements
+-----------------------
+These modify loop behavior.
+
+a) break
+
+Stops the loop completely.
+
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+
+
+b) continue
+------------
+Skips the current iteration.
+
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+
+
+c) pass
+-------
+Does nothing (placeholder).
+
+for i in range(5):
+    if i == 3:
+        pass
+    print(i)
+
+
+
+
+4. else with loops
+---------------------
+Python allows else with loops, which runs if the loop completes normally (not interrupted by break).
+
+for i in range(5):
+    print(i)
+else:
+    print("Loop finished successfully")
+
+ex:
+--
+Example with break
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+else:
+    print("This will NOT run")
+
+
+
+5. Nested Loops
+----------------
+Loops inside loops.
+
+for i in range(3):
+    for j in range(2):
+        print(i, j)
+
+
+6. Exception Handling (Flow interruption)
+--------------------------------
+Controls flow when errors occur.
+
+try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+except ValueError:
+    print("Invalid input")
+finally:
+    print("Execution completed")
+
+
+7. Match-Case (Python 3.10+)
+------------------------------
+Similar to switch-case in other languages.
+
+day = 3
+
+match day:
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case _:
+        print("Invalid day")

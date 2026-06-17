@@ -1,0 +1,165 @@
+Datatypes
+=========
+Datatype describes what type of value we want to store inside a variable.
+
+In python, we don't need to define data types explicitly. Python interpreter process the datatype based on value.
+
+Python provides the following standard built-in data types.
+
+1) Numeric Types
+------------------
+It is used to store numbers.
+ex:
+	> int		: Whole numbers (positive, negative)
+	> float		: Decimal numbers (positive , negative)
+  	> complex	: Numbers with real and imaginary parts
+ex:
+----
+	x = 10
+	y = -5
+ex:
+---
+	pi = 3.14
+	temp = -2.5
+
+ex:
+---
+	z = 2 + 3j
+
+
+2) Text Type
+--------------
+It is used to store strings.
+ex:
+	> str   : It is used to store sequences of characters.
+
+Note:
+----
+Strings can be enclosed in single (' '), double (" "), or triple quotes (''' ''' or """ """).
+Supports indexing, slicing
+Immutable (cannot change characters)
+
+ex:
+--
+	name = "Python"
+	name = 'python'
+	name = '''python'''
+	name = """python"""
+
+
+3) Sequence Types	
+--------------------
+A sequence is an ordered collection of items, which can be of similar or different data types. Sequences allow storing of multiple values in an organized and efficient fashion.
+ex:
+	> list    :	Ordered, mutable collection
+			Changeable (add/remove elements)
+			ex:
+				numbers = [1, 2, 3]
+				mixed = [1, "hello", 3.5]
+
+
+	> tuple   :  	Ordered, immutable collection
+			Faster than lists
+			Cannot be modified
+			ex:
+				point = (10, 20)
+		
+	> range	 :	Represents a sequence of numbers
+
+			ex:
+				r = range(5)  # 0 to 4
+
+
+4) Mapping Type	
+--------------------
+A mapping type is a datatype that stores data in key–value pairs.
+ex:
+	
+	> dict	:  	Key-value pairs
+			Keys must be unique
+			Keys must be immutable (like strings, numbers, tuples)
+			Values can be of any datatype
+			Data is stored in unordered form 
+			Mutable
+			ex:
+				student = {"name": "John", "age": 20}
+
+
+
+
+5) Set Types	
+-----------------
+It is a built-in datatype used to store a collection of unique elements.
+ex:
+	>  set		:	A set (set) is an unordered collection of items where:
+				No duplicate values are allowed
+				Elements are not stored in any specific order
+				Mutable (you can add or remove items)
+				Example:
+					numbers = {1, 2, 3, 4}
+					print(numbers)
+
+
+	>  frozenset	:	A frozenset is just like a normal set, but:
+				You cannot add, remove, or modify elements
+				It is read-only (immutable)
+				ex:
+					fs = frozenset([1, 2, 3])
+
+
+6) Boolean Type		
+-----------------
+It is used =to represent true or false values.
+ex:
+	> bool		:   The Boolean type is written as bool, and it has only two values:
+			    True
+			    False
+			    ex:
+					a = True
+					b = False
+					print(type(a))  # <class 'bool'>
+
+7) Binary Types	
+------------------
+Used for handling binary data.
+
+	>	bytes	:	 Immutable sequence of bytes
+				 ex:
+					b = b"hello"
+	> 	bytearray :	Mutable sequence of bytes
+				ex:
+					ba = bytearray(5)
+	>	memoryview :    Memory-efficient way to access data
+				ex:
+					mv = memoryview(b"hello")
+
+
+8) None Type
+------------
+	> NoneType :  Represents absence of value
+		      ex:
+			x = None
+
+
+Mutable vs Immutable
+-----------------------
+Mutable (changeable)	Immutable (not changeable)
+list			int
+dict			float
+set			string
+			bytearray	
+			tuple
+			frozenset
+
+Type Checking
+---------------
+type(x)
+isinstance(x, int)
+
+
+
+
+
+
+
+

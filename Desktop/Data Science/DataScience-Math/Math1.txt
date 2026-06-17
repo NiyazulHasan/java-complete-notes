@@ -1,0 +1,496 @@
+Statistics for Data Science
+============================
+Statistics is the foundation of data science. 
+
+It helps you:
+
+> summarize data,
+> understand patterns,
+> make predictions,
+> measure uncertainty,
+> and build machine learning models.
+
+
+1. What is Statistics?
+------------------------
+Statistics is the science of:
+> Collecting data
+> Organizing data
+> Analyzing data
+> Interpreting data
+
+In data science, statistics helps answer questions like:
+
+> What is the average salary?
+> How spread out are exam marks?
+> Are customers behaving similarly?
+> Is a model accurate?
+
+
+2. Types of Statistics
+----------------------
+
+i) Descriptive Statistics
+-------------------------
+Used to summarize data.
+Examples:
+	Mean
+	Median
+	Mode
+	Variance
+	Standard deviation
+
+2) Inferential Statistics
+-------------------------
+Used to make predictions or conclusions from samples.
+Examples:
+
+	Hypothesis testing
+	Confidence intervals
+	Regression analysis
+
+This explanation mainly focuses on descriptive statistics.
+
+
+3. Measures of Central Tendency
+-------------------------------
+These describe the “center” of the data.
+
+
+i) Mean (Average)
+==================
+Mean is the sum of all values divided by the number of values.
+
+Formula:
+		Mean =  ∑ x
+			-----
+	​		  n
+
+		Where:
+			∑  = Summation 
+			x  = data values
+			n  = number of observations
+
+
+Example:
+	Data:  2,4,6,8,10
+
+	Step 1:    Add values
+		ex:
+			2+4+6+8+10=30
+
+	Step 2:  Divide by total values
+		ex:
+			30/5=6
+
+	Step 3: Collect the result.
+		ex:
+			Mean = 6
+
+Python Example:
+---------------
+import numpy as np
+data = [1,2,3,4,5]
+mean_value = np.mean(data);
+print(mean_value);
+
+output:
+	3.0
+
+
+ii) Median
+===========
+Median is the middle value after sorting data.
+
+ex:
+	Step1:	Arrange data in order
+
+	Step2: 	Find middle value
+
+
+Example 1 (Odd count):
+
+	Data: 1,3,5,7,9
+
+	Middle value = 5
+
+	Median = 5
+
+
+Example 2 (Even count):
+
+	Data: 1,2,4,6
+
+	Middle two values:
+	ex:		
+		2,4
+
+	Median: (2+4)/2=3
+
+	Median = 3
+
+Python Example:
+---------------
+import numpy as np
+data = [1,2,3,4,5]
+median_value = np.median(data);
+print(median_value);
+o/p:
+	3.0 
+
+or
+
+import numpy as np
+data = [1,2,3,4,5]
+median_value = int(np.median(data));
+print(median_value);
+o/p:
+	3
+
+
+iii) Mode
+========
+Mode is the most frequently occurring value.
+
+Example:
+	Data: 1,2,2,3,4,4,4,5
+
+	Most frequent value = 4
+
+	Mode = 4
+
+
+Python Example:
+---------------
+from scipy import stats
+data = [1,2,2,3,4,4,4,5]
+mode_value = stats.mode(data);
+print(mode_value);
+Output:
+	ModeResult(mode=np.int64(4), count=np.int64(3))
+
+
+
+
+4. Measures of Dispersion
+-------------------------
+These measure how spread out data is.
+
+
+i) Range
+===========
+Formula:
+		Range = Maximum − Minimum
+
+Example:
+
+	Data:
+		2,4,6,8,10
+		10−2 = 8
+		Range = 8
+
+
+
+ii)  Variance
+=============
+Variance measures how far data points are from the mean.
+
+> A small variance means: values are close to mean
+> A large variance means: values are spread out
+
+Population Variance Formula
+ex:
+	σ^2 = ∑(x−μ)^2
+	      ---------
+		 N
+Where:
+σ = Sigma
+∑ = simmulation 
+x = each value
+μ = population mean
+N = population size
+
+
+Sample Variance Formula
+
+ex:
+	s^2 = ∑(x−xˉ)^2​
+     	      -----------
+		 n-1
+
+Why n−1?
+Called Bessel’s correction
+Gives better estimate for sample data
+
+
+Variance Example
+
+	Data	:	2,4,6,8
+	Step 1	:	 Find Mean
+			(2+4+6+8)/4=5
+
+	Step 2	: 	Subtract Mean
+
+			Value	Minus Mean
+			-----	----------
+			2	-3
+			4	-1
+			6	1
+			8	3
+	
+	Step 3	: 	Square Differences
+			Difference	Squared
+			----------	-------
+			-3		9
+			-1		1
+			 1		1
+			 3		9
+
+			Sum:  9+1+1+9=20
+
+	​Step 4	: 	Divide
+
+			Population variance:
+			20/4=5
+			Variance = 5	
+
+Python Example
+---------------
+import numpy as np
+data = [2,4,6,8]
+variance_value = int(np.var(data))
+print(variance_value);
+Output:
+	5
+
+
+iii) Standard Deviation
+------------------------
+Square root of variance.
+
+ex:
+	     _________	
+	σ = V Variance
+
+Variance = 5
+ex:
+         ___
+	V 5 = 2.236
+
+Standard deviation ≈ 2.24
+
+Standard deviation returns to original units.
+
+Example:
+	salary spread in rupees
+	height spread in centimeters
+
+Python Example
+---------------
+import numpy as np
+data = [2,4,6,8]
+std_value = np.std(data))
+print(std_value);
+Output:
+	2.236
+
+
+
+5. Percentiles and Quartiles
+===========================
+i) Percentile
+-------------
+Indicates percentage of data below a value.
+
+Example:
+
+	90th percentile means 90% data is below that point.
+
+Used in:
+
+	exams
+	rankings
+	analytics
+
+ii) Quartiles
+--------------
+Divide data into 4 equal parts.
+
+ex:
+	Quartile	Meaning
+	--------	-------
+	Q1	25% data below
+	Q2	Median
+	Q3	75% data below
+
+
+iii) Interquartile Range (IQR)
+-----------------------
+Used for detecting outliers.
+ex:
+		IQR=Q3−Q1
+
+
+6. Skewness
+============
+Shows asymmetry of data distribution.
+
+i) Positive Skew
+--------------
+Tail on right side.
+
+Examples:
+	> income  distribution
+
+	Relationship:
+			Mean > Median
+
+ii) Negative Skew
+--------------
+Tail on left side.
+
+	Relationship:
+			Mean<Median
+
+
+7. Correlation
+=============
+Measures relationship between two variables.
+
+
+Correlation Coefficient
+-----------------------
+	−1≤r≤1
+
+Value	Meaning
+-----	------
+1	Perfect positive
+0	No relation
+-1	Perfect negative
+
+Example
+Study hours ↑ → Marks ↑
+Positive correlation
+
+Python example
+-------------
+import numpy as np
+x = [1,2,3,4]
+y = [2,4,6,8]
+print(np.corrcoef(x,y))
+
+Output:
+	[[1. 1.]
+ 	[1. 1.]]
+Explanation
+y is perfectly related to x because:
+y=2x
+
+
+8) Probability Basics
+=====================
+Probability measures chance of occurrence.
+
+ex:
+	P(E)= Favorable outcomes
+      	      ------------------
+		Total outcomes	​
+
+Dice:
+	Probability of getting 3:
+	1/6
+
+
+9. Normal Distribution
+========================
+Bell-shaped distribution.
+
+Properties:
+
+Mean = Median = Mode
+Symmetrical
+Many natural datasets follow it
+
+Examples:
+
+heights
+IQ scores
+measurement errors
+
+Empirical Rule
+
+Range		Data Covered
+---------	----
+±1 SD		68%
+±2 SD		95%
+±3 SD		99.7%​
+
+
+10. Outliers
+=============
+Outliers are abnormal values far from others.
+
+Example:
+		2,3,4,5,100
+
+		100 is an outlier.
+
+Detection Methods
+Z-score
+IQR method
+Box plots
+
+
+11. Covariance vs Correlation
+==========================
+Covariance		Correlation
+-------------		------------
+Shows direction		Shows direction + strength
+Range unlimited		Range -1 to 1
+Harder to interpret	Easier
+
+
+12. Real Data Science Applications
+===================================
+Concept			Usage
+---------		-------
+Mean			Average sales
+Median			House pricing
+Variance		Risk analysis
+Standard deviation	Volatility
+Correlation		Feature relationships
+Probability		Predictions
+Distribution		ML assumptions
+
+
+
+
+13. Important Python Libraries
+====================
+Library		Purpose
+------		-------
+NumPy		Numerical calculations
+Pandas		Data analysis
+SciPy		Statistical functions
+Matplotlib	Visualization
+Seaborn		Statistical plots
+
+
+
+14) Summary Table
+=================
+Concept			Purpose
+-------			--------
+Mean			Average
+Median			Middle value
+Mode			Most common value
+Range			Total spread
+Variance		Squared spread
+Standard deviation	Actual spread
+Correlation		Relationship
+Probability		Chance
+Distribution		Data pattern
+
+
+
+

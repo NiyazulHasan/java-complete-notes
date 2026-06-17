@@ -1,0 +1,143 @@
+Probability Distribution 
+========================
+A probability distribution is a mathematical description of how probabilities are assigned to the possible outcomes of a random variable.
+
+In simple terms, it tells us how likely each outcome is.
+
+Example 1: Tossing a Fair Coin
+
+Possible outcomes:
+Heads (H)
+Tails (T)
+
+Probability distribution:
+
+Outcome	Probability
+Heads	0.5
+Tails	0.5
+
+The probabilities add up to 1:
+0.5 + 0.5 = 1
+
+
+Example 2: Rolling a Fair Die
+
+Possible outcomes: 1, 2, 3, 4, 5, 6
+
+Probability distribution:
+
+Outcome	Probability
+1	1/6
+2	1/6
+3	1/6
+4	1/6
+5	1/6
+6	1/6
+
+Again, the probabilities sum to 1.
+
+
+
+
+Types of Probability Distributions
+----------------------------------
+1)Discrete Probability Distribution
+	> Used when outcomes are countable.
+	> Examples: coin tosses, dice rolls.
+	> Common distributions: Binomial, Poisson.
+
+2) Continuous Probability Distribution
+	> Used when outcomes can take any value within a range.
+	> Examples: height, weight, temperature.
+	> Common distributions: Normal distribution, Exponential distribution.
+
+
+
+
+Binomial Distribution
+======================
+The binomial distribution is the discrete probability distribution that gives
+only two possible results in an experiment, either success or failure.
+
+ex:	
+	If we toss a coin, there could be only two possible outcomes head or tail.
+
+A Single success/failure test is also called a Bernoulli trial or Bernoulli experiment
+and a series of outcomes is called Benoulli process.
+
+
+Question1
+==========
+Suppose you toss a fair coin 5 times and want to know the probability of getting exactly 3 heads.
+
+Here:
+
+n=5 (number of tosses)
+p=0.5 (probability of a head)
+X = number of heads
+
+The binomial distribution is represented by:
+
+Diagram: Probability2.1
+
+So the probability of getting exactly 3 heads is 0.3125 (31.25%).
+
+Note:
+-----
+( 5 ) means "5 choose 3".
+  3 
+
+Diagram: Probability2.2
+
+So there are 10 different ways to get exactly 3 heads.  
+ex:
+	( 5 )
+  	  3
+
+Examples:
+
+H H H T T
+H H T H T
+H T H H T
+T H H H T
+H H T T H
+... (10 total)
+
+
+Question 
+========
+A coin is thrown 5 times. What is the probability of obtaining (i)4 Heads (i)1 Head
+
+Given Data: 
+	 
+	n = 5 
+	p = 0.5 (Probability of a head)
+
+(i) Probability of obtaining 4 Heads
+
+Here:  k=4
+
+Substitute into the formula:
+
+Diagram: Probability2.3
+
+
+(ii) Probability of obtaining 1 Head
+
+Here: k=1
+
+Substitute into the formula:
+
+Diagram: Probability2.4
+
+
+
+
+
+
+
+
+
+
+
+

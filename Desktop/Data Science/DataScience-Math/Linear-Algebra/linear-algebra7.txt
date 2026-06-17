@@ -1,0 +1,61 @@
+Data Preprocessing 
+==================
+In a data-processing workflow:
+
+stage 1 : Obtain data 
+---------------------
+"obtain data" refers to the first step of gathering or collecting the data that will later be represented and manipulated using vectors and matrices.
+ex:
+	In short here we will collect all raw data.
+
+
+stage 2 : Preprocess data 
+----------------------
+Preprocess data means preparing raw data before the main processing or analysis stage. It is a subset of data processing that focuses on making the data clean, consistent, and suitable for use.
+ex:
+	Here data which is required we will keep and useless data we will delete
+
+stage 3 : Data modeling
+-----------------------
+Data modeling is the process of creating a structure or representation of data and the relationships between different pieces of data so that it can be stored, organized, and analyzed efficiently.
+ex:
+	Here we will implement ML models 
+
+
+
+Column Normalization 
+====================
+Column normalization is a data preprocessing technique in which the values in each column of a dataset are scaled or transformed to a common range or distribution.
+
+Diagram: linear-algebra7.1
+
+
+Column Standardization 
+=====================
+Column standardization means transforming each column of a matrix so that it has a common scale.
+
+typically:
+		Mean = 0
+		Standard deviation = 1
+
+
+Diagram: linear-algebra7.2
+
+Diagram: linear-algebra7.3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+t-test
+======
+A t-test is a statistical test used in parametric hypothesis testing to determine whether the difference between means is likely real or just due to random chance.
+
+Ex:
+
+Imagine you want to know whether two groups are different:
+
+	Do students taught with Method A score differently from students taught with Method B?
+	Do men and women have different average heights?
+
+> t distribution has a bell shaped curve and symmetry similar to normal distribution.
+> The shape of the "t-distribution" varies with the change in degree of freedom.
+> It is less peaked than normal distribution at center and more peaked in the tails.
+
+
+Diagram: t-test-1.1
+
+We have two types of t-test.
+
+1) Paired (Dependent)
+
+2) Unpaired (Independent)
+
+1) Paired (Dependent)
+---------------------
+A paired t-test is used when you measure the same people twice.
+
+Ex:
+
+A doctor wants to know whether a tablet reduces blood pressure.
+
+He selects 10 patients and measures their blood pressure:
+> Before taking the tablet
+> After taking the tablet for 30 days
+
+
+2) Unpaired (Independent)
+--------------------------
+An unpaired t-test is used when you compare two different groups of people.
+
+Ex:
+
+A doctor wants to compare two tablets (Paracetamol).
+
+Tablet A
+Tablet B
+
+He randomly assigns:
+
+> 10 patients to Tablet A
+> 10 different patients to Tablet B
+
+After 30 days, blood pressure is measured.
+
+
+
+
+
+
+
+
+

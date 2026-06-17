@@ -1,0 +1,239 @@
+Q) Write a python program to display 10 natural numbers?
+
+for i in range(1, 11):
+    print(i)
+
+
+Q) Write a python program to perform sum of 10 natural numbers?
+
+sum = 0
+for i in range(1, 11):
+    sum = sum + i
+print("Sum =", sum)
+
+
+Q) Write a python program to find out factorial of a given number?
+
+num = int(input("Enter a number: "))
+fact = 1
+for i in range(1, num + 1):
+    fact = fact * i
+print("Factorial =", fact)
+
+
+
+Q) Write a python program to perform sum of digits of a given number?
+
+num = int(input("Enter a number: "))
+sum = 0
+while num > 0:
+    digit = num % 10
+    sum = sum + digit
+    num = num // 10
+print("Sum of digits =", sum)
+
+
+Q) Write a python program to find out special number?
+
+A special number is a number whose sum of factorial of digits is equal to the number itself.
+
+Example: 145 → 1! + 4! + 5! = 145
+
+# Check special number
+
+num = int(input("Enter a number: "))
+
+temp = num
+sum = 0
+
+while temp > 0:
+    digit = temp % 10
+
+    fact = 1
+    for i in range(1, digit + 1):
+        fact = fact * i
+
+    sum = sum + fact
+    temp = temp // 10
+
+if sum == num:
+    print("Special Number")
+else:
+    print("Not a Special Number")
+
+
+
+Q) Write a python program to find out given number is armstrong or not?
+
+# Check Armstrong number
+
+num = int(input("Enter a number: "))
+
+temp = num
+sum = 0
+
+while temp > 0:
+    digit = temp % 10
+    sum = sum + (digit ** 3)
+    temp = temp // 10
+
+if sum == num:
+    print("Armstrong Number")
+else:
+    print("Not an Armstrong Number")
+
+Q) Write a python program to display reverse of a given number?
+
+num = int(input("Enter a number: "))
+
+rev = 0
+
+while num > 0:
+    digit = num % 10
+    rev = rev * 10 + digit
+    num = num // 10
+
+print("Reverse =", rev)
+
+Q) Write a python program to find out given number is palindrome or not?
+
+num = int(input("Enter a number: "))
+
+temp = num
+rev = 0
+
+while temp > 0:
+    digit = temp % 10
+    rev = rev * 10 + digit
+    temp = temp // 10
+
+if rev == num:
+    print("Palindrome Number")
+else:
+    print("Not a Palindrome Number")
+
+
+Q) Write a python program to find out fibonacci series of a given number?
+
+n = int(input("Enter number of terms: "))
+
+a = 0
+b = 1
+
+print("Fibonacci Series:")
+
+for i in range(n):
+    print(a)
+    c = a + b
+    a = b
+    b = c
+
+Q) Write a python program to find out given number is perfect or not?
+
+A perfect number is equal to the sum of its factors excluding itself.
+
+Example: 6 → 1 + 2 + 3 = 6
+
+# Check perfect number
+
+num = int(input("Enter a number: "))
+
+sum = 0
+
+for i in range(1, num):
+    if num % i == 0:
+        sum = sum + i
+
+if sum == num:
+    print("Perfect Number")
+else:
+    print("Not a Perfect Number")
+
+
+
+Q) Write a python program to find out given number is prime or not?
+
+num = int(input("Enter a number: "))
+
+count = 0
+
+for i in range(1, num + 1):
+    if num % i == 0:
+        count = count + 1
+
+if count == 2:
+    print("Prime Number")
+else:
+    print("Not a Prime Number")
+
+
+
+Q) Write a python program to display prime numbers from 1 to 100?
+
+for num in range(1, 101):
+
+    count = 0
+
+    for i in range(1, num + 1):
+        if num % i == 0:
+            count = count + 1
+
+    if count == 2:
+        print(num)
+
+
+Q) Write a python program to find out GCD of two numbers ?
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+while b != 0:
+    temp = b
+    b = a % b
+    a = temp
+
+print("GCD =", a)
+
+
+
+
+Q) Write a python program to find out LCM of Two Numbers?
+# Find LCM of two numbers
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+max_num = max(a, b)
+
+while True:
+    if max_num % a == 0 and max_num % b == 0:
+        print("LCM =", max_num)
+        break
+
+    max_num = max_num + 1
+
+
+
+Q) Write a python program to Check Neon Number?
+
+A neon number is a number where sum of digits of square equals the number.
+
+Example: 9 → 9² = 81 → 8 + 1 = 9
+
+# Check neon number
+
+num = int(input("Enter a number: "))
+
+square = num * num
+sum = 0
+
+while square > 0:
+    digit = square % 10
+    sum = sum + digit
+    square = square // 10
+
+if sum == num:
+    print("Neon Number")
+else:
+    print("Not a Neon Number")
+

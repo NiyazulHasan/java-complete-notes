@@ -1,0 +1,233 @@
+NumPy
+=======
+NumPy (short for Numerical Python) is one of the most important libraries in the Python ecosystem.
+
+It is widely used for working with numbers, especially large arrays and matrices.
+
+It provides high-performance tools for 
+
+Numerical computation
+Working with arrays and matrices
+Mathematical operations
+Linear algebra
+Statistics
+Random number generation
+Scientific computing
+
+It is the foundation for many other libraries such as:
+
+Pandas
+SciPy
+Matplotlib
+Scikit-learn
+TensorFlow
+
+
+
+1. Why NumPy Was Created
+----------------------------
+Python lists are flexible but slow for heavy mathematical calculations.
+
+Example using normal Python lists:
+
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+result = []
+
+for i in range(len(a)):
+    result.append(a[i] + b[i])
+
+print(result)
+
+
+
+NumPy makes this much faster and simpler:
+
+import numpy as np
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+
+print(a + b)
+
+o/p:
+	[5 7 9]
+
+
+
+2. Installing NumPy
+--------------------
+Install using pip:
+
+	pip install numpy
+
+Import it:
+
+	import numpy as np
+
+	np is the standard alias.
+
+3. NumPy Array (ndarray)
+-----------------------
+The core object in NumPy is:
+
+ndarray
+
+It means:
+
+N-dimensional array
+
+Arrays are:
+
+Faster than Python lists
+Memory efficient
+Homogeneous (same datatype)
+
+
+4. Creating Arrays
+-------------------
+From List
+import numpy as np
+
+arr = np.array([1, 2, 3, 4])
+
+print(arr)
+
+
+2D Array
+------
+arr = np.array([
+    [1, 2],
+    [3, 4]
+])
+
+print(arr)
+
+
+Special Arrays
+-----------
+Zeros
+np.zeros((2,3))
+
+
+Ones
+np.ones((2,2))
+Identity Matrix
+np.eye(3)
+Range
+np.arange(0, 10, 2)
+
+Output:
+
+[0 2 4 6 8]
+Evenly Spaced Values
+np.linspace(0, 1, 5)
+
+Output:
+
+[0.   0.25 0.5  0.75 1.  ]
+6. Array Attributes
+arr = np.array([[1,2,3],[4,5,6]])
+
+Attribute	Meaning
+arr.ndim	Number of dimensions
+arr.shape	Shape of array
+arr.size	Total elements
+arr.dtype	Data type
+arr.itemsize	Size of one element
+
+
+
+7. Data Types in NumPy
+
+NumPy supports many datatypes:
+
+Type	Meaning
+int32	Integer
+float64	Decimal
+complex128	Complex numbers
+bool	Boolean
+str	String
+
+
+
+8. Indexing and Slicing
+Indexing
+arr = np.array([10,20,30])
+
+print(arr[0])
+
+
+
+2D Indexing
+arr = np.array([
+    [1,2,3],
+    [4,5,6]
+])
+
+print(arr[1,2])
+
+
+
+arr = np.array([1,2,3,4,5])
+
+print(arr[1:4])
+
+
+
+9. Vectorized Operations
+
+This is one of NumPy’s biggest advantages.
+
+a = np.array([1,2,3])
+
+print(a + 10)
+
+
+
+10. Reshaping Arrays
+arr = np.arange(12)
+
+new_arr = arr.reshape(3,4)
+
+print(new_arr)
+
+
+
+12. Mathematical Functions
+
+NumPy provides fast mathematical functions.
+
+Examples
+np.sqrt(arr)
+np.sin(arr)
+np.cos(arr)
+np.log(arr)
+np.exp(arr)
+
+
+13. Statistical Functions
+arr = np.array([1,2,3,4,5])
+
+print(np.mean(arr))
+print(np.median(arr))
+print(np.std(arr))
+print(np.sum(arr))
+print(np.min(arr))
+print(np.max(arr))
+
+
+14. Linear Algebra
+
+NumPy has powerful matrix tools.
+
+Matrix Multiplication
+a = np.array([[1,2],[3,4]])
+b = np.array([[5,6],[7,8]])
+
+print(np.dot(a,b))
+Determinant
+np.linalg.det(a)
+Inverse
+np.linalg.inv(a)

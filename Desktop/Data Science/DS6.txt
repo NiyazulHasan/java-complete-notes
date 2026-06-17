@@ -1,0 +1,151 @@
+Comments in Python 
+==================
+Comments are created for documentation purpose.
+
+Comments are used to improve readability of our code.
+
+It is highly recommanded to use comments in regular programming.
+
+We have two type of comments in python.
+
+1) Single-Line Comment (#)
+-------------------------
+It starts with # and used for short explanations.
+ex:
+	# custom message
+	print("Hi! Welcome Python")		
+
+2) Multi-Line Comment (Triple Quotes)
+---------------------------------------
+Python does not have a separate official syntax for multi-line comments but we use
+ex:
+	''' ''' (triple single quotes)
+	""" """ (triple double quotes)	
+
+Note:
+----
+	In Python, only # is the real comment.
+	Triple quotes are actually strings but used as multi-line comments.
+
+
+Variables
+=========
+A name given to a memory location is called variable.
+
+A variable is a container which is used to store data.
+
+Python is a dynamically typed language so we don't need to define any command for declaring a variable.A variable is created when we assign a value to it.
+
+ex:1
+-----
+	x = 10
+	name = "Niyaz"
+	price = 99.5
+
+Here:
+	x stores an integer
+	name stores a string
+	price stores a float
+
+In python, same variable can store different types.
+ex:
+	x = 10      # int
+	x = "hello" # now string
+
+Note:
+------
+	How Variables Work Internally
+
+	Python does not store the value inside the variable directly.
+
+	Instead:
+
+	Variable → references (points to) an object in memory
+	x = 10
+	10 is an object
+	x is a reference to that object
+
+
+
+
+Rules to declare variables in python
+------------------------------------
+Rule1:
+-----
+	A variable will accept following characters.
+	ex:
+		Letters (a–z, A–Z)
+		Numbers (0–9)
+		Underscore (_)
+
+Rule2:
+------
+
+	A variable name must and should starts with letter or underscore symbol.
+
+Rule3:
+------
+	A variable name should not start with digit.
+
+Rule4:
+------
+	A variable name can be alpha-numeric character.
+	ex:
+		emp_id1
+Rule5:
+------
+	Every variable is a case sensitive.
+
+Examples
+=========
+> Single Assignment
+	ex:
+		x = 10
+> Multiple Assignment
+	ex:
+		a, b, c = 1, 2, 3
+
+> Same Value to Multiple Variables
+	ex:
+		x = y = z = 100
+
+> Updating Variables
+	ex:
+		x = 10
+		x = 20   # updated
+
+> Variable Operations
+	ex:
+		a = 10
+		b = 5
+		print(a + b)  # 15
+
+> Checking Variable Type
+	ex;
+		x = 10
+		print(type(x))
+
+We have two types of variables(Based on Scope).
+
+1) Local Variable : Defined inside a function
+   ex:
+		def test():
+    			     x = 10  # local
+
+
+2) Global Variable : Defined outside a function
+   ex:
+		x = 100 #global 
+		def test():
+    		    print(x)
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+Poisson Distribution
+====================
+The Poisson distribution is a probability model used to describe how many times an event happens in a fixed interval (time, space, area, etc.) when those events occur randomly and independently at a constant average rate.
+
+ex:
+	How many customers arrive at a store in an hour?
+	How many typing errors appear on a page?
+	How many calls a call center gets per minute?
+
+
+The probability of observing exactly k events is:
+
+Diagram : Probability3.1
+
+
+Question1
+----------
+Suppose a website gets 3 visitors per minute on average (λ = 3).
+
+What’s the probability of getting exactly 2 visitors in a minute (k = 2)?
+
+Diagram : Probability3.2
+
+Note:
+-----
+e^3 = 2.718×2.718×2.718
+
+≈ 20.079290232
+
+Rounded values:
+20.0793 (4 decimal places)
+20.08 (2 decimal places)
+
+
+
+
+Question2
+---------
+A state has 1000 pharma companies and Average 1 factory has fire during a year. If there will be 2000
+companies then what will be the probability of 5 companies will have fire?
+
+
+For 1000 companies:
+
+average fires = 1 per year
+
+So per company:
+                                                   1
+rate per company= --------
+                   1000
+
+For 2000 companies:
+	λ  =   number of units * rate 
+
+				  1
+	λ	=	2000  × --------  = 2
+				 1000
+So:
+
+Average number of fires in 2000 companies = λ = 2 per year
+
+
+
+
+

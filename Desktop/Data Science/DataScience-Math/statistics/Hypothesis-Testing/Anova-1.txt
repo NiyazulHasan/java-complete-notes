@@ -1,0 +1,50 @@
+Anova (Analysis of Variance)
+============================
+ANOVA (Analysis of Variance) is a statistical hypothesis-testing method used to determine whether the means of three or more groups are significantly different from each other.
+
+Instead of comparing groups one pair at a time, ANOVA tests all groups simultaneously by analyzing the variation within groups and between groups.
+
+Need of Anova
+--------------
+Suppose you want to compare the average exam scores of students taught using three different teaching methods. Conducting multiple t-tests increases the chance of making a false conclusion. ANOVA provides a single test for comparing all groups.
+
+
+Diagram: Anova-1.1
+
+Using one population we got three samples i.e x1,x2 and x3.
+
+	variability between the Means
+Anova = -----------------------------------
+	Variability within the distribution 
+
+
+Assuptions of Anova
+===================
+> Each population having Normal Distribution.
+
+> The population from which the samples are drawn have the equal variance.
+i.e s1^2 = s2^2 = s3^2 ........ = sn^2
+
+> Each sample is drawn randomly & they are independent.
+  Ho : μ1​=μ2​=μ3​=⋯  = μk​
+  Ha : μ1​≠μ2​≠μ3​≠⋯ ≠ μk​	
+
+Note:
+-----
+
+		Standard deviation: σ (population standard deviation)
+				    s (sample standard deviation)
+		σ²- (population variance) 
+		s²- (sample variance)
+		
+
+Types of ANOVA
+--------------
+> One-Way ANOVA
+	One factor (e.g., fertilizer type).
+
+> Two-Way ANOVA
+	Two factors (e.g., fertilizer type and sunlight level).
+
+>Repeated Measures ANOVA
+	Same subjects measured multiple times.

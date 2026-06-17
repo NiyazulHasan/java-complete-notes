@@ -1,0 +1,264 @@
+Hypothesis Testing 
+==================
+In data science, a hypothesis is a testable assumption about data, patterns, or relationships that you try to confirm or reject using analysis.
+
+Imagine a company changes the color of a “Buy Now” button from blue to green.
+
+After one week:
+
+	Old button conversion rate = 5%
+	New button conversion rate = 6%
+
+Question:
+
+	Did the green button actually improve conversions?
+	OR
+	Could the 1% increase have happened just by random chance?
+
+	Hypothesis testing helps answer this scientifically.
+
+
+We have two types of hypothesis.
+
+1. Null Hypothesis (H₀)
+
+2. Alternative Hypothesis (H₁ or Ha)
+
+1. Null Hypothesis (H₀)
+-------------------------
+This is the default assumption.
+
+> It says there is no effect, no difference, or no relationship
+
+Example:
+	H₀: The new button does NOT change conversion rate
+	H₀: Mean sales before = Mean sales after
+
+
+2. Alternative Hypothesis (H₁ or Hₐ)
+--------------------------------------
+This is what you want to prove or support.
+
+> It says there IS an effect, difference, or relationship
+
+Example:
+	H₁: The new button improves conversion rate
+	H₁: Mean sales after ≠ Mean sales before
+
+
+
+
+
+
+
+Hypothesis Test 
+==============
+The mean lifetime of a sample of 81 glucometer produced by a company is found to be 58 months with a stadard deviation 
+of 10 months. company claims that the mean life time of a glucometer is 60 months. Test the hypothesis at 5% level of significance, whether the 58 months lifetime is acceptable or not?
+
+Null Hypthesis(H₀) : There is no significant difference between the lifetime of sample and populations.
+
+Alternative Hypothesis(Hₐ) : There is a significant different between the lifetime of a sample and populations.
+
+
+ex:
+		      ​  	    δ
+                  SEM =    ----    
+		            ___ ​
+			   V n 	
+		  Where 
+			SEM - Standard Error of Mean 
+			δ - delta 
+
+
+		solution:
+				 10	   10
+			        -----  =  ----- =  1.11
+				 ___ ​		
+			   	V 81	   9	
+
+		Z value calculation 
+		ex:
+			Difference   	|  58 - 60 |       | -2  |       2 
+			----------   =  ------------    =  -------   =  ---  = 1.80 
+			SEM 		   1.11		    1.11	1.11	
+	
+		Here '| |' mod converts to positive
+
+
+
+
+Procedure for Hypothesis Testing 
+================================
+We have five steps to perform hypothesis testing.
+
+step1:
+-----
+	Setup a hypothesis.
+	ex:
+		Here we will decide what H₀ (Null Hypothesis) we need to take.
+		Here we will decide what Hₐ (Alternate Hypothesis) we need to take.
+
+step2:
+-----
+	Setpup a significance level.
+	ex:
+		Here we will set significance level.
+		ex:
+			0.05%, 1%, 5% and 10% 
+
+		Note:
+		-----
+			Hypothesis testing failed if we take significance level above 10%.
+
+step3:
+------
+	Setting a test Critarian.
+	ex:
+		Test critarain completely depend on sample size.
+		ex:
+			t-test  <30
+			z-test  >= 30
+			f-test 	Comparing two variances  
+			ANOVA   Used to compare 3 or more groups
+
+step4:
+------
+	Doing computation.
+	ex:
+		Add the values in a test formulea to perform calculations.
+	
+
+step5:
+------
+	Making Decisions.
+	ex:
+		Here Null Hypothesis can be true or false.
+		ex:
+				Accept H₀			React H₀	
+				---------			--------
+		> H₀ is true	Correct Decision		Type-I Error (α - alpha)
+			
+		> H₀ is false	Type-II Error (β-error)		Correct Decision
+
+
+
+Setup of significance level			
+===========================
+Probability = p + q = 1 
+
+Here 
+	p = Probability of Occurance (Wrong Decision)
+	q = Probability of Non-Occurance 
+
+P	Significance Level	Confidence Level
+---	------------------	----------------
+0.1	10%			90%	
+0.05    5%			95%
+0.01	1%			99%
+0.001	0.1%			99.9%
+
+
+Let's caculate p value in percentage.
+ex:
+	0.1
+	--- x 100  = 10% 
+	 1
+
+Diagram: hypothesis-test1
+
+
+Critical Z value 
+================
+
+P	Significance Level	Two Tailed Test		One Tailed Test
+---	------------------	----------------	--------------
+0.1	10%			1.65			1.28		
+0.05    5%			1.95			1.64
+0.01	1%			2.58			2.33
+0.001	0.1%			3.29			3.10
+
+Diagram: hypothesis-test2
+
+
+Hypothesis Test
+===============
+The mean lifetime of a sample of 81 glucometer produced by a company is found to be 58 months with a standard deviation of 10
+months. Company claims that the mean lifetime of a glucometer is not less than 60 months. Test the hypothesis at 5% level 
+of significane, whether the 58 months lifetime is acceptable or not?
+
+Null Hypothesis H₀ : The lifetime of glucometer is a not less than 60
+Null Hypothesis Hₐ : The lifetime of glucometer is less than 60 
+
+P	Significance Level	Two Tailed Test		One Tailed Test
+---	------------------	----------------	--------------
+0.1	10%			1.65			1.28		
+0.05    5%			1.95			1.64
+0.01	1%			2.58			2.33
+0.001	0.1%			3.29			3.10
+
+Diagram: hypothesis-test3
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
